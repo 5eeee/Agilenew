@@ -21,41 +21,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Prepare static site for /Agilenew/
-        run: |
-          python3 <<'PY'
-          from pathlib import Path
-          import re
-          import shutil
-
-          src = Path("apps/web/public")
-          out = Path("_site")
-          if out.exists():
-              shutil.rmtree(out)
-          shutil.copytree(src, out)
-
-          base = "/Agilenew"
-
-          # Absolute site paths -> project Pages base
-          patterns = [
-              (re.compile(r'(?<=(?:href|src|action|poster|data-model-src|data-envmap-src|data-public-path|content)=")(/)(?!/)'), base + "/"),
-              (re.compile(r"(?<=(?:href|src|action|poster|data-model-src|data-envmap-src|data-public-path|content)=')(/)(?!/)"), base + "/"),
-              (re.compile(r'url\((["\']?)/'), r"url(\1" + base + "/"),
-          ]
-
-          for path in list(out.rglob("*.html")) + list(out.rglob("*.css")) + list(out.rglob("*.js")) + list(out.rglob("*.json")):
-              text = path.read_text(encoding="utf-8", errors="replace")
-              new = text
-              for rx, repl in patterns:
-                  new = rx.sub(repl, new)
-              # Fix accidental double base
-              new = new.replace(base + base + "/", base + "/")
-              if new != text:
-                  path.write_text(new, encoding="utf-8")
-
-          # Helpful root note for GitHub UI
-          (out / ".nojekyll").write_text("", encoding="utf-8")
-          print("Prepared site with base", base)
-          PY
+        run: python3 scripts/prepare_gh_pages.py
 
       - uses: actions/upload-pages-artifact@v3
         with:
