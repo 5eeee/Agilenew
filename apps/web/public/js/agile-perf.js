@@ -1,33 +1,44 @@
 /**
- * Agile perf loader:
- * - resolve asset base for GitHub Pages (/Agilenew/...) and local (/)
- * - load app ASAP (required to leave Pitcher black/loading state)
- * - load Three.js only when ModelSticky exists
- * - analytics after idle
+ * Agile perf loader — works on local (/) and GitHub Pages (/Agilenew/).
  */
 (function () {
   "use strict";
 
-  var VERSION = "v20260722";
+  var VERSION = "v20260722r";
+
+  function siteRoot() {
+    var pub = document.documentElement.getAttribute("data-public-path") || "";
+    // data-public-path like "/Agilenew/assets/front/build/" or "/assets/front/build/"
+    var m = pub.match(/^(.*?)\/assets\/front\/build\/?$/);
+    if (m) {
+      return m[1] || "";
+    }
+    if (location.hostname.indexOf("github.io") !== -1) {
+      var parts = location.pathname.split("/").filter(Boolean);
+      if (parts.length) {
+        return "/" + parts[0];
+      }
+    }
+    return "";
+  }
 
   function jsBase() {
-    var pub = document.documentElement.getAttribute("data-public-path");
-    if (pub) {
-      return pub.replace(/\/?$/, "/") + "js/";
-    }
-    // GitHub project pages: /Agilenew/...
-    var parts = location.pathname.split("/").filter(Boolean);
-    if (location.hostname.indexOf("github.io") !== -1 && parts.length) {
-      return "/" + parts[0] + "/assets/front/build/js/";
-    }
-    return "/assets/front/build/js/";
+    return siteRoot() + "/assets/front/build/js/";
+  }
+
+  function revealPage() {
+    document.documentElement.classList.add("is-agile-ready");
   }
 
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
+      if (document.querySelector('script[src="' + src + '"]')) {
+        resolve();
+        return;
+      }
       var s = document.createElement("script");
       s.src = src;
-      s.async = false;
+      s.defer = true;
       s.onload = function () {
         resolve();
       };
@@ -46,73 +57,44 @@
     }, Promise.resolve());
   }
 
-  function whenIdle(fn, timeout) {
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(fn, { timeout: timeout || 2000 });
-    } else {
-      setTimeout(fn, Math.min(timeout || 2000, 400));
-    }
-  }
-
   function bootApp() {
     var base = jsBase();
     var needThree = !!document.querySelector('[data-component="ModelSticky"]');
     var chain = [];
 
-    // App must start quickly — otherwise Pitcher stays on a black loading screen.
     if (needThree) {
       chain.push(base + "vendor.three-addons.min.js?" + VERSION);
       chain.push(base + "vendor.three.min.js?" + VERSION);
     }
     chain.push(base + "app.min.js?" + VERSION);
 
-    sequence(chain).catch(function (err) {
-      console.warn("[agile-perf]", err);
-      // Last resort: try app alone (UI without 3D)
-      if (needThree) {
-        loadScript(base + "app.min.js?" + VERSION).catch(function (e2) {
-          console.warn("[agile-perf] app fallback failed", e2);
-          document.documentElement.classList.add("is-agile-boot-failed");
-        });
-      } else {
-        document.documentElement.classList.add("is-agile-boot-failed");
-      }
-    });
+    // Always reveal UI quickly — Pitcher otherwise can sit on a black hero.
+    setTimeout(revealPage, 600);
+    setTimeout(revealPage, 2000);
+
+    sequence(chain)
+      .then(function () {
+        revealPage();
+      })
+      .catch(function (err) {
+        console.warn("[agile-perf]", err, "base=", base);
+        // Try app without Three
+        loadScript(base + "app.min.js?" + VERSION)
+          .then(revealPage)
+          .catch(function () {
+            document.documentElement.classList.add("is-agile-boot-failed");
+            revealPage();
+          });
+      });
   }
 
-  function deferAnalytics() {
-    whenIdle(function () {
-      (function (m, e, t, r, i, k, a) {
-        m[i] =
-          m[i] ||
-          function () {
-            (m[i].a = m[i].a || []).push(arguments);
-          };
-        m[i].l = 1 * new Date();
-        k = e.createElement(t);
-        a = e.getElementsByTagName(t)[0];
-        k.async = 1;
-        k.src = r;
-        a.parentNode.insertBefore(k, a);
-      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-      if (typeof ym === "function") {
-        ym(51148418, "init", {
-          clickmap: false,
-          trackLinks: false,
-          accurateTrackBounce: true,
-          webvisor: false,
-        });
-      }
-    }, 5000);
+  if (location.hostname.indexOf("github.io") !== -1) {
+    document.documentElement.classList.add("is-agile-pages");
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      bootApp();
-      deferAnalytics();
-    });
+    document.addEventListener("DOMContentLoaded", bootApp);
   } else {
     bootApp();
-    deferAnalytics();
   }
 })();

@@ -9,6 +9,29 @@ html.is-agile-boot-failed .header {
   visibility: visible !important;
 }
 
+/* GitHub Pages / slow boot: never leave users on a black empty hero */
+html.is-agile-pages .hero-title.agile-hero-title:not(.is-inview) .agile-slide-clip > *,
+html.is-agile-ready .hero-title.agile-hero-title:not(.is-inview) .agile-slide-clip > *,
+html.is-agile-boot-failed .hero-title.agile-hero-title:not(.is-inview) .agile-slide-clip > * {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+html.is-agile-pages .hero-title__link.active,
+html.is-agile-ready .hero-title__link.active {
+  opacity: 1 !important;
+}
+
+html.is-agile-pages .hero-intro,
+html.is-agile-pages .header,
+html.is-agile-pages .section,
+html.is-agile-ready .hero-intro,
+html.is-agile-ready .header,
+html.is-agile-ready .section {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 :root {
   --agile-red: #c81e1e;
   --agile-red-deep: #9e1515;

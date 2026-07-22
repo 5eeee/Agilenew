@@ -18,16 +18,21 @@ ATTRS = (
     "content",
 )
 
+# Do not rewrite these files' internal path logic (they resolve base at runtime)
+SKIP_REWRITE_NAMES = {
+    "agile-perf.js",
+    "agile-global.js",
+    "agile-hero.js",
+}
+
 
 def rewrite(text: str) -> str:
     for attr in ATTRS:
         text = re.sub(rf'({attr}=")(/)(?!/)', rf"\1{BASE}/", text, flags=re.I)
         text = re.sub(rf"({attr}=')(/)(?!/)", rf"\1{BASE}/", text, flags=re.I)
     text = re.sub(r'url\((["\']?)/', rf"url(\1{BASE}/", text)
-    # JS string literals used by loaders (agile-perf etc.)
+    # Common absolute roots in bundled CSS/JS (not our runtime loaders)
     text = re.sub(r'(["\'])/(assets/)', rf"\1{BASE}/\2", text)
-    text = re.sub(r'(["\'])/(css/)', rf"\1{BASE}/\2", text)
-    text = re.sub(r'(["\'])/(js/)', rf"\1{BASE}/\2", text)
     text = re.sub(r'(["\'])/(uploads/)', rf"\1{BASE}/\2", text)
     text = text.replace(BASE + BASE + "/", BASE + "/")
     text = text.replace(f"{BASE}/https://", "https://")
@@ -44,15 +49,12 @@ def should_keep(path: Path, root: Path) -> bool:
     if "/fonts/" in f"/{rel}/" or rel.endswith((".woff", ".woff2", ".ttf", ".otf", ".eot")):
         return True
 
-    # Drop PDFs and full-size originals from Pages
     if rel.endswith(".pdf"):
         return False
     if rel.startswith("uploads/") and "/thumbs/" not in f"/{rel}/":
-        # keep only tiny leftovers if any
         return size <= 200_000 and rel.endswith((".webp", ".jpg", ".jpeg", ".png"))
 
     if "/thumbs/" in f"/{rel}/":
-        # Keep responsive mid thumbs used by homepage; drop huge full webp/xxl
         name = path.name.lower()
         if "@resize-x-webp" in name or "1400x" in name or "xxl" in name:
             return False
@@ -67,6 +69,29 @@ def should_keep(path: Path, root: Path) -> bool:
         return size <= 4_000_000
 
     return size <= 1_000_000
+
+
+def patch_html(path: Path) -> None:
+    text = path.read_text(encoding="utf-8", errors="replace")
+    if "is-agile-pages" not in text:
+        if re.search(r"<html[^>]*class=\"", text):
+            text = re.sub(
+                r'(<html[^>]*class=")',
+                r"\1is-agile-pages ",
+                text,
+                count=1,
+            )
+        else:
+            text = text.replace("<html ", '<html class="is-agile-pages" ', 1)
+    text = (
+        text.replace("agile-perf.js?v20260722q", "agile-perf.js?v20260722r")
+        .replace("agile-perf.js?v20260722p", "agile-perf.js?v20260722r")
+        .replace("agile-overrides.css?v20260722q", "agile-overrides.css?v20260722r")
+        .replace("agile-overrides.css?v20260722p", "agile-overrides.css?v20260722r")
+        .replace("agile-global.js?v20260722q", "agile-global.js?v20260722r")
+        .replace("agile-global.js?v20260722p", "agile-global.js?v20260722r")
+    )
+    path.write_text(text, encoding="utf-8")
 
 
 def main() -> int:
@@ -95,22 +120,42 @@ def main() -> int:
         if path.is_dir() and not any(path.iterdir()):
             path.rmdir()
 
-    for path in list(out.rglob("*.html")) + list(out.rglob("*.css")) + list(out.rglob("*.js")) + list(
-        out.rglob("*.json")
-    ):
+    for path in out.rglob("*"):
+        if not path.is_file():
+            continue
+        if path.suffix.lower() not in {".html", ".css", ".js", ".json"}:
+            continue
+        if path.name in SKIP_REWRITE_NAMES:
+            if path.suffix.lower() == ".html":
+                continue
+            # still allow html-adjacent? skip js loaders entirely
+            continue
         original = path.read_text(encoding="utf-8", errors="replace")
         updated = rewrite(original)
         if updated != original:
             path.write_text(updated, encoding="utf-8")
 
+    for path in out.rglob("*.html"):
+        # rewrite html paths
+        original = path.read_text(encoding="utf-8", errors="replace")
+        updated = rewrite(original)
+        path.write_text(updated, encoding="utf-8")
+        patch_html(path)
+
     (out / ".nojekyll").write_text("", encoding="utf-8")
+    # Ensure pages marker on homepage even if class merge failed
+    index = out / "index.html"
+    if index.exists():
+        t = index.read_text(encoding="utf-8")
+        if "is-agile-pages" not in t:
+            t = t.replace("<html", '<html class="is-agile-pages"', 1)
+            index.write_text(t, encoding="utf-8")
+
     total = sum(p.stat().st_size for p in out.rglob("*") if p.is_file())
     print(
         f"Prepared {out} base={BASE} size_mb={total/1024/1024:.1f} "
         f"removed_files={removed} removed_mb={bytes_removed/1024/1024:.1f}"
     )
-    if total > 900 * 1024 * 1024:
-        print("WARNING: artifact still large for GitHub Pages", file=sys.stderr)
     return 0
 
 
