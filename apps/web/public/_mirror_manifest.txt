@@ -1,0 +1,4 @@
+pages=150
+assets=4584
+total_files=4565
+cache=v20260722

@@ -1,14 +1,27 @@
 /**
  * Agile perf loader:
- * - defer Three.js (~630KB) + app until idle / near ModelSticky
- * - skip Three entirely on pages without ModelSticky
- * - load analytics after idle
+ * - resolve asset base for GitHub Pages (/Agilenew/...) and local (/)
+ * - load app ASAP (required to leave Pitcher black/loading state)
+ * - load Three.js only when ModelSticky exists
+ * - analytics after idle
  */
 (function () {
   "use strict";
 
   var VERSION = "v20260722";
-  var BASE = "/assets/front/build/js/";
+
+  function jsBase() {
+    var pub = document.documentElement.getAttribute("data-public-path");
+    if (pub) {
+      return pub.replace(/\/?$/, "/") + "js/";
+    }
+    // GitHub project pages: /Agilenew/...
+    var parts = location.pathname.split("/").filter(Boolean);
+    if (location.hostname.indexOf("github.io") !== -1 && parts.length) {
+      return "/" + parts[0] + "/assets/front/build/js/";
+    }
+    return "/assets/front/build/js/";
+  }
 
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
@@ -37,76 +50,38 @@
     if ("requestIdleCallback" in window) {
       window.requestIdleCallback(fn, { timeout: timeout || 2000 });
     } else {
-      setTimeout(fn, Math.min(timeout || 2000, 1200));
+      setTimeout(fn, Math.min(timeout || 2000, 400));
     }
-  }
-
-  function nearModelSticky(cb) {
-    var el = document.querySelector('[data-component="ModelSticky"]');
-    if (!el) {
-      cb(false);
-      return;
-    }
-    if (!("IntersectionObserver" in window)) {
-      cb(true);
-      return;
-    }
-    var done = false;
-    var io = new IntersectionObserver(
-      function (entries) {
-        if (done) return;
-        for (var i = 0; i < entries.length; i++) {
-          if (entries[i].isIntersecting || entries[i].intersectionRatio > 0) {
-            done = true;
-            io.disconnect();
-            cb(true);
-            return;
-          }
-        }
-      },
-      { rootMargin: "400px 0px" }
-    );
-    io.observe(el);
-    // Fallback: still load after a while so 3D appears without scroll
-    setTimeout(function () {
-      if (!done) {
-        done = true;
-        io.disconnect();
-        cb(true);
-      }
-    }, 2500);
   }
 
   function bootApp() {
+    var base = jsBase();
     var needThree = !!document.querySelector('[data-component="ModelSticky"]');
     var chain = [];
 
-    function startHeavy() {
+    // App must start quickly — otherwise Pitcher stays on a black loading screen.
+    if (needThree) {
+      chain.push(base + "vendor.three-addons.min.js?" + VERSION);
+      chain.push(base + "vendor.three.min.js?" + VERSION);
+    }
+    chain.push(base + "app.min.js?" + VERSION);
+
+    sequence(chain).catch(function (err) {
+      console.warn("[agile-perf]", err);
+      // Last resort: try app alone (UI without 3D)
       if (needThree) {
-        chain.push(BASE + "vendor.three-addons.min.js?" + VERSION);
-        chain.push(BASE + "vendor.three.min.js?" + VERSION);
+        loadScript(base + "app.min.js?" + VERSION).catch(function (e2) {
+          console.warn("[agile-perf] app fallback failed", e2);
+          document.documentElement.classList.add("is-agile-boot-failed");
+        });
+      } else {
+        document.documentElement.classList.add("is-agile-boot-failed");
       }
-      chain.push(BASE + "app.min.js?" + VERSION);
-      sequence(chain).catch(function (err) {
-        console.warn("[agile-perf]", err);
-      });
-    }
-
-    if (!needThree) {
-      // Pages without 3D: bring app in quickly after first paint
-      whenIdle(startHeavy, 400);
-      return;
-    }
-
-    // Homepage: delay Three (~630KB) until sticky is near, with short fallback
-    nearModelSticky(function () {
-      whenIdle(startHeavy, 600);
     });
   }
 
   function deferAnalytics() {
     whenIdle(function () {
-      // Yandex Metrika (lightweight init, no webvisor)
       (function (m, e, t, r, i, k, a) {
         m[i] =
           m[i] ||

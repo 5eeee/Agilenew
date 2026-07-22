@@ -1,5 +1,14 @@
 /* Agile Business — global overrides (colors, hero, WebGL off, brand system) */
 
+/* Fail-safe if app.js fails to boot (e.g. wrong GH Pages asset base) */
+html.is-agile-boot-failed body,
+html.is-agile-boot-failed .page,
+html.is-agile-boot-failed .hero,
+html.is-agile-boot-failed .header {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 :root {
   --agile-red: #c81e1e;
   --agile-red-deep: #9e1515;
