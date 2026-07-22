@@ -289,6 +289,7 @@
   }
 
   function init() {
+    document.documentElement.classList.add("is-agile-ready");
     clearNowebglHash();
     blockHeroWebGLOnly();
     forceStaticHero();

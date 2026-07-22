@@ -7,5 +7,6 @@ venv/
 .pytest_cache/
 .mypy_cache/
 apps/leads/data/leads.jsonl
+_site/
 .DS_Store
 Thumbs.db

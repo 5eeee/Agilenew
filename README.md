@@ -8,9 +8,11 @@
 
 Сайт: **https://5eeee.github.io/Agilenew/**
 
-Деплой идёт из `apps/web/public` через Actions (`.github/workflows/deploy-pages.yml`).
+Деплой из `apps/web/public` через Actions. Перед публикацией:
+- `scripts/wire_frontend_assets.py` — жёсткий порядок скриптов (GSAP/Three/app + agile-global)
+- `scripts/prepare_gh_pages.py` — префикс `/Agilenew` и облегчённые ассеты
 
-> Локально по-прежнему: `python scripts/dev_up.py` → http://localhost:8080/
+Локально: `python scripts/dev_up.py` → http://localhost:8080/
 
 ## Архитектура
 

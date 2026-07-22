@@ -1,10 +1,15 @@
-"""Prepare apps/web/public for GitHub Pages under /Agilenew/."""
+"""Prepare apps/web/public for GitHub Pages under /Agilenew/ with full animations."""
 from __future__ import annotations
 
 import re
 import shutil
 import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from wire_frontend_assets import wire_html  # noqa: E402
 
 BASE = "/Agilenew"
 ATTRS = (
@@ -18,42 +23,7 @@ ATTRS = (
     "content",
 )
 
-SKIP_REWRITE_NAMES = {
-    "agile-perf.js",
-    "agile-global.js",
-    "agile-hero.js",
-}
-
-# Pitcher runtime that paints black / breaks under project-pages base
-STRIP_SCRIPT_RE = re.compile(
-    r"<script\b[^>]*\bsrc=[\"'][^\"']*("
-    r"vendor\.gsap|"
-    r"vendor\.barba|"
-    r"vendor\.three|"
-    r"vendor\.splide|"
-    r"vendor\.polyfills|"
-    r"vendor\.imask|"
-    r"vendor\.bootstrap|"
-    r"vendor\.popper|"
-    r"app\.min\.js|"
-    r"agile-global\.js"
-    r")[^\"']*[\"'][^>]*>\s*</script>\s*",
-    re.I,
-)
-
-HEAD_BOOT = """
-<script>
-document.documentElement.classList.add('is-agile-pages','is-agile-ready','is-agile-static');
-</script>
-<style>
-html,body{background:#f7f3ee!important;color:#030206!important;opacity:1!important;visibility:visible!important;overflow:auto!important;height:auto!important;transform:none!important}
-.hero{color:#fff!important;opacity:1!important;visibility:visible!important}
-.hero-canvas canvas,canvas{display:none!important}
-.header,.hero,.hero-title,.hero-intro,.section,.heading,.manner,.works-grid,.posts,.footer,.logo,img,.agile-slide-clip,.agile-slide-clip>*{opacity:1!important;visibility:visible!important;transform:none!important;clip-path:none!important}
-.hero-title__link{color:#fff!important}
-#messages-cookie,.messages-toast--light{display:none!important}
-</style>
-"""
+SKIP_REWRITE_NAMES = {"agile-global.js", "agile-hero.js"}
 
 
 def rewrite(text: str) -> str:
@@ -89,45 +59,15 @@ def should_keep(path: Path, root: Path) -> bool:
             return size <= 1_200_000
         return size <= 400_000
     if "/upload/models/" in f"/{rel}/":
-        return size <= 6_000_000
+        return size <= 8_000_000
     if rel.startswith("assets/"):
-        return size <= 4_000_000
+        return size <= 5_000_000
     return size <= 1_000_000
 
 
-def patch_html(path: Path) -> None:
-    text = path.read_text(encoding="utf-8", errors="replace")
-    text = STRIP_SCRIPT_RE.sub("", text)
-
-    if "is-agile-pages" not in text:
-        if re.search(r"<html[^>]*class=\"", text):
-            text = re.sub(r'(<html[^>]*class=")', r"\1is-agile-pages ", text, count=1)
-        else:
-            text = text.replace("<html ", '<html class="is-agile-pages" ', 1)
-
-    # cache bust
-    for old in ("v20260722r", "v20260722q", "v20260722p"):
-        text = text.replace(f"agile-perf.js?{old}", "agile-perf.js?v20260722s")
-        text = text.replace(f"agile-overrides.css?{old}", "agile-overrides.css?v20260722s")
-
-    # keep only agile-perf at end (static pages mode)
-    if "agile-perf.js" not in text:
-        text = text.replace(
-            "</body>",
-            '<script src="/Agilenew/js/agile-perf.js?v20260722s"></script>\n</body>',
-            1,
-        )
-
-    if "is-agile-static" not in text:
-        text = text.replace("</head>", HEAD_BOOT + "</head>", 1)
-
-    path.write_text(text, encoding="utf-8")
-
-
 def main() -> int:
-    root = Path(__file__).resolve().parents[1]
-    src = root / "apps" / "web" / "public"
-    out = root / "_site"
+    src = ROOT / "apps" / "web" / "public"
+    out = ROOT / "_site"
     if not src.is_dir():
         print(f"missing {src}", file=sys.stderr)
         return 1
@@ -150,10 +90,9 @@ def main() -> int:
         if path.is_dir() and not any(path.iterdir()):
             path.rmdir()
 
+    # Rewrite asset urls inside css/js/json (not agile-global runtime)
     for path in out.rglob("*"):
-        if not path.is_file():
-            continue
-        if path.suffix.lower() not in {".html", ".css", ".js", ".json"}:
+        if not path.is_file() or path.suffix.lower() not in {".css", ".js", ".json"}:
             continue
         if path.name in SKIP_REWRITE_NAMES:
             continue
@@ -162,23 +101,43 @@ def main() -> int:
         if updated != original:
             path.write_text(updated, encoding="utf-8")
 
+    # Wire canonical script order with root-absolute paths, then prefix for Pages
     for path in out.rglob("*.html"):
-        original = path.read_text(encoding="utf-8", errors="replace")
-        path.write_text(rewrite(original), encoding="utf-8")
-        patch_html(path)
+        wire_html(path, prefix="")
+        text = rewrite(path.read_text(encoding="utf-8", errors="replace"))
+        if "is-agile-pages" not in text:
+            text = re.sub(r'(<html[^>]*class=")', r"\1is-agile-pages ", text, count=1)
+        boot = (
+            "<script>"
+            "document.documentElement.classList.add('is-agile-pages');"
+            "setTimeout(function(){"
+            "if(!document.documentElement.classList.contains('is-agile-ready'))"
+            "document.documentElement.classList.add('is-agile-boot-failed');"
+            "},4000);"
+            "</script>\n"
+        )
+        if "is-agile-boot-failed');},4000)" not in text.replace(" ", ""):
+            text = text.replace("</head>", boot + "</head>", 1)
+        path.write_text(text, encoding="utf-8")
 
     (out / ".nojekyll").write_text("", encoding="utf-8")
+    # drop obsolete dynamic loader from published site
+    perf = out / "js" / "agile-perf.js"
+    if perf.exists():
+        perf.unlink()
+
+    index = (out / "index.html").read_text(encoding="utf-8")
     total = sum(p.stat().st_size for p in out.rglob("*") if p.is_file())
     print(
         f"Prepared {out} base={BASE} size_mb={total/1024/1024:.1f} "
         f"removed_files={removed} removed_mb={bytes_removed/1024/1024:.1f}"
     )
-    # sanity: homepage must not include app.min.js
-    index = (out / "index.html").read_text(encoding="utf-8")
     print("has_app", "app.min.js" in index)
     print("has_gsap", "vendor.gsap" in index)
-    print("has_boot", "is-agile-static" in index)
+    print("has_three", "vendor.three.min.js" in index)
+    print("has_agile_global", "agile-global.js" in index)
     print("has_perf", "agile-perf.js" in index)
+    print("public_path", re.search(r'data-public-path="([^"]+)"', index).group(1))
     return 0
 
 
