@@ -4,6 +4,14 @@
 
 Маркетинговый сайт Agile Business, собранный как набор микросервисов с единым API Gateway.
 
+## GitHub Pages
+
+Сайт: **https://5eeee.github.io/Agilenew/**
+
+Деплой идёт из `apps/web/public` через Actions (`.github/workflows/deploy-pages.yml`).
+
+> Локально по-прежнему: `python scripts/dev_up.py` → http://localhost:8080/
+
 ## Архитектура
 
 ```
