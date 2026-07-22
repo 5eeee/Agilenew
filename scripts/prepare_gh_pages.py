@@ -7,8 +7,6 @@ import sys
 from pathlib import Path
 
 BASE = "/Agilenew"
-# GitHub Pages soft limit ~1GB; keep deploy lean
-MAX_UPLOAD_BYTES = 1_500_000  # 1.5 MB
 ATTRS = (
     "href",
     "src",
@@ -36,27 +34,34 @@ def should_keep(path: Path, root: Path) -> bool:
     rel = path.relative_to(root).as_posix().lower()
     size = path.stat().st_size
 
-    # Always keep site code and small assets
-    if rel.endswith((".html", ".css", ".js", ".json", ".svg", ".ico", ".txt", ".xml", ".map")):
+    if rel.endswith((".html", ".css", ".js", ".json", ".svg", ".ico", ".txt", ".xml", ".map", ".nojekyll")):
         return True
     if "/fonts/" in f"/{rel}/" or rel.endswith((".woff", ".woff2", ".ttf", ".otf", ".eot")):
         return True
 
-    # Prefer thumbs / webp over huge originals
+    # Drop PDFs and full-size originals from Pages
+    if rel.endswith(".pdf"):
+        return False
+    if rel.startswith("uploads/") and "/thumbs/" not in f"/{rel}/":
+        # keep only tiny leftovers if any
+        return size <= 200_000 and rel.endswith((".webp", ".jpg", ".jpeg", ".png"))
+
     if "/thumbs/" in f"/{rel}/":
-        return size <= 3_000_000
-    if rel.endswith((".webp", ".avif")):
-        return size <= 2_500_000
+        # Keep responsive mid thumbs used by homepage; drop huge full webp/xxl
+        name = path.name.lower()
+        if "@resize-x-webp" in name or "1400x" in name or "xxl" in name:
+            return False
+        if any(x in name for x in ("768x", "992x", "375x", "480x", "-md", "-ss", "-lg")):
+            return size <= 1_200_000
+        return size <= 400_000
 
-    # Models needed for Approach section
     if "/upload/models/" in f"/{rel}/":
-        return size <= 8_000_000
+        return size <= 6_000_000
 
-    # Drop oversized raster uploads (case galleries)
-    if rel.startswith("uploads/") and rel.endswith((".png", ".jpg", ".jpeg", ".gif")):
-        return size <= MAX_UPLOAD_BYTES
+    if rel.startswith("assets/"):
+        return size <= 4_000_000
 
-    return size <= 4_000_000
+    return size <= 1_000_000
 
 
 def main() -> int:
@@ -99,6 +104,8 @@ def main() -> int:
         f"Prepared {out} base={BASE} size_mb={total/1024/1024:.1f} "
         f"removed_files={removed} removed_mb={bytes_removed/1024/1024:.1f}"
     )
+    if total > 900 * 1024 * 1024:
+        print("WARNING: artifact still large for GitHub Pages", file=sys.stderr)
     return 0
 
 
