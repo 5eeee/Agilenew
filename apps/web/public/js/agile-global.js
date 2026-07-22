@@ -191,61 +191,6 @@
     });
   }
 
-  function observeMannerLines() {
-    var block = document.querySelector("[data-agile-manner]");
-    if (!block) {
-      return;
-    }
-
-    if (block.classList.contains("is-inview")) {
-      return;
-    }
-
-    function reveal() {
-      if (!block || block.classList.contains("is-inview")) {
-        return true;
-      }
-      var rect = block.getBoundingClientRect();
-      var vh = window.innerHeight || document.documentElement.clientHeight;
-      if (rect.top < vh * 0.92 && rect.bottom > vh * 0.08) {
-        block.classList.add("is-inview");
-        return true;
-      }
-      return false;
-    }
-
-    if (reveal()) {
-      return;
-    }
-
-    var ticking = false;
-    function onScroll() {
-      if (ticking) {
-        return;
-      }
-      ticking = true;
-      requestAnimationFrame(function () {
-        ticking = false;
-        if (reveal()) {
-          window.removeEventListener("scroll", onScroll, true);
-          document.removeEventListener("scroll", onScroll, true);
-        }
-      });
-    }
-
-    window.addEventListener("scroll", onScroll, true);
-    document.addEventListener("scroll", onScroll, true);
-
-    [200, 600, 1200, 2000].forEach(function (ms) {
-      setTimeout(function () {
-        if (reveal()) {
-          window.removeEventListener("scroll", onScroll, true);
-          document.removeEventListener("scroll", onScroll, true);
-        }
-      }, ms);
-    });
-  }
-
   function prepareHeroTitleSlide() {
     var title = document.querySelector(".hero-title");
     var inner = title && title.querySelector(".js-hero-title-inner");
