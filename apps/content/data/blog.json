@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "3d-industry",
+    "title": "Почему 3D-технологии становятся обязательным элементом сайтов промышленных предприятий",
+    "path": "/blog/3d-industry/",
+    "url": "/blog/3d-industry/"
+  },
+  {
+    "slug": "solve-business-problem",
+    "title": "Как заказчику выбрать дизайн‑студию, которая решает задачи бизнеса, а не просто «рисует»",
+    "path": "/blog/solve-business-problem/",
+    "url": "/blog/solve-business-problem/"
+  },
+  {
+    "slug": "storytelling",
+    "title": "Сторителлинг как метод создания впечатляющих сайтов",
+    "path": "/blog/storytelling/",
+    "url": "/blog/storytelling/"
+  },
+  {
+    "slug": "top-realtors",
+    "title": "Лучшие сайты агентств недвижимости",
+    "path": "/blog/top-realtors/",
+    "url": "/blog/top-realtors/"
+  }
+]

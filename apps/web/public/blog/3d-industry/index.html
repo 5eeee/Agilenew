@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html class="no-js is-scroll-unknown" data-node-env="production" data-public-path="/assets/front/build/" lang="ru-RU">
+ <!-- set webpack public path on the fly https://webpack.js.org/guides/public-path/#set-value-on-the-fly -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <title>
+   Data-driven управление: зачем бизнесу BI-системы — Agile Business
+  </title>
+  <meta content="Для промышленного сегмента 3D — это мощный инструмент коммуникации, который помогает продавать сложные продукты и выстраивать доверие." name="description"/>
+  <!-- fonts-preload -->
+  <style>
+   @supports (font-variation-settings: normal){:root{--font-variation-supports: 1}}
+  </style>
+  <script>
+   (document.documentElement&&document.head&&function($html,$head){var webpackPublicPath=$html.getAttribute('data-public-path');var preloadFonts=['fonts/Manrope-VariableFont_wght.woff2','fonts/OpenSans-VariableFont_wdth,wght.woff2'];try{var rootStyles=getComputedStyle($html);if(!rootStyles.getPropertyValue('--font-variation-supports')){return;} preloadFonts.forEach(function(font){var link=document.createElement('link');link.href=webpackPublicPath+font;link.rel='preload';link.setAttribute('fetchpriority','high');link.setAttribute('crossorigin','anonymous');link.setAttribute('as','font');$head.appendChild(link);});}catch(error){console.error('[fonts-preload]',error);}})(document.documentElement,document.head);
+  </script>
+  <!-- /fonts-preload -->
+  <!-- head-js -->
+  <script>
+   (document.documentElement&&document.documentElement.className&&(function($html){$html.className=$html.className.replace('no-js','js');var webp=new Image();webp.onload=webp.onerror=function(){$html.className+=(webp.width==1&&webp.height==1?' webp':' no-webp');};webp.src='data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';var avif=new Image();avif.onload=avif.onerror=function(){$html.className+=(avif.width==1&&avif.height==1?' avif':' no-avif');};avif.src=['data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAAEcbWV0YQAAAAAAAABIaGRscgAAAAAAAAAAcGljdAAAAAAAAAAA','AAAAAGNhdmlmIC0gaHR0cHM6Ly9naXRodWIuY29tL2xpbmstdS9jYXZpZgAAAAAeaWxvYwAAAAAEQAABAAEAAAAAAUQAAQAAABcAAAAqaWluZgEAAAAAAAA','BAAAAGmluZmUCAAAAAAEAAGF2MDFJbWFnZQAAAAAOcGl0bQAAAAAAAQAAAHJpcHJwAAAAUmlwY28AAAAQcGFzcAAAAAEAAAABAAAAFGlzcGUAAAAAAAAAAQ','AAAAEAAAAQcGl4aQAAAAADCAgIAAAAFmF2MUOBAAwACggYAAYICGgIIAAAABhpcG1hAAAAAAAAAAEAAQUBAoMDhAAAAB9tZGF0CggYAAYICGgIIBoFHiAAA','EQiBACwDoA='].join('');$html.style.setProperty('--vh',(window.innerHeight*0.01).toFixed()+'px');var fixedBlock=document.createElement('div');fixedBlock.style='width: 1px; height: 100vh; position: fixed; left: 0px; top: 0px; bottom: 0px; visibility: hidden;';$html.appendChild(fixedBlock);$html.style.setProperty('--lvh',(fixedBlock.clientHeight*0.01).toFixed()+'px');fixedBlock.remove();$html.style.setProperty('--svh',($html.clientHeight*0.01).toFixed()+'px');$html.style.setProperty('--dvh',(window.innerHeight*0.01).toFixed()+'px');document.cookie='_js=1; path=/; SameSite=Lax';var scrollbarOuter=document.createElement('div');scrollbarOuter.style.zIndex='-9999';scrollbarOuter.style.position='absolute';scrollbarOuter.style.visibility='hidden';scrollbarOuter.style.width='100px';scrollbarOuter.style.marginLeft='-100px';scrollbarOuter.style.overflow='scroll';$html.appendChild(scrollbarOuter);var scrollbarInner=document.createElement('div');scrollbarInner.style.width='100%';scrollbarOuter.appendChild(scrollbarInner);$html.style.setProperty('--scrollbar-width',(100-scrollbarInner.offsetWidth)+'px');scrollbarOuter.remove();})(document.documentElement));
+  </script>
+  <!-- /head-js -->
+  <!-- open-graph -->
+  <meta content="ru_RU" property="og:locale"/>
+  <meta content="article" property="og:type"/>
+  <meta content="Почему 3D-технологии становятся обязательным элементом сайтов промышленных предприятий | Agile Business — бизнес-консалтинг." property="og:title"/>
+  <meta content="Для промышленного сегмента 3D — это мощный инструмент коммуникации, который помогает продавать сложные продукты и выстраивать доверие." property="og:description"/>
+  <meta content="https://agile-business-pro.com/assets/front/build/img/og-image.png" property="og:image"/>
+  <meta content="Agile Business — бизнес-консалтинг." property="og:site_name"/>
+  <meta content="https://agile-business-pro.com/blog/3d-industry" property="og:url"/>
+  <!-- /open-graph -->
+  <!-- favicons -->
+  <link href="/assets/front/build/img/favicons/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/assets/front/build/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/assets/front/build/img/favicons/manifest.json" rel="manifest"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="#03000e" name="theme-color"/>
+  <meta content="agile-business-pro.com" name="application-name"/>
+  <link href="/assets/front/build/img/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Agile Business — бизнес-консалтинг" name="apple-mobile-web-app-title"/>
+  <!-- /favicons -->
+  <meta content="0f60c6cded052d83" name="yandex-verification"/>
+  <meta content="_csrf" name="csrf-param"/>
+  <meta content="FY3SaxIeDQmq6hCLUM5HxRKSGW7UwX6LkyKxCenxjddU6bgsWnZJZMmZSPg_vj69YONWDYeLO8n6dvQ-sJv-sA==" name="csrf-token"/>
+  <link href="https://agile-business-pro.com/blog/3d-industry" rel="canonical"/>
+  <link content="2026-07-17T08:25:54+03:00" property="article:modified_time"/>
+  <link fetchpriority="high" href="/assets/front/build/css/app.min.css?v20260722" id="css-app" rel="stylesheet"/>
+  <script>
+   if(location.hash==="#nowebgl")history.replaceState(null,"",location.pathname+location.search);
+  </script>
+  <link href="/css/agile-overrides.css?v20260722p" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="counters-body">
+  </div>
+  <header class="header js-header" data-component="HeaderIntro">
+   <div class="header__inner">
+    <div class="header__logo">
+     <a class="logo logo--lg js-header-logo" href="/">
+      <div class="logo__inner">
+       <img alt="Agile Business" decoding="async" fetchpriority="high" height="52" loading="eager" src="/assets/logo.png" style="height:48px;width:auto;display:block" width="200"/>
+      </div>
+     </a>
+    </div>
+    <div class="header__feedback">
+     <button aria-controls="offcanvas-brief" class="header-feedback header-link hover-underline" data-bs-target="#offcanvas-brief" data-bs-toggle="offcanvas" type="button">
+      <span class="header-link__inner js-header-link">
+       Обсудить проект
+      </span>
+     </button>
+    </div>
+    <div class="header__burger">
+     <button aria-label="Меню" class="burger" data-component="Burger" type="button">
+      <span class="burger__inner">
+       <span class="burger__line">
+       </span>
+       <span class="burger__line">
+       </span>
+      </span>
+     </button>
+    </div>
+    <div class="header__menu">
+     <div class="menu-overlay">
+      <div class="menu-overlay__nav">
+       <ul class="menu" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/works" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Проекты
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/services" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Услуги
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/about" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Компания
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/awards" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Награды
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/reviews" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Отзывы
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/blog" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Блог
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/contacts" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Контакты
+          </div>
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="menu-overlay__contacts">
+       <div class="nav-contacts">
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com">
+          info@agile-business-pro.com
+         </a>
+        </div>
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="tel:+79636177373">
+          +7 (963) 617-73-73
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="menu-overlay__cities">
+       <div class="nav-cities">
+        <span class="nav-cities__item">
+         Москва
+        </span>
+       </div>
+      </div>
+      <div class="menu-overlay__socials">
+       <div class="nav-socials" data-barba-prevent="all">
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="header-backdrop js-header-backdrop">
+  </div>
+  <div class="messages">
+   <div class="toast-container messages__container">
+    <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages__item fade" data-bs-autohide="true" data-bs-delay="10000" id="messages-toast" role="alert">
+     <div class="toast-header messages-toast__header">
+      <span class="toast-title messages-toast__title">
+       Agile Business
+      </span>
+      <button aria-label="Закрыть" class="btn-close messages-toast__btn-close" data-bs-dismiss="toast" type="button">
+       <span aria-hidden="true">
+       </span>
+      </button>
+     </div>
+     <div class="toast-body messages-toast__body">
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 w-100 p-2">
+   <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages-toast--light fade mx-auto" data-bs-autohide="false" data-component="ToastCookie" id="messages-cookie" role="alert">
+    <div class="toast-header messages-toast__header pb-0">
+    </div>
+    <div class="toast-body messages-toast__body">
+     <div class="text-center small">
+      Продолжая пользоваться сайтом, Вы выражаете свое согласие на сбор и обработку информации о Вашей активности на настоящем сайте в соответствии с
+      <a class="text-nowrap hover-underline hover-underline--underline" href="/policy">
+       Политикой конфиденциальности
+      </a>
+      .
+     </div>
+     <button class="btn form-submit mt-2 w-100 px-2 py-1 overflow-hidden" data-bs-dismiss="toast" data-component="ButtonHover" type="button">
+      <span class="form-submit__text js-button-hover-inner small">
+       Хорошо
+      </span>
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="smooth-wrapper" data-component="Scroll" id="smooth-wrapper">
+   <div class="barba-wrapper smooth-content" data-barba="wrapper" id="smooth-content">
+    <div id="top">
+    </div>
+    <div class="barba-container" data-barba="container" tabindex="-1">
+     <!-- article view -->
+     <div class="article">
+      <h1 class="article__title js-barba-transition">
+       Почему 3D-технологии становятся обязательным элементом сайтов промышленных предприятий
+      </h1>
+      <picture class="article__picture js-barba-transition" style="--image-width:1600;--image-height:900;">
+       <source media="(max-width: 991.98px)" srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-992x-lg.webp" type="image/webp"/>
+       <source media="(max-width: 1399.98px)" srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-1400x-xxl.webp" type="image/webp"/>
+       <source media="(max-width: 991.98px)" srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-992x-lg.jpg" type="image/jpeg"/>
+       <source media="(max-width: 1399.98px)" srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-1400x-xxl.jpg" type="image/jpeg"/>
+       <source srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-x-webp.webp" type="image/webp"/>
+       <img alt="Почему 3D-технологии становятся обязательным элементом сайтов промышленных предприятий" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" loading="lazy" src="/uploads/blog/3d-industry/6a50bbd32d34e.jpg" width="1600"/>
+      </picture>
+      <p class="article__lead js-barba-transition">
+       Промышленный B2B-маркетинг долгое время полагался на проверенные инструменты: текстовые описания технических характеристик, статичные фотографии оборудования и чертежи. Однако в эпоху цифровизации такой подход перестаёт работать. Сайт промышленного предприятия всё чаще становится первой и главной точкой контакта, и если он не способен наглядно продемонстрировать технологический уровень компании, шансы на успешное сотрудничество могут быть упущены.
+      </p>
+      <div class="article__content">
+       <div class="wysiwyg">
+        <p>
+         Сегодня 3D-технологии на сайтах превращаются из модного дополнения в эффективный бизнес-инструмент, который решает сразу несколько стратегических задач: от создания имиджа инновационной компании до прямого увеличения конверсии в продажах.
+        </p>
+        <h2>
+         Сложные продукты становятся понятнее
+        </h2>
+        <p>
+         Оборудование, станки, детали, инженерные системы — всё это сложно показать на плоских фото. Даже качественные снимки не дают полного представления о габаритах, конструкции, принципе работы. 3D‑модель решает эту проблему: пользователь может вращать объект, приближать отдельные узлы, включать и выключать слои (например, показать внутреннее устройство без разборки реального изделия).
+        </p>
+        <p>
+         Для промышленного заказчика это критично. Он не покупает «картинку», он оценивает техническую зрелость продукта и поставщика. Возможность детально изучить изделие онлайн экономит время на переговорах и ускоряет принятие решения.
+        </p>
+        <p>
+         Технология Three.js и WebGL позволяет реализовывать такие сложные сцены прямо в браузере без установки дополнительного ПО, обеспечивая плавную работу даже на мобильных устройствах . Это значит, что высокотехнологичная презентация вашего предприятия всегда у потенциального клиента в кармане.
+        </p>
+        <div class="table-responsive">
+         <table border="0" style="width:100%;">
+          <tbody>
+           <tr>
+            <td width="33%">
+             <p>
+              <a href="https://westeria.de/en/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Westeria" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/westeria.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+            <td width="33%">
+             <p>
+              <a href="https://npcmgd.com/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="НПЦ Магнитной гидродинамики" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/magnitka.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+            <td width="33%">
+             <p>
+              <a href="https://3d.bonpez.com/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Bonpez" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/bonpez.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+        <h2>
+         Сторителлинг через визуализацию
+        </h2>
+        <p>
+         В прошлой статье мы
+         <a href="/blog/storytelling">
+          говорили о сторителлинге в дизайне
+         </a>
+         — и 3D здесь работает как идеальный нарративный инструмент. Вместо сухого перечня характеристик можно показать историю: как деталь устанавливается в узел, как станок работает в линии, как меняется конфигурация оборудования под разные задачи.
+        </p>
+        <p>
+         Такой подход превращает сайт из каталога в интерактивную презентацию. Пользователь не просто читает про «высокую точность», а видит, как работают процессы и технологии и понимает ценность предложения.
+        </p>
+        <h2>
+         Интерактивность повышает вовлеченность и снижает нагрузку на отдел продаж
+        </h2>
+        <p>
+         3D‑виджеты позволяют пользователю самостоятельно «собрать» конфигурацию продукта: выбрать опции, материалы, размеры — и сразу увидеть результат. Это работает как цифровой конфигуратор: клиент приходит к менеджеру уже с пониманием своих потребностей, а не с общими вопросами.
+        </p>
+        <p>
+         Кроме того, интерактивные элементы увеличивают время пребывания на сайте и глубину просмотра. Алгоритмы поисковых систем и рекламных площадок учитывают эти метрики, что косвенно улучшает видимость сайта. Например, в ходе A/B-тестирования использование трёхмерных объектов на сайте показало увеличение конверсии на 7%.
+        </p>
+        <div class="table-responsive">
+         <table border="0" style="width:100%;">
+          <tbody>
+           <tr>
+            <td width="33%">
+             <p>
+              <a href="https://fujida.pro/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Fujida" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/fujida.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+            <td width="33%">
+             <p>
+              <a href="https://zitar.liqium.com/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Zitar" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/zitar.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+            <td width="33%">
+             <p>
+              <a href="https://oporasibiri.ru/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Опора Сибири" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/opora.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+        <h2>
+         Управление и стратегия разных каналов коммуникации
+        </h2>
+        <p>
+         3D‑контент универсален: одну и ту же модель можно использовать не только на сайте, но и в презентациях, каталогах, на выставках, в обучающих материалах. Это экономит ресурсы на создание визуала и обеспечивает консистентность образа продукта во всех каналах.
+        </p>
+        <p>
+         Для отдела маркетинга и продаж это означает единую точку правды: все материалы основаны на одной цифровой модели, исключаются расхождения в визуализации и упрощается обновление контента при изменении продукта.
+        </p>
+        <h2>
+         Практические варианты внедрения
+        </h2>
+        <p>
+         <br/>
+         Не обязательно делать весь сайт в 3D. Эффективнее точечные решения:
+        </p>
+        <ul>
+         <li>
+          <strong>
+           3D‑превью ключевых продуктов
+          </strong>
+          на карточках товаров или в разделе «Продукция».
+         </li>
+         <li>
+          <strong>
+           Интерактивные схемы и разрезы
+          </strong>
+          для демонстрации принципа работы.
+         </li>
+         <li>
+          <strong>
+           Конфигураторы
+          </strong>
+          для выбора опций и расчёта стоимости.
+         </li>
+         <li>
+          <strong>
+           Виртуальные туры по производству или цехам
+          </strong>
+          — чтобы показать масштаб и уровень оснащения.
+         </li>
+         <li>
+          <strong>
+           Анимации процессов
+          </strong>
+          : как изделие проходит этапы сборки, контроля качества, упаковки.
+         </li>
+        </ul>
+        <p>
+         При этом важно сохранять баланс: 3D должно помогать пользователю, а не отвлекать его. Лёгкие модели, быстрая загрузка, понятные сценарии взаимодействия — ключевые требования для промышленного сайта.
+        </p>
+        <div class="table-responsive">
+         <table border="0" style="width:100%;">
+          <tbody>
+           <tr>
+            <td width="33%">
+             <p>
+              <a href="https://semiteq.ru/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Научно Техническое Оборудование" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/NTO.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+            <td width="33%">
+             <p>
+              <a href="https://www.vectrfl.com/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Vectr" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/vectr.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+            <td width="33%">
+             <p>
+              <a href="https://www.vibor.it/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Vibor" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/vibor.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+        <h2>
+         Что учесть при внедрении
+        </h2>
+        <ul>
+         <li>
+          <strong>
+           Оптимизация под производительность
+          </strong>
+          . 3D‑модели должны быстро загружаться даже на слабых устройствах.
+         </li>
+         <li>
+          <strong>
+           Доступность
+          </strong>
+          . Предусмотреть альтернативные форматы: фото, видео, текстовое описание — на случай, если 3D не отобразится.
+         </li>
+         <li>
+          <strong>
+           Интеграция с CRM и конфигураторами
+          </strong>
+          . Если есть система расчёта стоимости или оформления заказа, 3D должен быть с ней связан.
+         </li>
+         <li>
+          <strong>
+           Управление и стратегия мобильных устройств
+          </strong>
+          . Не все сценарии будут работать одинаково хорошо на смартфонах — нужно тестировать.
+         </li>
+        </ul>
+        <h2>
+         Заключение
+        </h2>
+        <p>
+         Для промышленных предприятий 3D-визуализация на сайте — это уже не вопрос статуса, а насущная необходимость для эффективной коммуникации и роста продаж. Она превращает сложные технические процессы в увлекательный цифровой опыт, формирует доверие к бренду и дает компаниям мощное конкурентное преимущество в высокотехнологичных отраслях .
+        </p>
+        <p>
+         Инвестируя в современную 3D-визуализацию сегодня, предприятие закладывает фундамент для цифрового лидерства на годы вперёд.
+        </p>
+        <div class="table-responsive">
+         <table border="0" style="width:100%;">
+          <tbody>
+           <tr>
+            <td width="33%">
+             <p>
+              <a href="https://watwell.com/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Watwell" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/Watwell.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+            <td width="33%">
+             <p>
+              <a href="https://www.vympel.de/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Vympel" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/vimpel.jpg" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+            <td width="33%">
+             <p>
+              <a href="https://volnakr.ru/" target="_blank">
+               <picture class="img-fluid">
+                <img alt="Комбинат Волна" class="img-fluid" decoding="async" fetchpriority="low" loading="lazy" src="/uploads/files/Blog/2026/3d-industry/volnakr.png" width="375"/>
+               </picture>
+              </a>
+             </p>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+        <hr/>
+        <p>
+         <div class="article-works">
+          <div class="row">
+           <div class="col-12 col-xl-4">
+            <div class="row">
+             <div class="col-6 col-xl-12">
+              Услуга
+              <br/>
+              <br/>
+              <a href="/services/industry">
+               Создание сайтов для промышленных компаний
+              </a>
+              <br/>
+              <br/>
+             </div>
+             <div class="col-6 col-xl-12">
+              Статья
+              <br/>
+              <br/>
+              <a href="/blog/kak-my-sozdaem-kreativnye-sajty">
+               От идеи до реализации: как мы создаем креативные сайты
+              </a>
+              <br/>
+              <br/>
+             </div>
+            </div>
+           </div>
+           <div class="col-12 col-xl-8">
+            Наши проекты в сфере
+            <a href="/works/industry/industry">
+             Промышленность
+            </a>
+            <br/>
+            <br/>
+            <div class="row g-2">
+             <div class="col-4">
+              <a class="article-works__card" data-barba-prevent="self" href="https://semiteq.ru/" rel="nofollow" target="_blank" title="Откроется в новом окне">
+               <picture class="article-works__card-picture" style="--image-width:1200;--image-height:1200;">
+                <source media="(max-width: 2303.98px)" srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.webp" type="image/webp"/>
+                <source media="(max-width: 2303.98px)" srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.jpg" type="image/jpeg"/>
+                <source srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-x-webp.webp" type="image/webp"/>
+                <img alt="НТО" decoding="async" fetchpriority="low" height="1200" intrinsicsize="1200x1200" loading="lazy" src="/uploads/works/nto/6a5dc4da7aac7.jpg" width="1200"/>
+               </picture>
+               <span class="article-works__card-title">
+                НТО
+               </span>
+              </a>
+             </div>
+             <div class="col-4">
+              <a class="article-works__card" href="/works/npcmgd" title="НПЦ Магнитной гидродинамики">
+               <picture class="article-works__card-picture" style="--image-width:1600;--image-height:1600;">
+                <source media="(max-width: 2303.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c3950394f@resize-768x-md.webp" type="image/webp"/>
+                <source media="(max-width: 2303.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c3950394f@resize-768x-md.png" type="image/png"/>
+                <source srcset="/uploads/works/npcmgd/thumbs/67e3c3950394f@resize-x-webp.webp" type="image/webp"/>
+                <img alt="НПЦ Магнитной гидродинамики" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/npcmgd/67e3c3950394f.png" width="1600"/>
+               </picture>
+               <span class="article-works__card-title">
+                НПЦ Магнитной гидродинамики
+               </span>
+              </a>
+             </div>
+             <div class="col-4">
+              <a class="article-works__card" href="/works/vicolor" title="Виколор">
+               <picture class="article-works__card-picture" style="--image-width:1600;--image-height:1600;">
+                <source media="(max-width: 2303.98px)" srcset="/uploads/works/vicolor/thumbs/699da7bcdc61b@resize-768x-md.webp" type="image/webp"/>
+                <source media="(max-width: 2303.98px)" srcset="/uploads/works/vicolor/thumbs/699da7bcdc61b@resize-768x-md.jpg" type="image/jpeg"/>
+                <source srcset="/uploads/works/vicolor/thumbs/699da7bcdc61b@resize-x-webp.webp" type="image/webp"/>
+                <img alt="Виколор" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/vicolor/699da7bcdc61b.jpg" width="1600"/>
+               </picture>
+               <span class="article-works__card-title">
+                Виколор
+               </span>
+              </a>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </p>
+        <p>
+         Смотрите так же:
+        </p>
+        <ul>
+         <li>
+          <a href="/blog/fujida">
+           3D-технологии в разработке презентационного сайта: Fujida в новом свете
+          </a>
+         </li>
+         <li>
+          <a href="/blog/best-industrial-websites">
+           Лучшие сайты промышленных компаний
+          </a>
+         </li>
+         <li>
+          <a href="/blog/storytelling">
+           Сторителлинг как метод создания впечатляющих сайтов
+          </a>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="article__sign">
+       <div class="pitcher-sign">
+        <svg>
+         <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+         </use>
+        </svg>
+       </div>
+      </div>
+     </div>
+     <!-- /article view -->
+     <!-- other articles list -->
+     <div class="posts-list posts-list--embedded" data-component="Posts">
+      <div class="posts-list__inner">
+       <div class="posts-list__item js-posts-item">
+        <a class="posts-list__item-link" href="/blog/solve-business-problem">
+         <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+          <source srcset="/uploads/blog/solve-business-problem/thumbs/6a4ba715c566f@resize-375x-ss.webp" type="image/webp"/>
+          <source srcset="/uploads/blog/solve-business-problem/thumbs/6a4ba715c566f@resize-375x-ss.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/blog/solve-business-problem/thumbs/6a4ba715c566f@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Как заказчику выбрать дизайн‑студию, которая решает задачи бизнеса, а не просто «рисует»" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" loading="lazy" src="/uploads/blog/solve-business-problem/6a4ba715c566f.jpg" width="1600"/>
+         </picture>
+         <div class="posts-list__item-top">
+          Как заказчику выбрать дизайн‑студию, которая решает задачи бизнеса, а не просто «рисует»
+         </div>
+         <div class="posts-list__item-bottom">
+          <div class="posts-list__item-date">
+          </div>
+          <div class="posts-list__item-type">
+           Аналитика
+          </div>
+         </div>
+        </a>
+       </div>
+       <div class="posts-list__item js-posts-item">
+        <a class="posts-list__item-link" href="/blog/storytelling">
+         <picture class="posts-list__item-picture" style="--image-width:1640;--image-height:964;">
+          <source srcset="/uploads/blog/storytelling/thumbs/6a3bdf6e66588@resize-375x-ss.webp" type="image/webp"/>
+          <source srcset="/uploads/blog/storytelling/thumbs/6a3bdf6e66588@resize-375x-ss.png" type="image/png"/>
+          <source srcset="/uploads/blog/storytelling/thumbs/6a3bdf6e66588@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Сторителлинг как метод создания впечатляющих сайтов" class="js-posts-item-image" decoding="async" fetchpriority="low" height="964" intrinsicsize="1640x964" loading="lazy" src="/uploads/blog/storytelling/6a3bdf6e66588.png" width="1640"/>
+         </picture>
+         <div class="posts-list__item-top">
+          Сторителлинг как метод создания впечатляющих сайтов
+         </div>
+         <div class="posts-list__item-bottom">
+          <div class="posts-list__item-date">
+          </div>
+          <div class="posts-list__item-type">
+           Креатив
+          </div>
+         </div>
+        </a>
+       </div>
+       <div class="posts-list__item js-posts-item">
+        <a class="posts-list__item-link" href="/blog/top-realtors">
+         <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+          <source srcset="/uploads/blog/top-realtors/thumbs/6a02efe881693@resize-375x-ss.webp" type="image/webp"/>
+          <source srcset="/uploads/blog/top-realtors/thumbs/6a02efe881693@resize-375x-ss.png" type="image/png"/>
+          <source srcset="/uploads/blog/top-realtors/thumbs/6a02efe881693@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Лучшие сайты агентств недвижимости" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" loading="lazy" src="/uploads/blog/top-realtors/6a02efe881693.png" width="1600"/>
+         </picture>
+         <div class="posts-list__item-top">
+          Лучшие сайты агентств недвижимости
+         </div>
+         <div class="posts-list__item-bottom">
+          <div class="posts-list__item-date">
+          </div>
+          <div class="posts-list__item-type">
+           Подборки
+          </div>
+         </div>
+        </a>
+       </div>
+       <div class="posts-list__item js-posts-item">
+        <a class="posts-list__item-link" href="/blog/kak-my-sozdaem-kreativnye-sajty">
+         <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+          <source srcset="/uploads/blog/kak-my-sozdaem-kreativnye-sajty/thumbs/65c60a4d61ee0@resize-375x-ss.webp" type="image/webp"/>
+          <source srcset="/uploads/blog/kak-my-sozdaem-kreativnye-sajty/thumbs/65c60a4d61ee0@resize-375x-ss.png" type="image/png"/>
+          <source srcset="/uploads/blog/kak-my-sozdaem-kreativnye-sajty/thumbs/65c60a4d61ee0@resize-x-webp.webp" type="image/webp"/>
+          <img alt="От идеи до реализации: как мы создаем креативные сайты" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" loading="lazy" src="/uploads/blog/kak-my-sozdaem-kreativnye-sajty/65c60a4d61ee0.png" width="1600"/>
+         </picture>
+         <div class="posts-list__item-top">
+          От идеи до реализации: как мы создаем креативные сайты
+         </div>
+         <div class="posts-list__item-bottom">
+          <div class="posts-list__item-date">
+          </div>
+          <div class="posts-list__item-type">
+           Креатив
+          </div>
+         </div>
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- /other articles list -->
+     <div class="heading heading--black" data-component="Heading">
+      <div class="heading__inner">
+       <div class="heading__text js-heading-text">
+        Agile Business
+       </div>
+      </div>
+     </div>
+     <footer class="footer" data-component="Footer">
+      <div class="footer__inner js-footer-inner">
+       <div class="footer__inner-top">
+        <div class="footer__form">
+         <div class="footer__form-title">
+          Обсудим задачу
+          <br/>
+          вашего бизнеса
+         </div>
+         <div class="footer__form-body">
+          <form action="/feedback/callback" class="form form--footer" data-component="FormSubmit" data-form-name="Callback" id="callback-footer" method="post">
+           <input name="_csrf" type="hidden" value="FY3SaxIeDQmq6hCLUM5HxRKSGW7UwX6LkyKxCenxjddU6bgsWnZJZMmZSPg_vj69YONWDYeLO8n6dvQ-sJv-sA=="/>
+           <input id="callback-footer-subject" name="Callback[subject]" type="hidden" value="Заявка с сайта Agile Business"/>
+           <input id="callback-footer-request_uri" name="Callback[request_uri]" type="hidden"/>
+           <input id="callback-footer-doc_referer" name="Callback[doc_referer]" type="hidden"/>
+           <input id="callback-footer-utm" name="Callback[utm]" type="hidden"/>
+           <input id="callback-footer-js" name="Callback[js]" type="hidden" value="0"/>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <textarea class="form-control form-control-fluid form-textarea" id="callback-footer-message" name="Callback[message]" placeholder="Расскажите кратко о вашем проекте" rows="3"></textarea>
+             <label for="callback-footer-message">
+              Расскажите кратко о вашем проекте
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-name" name="Callback[name]" placeholder="Ваше имя *" required="" type="text"/>
+             <label for="callback-footer-name">
+              Ваше имя *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-phone" name="Callback[phone]" placeholder="Телефон *" required="" type="tel"/>
+             <label for="callback-footer-phone">
+              Телефон *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-check form__check my-3">
+             <input class="form-check-input" id="callback-footer-rules" name="Callback[rules]" required="" type="checkbox" value="1"/>
+             <label class="form-check-label" for="callback-footer-rules">
+              Нажимая кнопку «Отправить», я даю
+              <a class="hover-underline hover-underline--underline" href="/approval">
+               согласие на обработку своих персональных данных
+              </a>
+              и соглашаюсь с
+              <a class="hover-underline hover-underline--underline" href="/policy">
+               Политикой конфиденциальности
+              </a>
+              .
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <button class="btn form-submit" data-component="ButtonHover" type="submit">
+             <span class="form-submit__text js-button-hover-inner">
+              Отправить
+             </span>
+            </button>
+           </div>
+          </form>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-middle" itemscope="" itemtype="http://schema.org/Organization">
+        <div class="d-none" itemprop="name">
+         Agile Business
+        </div>
+        <link href="https://agile-business-pro.com/" itemprop="url"/>
+        <div class="footer__contacts">
+         <div class="nav-contacts">
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com" itemprop="email">
+            info@agile-business-pro.com
+           </a>
+          </div>
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="tel:+79636177373" itemprop="telephone">
+            +7 (963) 617-73-73
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="footer__cities">
+         <div class="nav-cities">
+          <span class="nav-cities__item">
+           Москва
+          </span>
+         </div>
+        </div>
+        <div class="footer__socials">
+         <div class="nav-socials" data-barba-prevent="all">
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-bottom">
+        <div class="footer__copyright">
+         <div class="nav-copyright">
+          © 2026 Agile Business
+         </div>
+        </div>
+        <div class="footer__time">
+         <div class="nav-time">
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Europe/Moscow">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            МСК
+           </span>
+          </span>
+          ,
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Asia/Krasnoyarsk">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            КРСК
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </footer>
+    </div>
+   </div>
+  </div>
+  <div aria-labelledby="offcanvas-brief-label" class="offcanvas offcanvas-top offcanvas-brief" data-component="Offcanvas" id="offcanvas-brief" tabindex="-1">
+   <div class="offcanvas-brief__close">
+    <button aria-label="Закрыть" class="btn-close" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body offcanvas-brief__body">
+    <div class="brief">
+     <div class="brief__top">
+      <div class="brief__title" id="offcanvas-brief-label">
+       Обсудить проект
+      </div>
+      <div class="pitcher-sign">
+       <svg>
+        <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+        </use>
+       </svg>
+      </div>
+     </div>
+     <form action="/feedback/brief" class="form" data-component="FormSubmit" data-form-name="Brief" id="brief-offcanvas" method="post">
+      <input name="_csrf" type="hidden" value="FY3SaxIeDQmq6hCLUM5HxRKSGW7UwX6LkyKxCenxjddU6bgsWnZJZMmZSPg_vj69YONWDYeLO8n6dvQ-sJv-sA=="/>
+      <input id="brief-offcanvas-subject" name="Brief[subject]" type="hidden" value="Обсудить проект"/>
+      <input id="brief-offcanvas-request_uri" name="Brief[request_uri]" type="hidden"/>
+      <input id="brief-offcanvas-doc_referer" name="Brief[doc_referer]" type="hidden"/>
+      <input id="brief-offcanvas-utm" name="Brief[utm]" type="hidden"/>
+      <input id="brief-offcanvas-js" name="Brief[js]" type="hidden" value="0"/>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Ваши контакты
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-name" name="Brief[name]" placeholder="Расскажите кратко о вашем проекте *" required="" type="text"/>
+           <label for="brief-offcanvas-name">
+            Ваше имя *
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-phone" name="Brief[phone]" placeholder="Расскажите кратко о вашем проекте *" required="" type="tel"/>
+           <label for="brief-offcanvas-phone">
+            Телефон *
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-email" name="Brief[email]" placeholder="Эл. почта" type="email"/>
+           <label for="brief-offcanvas-email">
+            Эл. почта
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-company" name="Brief[company]" placeholder="Компания" type="text"/>
+           <label for="brief-offcanvas-company">
+            Компания
+           </label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        О задаче
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Kompleks-rabot" name="Brief[type]" type="radio" value="Комплексный консалтинг"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Kompleks-rabot">
+             Комплексный консалтинг
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Korp-sajt" name="Brief[type]" type="radio" value="Бизнес-аналитика"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Korp-sajt">
+             Бизнес-аналитика
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Onlajn-servis" name="Brief[type]" type="radio" value="ИТ и разработка"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Onlajn-servis">
+             ИТ и разработка
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Brending" name="Brief[type]" type="radio" value="Креатив"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Brending">
+             Брендинг
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group">
+          <div class="form-floating form-floating-fluid">
+           <textarea class="form-control form-control-fluid form-textarea" id="brief-offcanvas-message" name="Brief[message]" placeholder="Расскажите кратко о вашем проекте" rows="5"></textarea>
+           <label for="brief-offcanvas-message">
+            Расскажите кратко о вашем проекте
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <ol class="brief__list">
+          <li>
+           Из какой вы компании, чем она занимается?
+          </li>
+          <li>
+           С чем мы можем помочь? Как представляете результат?
+          </li>
+          <li>
+           На какой срок работы и бюджет рассчитываете?
+          </li>
+          <li>
+           Напишите, если удобнее общаться в мессенджере.
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Бюджет
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Menee-1-mln" name="Brief[budget]" type="radio" value="Менее 1 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Menee-1-mln">
+             Менее 1 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-1-2-mln" name="Brief[budget]" type="radio" value="1-2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-1-2-mln">
+             1-2 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Bolee-2-mln" name="Brief[budget]" type="radio" value="Более 2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Bolee-2-mln">
+             Более 2 млн
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Откуда вы узнали о нас
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rejtingi" name="Brief[source]" type="radio" value="Рейтинги"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rejtingi">
+             Рейтинги
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Kopirajt-na-sajte" name="Brief[source]" type="radio" value="Копирайт на сайте"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Kopirajt-na-sajte">
+             Копирайт на сайте
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rekomendovali" name="Brief[source]" type="radio" value="Рекомендовали"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rekomendovali">
+             Рекомендовали
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Davno-znau" name="Brief[source]" type="radio" value="Давно знаю"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Davno-znau">
+             Давно знаю
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__submit">
+       <div>
+        <button class="btn form-submit" data-component="ButtonHover" type="submit">
+         <span class="form-submit__text js-button-hover-inner">
+          Отправить
+         </span>
+        </button>
+       </div>
+       <div class="brief__submit-text">
+        <div class="form-check">
+         <input class="form-check-input" id="brief-offcanvas-rules" name="Brief[rules]" required="" type="checkbox" value="1"/>
+         <label class="form-check-label" for="brief-offcanvas-rules">
+          Нажимая кнопку «Отправить», я даю
+          <a class="hover-underline hover-underline--underline" href="/approval">
+           согласие на обработку своих персональных данных
+          </a>
+          и соглашаюсь с
+          <a class="hover-underline hover-underline--underline" href="/policy">
+           Политикой конфиденциальности
+          </a>
+          .
+         </label>
+        </div>
+       </div>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div>
+  <div class="counters-body">
+  </div>
+  <script defer="" fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260722">
+  </script>
+  <script defer="" src="/js/agile-perf.js?v20260722p">
+  </script>
+  <script defer="" src="/js/agile-global.js?v20260722p">
+  </script>
+ </body>
+</html>
+

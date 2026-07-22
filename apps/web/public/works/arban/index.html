@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html class="no-js is-scroll-unknown" data-node-env="production" data-public-path="/assets/front/build/" lang="ru-RU">
+ <!-- set webpack public path on the fly https://webpack.js.org/guides/public-path/#set-value-on-the-fly -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <title>
+   Проект Арбан — Agile Business
+  </title>
+  <meta content="Проект Арбан в нашем портфолио с отзывом от клиента. Кейсы Agile Business: консалтинг, аналитика, ИТ и креатив. Проект Agile Business — комплексный консалтинг с измеримым результатом." name="description"/>
+  <!-- fonts-preload -->
+  <style>
+   @supports (font-variation-settings: normal){:root{--font-variation-supports: 1}}
+  </style>
+  <script>
+   (document.documentElement&&document.head&&function($html,$head){var webpackPublicPath=$html.getAttribute('data-public-path');var preloadFonts=['fonts/Manrope-VariableFont_wght.woff2','fonts/OpenSans-VariableFont_wdth,wght.woff2'];try{var rootStyles=getComputedStyle($html);if(!rootStyles.getPropertyValue('--font-variation-supports')){return;} preloadFonts.forEach(function(font){var link=document.createElement('link');link.href=webpackPublicPath+font;link.rel='preload';link.setAttribute('fetchpriority','high');link.setAttribute('crossorigin','anonymous');link.setAttribute('as','font');$head.appendChild(link);});}catch(error){console.error('[fonts-preload]',error);}})(document.documentElement,document.head);
+  </script>
+  <!-- /fonts-preload -->
+  <!-- head-js -->
+  <script>
+   (document.documentElement&&document.documentElement.className&&(function($html){$html.className=$html.className.replace('no-js','js');var webp=new Image();webp.onload=webp.onerror=function(){$html.className+=(webp.width==1&&webp.height==1?' webp':' no-webp');};webp.src='data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';var avif=new Image();avif.onload=avif.onerror=function(){$html.className+=(avif.width==1&&avif.height==1?' avif':' no-avif');};avif.src=['data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAAEcbWV0YQAAAAAAAABIaGRscgAAAAAAAAAAcGljdAAAAAAAAAAA','AAAAAGNhdmlmIC0gaHR0cHM6Ly9naXRodWIuY29tL2xpbmstdS9jYXZpZgAAAAAeaWxvYwAAAAAEQAABAAEAAAAAAUQAAQAAABcAAAAqaWluZgEAAAAAAAA','BAAAAGmluZmUCAAAAAAEAAGF2MDFJbWFnZQAAAAAOcGl0bQAAAAAAAQAAAHJpcHJwAAAAUmlwY28AAAAQcGFzcAAAAAEAAAABAAAAFGlzcGUAAAAAAAAAAQ','AAAAEAAAAQcGl4aQAAAAADCAgIAAAAFmF2MUOBAAwACggYAAYICGgIIAAAABhpcG1hAAAAAAAAAAEAAQUBAoMDhAAAAB9tZGF0CggYAAYICGgIIBoFHiAAA','EQiBACwDoA='].join('');$html.style.setProperty('--vh',(window.innerHeight*0.01).toFixed()+'px');var fixedBlock=document.createElement('div');fixedBlock.style='width: 1px; height: 100vh; position: fixed; left: 0px; top: 0px; bottom: 0px; visibility: hidden;';$html.appendChild(fixedBlock);$html.style.setProperty('--lvh',(fixedBlock.clientHeight*0.01).toFixed()+'px');fixedBlock.remove();$html.style.setProperty('--svh',($html.clientHeight*0.01).toFixed()+'px');$html.style.setProperty('--dvh',(window.innerHeight*0.01).toFixed()+'px');document.cookie='_js=1; path=/; SameSite=Lax';var scrollbarOuter=document.createElement('div');scrollbarOuter.style.zIndex='-9999';scrollbarOuter.style.position='absolute';scrollbarOuter.style.visibility='hidden';scrollbarOuter.style.width='100px';scrollbarOuter.style.marginLeft='-100px';scrollbarOuter.style.overflow='scroll';$html.appendChild(scrollbarOuter);var scrollbarInner=document.createElement('div');scrollbarInner.style.width='100%';scrollbarOuter.appendChild(scrollbarInner);$html.style.setProperty('--scrollbar-width',(100-scrollbarInner.offsetWidth)+'px');scrollbarOuter.remove();})(document.documentElement));
+  </script>
+  <!-- /head-js -->
+  <!-- open-graph -->
+  <meta content="ru_RU" property="og:locale"/>
+  <meta content="article" property="og:type"/>
+  <meta content="Арбан | Agile Business — бизнес-консалтинг." property="og:title"/>
+  <meta content="Проект Арбан в нашем портфолио с отзывом от клиента. Кейсы Agile Business: консалтинг, аналитика, ИТ и креатив. Проект Agile Business — комплексный консалтинг с измеримым результатом." property="og:description"/>
+  <meta content="https://agile-business-pro.com/uploads/works/arban/6554c27da1a54.png" property="og:image"/>
+  <meta content="Agile Business — бизнес-консалтинг." property="og:site_name"/>
+  <meta content="https://agile-business-pro.com/works/arban" property="og:url"/>
+  <!-- /open-graph -->
+  <!-- favicons -->
+  <link href="/assets/front/build/img/favicons/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/assets/front/build/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/assets/front/build/img/favicons/manifest.json" rel="manifest"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="#03000e" name="theme-color"/>
+  <meta content="agile-business-pro.com" name="application-name"/>
+  <link href="/assets/front/build/img/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Agile Business — бизнес-консалтинг" name="apple-mobile-web-app-title"/>
+  <!-- /favicons -->
+  <meta content="0f60c6cded052d83" name="yandex-verification"/>
+  <meta content="_csrf" name="csrf-param"/>
+  <meta content="_UPimU_qX_BqLNUkS88N-vjWYIIL4aBCF5pSRbdlqbPLLNbqPJsvpA5bgRAS_kmSyeEu9zjXxHJl0Dku5AzK5A==" name="csrf-token"/>
+  <link href="https://agile-business-pro.com/works/arban" rel="canonical"/>
+  <link content="2025-10-29T14:22:03+03:00" property="article:modified_time"/>
+  <link fetchpriority="high" href="/assets/front/build/css/app.min.css?v20260722" id="css-app" rel="stylesheet"/>
+  <script>
+   if(location.hash==="#nowebgl")history.replaceState(null,"",location.pathname+location.search);
+  </script>
+  <link href="/css/agile-overrides.css?v20260722p" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="counters-body">
+  </div>
+  <header class="header js-header" data-component="HeaderIntro">
+   <div class="header__inner">
+    <div class="header__logo">
+     <a class="logo logo--lg js-header-logo" href="/">
+      <div class="logo__inner">
+       <img alt="Agile Business" decoding="async" fetchpriority="high" height="52" loading="eager" src="/assets/logo.png" style="height:48px;width:auto;display:block" width="200"/>
+      </div>
+     </a>
+    </div>
+    <div class="header__feedback">
+     <button aria-controls="offcanvas-brief" class="header-feedback header-link hover-underline" data-bs-target="#offcanvas-brief" data-bs-toggle="offcanvas" type="button">
+      <span class="header-link__inner js-header-link">
+       Обсудить проект
+      </span>
+     </button>
+    </div>
+    <div class="header__burger">
+     <button aria-label="Меню" class="burger" data-component="Burger" type="button">
+      <span class="burger__inner">
+       <span class="burger__line">
+       </span>
+       <span class="burger__line">
+       </span>
+      </span>
+     </button>
+    </div>
+    <div class="header__menu">
+     <div class="menu-overlay">
+      <div class="menu-overlay__nav">
+       <ul class="menu" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/works" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Проекты
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/services" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Услуги
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/about" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Компания
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/awards" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Награды
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/reviews" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Отзывы
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/blog" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Блог
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/contacts" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Контакты
+          </div>
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="menu-overlay__contacts">
+       <div class="nav-contacts">
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com">
+          info@agile-business-pro.com
+         </a>
+        </div>
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="tel:+79636177373">
+          +7 (963) 617-73-73
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="menu-overlay__cities">
+       <div class="nav-cities">
+        <span class="nav-cities__item">
+         Москва
+        </span>
+       </div>
+      </div>
+      <div class="menu-overlay__socials">
+       <div class="nav-socials" data-barba-prevent="all">
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="header-backdrop js-header-backdrop">
+  </div>
+  <div class="messages">
+   <div class="toast-container messages__container">
+    <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages__item fade" data-bs-autohide="true" data-bs-delay="10000" id="messages-toast" role="alert">
+     <div class="toast-header messages-toast__header">
+      <span class="toast-title messages-toast__title">
+       Agile Business
+      </span>
+      <button aria-label="Закрыть" class="btn-close messages-toast__btn-close" data-bs-dismiss="toast" type="button">
+       <span aria-hidden="true">
+       </span>
+      </button>
+     </div>
+     <div class="toast-body messages-toast__body">
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 w-100 p-2">
+   <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages-toast--light fade mx-auto" data-bs-autohide="false" data-component="ToastCookie" id="messages-cookie" role="alert">
+    <div class="toast-header messages-toast__header pb-0">
+    </div>
+    <div class="toast-body messages-toast__body">
+     <div class="text-center small">
+      Продолжая пользоваться сайтом, Вы выражаете свое согласие на сбор и обработку информации о Вашей активности на настоящем сайте в соответствии с
+      <a class="text-nowrap hover-underline hover-underline--underline" href="/policy">
+       Политикой конфиденциальности
+      </a>
+      .
+     </div>
+     <button class="btn form-submit mt-2 w-100 px-2 py-1 overflow-hidden" data-bs-dismiss="toast" data-component="ButtonHover" type="button">
+      <span class="form-submit__text js-button-hover-inner small">
+       Хорошо
+      </span>
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="smooth-wrapper" data-component="Scroll" id="smooth-wrapper">
+   <div class="barba-wrapper smooth-content" data-barba="wrapper" id="smooth-content">
+    <div id="top">
+    </div>
+    <div class="barba-container" data-barba="container" tabindex="-1">
+     <div class="work-card-container">
+      <!-- work-card-hero -->
+      <div class="work-card-hero">
+       <div class="work-card-hero__header js-barba-transition">
+        <h1 class="work-card-hero__title">
+         Арбан
+        </h1>
+        <a class="work-card-hero__back-link hover-underline" href="/works">
+         Назад к проектам
+        </a>
+       </div>
+       <div class="work-card-hero__body js-barba-transition">
+        <div class="work-card-hero__site">
+        </div>
+        <div class="work-card-hero__type">
+         <div class="work-card-hero__type-title">
+          Отрасль
+         </div>
+         <div class="work-card-hero__type-value">
+          <a href="/works/industry/construction">
+           Строительство
+          </a>
+         </div>
+        </div>
+        <div class="work-card-hero__category">
+         <div class="work-card-hero__category-title">
+          Экспертиза
+         </div>
+         <div class="work-card-hero__category-value">
+          <div>
+           <a href="/works/expertise/website">
+            Корпоративные сайты
+           </a>
+          </div>
+          <div>
+           <a href="/works/expertise/uiux">
+            UI/UX дизайн
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- /work-card-hero -->
+      <!-- work-card-body (blocks) -->
+      <div data-component="WorkCardImages">
+       <div class="work-card-image" id="block751" style="--image-width: 2800; --image-height: 1575; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAGAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwb/xAAfEAACAQQCAwAAAAAAAAAAAAABAgMABAURIUEHMXL/xAAWAQEBAQAAAAAAAAAAAAAAAAAFAgT/xAAdEQEAAgICAwAAAAAAAAAAAAABAAIEEQMhE0FR/9oADAMBAAIRAxEAPwCEx+Vu7jCi1e5nWWVJIXcTsy7YMrMFJ13v10KItj1qll9/IoZSGtRrTwBM1rCxyKElFOyTzx81s8oddyThsm5//9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1575;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555c86da6ab7@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555c86da6ab7@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555c86da6ab7@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555c86da6ab7@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555c86da6ab7@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1575" intrinsicsize="2800x1575" loading="lazy" src="/uploads/works/arban/6555c86da6ab7.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block752" style="--image-width: 2800; --image-height: 2575; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgUH/8QAJBAAAQMDAwQDAAAAAAAAAAAAAwECBAAFEQYHUSEjMkISFHP/xAAYAQACAwAAAAAAAAAAAAAAAAAEBwABA//EACYRAAEDAwIFBQAAAAAAAAAAAAEAAgMFESESMQQiMkFRUmFigtL/2gAMAwEAAhEDEQA/ACbdTbkxotsNL3+vRLlcAkkussLUM00iINrHPyVEIiNXpj45z1zQwiIPM829k4Z67T2sIipLbgjqY0De3p8qVE3w1uSKF67xary5jVXN4m8fpWdvmjRK0i5pLR9B+FkM6IBDG7I/NfROaGabG4TK4hrZodMg1DGDnukEWID6wuyPwT1TioNlTnO1HK//2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2575;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/655634291c14a@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/655634291c14a@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/655634291c14a@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/655634291c14a@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/655634291c14a@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2575" intrinsicsize="2800x2575" loading="lazy" src="/uploads/works/arban/655634291c14a.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block753" style="--image-width: 2800; --image-height: 711; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAADAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABgn/xAAgEAACAAQHAAAAAAAAAAAAAAABAgAEEmEDBRQhMTJB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgQF/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/AJ5KobMJioAipuReNNKRSqrpsLYdB5aAUf/Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:711;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d4e107034@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d4e107034@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d4e107034@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d4e107034@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d4e107034@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="711" intrinsicsize="2800x711" loading="lazy" src="/uploads/works/arban/6555d4e107034.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block754" style="--image-width: 2800; --image-height: 2848; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAALAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAACAcJ/8QAKBAAAgECBAMJAAAAAAAAAAAAAQIDBBEABQYHCBIxExQWITIzYXHR/8QAFwEAAwEAAAAAAAAAAAAAAAAAAwQFAf/EACERAAICAQIHAAAAAAAAAAAAAAECABEDMZESEyEjQWFx/9oADAMBAAIRAxEAPwC/7b5BuJvXs7lWo9O7o12S0ddGzRNJVVVROGiHZygyNLcgvG7eXTm+MLDnMbJofOsYBxCzVwhJxJ61hRY33Jzp3UBWbxTVC5HU+7jSuU+TtDdr1vENwcaXy+fhGOauKnvwjmjWRayZQimqluFUPyrewvYC9sMu7LkYg6VJqqGThOhmYz+tvv8AcUYGf//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2848;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d503ea3ef@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d503ea3ef@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d503ea3ef@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d503ea3ef@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d503ea3ef@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2848" intrinsicsize="2800x2848" loading="lazy" src="/uploads/works/arban/6555d503ea3ef.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block755" style="--image-width: 2800; --image-height: 2826; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAALAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABQYHCP/EACYQAAEDAwMCBwAAAAAAAAAAAAECAxEEBQYABxIIEyE0UWFzo7H/xAAWAQEBAQAAAAAAAAAAAAAAAAACAwT/xAAeEQACAgEFAQAAAAAAAAAAAAAAAQIREgMEIVFhI//aAAwDAQACEQMRAD8AdOnfM8my3ZKx3W8bq3o3FYqO4upygIdBDzqBzDjvMwmCJ9omBq81LOkuF4W0ntlD6ZOXjVGI1dS+76VKA3XzZQBgEZHWeP2a04x6MNvsjblS40+8Eqgc1CIHqdWTdAYZovJsfGn80Bo//9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2826;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d53a9d139@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d53a9d139@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d53a9d139@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d53a9d139@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d53a9d139@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2826" intrinsicsize="2800x2826" loading="lazy" src="/uploads/works/arban/6555d53a9d139.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block756" style="--image-width: 2800; --image-height: 2884; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAALAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABwj/xAAiEAABAwUAAQUAAAAAAAAAAAABAgMEAAUGESEHCBMiQdL/xAAZAQACAwEAAAAAAAAAAAAAAAAEBgACAwX/xAAhEQABBAEDBQAAAAAAAAAAAAABAAIDIRESE1IEMWGRof/aAAwDAQACEQMRAD8AXr765s4dKHMfi2eZGU860PdYfDvwG9lskEJJOgrfdHQ5VDPCCcuHi0TsO2Q5oJfeRpoDFX7VM415MuV1xy1TZUu2NSZMRp51Af0ErUgFQ0Vc6am9DyQmifioBuOMWu3ysmlR4iW346XHGVbJCFAcIBOvquFHEx5aHBNZJa0YKDUeSMkSgAXNYAHAG0fmmE9PEDgNWgNdvi//2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2884;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d561ee00d@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d561ee00d@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d561ee00d@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d561ee00d@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d561ee00d@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2884" intrinsicsize="2800x2884" loading="lazy" src="/uploads/works/arban/6555d561ee00d.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block757" style="--image-width: 2800; --image-height: 601; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAADAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQf/xAAkEAABAQcDBQAAAAAAAAAAAAABAgADBAYHCBEFFBUXIVFy0v/EABcBAAMBAAAAAAAAAAAAAAAAAAIEBQj/xAAfEQAABQQDAAAAAAAAAAAAAAAAAQIFESRRktEDEhP/2gAMAwEAAhEDEQA/AIQq5KrW5ejqbN2Ao4HORPn3aR6LuNbkxNUFS8eCdBiHuKqqpw7JqTNhJSO51uJ+2Luq4UNja5OlRgnQ/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:601;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d57538772@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d57538772@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d57538772@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d57538772@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d57538772@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="601" intrinsicsize="2800x601" loading="lazy" src="/uploads/works/arban/6555d57538772.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block758" style="--image-width: 2800; --image-height: 2740; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACP/EACIQAAIBAwQCAwAAAAAAAAAAAAECAwQFBgAHESEjcRIVQf/EABcBAAMBAAAAAAAAAAAAAAAAAAMEBwb/xAAhEQEAAQMDBQEAAAAAAAAAAAABAgADBAVCURIiMTJBsf/aAAwDAQACEQMRAD8AZm0uLCp2xw2pW3SE/U03QtdM6SeIcEkjk++QT+6DA7StfqeRKObfOo9ndLloH7lUix7i5UhhKFbrVAqIEXjzP1wOh6GkpeWrLp8lw7Ku2P14pZbXZReYNuMZjju9dHGlugColS4AHwHQHOmor0lTfUMey5d1YHs/DmhrntbUTZzkcklRK7tcqlmZnJJJlfkk6UfLVSw4RMa2BtPyv//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2740;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d57e9bd1e@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d57e9bd1e@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d57e9bd1e@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d57e9bd1e@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d57e9bd1e@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2740" intrinsicsize="2800x2740" loading="lazy" src="/uploads/works/arban/6555d57e9bd1e.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block759" style="--image-width: 2800; --image-height: 2385; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIFCP/EACcQAAEEAAQEBwAAAAAAAAAAAAECAwQFAAYRMQcSEzQWIUFxcrHB/8QAGAEAAwEBAAAAAAAAAAAAAAAAAAMHAgX/xAAjEQABBAEDBAMAAAAAAAAAAAABAAIDEQQSITEFI0FRMnKB/9oADAMBAAIRAxEAPwBuD9Zleh4XXWe73JLdx4bjw5CWp7qGkTQtxSVFpPRIWPPQ8xOw3wgydoXRoelWZ2ZWX1uTDiyJGanuA50jb7cLNVzaMXNvOsI0NEGNLfW+1FRpysoUoqCBoANADpt6Y513urPFG6KNsbnWQAL915/VRmdk77fuNeElvyCI3bNfAfWAIdyV/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2385;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d59191755@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d59191755@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d59191755@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d59191755@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d59191755@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2385" intrinsicsize="2800x2385" loading="lazy" src="/uploads/works/arban/6555d59191755.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block760" style="--image-width: 2800; --image-height: 2313; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABwP/xAAmEAABAgUDAwUAAAAAAAAAAAADAQIABAUGERMhMQcSMyVDcoOx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAgMFBP/EACYRAAEDAgILAAAAAAAAAAAAAAEAAgMRcQQzEhMUITFRYYGRkuH/2gAMAwEAAhEDEQA/AGYXWm/rQlJUVyXO0NPqWo2WnUMaZIJzBoTLtPfCoQabLsuc8QyXEsikDwABaqbDC2QUkqR0ND2Kg6u3IZziC6oVnTevc31OZ4Xj3IZtbBu0R4R6hnI+3xG1meL7T/rYi4rMbdbGZDLlLgPCz4pF8cFBX//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2313;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d5c9ed706@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d5c9ed706@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d5c9ed706@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d5c9ed706@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d5c9ed706@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2313" intrinsicsize="2800x2313" loading="lazy" src="/uploads/works/arban/6555d5c9ed706.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block761" style="--image-width: 2800; --image-height: 1191; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAFAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABwj/xAAjEAABAwMDBQEAAAAAAAAAAAABAgMRBAYSAAcTFBYhIiMx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwIE/8QAGxEAAwACAwAAAAAAAAAAAAAAAAERAlEDEiL/2gAMAwEAAhEDEQA/AKbvvcC+qSk6fut5CmLhWOamZ4Vrp/viwqFfghPsIJxGm4veTUIaitDVG8+4lUkPJvGtaS4Mw2BOIPmJnWjpjoOvZ//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1191;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d5dbcb634@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d5dbcb634@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d5dbcb634@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d5dbcb634@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d5dbcb634@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1191" intrinsicsize="2800x1191" loading="lazy" src="/uploads/works/arban/6555d5dbcb634.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block762" style="--image-width: 2800; --image-height: 1105; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAEAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABgj/xAAgEAACAQMEAwAAAAAAAAAAAAABAgQDBQYAEiExQVFh/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABwRAAICAgMAAAAAAAAAAAAAAAECABEEEjJBUf/aAAwDAQACEQMRAD8AszILIJOWZDXSbLiyUk7qciO6q9PdTCkKdvA8+/ukuSrGvJpIobGtumhu32y4rAjK2UX+owpKC7ziWbjs8d6iAauRgzKSTqJ//9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1105;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d5e81cfc5@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d5e81cfc5@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d5e81cfc5@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d5e81cfc5@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d5e81cfc5@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1105" intrinsicsize="2800x1105" loading="lazy" src="/uploads/works/arban/6555d5e81cfc5.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block763" style="--image-width: 2800; --image-height: 2914; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAALAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABAUHCP/EACMQAAICAgIBBAMAAAAAAAAAAAECAwQFEQAGBwgSITFxgZH/xAAXAQADAQAAAAAAAAAAAAAAAAADBAYC/8QAIhEAAQMEAQUBAAAAAAAAAAAAAQACBAMRIUExEhMUIlGR/9oADAMBAAIRAxEAPwBdd7T5QhxkOUh8nd1lx9i6laOyM/K0bADc3tCvsldr/eCZOpdwCoLNO0d8GSGksyRrf4rxU6/HJVhY+ovtu2RSd52Xf1+eP+TDOQlRFl7Czx40ytvumEStm52yNatM7wwy/CRsQEJCjQ2VRR+uSldxHqOFWsJeet5ueLnOAj7dqSC1NHGQkaOVVQo0ACdDgwTZasPi/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2914;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d5fbbd60b@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d5fbbd60b@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d5fbbd60b@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d5fbbd60b@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d5fbbd60b@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2914" intrinsicsize="2800x2914" loading="lazy" src="/uploads/works/arban/6555d5fbbd60b.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block764" style="--image-width: 2800; --image-height: 2600; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAACAf/xAApEAABAwIEAwkAAAAAAAAAAAABAgMEBgcABQghERMxEhUiNFFyc4Gx/8QAFgEBAQEAAAAAAAAAAAAAAAAABQME/8QAIhEAAQMCBgMAAAAAAAAAAAAAAQACEQMSBCExNFGBQWHB/9oADAMBAAIRAxEAPwCnVTR92TYdurYF1M9L/dzU4oZzSYlwJLfMIKuYdwkHienTEmmq2sbiC2dIzSDqWHdQBZdfE+I9osxtQF0FR2ibkVcSUA8Tnsr0+TDFjeENJ5Szv7mMuHpYp5EeS8whdJx+0lpwpCvEyNwDvsSPvBg3De/q3jbu6QPi+Wa9g/MKo5f/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2600;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d655684c7@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d655684c7@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d655684c7@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d655684c7@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d655684c7@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2600" intrinsicsize="2800x2600" loading="lazy" src="/uploads/works/arban/6555d655684c7.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block765" style="--image-width: 2800; --image-height: 2401; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAYH/8QAKRAAAAMFBgcBAAAAAAAAAAAAAQIDAAQFERIGExQ0UbEHFSEiMWFyc//EABcBAQEBAQAAAAAAAAAAAAAAAAIEAQP/xAAeEQABBAIDAQAAAAAAAAAAAAABAAIREjFBAxMhcf/aAAwDAQACEQMRAD8AbauKWQLwhGBFiD4R9Qhbmq8oqKSSUKJ0jKAIFJMQD0NWgsmnk7SLk580tLeOjSGARsZP31YXED2Z5g9YFJDBXprig69N3MaZVd0pS89dWsbeBOVOayYU9FMi8/mG4N0GUdITrlkvgNmaK//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2401;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d66844773@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d66844773@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d66844773@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d66844773@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d66844773@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2401" intrinsicsize="2800x2401" loading="lazy" src="/uploads/works/arban/6555d66844773.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block766" style="--image-width: 2800; --image-height: 1905; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAHAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABgj/xAAiEAABBAEEAgMAAAAAAAAAAAABAgMEBQYABxESCCITMYH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBv/EAB4RAAICAgIDAAAAAAAAAAAAAAECAxEAIQVxMZHh/9oADAMBAAIRAxEAPwC2caRvFgce/v8AcLKqa+ooNc7IRCqYPwvFxPsPYgDjqFD9GjQMptzrKPkJ+JmiC8fCyPflmsVvXvD8XzNiPxmnEYw+6haAoLEsDsCPvgp50jSQgkBjXX3JxUkrY33n/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1905;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d67bc995a@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d67bc995a@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d67bc995a@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d67bc995a@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d67bc995a@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1905" intrinsicsize="2800x1905" loading="lazy" src="/uploads/works/arban/6555d67bc995a.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block767" style="--image-width: 2800; --image-height: 2160; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAIAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABwj/xAAgEAABAwQCAwAAAAAAAAAAAAACAQMRBAUGEgAhBxOR/8QAFgEBAQEAAAAAAAAAAAAAAAAABQME/8QAHxEBAAEEAQUAAAAAAAAAAAAAAREAAgMEURITIUFx/9oADAMBAAIRAxEAPwCxLrR+XbVkzbL2ZspaReYdcqisIEwbZOoJMCQlt7FRYnWETueTO63MoFK6hqYsd2XaOuRC0YR9XPiIPtKpUuVbLrU2nWepB2Y+80ScURDzX//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2160;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d68997cb3@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d68997cb3@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d68997cb3@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d68997cb3@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d68997cb3@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2160" intrinsicsize="2800x2160" loading="lazy" src="/uploads/works/arban/6555d68997cb3.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block768" style="--image-width: 2800; --image-height: 601; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAADAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABgj/xAAjEAABAwMCBwAAAAAAAAAAAAABAgMHAAQGCBEFEhYhUXPT/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABkRAAEFAAAAAAAAAAAAAAAAAAABAhESUf/aAAwDAQACEQMRAD8AkVjVLMzl+8hUsZsUgq2HUN359lb6twhKiFjU1L5Zb3lPMyeUdzx+6+lKrcCVP//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:601;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6993bed9@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6993bed9@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6993bed9@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6993bed9@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d6993bed9@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="601" intrinsicsize="2800x601" loading="lazy" src="/uploads/works/arban/6555d6993bed9.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block769" style="--image-width: 2800; --image-height: 1867; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAHAAoDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACP/EACAQAAEEAQQDAAAAAAAAAAAAAAECAwQRBQAGBxIIJGP/xAAVAQEBAAAAAAAAAAAAAAAAAAADAf/EABsRAQACAgMAAAAAAAAAAAAAAAEAAwIRITFB/9oADAMBAAIRAxEAPwBG+IOZTvPKZRp6fK9WHCDYSskCi4eosWAeumsDxh1C7ddQscvNIRyxvVIQKGbmgWPu5pcTiRn/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1867;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6a6c2ef8@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6a6c2ef8@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6a6c2ef8@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6a6c2ef8@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d6a6c2ef8@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1867" intrinsicsize="2800x1867" loading="lazy" src="/uploads/works/arban/6555d6a6c2ef8.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block770" style="--image-width: 2800; --image-height: 2947; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAALAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABwQI/8QAKBAAAQMDAgQHAQAAAAAAAAAAAgEEBQMGEQASBxMhMQgJIiMkMlFh/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgME/8QAHxEAAQQCAgMAAAAAAAAAAAAAAQADESECQRIUMVHR/9oADAMBAAIRAxEAPwCHwtwM/eM/c1y07TuOOiZVgyNikS4H5IUubRI0XYXcgJEzjCovfWovdcjiTcihKkGC9iZirsxvXtFl/wAJTb31clImU4ChJORUXCJzUxVNMH0+37/dPFyh8RhaC8uC/p1xBTEdVeibONYt6DWkrel7YK5cnjO3JepVXK5XU3AJVcciNop4oybmtxMu6odXcZy7siXanVVrHpjwgv/Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2947;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6b6a6ea6@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6b6a6ea6@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6b6a6ea6@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6b6a6ea6@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d6b6a6ea6@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2947" intrinsicsize="2800x2947" loading="lazy" src="/uploads/works/arban/6555d6b6a6ea6.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block771" style="--image-width: 2800; --image-height: 2702; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgII/8QAJRAAAAUDBAEFAAAAAAAAAAAAAQIDBAUGERIACBMhBxQVMUFR/8QAGAEAAwEBAAAAAAAAAAAAAAAAAQIEAAP/xAAaEQEBAQADAQAAAAAAAAAAAAABAAIDESEx/9oADAMBAAIRAxEAPwBnUlTwe/Lb9O0H4pp8GFQwikcZ08mCJtUuhHLExMh74zaoB49d6l6y58fbD0t4BqqmJR7DPAZC7jljtFhScZEzTMJDYjbsLgPeqTQ3P5Itp1XTtLvat9lmpCI5zo8voHSiHJYVLZYiF7XH5/dJoGxTU1Ryzqo5ZZaUeLLKO1TnUUcHMYxhOIiIiI9iI/eiBG//2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2702;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6c9c37d7@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6c9c37d7@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6c9c37d7@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6c9c37d7@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d6c9c37d7@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2702" intrinsicsize="2800x2702" loading="lazy" src="/uploads/works/arban/6555d6c9c37d7.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block772" style="--image-width: 2800; --image-height: 2375; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgII/8QAJxAAAQMDAwEJAAAAAAAAAAAAAQIDBAUGBwAREjQiMUJRcnORsbL/xAAWAQEBAQAAAAAAAAAAAAAAAAADAgD/xAAcEQACAgMBAQAAAAAAAAAAAAAAAQISA1KhEUH/2gAMAwEAAhEDEQA/AN5ZIzDOxzaiapNp7rst5PFiIy08vk8T2W9wD4QtRPkn50nVNlwjZ+Nl027cnS6fFfctaAhbrSFqSJx2BI3I79FbJr0SmPfgmvXo4nvH8K0zCX0QROlZ9CfrVEn/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2375;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6dcb3a44@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6dcb3a44@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6dcb3a44@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6dcb3a44@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d6dcb3a44@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2375" intrinsicsize="2800x2375" loading="lazy" src="/uploads/works/arban/6555d6dcb3a44.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block773" style="--image-width: 2800; --image-height: 2312; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAACAAG/8QAIxAAAQMEAgEFAAAAAAAAAAAAAQIDBQAGBxEEIQgSMTdzsv/EABcBAAMBAAAAAAAAAAAAAAAAAAMEBQD/xAAgEQABBAIBBQAAAAAAAAAAAAABAAIDIRExEhMyUqHR/9oADAMBAAIRAxEAPwDZ2Zdd1ZdtB6Ki8lz0Lc7RcLD6peQQXwhknZ9TxB2QfYDZGx11VZkkbOZc0EHVCr+JN8UhLMZGN2pOKvIxIAVlGWKh0SJ7na3Q+tB4+kfhIi3ZXzy79PI/KqVZ2qi/YTUrJNf/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2312;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6f1c6a42@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6f1c6a42@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d6f1c6a42@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d6f1c6a42@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d6f1c6a42@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2312" intrinsicsize="2800x2312" loading="lazy" src="/uploads/works/arban/6555d6f1c6a42.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block774" style="--image-width: 2800; --image-height: 3012; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAALAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgMI/8QAJxAAAwABBAADCQAAAAAAAAAAAQIDBAAFBiEIERIHExQVIjEzQlH/xAAZAQABBQAAAAAAAAAAAAAAAAADAQQFBgf/xAAmEQABBAIBAAsAAAAAAAAAAAABAAIDEQQhEgUGFSMxUlNxkbLi/9oADAMBAAIRAxEAPwBRLO4lzHgcF3q/F835fWG4Ni5MBIUxF9UqMbRxQ35Hmv7fc/zz0DuzVbV+k7YwZZZZZXxtBqweVE7ArlrW1dvChuG8M24bXsHFpbblH3+LOeZRlWTfUgBMwSApHZ70nAeVFb0xlFoJzX/H6RvwHynb2z7fKs0tJ+OZIZKKGUj4mZ7B0KHxHsp7rG0GDNv1mfQreObkPLMuielEWjBVVAAB5nodac2s+YxvEL//2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:3012;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d706a5d98@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d706a5d98@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d706a5d98@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d706a5d98@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d706a5d98@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="3012" intrinsicsize="2800x3012" loading="lazy" src="/uploads/works/arban/6555d706a5d98.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block775" style="--image-width: 2800; --image-height: 1155; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAFAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQf/xAAkEAAAAwYHAQAAAAAAAAAAAAABAgcAAwQGESEFEhMWIidy0v/EABcBAAMBAAAAAAAAAAAAAAAAAAEDBQj/xAAfEQAABAcBAAAAAAAAAAAAAAAAAQIFAxESJFGS0TT/2gAMAwEAAhEDEQA/AJY+WBTSvz9pzxTMNtwxVAv7aVUrJjU6Wxtl5IeieBBysSlaJKqbOg8QuOPxP2xqVkwk2xumdrD0Twf/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1155;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d71adf6e9@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d71adf6e9@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/arban/thumbs/6555d71adf6e9@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/arban/thumbs/6555d71adf6e9@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/arban/thumbs/6555d71adf6e9@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1155" intrinsicsize="2800x1155" loading="lazy" src="/uploads/works/arban/6555d71adf6e9.jpg" width="2800"/>
+        </picture>
+       </div>
+      </div>
+      <!-- /work-card-body (blocks) -->
+      <!-- work-card-footer -->
+      <div class="work-card-info">
+       <div class="work-card-info__body">
+        <div class="work-card-info__item work-card-info__item--wide">
+         <div class="work-card-info__item-title">
+          Клиент
+         </div>
+         <div class="work-card-info__item-value">
+          Арбан
+         </div>
+        </div>
+        <div class="work-card-info__item">
+         <div class="work-card-info__item-title">
+          Фронтенд
+         </div>
+         <div class="work-card-info__item-value">
+          Webpack
+         </div>
+        </div>
+        <div class="work-card-info__item">
+         <div class="work-card-info__item-title">
+          Бэкенд
+         </div>
+         <div class="work-card-info__item-value">
+          Yii2
+         </div>
+        </div>
+        <div class="work-card-info__item work-card-info__item--wide">
+         <div class="work-card-info__item-title">
+          Год
+         </div>
+         <div class="work-card-info__item-value">
+          2023
+         </div>
+        </div>
+        <div class="work-card-info__item">
+         <div class="work-card-info__item-title">
+          Отрасль
+         </div>
+         <div class="work-card-info__item-value">
+          <a href="/works/industry/construction">
+           Строительство
+          </a>
+         </div>
+        </div>
+        <div class="work-card-info__item">
+         <div class="work-card-info__item-title">
+          Интеграции
+         </div>
+         <div class="work-card-info__item-value">
+          Квартирограмма
+          <br/>
+          Битрикс24
+          <br/>
+          Яндекс.Недвижимость
+         </div>
+        </div>
+        <div class="pitcher-sign">
+         <svg>
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+          </use>
+         </svg>
+        </div>
+       </div>
+      </div>
+      <!-- /work-card-footer -->
+      <div id="review">
+      </div>
+      <!-- work-card-review -->
+      <div class="work-card-review">
+       <div class="work-card-review__top">
+        <h2 class="work-card-review__title">
+         Отзыв от клиента
+        </h2>
+        <a aria-label="Отзыв на ratingruneta.ru" class="work-card-review__link" data-barba-prevent="self" href="https://ratingruneta.ru/agile-business/reviews-web/8706/" rel="nofollow" target="_blank" title="Отзыв на ratingruneta.ru">
+         Источник
+        </a>
+        <div aria-label="Оценка: 5" class="work-card-review__rate" title="Оценка: 5">
+         <svg class="reviews-star reviews-star--lg">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+          </use>
+         </svg>
+         <svg class="reviews-star reviews-star--lg">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+          </use>
+         </svg>
+         <svg class="reviews-star reviews-star--lg">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+          </use>
+         </svg>
+         <svg class="reviews-star reviews-star--lg">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+          </use>
+         </svg>
+         <svg class="reviews-star reviews-star--lg">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+          </use>
+         </svg>
+        </div>
+       </div>
+       <div class="work-card-review__bottom">
+        Группа строительных компаний «АРБАН» отмечает очень высокий уровень воплощения корпоративных сайтов www.arban.ru, www.bc-balance.ru, фирменных стилей проектов и рекламных материалов разработчиками — «Agile Business».
+        <br/>
+        <br/>
+        Сайты выполняют самую основную возложенную на них маркетинговую функцию: являются «продающим товар» инструментом.
+        <br/>
+        <br/>
+        Эти ресурсы уникальные, стильные, яркие, колоритные, имеют сложную структуру. Здесь потенциальные покупатели могут получить максимально полезную информацию о проектах.
+        <br/>
+        <br/>
+        Особую благодарность компания «АРБАН» выражает всем специалистам, трудившимся над сайтами и стилями, во главе с руководством «Agile Business» Фирменные сайты «живут длинную жизнь».
+        <br/>
+        <br/>
+        Непосредственно хочется сказать «Спасибо» руководителю интернет-проектов Павлу Ковалеву за четкое, логическое и ответственное выстраивание работы, постоянный контроль, курирование и оперативное консультирование наших проектов; дизайнерам: Александру Дровосекову и Ольге Новоселовой за органичный стиль, новизну и уникальный подход к творчеству, воплощающему самые современные мировые тенденции и художественную эстетичность; а также всем специалистам, программистам, «оживляющим» сложную систему.
+        <br/>
+        <br/>
+        Всегда приятно общаться и работать с Вашей командой!
+        <br/>
+        <br/>
+        Зам. директора по продажам компании «Арбан».
+       </div>
+      </div>
+      <!-- /work-card-review -->
+      <!-- other works -->
+      <div class="section section--works">
+       <div class="section__content">
+        <h2 class="section__title">
+         Другие проекты
+        </h2>
+       </div>
+       <div class="works-list" data-component="WorksList">
+        <a class="works-list__item js-works-list-item" href="/works/nto">
+         <div class="works-list__item-name">
+          НТО
+         </div>
+         <div class="works-list__item-category">
+          Промышленность
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 1С-Битрикс, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1200;--image-height:1200;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-x-webp.webp" type="image/webp"/>
+          <img alt="НТО" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1200" intrinsicsize="1200x1200" loading="lazy" src="/uploads/works/nto/6a5dc4da7aac7.jpg" width="1200"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"НТО","url":"https://semiteq.ru/","description":"Проект НТО в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-07-17"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/domkino">
+         <div class="works-list__item-name">
+          ЖК Дом Кино
+         </div>
+         <div class="works-list__item-category">
+          Строительство
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-x-webp.webp" type="image/webp"/>
+          <img alt="ЖК Дом Кино" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/domkino/699fe3d97680f.jpg" width="1080"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"ЖК Дом Кино","url":"https://dom-kino.ru","description":"Проект ЖК Дом Кино в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-02-26"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/rougebunnyrouge">
+         <div class="works-list__item-name">
+          Rouge Bunny Rouge
+         </div>
+         <div class="works-list__item-category">
+          Торговля
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, UI/UX дизайн
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Rouge Bunny Rouge" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/rougebunnyrouge/69933a61caba6.jpg" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"Rouge Bunny Rouge","url":"https://rougebunnyrouge.com","description":"Проект Rouge Bunny Rouge в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-02-16"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/nebonadeniseem">
+         <div class="works-list__item-name">
+          Небо над Енисеем
+         </div>
+         <div class="works-list__item-category">
+          Строительство
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Небо над Енисеем" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/nebonadeniseem/697b4cf4ccda5.jpg" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"Небо над Енисеем","url":"https://agile-business-pro.com/works/nebonadeniseem","description":"Проект Небо над Енисеем в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-08-02"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/bonbon">
+         <div class="works-list__item-name">
+          BonBon: айдентика
+         </div>
+         <div class="works-list__item-category">
+          Торговля
+         </div>
+         <div class="works-list__item-type">
+          Брендинг
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/bonbon/thumbs/685a59e3f3b08@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/bonbon/thumbs/685a59e3f3b08@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/bonbon/thumbs/685a59e3f3b08@resize-x-webp.webp" type="image/webp"/>
+          <img alt="BonBon: айдентика" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/bonbon/685a59e3f3b08.png" width="1080"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"BonBon: айдентика","url":"https://agile-business-pro.com/uploads/pdf/bonbon.pdf","description":"Проект BonBon: айдентика в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-06-24"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/dataru">
+         <div class="works-list__item-name">
+          DataРу
+         </div>
+         <div class="works-list__item-category">
+          ИТ
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-x-webp.webp" type="image/webp"/>
+          <img alt="DataРу" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/dataru/682daa5934160.jpg" width="1080"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"DataРу","url":"https://dataru.ru","description":"Проект DataРу в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-05-21"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/depo">
+         <div class="works-list__item-name">
+          DEPO
+         </div>
+         <div class="works-list__item-category">
+          Строительство
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, UI/UX дизайн
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-x-webp.webp" type="image/webp"/>
+          <img alt="DEPO" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/depo/682d754504ab4.png" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"DEPO","url":"https://agile-business-pro.com/works/depo","description":"Проект DEPO в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-05-21"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/fullview">
+         <div class="works-list__item-name">
+          Full View
+         </div>
+         <div class="works-list__item-category">
+          ИТ
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Full View" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/fullview/6801e0eca64da.png" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"Full View","url":"https://full-view.ru","description":"Проект Full View в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-04-18"}
+         </script>
+        </a>
+       </div>
+      </div>
+      <!-- /other works -->
+      <div class="heading heading--black" data-component="Heading">
+       <div class="heading__inner">
+        <div class="heading__text js-heading-text">
+         Agile Business
+        </div>
+       </div>
+      </div>
+     </div>
+     <script type="application/ld+json">
+      {"@context":"http://schema.org/","@type":"CreativeWork","name":"Арбан","url":"https://agile-business-pro.com/works/arban","description":"Проект Арбан в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2023-11-15"}
+     </script>
+     <footer class="footer" data-component="Footer">
+      <div class="footer__inner js-footer-inner">
+       <div class="footer__inner-top">
+        <div class="footer__form">
+         <div class="footer__form-title">
+          Обсудим задачу
+          <br/>
+          вашего бизнеса
+         </div>
+         <div class="footer__form-body">
+          <form action="/feedback/callback" class="form form--footer" data-component="FormSubmit" data-form-name="Callback" id="callback-footer" method="post">
+           <input name="_csrf" type="hidden" value="_UPimU_qX_BqLNUkS88N-vjWYIIL4aBCF5pSRbdlqbPLLNbqPJsvpA5bgRAS_kmSyeEu9zjXxHJl0Dku5AzK5A=="/>
+           <input id="callback-footer-subject" name="Callback[subject]" type="hidden" value="Заявка с сайта Agile Business"/>
+           <input id="callback-footer-request_uri" name="Callback[request_uri]" type="hidden"/>
+           <input id="callback-footer-doc_referer" name="Callback[doc_referer]" type="hidden"/>
+           <input id="callback-footer-utm" name="Callback[utm]" type="hidden"/>
+           <input id="callback-footer-js" name="Callback[js]" type="hidden" value="0"/>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <textarea class="form-control form-control-fluid form-textarea" id="callback-footer-message" name="Callback[message]" placeholder="Расскажите кратко о вашем проекте" rows="3"></textarea>
+             <label for="callback-footer-message">
+              Расскажите кратко о вашем проекте
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-name" name="Callback[name]" placeholder="Ваше имя *" required="" type="text"/>
+             <label for="callback-footer-name">
+              Ваше имя *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-phone" name="Callback[phone]" placeholder="Телефон *" required="" type="tel"/>
+             <label for="callback-footer-phone">
+              Телефон *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-check form__check my-3">
+             <input class="form-check-input" id="callback-footer-rules" name="Callback[rules]" required="" type="checkbox" value="1"/>
+             <label class="form-check-label" for="callback-footer-rules">
+              Нажимая кнопку «Отправить», я даю
+              <a class="hover-underline hover-underline--underline" href="/approval">
+               согласие на обработку своих персональных данных
+              </a>
+              и соглашаюсь с
+              <a class="hover-underline hover-underline--underline" href="/policy">
+               Политикой конфиденциальности
+              </a>
+              .
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <button class="btn form-submit" data-component="ButtonHover" type="submit">
+             <span class="form-submit__text js-button-hover-inner">
+              Отправить
+             </span>
+            </button>
+           </div>
+          </form>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-middle" itemscope="" itemtype="http://schema.org/Organization">
+        <div class="d-none" itemprop="name">
+         Agile Business
+        </div>
+        <link href="https://agile-business-pro.com/" itemprop="url"/>
+        <div class="footer__contacts">
+         <div class="nav-contacts">
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com" itemprop="email">
+            info@agile-business-pro.com
+           </a>
+          </div>
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="tel:+79636177373" itemprop="telephone">
+            +7 (963) 617-73-73
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="footer__cities">
+         <div class="nav-cities">
+          <span class="nav-cities__item">
+           Москва
+          </span>
+         </div>
+        </div>
+        <div class="footer__socials">
+         <div class="nav-socials" data-barba-prevent="all">
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-bottom">
+        <div class="footer__copyright">
+         <div class="nav-copyright">
+          © 2026 Agile Business
+         </div>
+        </div>
+        <div class="footer__time">
+         <div class="nav-time">
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Europe/Moscow">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            МСК
+           </span>
+          </span>
+          ,
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Asia/Krasnoyarsk">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            КРСК
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </footer>
+    </div>
+   </div>
+  </div>
+  <div aria-labelledby="offcanvas-brief-label" class="offcanvas offcanvas-top offcanvas-brief" data-component="Offcanvas" id="offcanvas-brief" tabindex="-1">
+   <div class="offcanvas-brief__close">
+    <button aria-label="Закрыть" class="btn-close" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body offcanvas-brief__body">
+    <div class="brief">
+     <div class="brief__top">
+      <div class="brief__title" id="offcanvas-brief-label">
+       Обсудить проект
+      </div>
+      <div class="pitcher-sign">
+       <svg>
+        <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+        </use>
+       </svg>
+      </div>
+     </div>
+     <form action="/feedback/brief" class="form" data-component="FormSubmit" data-form-name="Brief" id="brief-offcanvas" method="post">
+      <input name="_csrf" type="hidden" value="_UPimU_qX_BqLNUkS88N-vjWYIIL4aBCF5pSRbdlqbPLLNbqPJsvpA5bgRAS_kmSyeEu9zjXxHJl0Dku5AzK5A=="/>
+      <input id="brief-offcanvas-subject" name="Brief[subject]" type="hidden" value="Обсудить проект"/>
+      <input id="brief-offcanvas-request_uri" name="Brief[request_uri]" type="hidden"/>
+      <input id="brief-offcanvas-doc_referer" name="Brief[doc_referer]" type="hidden"/>
+      <input id="brief-offcanvas-utm" name="Brief[utm]" type="hidden"/>
+      <input id="brief-offcanvas-js" name="Brief[js]" type="hidden" value="0"/>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Ваши контакты
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-name" name="Brief[name]" placeholder="Расскажите кратко о вашем проекте *" required="" type="text"/>
+           <label for="brief-offcanvas-name">
+            Ваше имя *
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-phone" name="Brief[phone]" placeholder="Расскажите кратко о вашем проекте *" required="" type="tel"/>
+           <label for="brief-offcanvas-phone">
+            Телефон *
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-email" name="Brief[email]" placeholder="Эл. почта" type="email"/>
+           <label for="brief-offcanvas-email">
+            Эл. почта
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-company" name="Brief[company]" placeholder="Компания" type="text"/>
+           <label for="brief-offcanvas-company">
+            Компания
+           </label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        О задаче
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Kompleks-rabot" name="Brief[type]" type="radio" value="Комплексный консалтинг"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Kompleks-rabot">
+             Комплексный консалтинг
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Korp-sajt" name="Brief[type]" type="radio" value="Бизнес-аналитика"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Korp-sajt">
+             Бизнес-аналитика
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Onlajn-servis" name="Brief[type]" type="radio" value="ИТ и разработка"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Onlajn-servis">
+             ИТ и разработка
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Brending" name="Brief[type]" type="radio" value="Креатив"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Brending">
+             Брендинг
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group">
+          <div class="form-floating form-floating-fluid">
+           <textarea class="form-control form-control-fluid form-textarea" id="brief-offcanvas-message" name="Brief[message]" placeholder="Расскажите кратко о вашем проекте" rows="5"></textarea>
+           <label for="brief-offcanvas-message">
+            Расскажите кратко о вашем проекте
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <ol class="brief__list">
+          <li>
+           Из какой вы компании, чем она занимается?
+          </li>
+          <li>
+           С чем мы можем помочь? Как представляете результат?
+          </li>
+          <li>
+           На какой срок работы и бюджет рассчитываете?
+          </li>
+          <li>
+           Напишите, если удобнее общаться в мессенджере.
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Бюджет
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Menee-1-mln" name="Brief[budget]" type="radio" value="Менее 1 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Menee-1-mln">
+             Менее 1 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-1-2-mln" name="Brief[budget]" type="radio" value="1-2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-1-2-mln">
+             1-2 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Bolee-2-mln" name="Brief[budget]" type="radio" value="Более 2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Bolee-2-mln">
+             Более 2 млн
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Откуда вы узнали о нас
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rejtingi" name="Brief[source]" type="radio" value="Рейтинги"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rejtingi">
+             Рейтинги
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Kopirajt-na-sajte" name="Brief[source]" type="radio" value="Копирайт на сайте"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Kopirajt-na-sajte">
+             Копирайт на сайте
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rekomendovali" name="Brief[source]" type="radio" value="Рекомендовали"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rekomendovali">
+             Рекомендовали
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Davno-znau" name="Brief[source]" type="radio" value="Давно знаю"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Davno-znau">
+             Давно знаю
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__submit">
+       <div>
+        <button class="btn form-submit" data-component="ButtonHover" type="submit">
+         <span class="form-submit__text js-button-hover-inner">
+          Отправить
+         </span>
+        </button>
+       </div>
+       <div class="brief__submit-text">
+        <div class="form-check">
+         <input class="form-check-input" id="brief-offcanvas-rules" name="Brief[rules]" required="" type="checkbox" value="1"/>
+         <label class="form-check-label" for="brief-offcanvas-rules">
+          Нажимая кнопку «Отправить», я даю
+          <a class="hover-underline hover-underline--underline" href="/approval">
+           согласие на обработку своих персональных данных
+          </a>
+          и соглашаюсь с
+          <a class="hover-underline hover-underline--underline" href="/policy">
+           Политикой конфиденциальности
+          </a>
+          .
+         </label>
+        </div>
+       </div>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div>
+  <div class="counters-body">
+  </div>
+  <script defer="" fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260722">
+  </script>
+  <script defer="" src="/js/agile-perf.js?v20260722p">
+  </script>
+  <script defer="" src="/js/agile-global.js?v20260722p">
+  </script>
+ </body>
+</html>
+

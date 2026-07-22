@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "website",
+    "title": "Бизнес-аналитика",
+    "path": "/services/website/",
+    "description": "Диагностика процессов, метрики и управленческие решения."
+  },
+  {
+    "slug": "online",
+    "title": "ИТ и разработка",
+    "path": "/services/online/",
+    "description": "Цифровые продукты, интеграции и автоматизация."
+  },
+  {
+    "slug": "branding",
+    "title": "Стратегия и рост",
+    "path": "/services/branding/",
+    "description": "Позиционирование, go-to-market и масштабирование."
+  }
+]

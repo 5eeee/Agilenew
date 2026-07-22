@@ -1,0 +1,47 @@
+services:
+  content:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: ["python", "apps/content/main.py"]
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./apps/content/data:/app/apps/content/data
+
+  leads:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: ["python", "apps/leads/main.py"]
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./apps/leads/data:/app/apps/leads/data
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: ["python", "apps/web/main.py"]
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./apps/web/public:/app/apps/web/public
+
+  gateway:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: ["python", "apps/gateway/server.py"]
+    environment:
+      AGILE_WEB_URL: http://web:8081
+      AGILE_CONTENT_URL: http://content:8082
+      AGILE_LEADS_URL: http://leads:8083
+      AGILE_CORS_ORIGINS: http://localhost:8080,http://127.0.0.1:8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      - web
+      - content
+      - leads

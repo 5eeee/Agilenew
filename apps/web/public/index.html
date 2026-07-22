@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html class="no-js is-scroll-unknown" data-node-env="production" data-public-path="/assets/front/build/" lang="ru-RU">
+ <!-- set webpack public path on the fly https://webpack.js.org/guides/public-path/#set-value-on-the-fly -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <title>
+   Agile Business — Бизнес-консалтинг нового поколения
+  </title>
+  <meta content="Профессиональный бизнес-консалтинг в 3 направлениях: бизнес-аналитика, ИТ-разработка, креатив." name="description"/>
+  <!-- fonts-preload -->
+  <style>
+   @supports (font-variation-settings: normal){:root{--font-variation-supports: 1}}
+  </style>
+  <script>
+   (document.documentElement&&document.head&&function($html,$head){var webpackPublicPath=$html.getAttribute('data-public-path');var preloadFonts=['fonts/Manrope-VariableFont_wght.woff2','fonts/OpenSans-VariableFont_wdth,wght.woff2'];try{var rootStyles=getComputedStyle($html);if(!rootStyles.getPropertyValue('--font-variation-supports')){return;} preloadFonts.forEach(function(font){var link=document.createElement('link');link.href=webpackPublicPath+font;link.rel='preload';link.setAttribute('fetchpriority','high');link.setAttribute('crossorigin','anonymous');link.setAttribute('as','font');$head.appendChild(link);});}catch(error){console.error('[fonts-preload]',error);}})(document.documentElement,document.head);
+  </script>
+  <!-- /fonts-preload -->
+  <!-- head-js -->
+  <script>
+   (document.documentElement&&document.documentElement.className&&(function($html){$html.className=$html.className.replace('no-js','js');var webp=new Image();webp.onload=webp.onerror=function(){$html.className+=(webp.width==1&&webp.height==1?' webp':' no-webp');};webp.src='data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';var avif=new Image();avif.onload=avif.onerror=function(){$html.className+=(avif.width==1&&avif.height==1?' avif':' no-avif');};avif.src=['data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAAEcbWV0YQAAAAAAAABIaGRscgAAAAAAAAAAcGljdAAAAAAAAAAA','AAAAAGNhdmlmIC0gaHR0cHM6Ly9naXRodWIuY29tL2xpbmstdS9jYXZpZgAAAAAeaWxvYwAAAAAEQAABAAEAAAAAAUQAAQAAABcAAAAqaWluZgEAAAAAAAA','BAAAAGmluZmUCAAAAAAEAAGF2MDFJbWFnZQAAAAAOcGl0bQAAAAAAAQAAAHJpcHJwAAAAUmlwY28AAAAQcGFzcAAAAAEAAAABAAAAFGlzcGUAAAAAAAAAAQ','AAAAEAAAAQcGl4aQAAAAADCAgIAAAAFmF2MUOBAAwACggYAAYICGgIIAAAABhpcG1hAAAAAAAAAAEAAQUBAoMDhAAAAB9tZGF0CggYAAYICGgIIBoFHiAAA','EQiBACwDoA='].join('');$html.style.setProperty('--vh',(window.innerHeight*0.01).toFixed()+'px');var fixedBlock=document.createElement('div');fixedBlock.style='width: 1px; height: 100vh; position: fixed; left: 0px; top: 0px; bottom: 0px; visibility: hidden;';$html.appendChild(fixedBlock);$html.style.setProperty('--lvh',(fixedBlock.clientHeight*0.01).toFixed()+'px');fixedBlock.remove();$html.style.setProperty('--svh',($html.clientHeight*0.01).toFixed()+'px');$html.style.setProperty('--dvh',(window.innerHeight*0.01).toFixed()+'px');document.cookie='_js=1; path=/; SameSite=Lax';var scrollbarOuter=document.createElement('div');scrollbarOuter.style.zIndex='-9999';scrollbarOuter.style.position='absolute';scrollbarOuter.style.visibility='hidden';scrollbarOuter.style.width='100px';scrollbarOuter.style.marginLeft='-100px';scrollbarOuter.style.overflow='scroll';$html.appendChild(scrollbarOuter);var scrollbarInner=document.createElement('div');scrollbarInner.style.width='100%';scrollbarOuter.appendChild(scrollbarInner);$html.style.setProperty('--scrollbar-width',(100-scrollbarInner.offsetWidth)+'px');scrollbarOuter.remove();})(document.documentElement));
+  </script>
+  <!-- /head-js -->
+  <!-- open-graph -->
+  <meta content="ru_RU" property="og:locale"/>
+  <meta content="website" property="og:type"/>
+  <meta content="Agile Business — Бизнес-консалтинг нового поколения" property="og:title"/>
+  <meta content="Профессиональный бизнес-консалтинг в 3 направлениях: бизнес-аналитика, ИТ-разработка, креатив." property="og:description"/>
+  <meta content="https://agile-business-pro.com/assets/logo.png" property="og:image"/>
+  <meta content="Agile Business — бизнес-консалтинг." property="og:site_name"/>
+  <meta content="https://agile-business-pro.com/" property="og:url"/>
+  <!-- /open-graph -->
+  <!-- favicons -->
+  <link href="/assets/front/build/img/favicons/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/assets/front/build/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/assets/front/build/img/favicons/manifest.json" rel="manifest"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="#03000e" name="theme-color"/>
+  <meta content="agile-business-pro.com" name="application-name"/>
+  <link href="/assets/front/build/img/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Agile Business — бизнес-консалтинг" name="apple-mobile-web-app-title"/>
+  <!-- /favicons -->
+  <meta content="0f60c6cded052d83" name="yandex-verification"/>
+  <meta content="_csrf" name="csrf-param"/>
+  <meta content="osY3RbBKastBEqzw1SrV5buBXxWLSxNEf7X5a7Za9NXLn3gU9Cs_iAt_maCYWqW9yMARb78uVBdJ5YpejgWGvg==" name="csrf-token"/>
+  <link href="https://agile-business-pro.com/" rel="canonical"/>
+  <link fetchpriority="high" href="/assets/front/build/css/app.min.css?v20260722" id="css-app" rel="stylesheet"/>
+  <script>
+   if(location.hash==="#nowebgl")history.replaceState(null,"",location.pathname+location.search);
+  </script>
+  <link href="/css/agile-overrides.css?v20260722p" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="counters-body">
+  </div>
+  <header class="header js-header" data-component="HeaderIntro">
+   <div class="header__inner">
+    <div class="header__logo">
+     <a class="logo logo--lg js-header-logo" href="/">
+      <div class="logo__inner">
+       <img alt="Agile Business" decoding="async" fetchpriority="high" height="52" loading="eager" src="/assets/logo.png" style="height:48px;width:auto;display:block" width="200"/>
+      </div>
+     </a>
+    </div>
+    <div class="header__feedback">
+     <button aria-controls="offcanvas-brief" class="header-feedback header-link hover-underline" data-bs-target="#offcanvas-brief" data-bs-toggle="offcanvas" type="button">
+      <span class="header-link__inner js-header-link">
+       Обсудить проект
+      </span>
+     </button>
+    </div>
+    <div class="header__burger">
+     <button aria-label="Меню" class="burger" data-component="Burger" type="button">
+      <span class="burger__inner">
+       <span class="burger__line">
+       </span>
+       <span class="burger__line">
+       </span>
+      </span>
+     </button>
+    </div>
+    <div class="header__menu">
+     <div class="menu-overlay">
+      <div class="menu-overlay__nav">
+       <ul class="menu" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/works" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Проекты
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/services" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Услуги
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/about" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           О нас
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/awards" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Подход
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/reviews" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Отзывы
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/blog" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Блог
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/contacts" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Контакты
+          </div>
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="menu-overlay__contacts">
+       <div class="nav-contacts">
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com">
+          info@agile-business-pro.com
+         </a>
+        </div>
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="tel:+79636177373">
+          +7 (963) 617-73-73
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="menu-overlay__cities">
+       <div class="nav-cities">
+        <span class="nav-cities__item">
+         Москва
+        </span>
+       </div>
+      </div>
+      <div class="menu-overlay__socials">
+       <div class="nav-socials" data-barba-prevent="all">
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="header-backdrop js-header-backdrop">
+  </div>
+  <div class="messages">
+   <div class="toast-container messages__container">
+    <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages__item fade" data-bs-autohide="true" data-bs-delay="10000" id="messages-toast" role="alert">
+     <div class="toast-header messages-toast__header">
+      <span class="toast-title messages-toast__title">
+       Agile Business
+      </span>
+      <button aria-label="Закрыть" class="btn-close messages-toast__btn-close" data-bs-dismiss="toast" type="button">
+       <span aria-hidden="true">
+       </span>
+      </button>
+     </div>
+     <div class="toast-body messages-toast__body">
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 w-100 p-2">
+   <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages-toast--light fade mx-auto" data-bs-autohide="false" data-component="ToastCookie" id="messages-cookie" role="alert">
+    <div class="toast-header messages-toast__header pb-0">
+    </div>
+    <div class="toast-body messages-toast__body">
+     <div class="text-center small">
+      Продолжая пользоваться сайтом, Вы выражаете свое согласие на сбор и обработку информации о Вашей активности на настоящем сайте в соответствии с
+      <a class="text-nowrap hover-underline hover-underline--underline" href="/policy">
+       Политикой конфиденциальности
+      </a>
+      .
+     </div>
+     <button class="btn form-submit mt-2 w-100 px-2 py-1 overflow-hidden" data-bs-dismiss="toast" data-component="ButtonHover" type="button">
+      <span class="form-submit__text js-button-hover-inner small">
+       Хорошо
+      </span>
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="smooth-wrapper" data-component="Scroll" id="smooth-wrapper">
+   <div class="barba-wrapper smooth-content" data-barba="wrapper" id="smooth-content">
+    <div id="top">
+    </div>
+    <div class="barba-container" data-barba="container" tabindex="-1">
+     <div class="hero hero--black is-agile-mode-services">
+      <div class="hero__inner js-hero-inner">
+       <div class="hero-canvas js-hero-sticky-trigger agile-hero-canvas" data-component="HeroCanvas">
+        <div aria-hidden="true" class="agile-hero-bg agile-hero-bg--services hero-canvas__picture js-hero-posterleft">
+        </div>
+        <div aria-hidden="true" class="agile-hero-bg agile-hero-bg--products hero-canvas__picture js-hero-posterright">
+        </div>
+       </div>
+       <div class="hero-intro hero-intro--title">
+        <div class="hero-intro__body js-hero-body">
+         <div class="hero-title" data-component="HeroTitle">
+          <div class="hero-title__inner js-hero-title-inner">
+           <a class="hero-title__link js-hero-title-linkleft active" data-agile-mode="services" href="/services">
+            Услуги
+           </a>
+           <span aria-hidden="true" class="hero-title__divider">
+           </span>
+           <a class="hero-title__link js-hero-title-linkright" data-agile-mode="products" href="/products">
+            Продукты
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="hero-intro__footer js-hero-footer">
+         <div class="hero-intro__footer-left">
+          <div class="hero-footer-text js-hero-footer-services" data-component="HeroFooterText">
+           Консалтинг и проекты
+           <br/>
+           под ключ для бизнеса
+          </div>
+         </div>
+         <div class="hero-intro__footer-right">
+          <div class="hero-footer-text js-hero-footer-products" data-component="HeroFooterText">
+           Собственные продукты
+           <br/>
+           для команд и руководителей
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="js-hero-outro-trigger">
+       </div>
+       <div class="hero-intro hero-intro--lead">
+        <div class="hero-intro__body">
+         <h1 class="hero-lead">
+          Agile Business. Решения под задачи бизнеса — услуги и продукты для трансформации и масштабирования.
+         </h1>
+        </div>
+       </div>
+       <div class="js-hero-outro-end-trigger">
+       </div>
+       <div class="js-hero-sticky-end-trigger">
+       </div>
+      </div>
+     </div>
+     <div class="works-grid js-barba-transition mb-0" data-agile-mode="services" data-component="WorksGridImages">
+      <a class="works-grid-item" data-agile-mode="products" data-barba-prevent="self" href="https://semiteq.ru/" rel="nofollow" target="_blank" title="Проект Agile Business — АО «Научное и технологическое оборудование»">
+       <div class="works-grid-item__inner">
+        <div class="works-grid-item__image">
+         <picture class="works-grid-item__picture" style="--image-width:1200;--image-height:1200;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Agile Call" class="js-works-grid-image" decoding="async" fetchpriority="low" height="1200" intrinsicsize="1200x1200" loading="lazy" src="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.webp" width="1200"/>
+         </picture>
+        </div>
+        <div class="works-grid-item__footer">
+         <div class="works-grid-item__title">
+          Agile Call
+          <span class="works-grid-item__ext-link">
+           <svg>
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-ext-link">
+            </use>
+           </svg>
+          </span>
+         </div>
+         <div class="works-grid-item__type">
+          ИТ
+         </div>
+        </div>
+       </div>
+       <script type="application/ld+json">
+        {"@context":"http://schema.org/","@type":"CreativeWork","name":"Agile Call","url":"https://semiteq.ru/","description":"Продукт видеоконференций для команд с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-07-17"}
+       </script>
+      </a>
+      <a class="works-grid-item" data-agile-mode="products" data-barba-prevent="self" href="https://dom-kino.ru" rel="nofollow" target="_blank" title="Проект Agile Business — Первый Девелопер">
+       <div class="works-grid-item__inner">
+        <div class="works-grid-item__image">
+         <picture class="works-grid-item__picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Agile KPI" class="js-works-grid-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/domkino/thumbs/699fe3d97680f@resize-768x-md.webp" width="1080"/>
+         </picture>
+        </div>
+        <div class="works-grid-item__footer">
+         <div class="works-grid-item__title">
+          Agile KPI
+          <span class="works-grid-item__ext-link">
+           <svg>
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-ext-link">
+            </use>
+           </svg>
+          </span>
+         </div>
+         <div class="works-grid-item__type">
+          ИТ
+         </div>
+        </div>
+       </div>
+       <script type="application/ld+json">
+        {"@context":"http://schema.org/","@type":"CreativeWork","name":"Agile KPI","url":"https://dom-kino.ru","description":"Система KPI для сотрудников и руководителей с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-02-26"}
+       </script>
+      </a>
+      <a class="works-grid-item" data-agile-mode="services" data-barba-prevent="self" href="https://rougebunnyrouge.com" rel="nofollow" target="_blank" title="Проект Agile Business — Rouge Bunny Rouge">
+       <div class="works-grid-item__inner">
+        <div class="works-grid-item__image">
+         <picture class="works-grid-item__picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Корпоративный сайт" class="js-works-grid-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-768x-md.webp" width="1600"/>
+         </picture>
+        </div>
+        <div class="works-grid-item__footer">
+         <div class="works-grid-item__title">
+          Корпоративный сайт
+          <span class="works-grid-item__ext-link">
+           <svg>
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-ext-link">
+            </use>
+           </svg>
+          </span>
+         </div>
+         <div class="works-grid-item__type">
+          Креатив
+         </div>
+        </div>
+       </div>
+       <script type="application/ld+json">
+        {"@context":"http://schema.org/","@type":"CreativeWork","name":"Корпоративный сайт","url":"https://rougebunnyrouge.com","description":"Корпоративный сайт под задачи бизнеса с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-02-16"}
+       </script>
+      </a>
+      <a class="works-grid-item" data-agile-mode="services" href="/works/nebonadeniseem" title="Проект Agile Business — Стройинновация">
+       <div class="works-grid-item__inner">
+        <div class="works-grid-item__image">
+         <picture class="works-grid-item__picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Лендинг" class="js-works-grid-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-768x-md.webp" width="1600"/>
+         </picture>
+        </div>
+        <div class="works-grid-item__footer">
+         <div class="works-grid-item__title">
+          Лендинг
+         </div>
+         <div class="works-grid-item__type">
+          Креатив
+         </div>
+        </div>
+       </div>
+       <script type="application/ld+json">
+        {"@context":"http://schema.org/","@type":"CreativeWork","name":"Лендинг","url":"https://agile-business-pro.com/works/nebonadeniseem","description":"Лендинг с фокусом на конверсию с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-08-02"}
+       </script>
+      </a>
+      <a class="works-grid-item" data-agile-mode="services" data-barba-prevent="self" href="https://dataru.ru" rel="nofollow" target="_blank" title="Проект Agile Business — DataРу">
+       <div class="works-grid-item__inner">
+        <div class="works-grid-item__image">
+         <picture class="works-grid-item__picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-x-webp.webp" type="image/webp"/>
+          <img alt="BI-аналитика" class="js-works-grid-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/dataru/thumbs/682daa5934160@resize-768x-md.webp" width="1080"/>
+         </picture>
+        </div>
+        <div class="works-grid-item__footer">
+         <div class="works-grid-item__title">
+          BI-аналитика
+          <span class="works-grid-item__ext-link">
+           <svg>
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-ext-link">
+            </use>
+           </svg>
+          </span>
+         </div>
+         <div class="works-grid-item__type">
+          Аналитика
+         </div>
+        </div>
+       </div>
+       <script type="application/ld+json">
+        {"@context":"http://schema.org/","@type":"CreativeWork","name":"BI-аналитика","url":"https://dataru.ru","description":"BI-системы и визуализация данных с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-05-21"}
+       </script>
+      </a>
+      <a class="works-grid-item" data-agile-mode="services" href="/works/depo" title="Проект Agile Business — «А-100 Девелопмент»">
+       <div class="works-grid-item__inner">
+        <div class="works-grid-item__image">
+         <picture class="works-grid-item__picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Стратегический консалтинг" class="js-works-grid-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/depo/thumbs/682d754504ab4@resize-768x-md.webp" width="1600"/>
+         </picture>
+        </div>
+        <div class="works-grid-item__footer">
+         <div class="works-grid-item__title">
+          Стратегический консалтинг
+         </div>
+         <div class="works-grid-item__type">
+          Аналитика
+         </div>
+        </div>
+       </div>
+       <script type="application/ld+json">
+        {"@context":"http://schema.org/","@type":"CreativeWork","name":"Стратегический консалтинг","url":"https://agile-business-pro.com/works/depo","description":"Стратегия и оптимизация процессов с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-05-21"}
+       </script>
+      </a>
+      <a class="works-grid-item" data-agile-mode="services" data-barba-prevent="self" href="https://full-view.ru" rel="nofollow" target="_blank" title="Проект Agile Business — Full View">
+       <div class="works-grid-item__inner">
+        <div class="works-grid-item__image">
+         <picture class="works-grid-item__picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Веб-сервис" class="js-works-grid-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/fullview/thumbs/6801e0eca64da@resize-768x-md.webp" width="1600"/>
+         </picture>
+        </div>
+        <div class="works-grid-item__footer">
+         <div class="works-grid-item__title">
+          Веб-сервис
+          <span class="works-grid-item__ext-link">
+           <svg>
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-ext-link">
+            </use>
+           </svg>
+          </span>
+         </div>
+         <div class="works-grid-item__type">
+          ИТ
+         </div>
+        </div>
+       </div>
+       <script type="application/ld+json">
+        {"@context":"http://schema.org/","@type":"CreativeWork","name":"Веб-сервис","url":"https://full-view.ru","description":"Цифровой продукт и системная интеграция с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-04-18"}
+       </script>
+      </a>
+      <a class="works-grid-item" data-agile-mode="services" href="/works/npcmgd" title="Проект Agile Business — НПЦ Магнитной гидродинамики">
+       <div class="works-grid-item__inner">
+        <div class="works-grid-item__image">
+         <picture class="works-grid-item__picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c3950394f@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c3950394f@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/npcmgd/thumbs/67e3c3950394f@resize-x-webp.webp" type="image/webp"/>
+          <img alt="CRM-интеграция" class="js-works-grid-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/npcmgd/thumbs/67e3c3950394f@resize-768x-md.webp" width="1600"/>
+         </picture>
+        </div>
+        <div class="works-grid-item__footer">
+         <div class="works-grid-item__title">
+          CRM-интеграция
+         </div>
+         <div class="works-grid-item__type">
+          ИТ
+         </div>
+        </div>
+       </div>
+       <script type="application/ld+json">
+        {"@context":"http://schema.org/","@type":"CreativeWork","name":"CRM-интеграция","url":"https://agile-business-pro.com/works/npcmgd","description":"ИТ-стратегия и интеграция систем с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-03-26"}
+       </script>
+      </a>
+      <a class="works-grid-item" data-agile-mode="services" href="/works/vicolor" title="Проект Agile Business — Сибирский цемент">
+       <div class="works-grid-item__inner">
+        <div class="works-grid-item__image">
+         <picture class="works-grid-item__picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/vicolor/thumbs/699da7bcdc61b@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/vicolor/thumbs/699da7bcdc61b@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/vicolor/thumbs/699da7bcdc61b@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Маркетинговая кампания" class="js-works-grid-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/vicolor/thumbs/699da7bcdc61b@resize-768x-md.webp" width="1600"/>
+         </picture>
+        </div>
+        <div class="works-grid-item__footer">
+         <div class="works-grid-item__title">
+          Маркетинговая кампания
+         </div>
+         <div class="works-grid-item__type">
+          Креатив
+         </div>
+        </div>
+       </div>
+       <script type="application/ld+json">
+        {"@context":"http://schema.org/","@type":"CreativeWork","name":"Маркетинговая кампания","url":"https://agile-business-pro.com/works/vicolor","description":"Комплексный маркетинг и brand-стратегия с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-01-09"}
+       </script>
+      </a>
+     </div>
+     <div class="section section--industries">
+      <div class="section__content">
+       <h2 class="section__text">
+        Три направления экспертизы Agile Business для трансформации и масштабирования
+       </h2>
+      </div>
+      <div class="industries" data-component="Industries">
+       <ul class="industries__list js-industries-list">
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/services/website">
+          Бизнес-аналитика
+         </a>
+        </li>
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/services/online">
+          ИТ и разработка
+         </a>
+        </li>
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/services/branding">
+          Креатив
+         </a>
+        </li>
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/services">
+          Управление и стратегия
+         </a>
+        </li>
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/services">
+          Инвестиции и оценка
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="heading heading--red" data-component="Heading">
+      <div class="heading__inner">
+       <div class="heading__text js-heading-text">
+        Подход
+       </div>
+      </div>
+     </div>
+     <div class="model-sticky" data-component="ModelSticky" data-envmap-src="/assets/front/build/upload/models/venice_sunset_256.hdr" data-model-src="/assets/front/build/upload/models/head.gltfpack.glb">
+      <picture class="model-sticky__poster js-model-poster-sticky-trigger" style="--image-width:1920;--image-height:1080;">
+       <source media="(max-width: 991.98px)" srcset="/assets/front/build/upload/models/thumbs/head-poster@resize-992x-lg.webp" type="image/webp"/>
+       <source media="(max-width: 1399.98px)" srcset="/assets/front/build/upload/models/thumbs/head-poster@resize-1400x-xxl.webp" type="image/webp"/>
+       <source media="(max-width: 991.98px)" srcset="/assets/front/build/upload/models/thumbs/head-poster@resize-992x-lg.png" type="image/png"/>
+       <source media="(max-width: 1399.98px)" srcset="/assets/front/build/upload/models/thumbs/head-poster@resize-1400x-xxl.png" type="image/png"/>
+       <source srcset="/assets/front/build/upload/models/thumbs/head-poster@resize-x-webp.webp" type="image/webp"/>
+       <img alt="Методология Agile Business" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1920x1080" loading="lazy" src="/assets/front/build/upload/models/head-poster.png" width="1920"/>
+      </picture>
+      <div class="model-sticky__canvas js-model-sticky-trigger">
+      </div>
+      <div class="model-sticky__spacer">
+      </div>
+      <div class="manner" data-component="Manner">
+       <div class="manner__inner">
+        <div class="manner__content js-manner-text">
+         Методология
+         <strong class="manner__content-highlight">
+          Agile Business
+         </strong>
+         : диагностика, стратегия с KPI, внедрение и масштабирование результатов.
+        </div>
+       </div>
+      </div>
+      <div class="model-sticky__spacer">
+      </div>
+     </div>
+     <div class="heading heading--black" data-component="Heading">
+      <div class="heading__inner">
+       <div class="heading__text js-heading-text">
+        О компании
+       </div>
+      </div>
+     </div>
+     <div class="clients">
+      <div class="clients__inner">
+       <div class="clients__content clients-content" data-component="ClientsContent">
+        <div class="clients-content__sticky-top js-clients-content-sticky-top">
+        </div>
+        <div class="clients-content__inner js-clients-content-sticky">
+         <div class="clients-content__text">
+          Мы — команда экспертов, объединяющая аналитику, стратегию и технологии для решения сложных бизнес-задач. Наш подход основан на гибкости, данных и глубоком понимании рынка.
+         </div>
+         <div class="clients-content__numbers">
+          <div class="clients-content__item">
+           <div class="clients-content__number">
+            3
+           </div>
+           направлений
+           <br/>
+           экспертизы
+          </div>
+          <div class="clients-content__item">
+           <div class="clients-content__number">
+            20+
+           </div>
+           успешных
+           <br/>
+           проектов
+          </div>
+          <div class="clients-content__item">
+           <div class="clients-content__number">
+            98%
+           </div>
+           клиентов
+           <br/>
+           рекомендуют
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="clients__logos clients-logos">
+        <div class="clients-logos__inner">
+         <div class="clients-logos__title">
+          Нам доверяют
+         </div>
+         <div class="clients-logos__list">
+          <div class="clients-logos__item">
+           <div class="clients-logos__item-inner">
+            <div class="clients-logos__item-image" style="--clients-logos-item-image: url('/assets/front/build/upload/clients/rushydro.svg');" title="РусГидро">
+            </div>
+           </div>
+          </div>
+          <div class="clients-logos__item">
+           <div class="clients-logos__item-inner">
+            <div class="clients-logos__item-image" style="--clients-logos-item-image: url('/assets/front/build/upload/clients/malltech.svg');" title="Malltech">
+            </div>
+           </div>
+          </div>
+          <div class="clients-logos__item">
+           <div class="clients-logos__item-inner">
+            <div class="clients-logos__item-image" style="--clients-logos-item-image: url('/assets/front/build/upload/clients/sibcem.svg');" title="Сибирский цемент">
+            </div>
+           </div>
+          </div>
+          <div class="clients-logos__item">
+           <div class="clients-logos__item-inner">
+            <div class="clients-logos__item-image" style="--clients-logos-item-image: url('/assets/front/build/upload/clients/knauf.svg');" title="Knauf">
+            </div>
+           </div>
+          </div>
+          <div class="clients-logos__item">
+           <div class="clients-logos__item-inner">
+            <div class="clients-logos__item-image" style="--clients-logos-item-image: url('/assets/front/build/upload/clients/a100.svg');" title="A-100 девелопмент">
+            </div>
+           </div>
+          </div>
+          <div class="clients-logos__item">
+           <div class="clients-logos__item-inner">
+            <div class="clients-logos__item-image" style="--clients-logos-item-image: url('/assets/front/build/upload/clients/rosatom.svg');" title="Росатом">
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="js-clients-content-sticky-end-trigger">
+       </div>
+      </div>
+     </div>
+     <div class="heading" data-component="Heading">
+      <div class="heading__inner">
+       <div class="heading__text js-heading-text">
+        Специализация
+       </div>
+      </div>
+     </div>
+     <div class="specialization" data-component="Specialization">
+      <div class="specialization__body">
+       <div class="specialization-services">
+        <div class="specialization-services__inner">
+         <div class="specialization-services__title">
+          3 направления для вашего роста
+         </div>
+         <div class="specialization-services__content">
+          <div class="specialization-services__item">
+           <a class="specialization-services__item-link js-specialization-services-item" href="/services/website">
+            Бизнес-аналитика
+           </a>
+          </div>
+          <div class="specialization-services__item">
+           <a class="specialization-services__item-link js-specialization-services-item" href="/services/online">
+            ИТ и разработка
+           </a>
+          </div>
+          <div class="specialization-services__item">
+           <a class="specialization-services__item-link js-specialization-services-item" href="/services/branding">
+            Креатив и маркетинг
+           </a>
+          </div>
+          <div class="specialization-services__item">
+           <a class="specialization-services__item-link js-specialization-services-item" href="/services">
+            Управление и стратегия
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="specialization specialization--ratings">
+      <div class="specialization__body">
+       <div class="specialization-ratings">
+        <div class="specialization-ratings__inner">
+         Собственные продукты
+         <br/>
+         для роста эффективности
+         <br/>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="heading" data-component="Heading">
+     <div class="heading__inner">
+      <div class="heading__text js-heading-text">
+       Публикации
+      </div>
+     </div>
+    </div>
+    <div class="posts" data-component="Posts" itemscope="" itemtype="https://schema.org/Blog">
+     <div class="posts__inner">
+      <div class="posts__description" itemprop="description">
+       Экспертные материалы по бизнес-консалтингу, аналитике, ИТ и маркетингу. Делимся опытом трансформации и масштабирования бизнеса.
+      </div>
+      <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/3d-industry" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+       <a class="posts-list__item-link" href="/blog/3d-industry">
+        <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+         <source srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-375x-ss.webp" type="image/webp"/>
+         <source srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-375x-ss.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-x-webp.webp" type="image/webp"/>
+         <img alt="Почему 3D-технологии становятся обязательным элементом сайтов промышленных предприятий" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/3d-industry/6a50bbd32d34e.jpg" width="1600"/>
+        </picture>
+        <div class="posts-list__item-top" itemprop="headline">
+         Data-driven управление: зачем бизнесу BI-системы
+        </div>
+        <div class="posts-list__item-bottom">
+         <div class="posts-list__item-date">
+         </div>
+         <div class="posts-list__item-type">
+          Аналитика
+         </div>
+        </div>
+        <meta content="Бизнес-аналитика и BI-системы помогают принимать решения на данных, а не на интуиции. Разбираем, когда компании пора переходить к data-driven управлению." itemprop="description"/>
+       </a>
+      </div>
+      <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/solve-business-problem" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+       <a class="posts-list__item-link" href="/blog/solve-business-problem">
+        <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+         <source srcset="/uploads/blog/solve-business-problem/thumbs/6a4ba715c566f@resize-375x-ss.webp" type="image/webp"/>
+         <source srcset="/uploads/blog/solve-business-problem/thumbs/6a4ba715c566f@resize-375x-ss.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/blog/solve-business-problem/thumbs/6a4ba715c566f@resize-x-webp.webp" type="image/webp"/>
+         <img alt="Как заказчику выбрать дизайн‑студию, которая решает задачи бизнеса, а не просто «рисует»" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/solve-business-problem/6a4ba715c566f.jpg" width="1600"/>
+        </picture>
+        <div class="posts-list__item-top" itemprop="headline">
+         Как выбрать бизнес-консультанта, который решает задачи, а не продаёт отчёты
+        </div>
+        <div class="posts-list__item-bottom">
+         <div class="posts-list__item-date">
+         </div>
+         <div class="posts-list__item-type">
+          Гайд
+         </div>
+        </div>
+        <meta content="Вы ставите задачу, выделяете бюджет — и получаете красивый отчёт без изменений в P&L. Как отличить консультанта, который доводит до результата." itemprop="description"/>
+       </a>
+      </div>
+      <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/storytelling" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+       <a class="posts-list__item-link" href="/blog/storytelling">
+        <picture class="posts-list__item-picture" style="--image-width:1640;--image-height:964;">
+         <source srcset="/uploads/blog/storytelling/thumbs/6a3bdf6e66588@resize-375x-ss.webp" type="image/webp"/>
+         <source srcset="/uploads/blog/storytelling/thumbs/6a3bdf6e66588@resize-375x-ss.png" type="image/png"/>
+         <source srcset="/uploads/blog/storytelling/thumbs/6a3bdf6e66588@resize-x-webp.webp" type="image/webp"/>
+         <img alt="Сторителлинг как метод создания впечатляющих сайтов" class="js-posts-item-image" decoding="async" fetchpriority="low" height="964" intrinsicsize="1640x964" itemprop="image" loading="lazy" src="/uploads/blog/storytelling/6a3bdf6e66588.png" width="1640"/>
+        </picture>
+        <div class="posts-list__item-top" itemprop="headline">
+         Agile-подход к трансформации бизнеса: от диагностики до масштабирования
+        </div>
+        <div class="posts-list__item-bottom">
+         <div class="posts-list__item-date">
+         </div>
+         <div class="posts-list__item-type">
+          Методология
+         </div>
+        </div>
+        <meta content="Методология Agile Business: диагностика, стратегия с KPI, внедрение спринтами и закрепление результатов." itemprop="description"/>
+       </a>
+      </div>
+      <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/top-realtors" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+       <a class="posts-list__item-link" href="/blog/top-realtors">
+        <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+         <source srcset="/uploads/blog/top-realtors/thumbs/6a02efe881693@resize-375x-ss.webp" type="image/webp"/>
+         <source srcset="/uploads/blog/top-realtors/thumbs/6a02efe881693@resize-375x-ss.png" type="image/png"/>
+         <source srcset="/uploads/blog/top-realtors/thumbs/6a02efe881693@resize-x-webp.webp" type="image/webp"/>
+         <img alt="Лучшие сайты агентств недвижимости" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/top-realtors/6a02efe881693.png" width="1600"/>
+        </picture>
+        <div class="posts-list__item-top" itemprop="headline">
+         KPI сотрудников: как внедрить систему оценки эффективности
+        </div>
+        <div class="posts-list__item-bottom">
+         <div class="posts-list__item-date">
+         </div>
+         <div class="posts-list__item-type">
+          Продукты
+         </div>
+        </div>
+        <meta content="Прозрачные KPI по срокам, качеству и ответственности — как Agile KPI помогает командам и руководителям." itemprop="description"/>
+       </a>
+      </div>
+      <div class="posts__all js-posts-item">
+       <a class="posts__all-link hover-underline hover-underline--underline" href="/blog">
+        Все публикации
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="cooperate" data-component="Cooperate">
+     <div class="cooperate__background js-cooperate-background">
+      <svg fill="none" height="2536" viewbox="0 0 3850 2536" width="3850" xmlns="http://www.w3.org/2000/svg">
+       <rect fill="#fff" height="99%" width="100%">
+       </rect>
+       <path d="M0 2536h3850L1925 0" fill="#f02655">
+       </path>
+      </svg>
+     </div>
+     <div class="cooperate__inner js-cooperate-inner">
+      <svg fill="none" height="672" viewbox="0 0 1269 672" width="1269" xmlns="http://www.w3.org/2000/svg">
+       <path d="m610 580 85 7-41-25z" fill="#03000e">
+       </path>
+       <path d="m485 473 55 60-46-15z" fill="#03000e">
+       </path>
+       <path d="m436 649-105-40 43 51z" fill="#03000e">
+       </path>
+       <path d="m1108 637 84-63-58 18z" fill="#03000e">
+       </path>
+       <path d="M169 621 47 636l69-67z" fill="#03000e">
+       </path>
+       <path d="m932 641 25-45-81-21z" fill="#03000e">
+       </path>
+       <path d="m225 488 18 47 83-44z" fill="#03000e">
+       </path>
+       <path d="m953 473 21 44 47-28z" fill="#03000e">
+       </path>
+       <path d="m1143 360 41 65-52 3z" fill="#03000e">
+       </path>
+       <path d="m170 412 64-90-58 54z" fill="#03000e">
+       </path>
+       <path d="m357 407 3-92 72-34z" fill="#03000e">
+       </path>
+       <path d="m853 259-8 25-50-31z" fill="#03000e">
+       </path>
+       <path d="m876 443-64 40 6-92z" fill="#03000e">
+       </path>
+       <path d="m891 225 7-115-117 30z" fill="#03000e">
+       </path>
+       <path d="m567 330-20 66 81-83z" fill="#03000e">
+       </path>
+       <path d="m577 420 55 61 53-62z" fill="#03000e">
+       </path>
+       <path d="m767 549 60 1-48-57z" fill="#03000e">
+       </path>
+       <path d="m776 343-39 33-58-52z" fill="#03000e">
+       </path>
+       <path d="m960 277-30 44 25 24z" fill="#03000e">
+       </path>
+       <path d="m1001 213 53 5-53 15z" fill="#03000e">
+       </path>
+       <path d="m693 170-48 22 98-14z" fill="#03000e">
+       </path>
+       <path d="m387 144-127 64 109-2z" fill="#03000e">
+       </path>
+       <path d="m562 206-100 23 40-69z" fill="#03000e">
+       </path>
+       <path d="m1083 177-70-31 27-22z" fill="#03000e">
+       </path>
+       <path d="m767 36-15 38-26-33z" fill="#03000e">
+       </path>
+       <path d="M102 27 37 89l70-31z" fill="#03000e">
+       </path>
+       <path d="m521 17-79 61 87-36z" fill="#03000e">
+       </path>
+      </svg>
+     </div>
+     <div class="cooperate__body">
+      <div class="cooperate__title js-cooperate-title">
+       Давайте сотрудничать
+      </div>
+     </div>
+    </div>
+    <footer class="footer" data-component="Footer">
+     <div class="footer__inner js-footer-inner">
+      <div class="footer__inner-top">
+       <div class="footer__form">
+        <div class="footer__form-title">
+         Обсудим задачу
+         <br/>
+         вашего бизнеса
+        </div>
+        <div class="footer__form-body">
+         <form action="/feedback/callback" class="form form--footer" data-component="FormSubmit" data-form-name="Callback" id="callback-footer" method="post">
+          <input name="_csrf" type="hidden" value="osY3RbBKastBEqzw1SrV5buBXxWLSxNEf7X5a7Za9NXLn3gU9Cs_iAt_maCYWqW9yMARb78uVBdJ5YpejgWGvg=="/>
+          <input id="callback-footer-subject" name="Callback[subject]" type="hidden" value="Заявка с сайта Agile Business"/>
+          <input id="callback-footer-request_uri" name="Callback[request_uri]" type="hidden"/>
+          <input id="callback-footer-doc_referer" name="Callback[doc_referer]" type="hidden"/>
+          <input id="callback-footer-utm" name="Callback[utm]" type="hidden"/>
+          <input id="callback-footer-js" name="Callback[js]" type="hidden" value="0"/>
+          <div class="form__group">
+           <div class="form-floating form-floating-fluid">
+            <textarea class="form-control form-control-fluid form-textarea" id="callback-footer-message" name="Callback[message]" placeholder="Опишите задачу или цель" rows="3"></textarea>
+            <label for="callback-footer-message">
+             Опишите задачу или цель
+            </label>
+           </div>
+          </div>
+          <div class="form__group">
+           <div class="form-floating form-floating-fluid">
+            <input class="form-control form-control-fluid" id="callback-footer-name" name="Callback[name]" placeholder="Ваше имя *" required="" type="text"/>
+            <label for="callback-footer-name">
+             Ваше имя *
+            </label>
+           </div>
+          </div>
+          <div class="form__group">
+           <div class="form-floating form-floating-fluid">
+            <input class="form-control form-control-fluid" id="callback-footer-phone" name="Callback[phone]" placeholder="Телефон *" required="" type="tel"/>
+            <label for="callback-footer-phone">
+             Телефон *
+            </label>
+           </div>
+          </div>
+          <div class="form__group">
+           <div class="form-check form__check my-3">
+            <input class="form-check-input" id="callback-footer-rules" name="Callback[rules]" required="" type="checkbox" value="1"/>
+            <label class="form-check-label" for="callback-footer-rules">
+             Нажимая кнопку «Отправить», я даю
+             <a class="hover-underline hover-underline--underline" href="/approval">
+              согласие на обработку своих персональных данных
+             </a>
+             и соглашаюсь с
+             <a class="hover-underline hover-underline--underline" href="/policy">
+              Политикой конфиденциальности
+             </a>
+             .
+            </label>
+           </div>
+          </div>
+          <div class="form__group">
+           <button class="btn form-submit" data-component="ButtonHover" type="submit">
+            <span class="form-submit__text js-button-hover-inner">
+             Отправить
+            </span>
+           </button>
+          </div>
+         </form>
+        </div>
+       </div>
+      </div>
+      <div class="footer__inner-middle" itemscope="" itemtype="http://schema.org/Organization">
+       <div class="d-none" itemprop="name">
+        Agile Business
+       </div>
+       <link href="https://agile-business-pro.com/" itemprop="url"/>
+       <div class="footer__contacts">
+        <div class="nav-contacts">
+         <div class="nav-contacts__item">
+          <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com" itemprop="email">
+           info@agile-business-pro.com
+          </a>
+         </div>
+         <div class="nav-contacts__item">
+          <a class="nav-contacts__link" href="tel:+79636177373" itemprop="telephone">
+           +7 (963) 617-73-73
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="footer__cities">
+        <div class="nav-cities">
+         <span class="nav-cities__item">
+          Москва
+         </span>
+        </div>
+       </div>
+       <div class="footer__socials">
+        <div class="nav-socials" data-barba-prevent="all">
+         <div class="nav-socials__item">
+          <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+           Telegram
+          </a>
+         </div>
+         <div class="nav-socials__item">
+          <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+           Telegram
+          </a>
+         </div>
+         <div class="nav-socials__item">
+          <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+           Telegram
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="footer__inner-bottom">
+       <div class="footer__copyright">
+        <div class="nav-copyright">
+         © 2026 Agile Business
+        </div>
+       </div>
+       <div class="footer__time">
+        <div class="nav-time">
+         <span class="text-nowrap">
+          <span class="nav-time__digits" data-component="Time" data-timezone="Europe/Moscow">
+           <span class="nav-time__digits-hours" data-provide="hours">
+            00
+           </span>
+           <span class="nav-time__digits-colon">
+            :
+           </span>
+           <span class="nav-time__digits-minutes" data-provide="minutes">
+            00
+           </span>
+          </span>
+          <span class="nav-time__note">
+           МСК
+          </span>
+         </span>
+         ,
+         <span class="text-nowrap">
+          <span class="nav-time__digits" data-component="Time" data-timezone="Asia/Krasnoyarsk">
+           <span class="nav-time__digits-hours" data-provide="hours">
+            00
+           </span>
+           <span class="nav-time__digits-colon">
+            :
+           </span>
+           <span class="nav-time__digits-minutes" data-provide="minutes">
+            00
+           </span>
+          </span>
+          <span class="nav-time__note">
+           КРСК
+          </span>
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <div aria-labelledby="offcanvas-brief-label" class="offcanvas offcanvas-top offcanvas-brief" data-component="Offcanvas" id="offcanvas-brief" tabindex="-1">
+   <div class="offcanvas-brief__close">
+    <button aria-label="Закрыть" class="btn-close" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body offcanvas-brief__body">
+    <div class="brief">
+     <div class="brief__top">
+      <div class="brief__title" id="offcanvas-brief-label">
+       Обсудить проект
+      </div>
+      <div class="pitcher-sign">
+       <svg>
+        <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+        </use>
+       </svg>
+      </div>
+     </div>
+     <form action="/feedback/brief" class="form" data-component="FormSubmit" data-form-name="Brief" id="brief-offcanvas" method="post">
+      <input name="_csrf" type="hidden" value="osY3RbBKastBEqzw1SrV5buBXxWLSxNEf7X5a7Za9NXLn3gU9Cs_iAt_maCYWqW9yMARb78uVBdJ5YpejgWGvg=="/>
+      <input id="brief-offcanvas-subject" name="Brief[subject]" type="hidden" value="Обсудить проект"/>
+      <input id="brief-offcanvas-request_uri" name="Brief[request_uri]" type="hidden"/>
+      <input id="brief-offcanvas-doc_referer" name="Brief[doc_referer]" type="hidden"/>
+      <input id="brief-offcanvas-utm" name="Brief[utm]" type="hidden"/>
+      <input id="brief-offcanvas-js" name="Brief[js]" type="hidden" value="0"/>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Ваши контакты
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-name" name="Brief[name]" placeholder="Расскажите кратко о вашем проекте *" required="" type="text"/>
+           <label for="brief-offcanvas-name">
+            Ваше имя *
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-phone" name="Brief[phone]" placeholder="Расскажите кратко о вашем проекте *" required="" type="tel"/>
+           <label for="brief-offcanvas-phone">
+            Телефон *
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-email" name="Brief[email]" placeholder="Эл. почта" type="email"/>
+           <label for="brief-offcanvas-email">
+            Эл. почта
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-company" name="Brief[company]" placeholder="Компания" type="text"/>
+           <label for="brief-offcanvas-company">
+            Компания
+           </label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        О задаче
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Kompleks-rabot" name="Brief[type]" type="radio" value="Комплексный консалтинг"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Kompleks-rabot">
+             Комплексный консалтинг
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Korp-sajt" name="Brief[type]" type="radio" value="Бизнес-аналитика"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Korp-sajt">
+             Бизнес-аналитика
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Onlajn-servis" name="Brief[type]" type="radio" value="ИТ и разработка"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Onlajn-servis">
+             ИТ и разработка
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Brending" name="Brief[type]" type="radio" value="Креатив"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Brending">
+             Креатив
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group">
+          <div class="form-floating form-floating-fluid">
+           <textarea class="form-control form-control-fluid form-textarea" id="brief-offcanvas-message" name="Brief[message]" placeholder="Опишите задачу или цель" rows="5"></textarea>
+           <label for="brief-offcanvas-message">
+            Опишите задачу или цель
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <ol class="brief__list">
+          <li>
+           Из какой вы компании, чем она занимается?
+          </li>
+          <li>
+           С чем мы можем помочь? Как представляете результат?
+          </li>
+          <li>
+           На какой срок работы и бюджет рассчитываете?
+          </li>
+          <li>
+           Напишите, если удобнее общаться в мессенджере.
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Бюджет
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Menee-1-mln" name="Brief[budget]" type="radio" value="Менее 1 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Menee-1-mln">
+             Менее 1 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-1-2-mln" name="Brief[budget]" type="radio" value="1-2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-1-2-mln">
+             1-2 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Bolee-2-mln" name="Brief[budget]" type="radio" value="Более 2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Bolee-2-mln">
+             Более 2 млн
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Откуда вы узнали о нас
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rejtingi" name="Brief[source]" type="radio" value="Рейтинги"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rejtingi">
+             Рейтинги
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Kopirajt-na-sajte" name="Brief[source]" type="radio" value="Копирайт на сайте"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Kopirajt-na-sajte">
+             Копирайт на сайте
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rekomendovali" name="Brief[source]" type="radio" value="Рекомендовали"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rekomendovali">
+             Рекомендовали
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Davno-znau" name="Brief[source]" type="radio" value="Давно знаю"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Davno-znau">
+             Давно знаю
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__submit">
+       <div>
+        <button class="btn form-submit" data-component="ButtonHover" type="submit">
+         <span class="form-submit__text js-button-hover-inner">
+          Отправить
+         </span>
+        </button>
+       </div>
+       <div class="brief__submit-text">
+        <div class="form-check">
+         <input class="form-check-input" id="brief-offcanvas-rules" name="Brief[rules]" required="" type="checkbox" value="1"/>
+         <label class="form-check-label" for="brief-offcanvas-rules">
+          Нажимая кнопку «Отправить», я даю
+          <a class="hover-underline hover-underline--underline" href="/approval">
+           согласие на обработку своих персональных данных
+          </a>
+          и соглашаюсь с
+          <a class="hover-underline hover-underline--underline" href="/policy">
+           Политикой конфиденциальности
+          </a>
+          .
+         </label>
+        </div>
+       </div>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div>
+  <div class="counters-body">
+  </div>
+  <script defer="" fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260722">
+  </script>
+  <script defer="" src="/js/agile-perf.js?v20260722p">
+  </script>
+  <script defer="" src="/js/agile-global.js?v20260722p">
+  </script>
+ </body>
+</html>
+

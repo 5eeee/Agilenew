@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html class="no-js is-scroll-unknown" data-node-env="production" data-public-path="/assets/front/build/" lang="ru-RU">
+ <!-- set webpack public path on the fly https://webpack.js.org/guides/public-path/#set-value-on-the-fly -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <title>
+   О нас — Agile Business
+  </title>
+  <meta content="Agile Business — команда экспертов в стратегии, аналитике и технологиях. Agile подход к решению сложных бизнес-задач." name="description"/>
+  <!-- fonts-preload -->
+  <style>
+   @supports (font-variation-settings: normal){:root{--font-variation-supports: 1}}
+  </style>
+  <script>
+   (document.documentElement&&document.head&&function($html,$head){var webpackPublicPath=$html.getAttribute('data-public-path');var preloadFonts=['fonts/Manrope-VariableFont_wght.woff2','fonts/OpenSans-VariableFont_wdth,wght.woff2'];try{var rootStyles=getComputedStyle($html);if(!rootStyles.getPropertyValue('--font-variation-supports')){return;} preloadFonts.forEach(function(font){var link=document.createElement('link');link.href=webpackPublicPath+font;link.rel='preload';link.setAttribute('fetchpriority','high');link.setAttribute('crossorigin','anonymous');link.setAttribute('as','font');$head.appendChild(link);});}catch(error){console.error('[fonts-preload]',error);}})(document.documentElement,document.head);
+  </script>
+  <!-- /fonts-preload -->
+  <!-- head-js -->
+  <script>
+   (document.documentElement&&document.documentElement.className&&(function($html){$html.className=$html.className.replace('no-js','js');var webp=new Image();webp.onload=webp.onerror=function(){$html.className+=(webp.width==1&&webp.height==1?' webp':' no-webp');};webp.src='data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';var avif=new Image();avif.onload=avif.onerror=function(){$html.className+=(avif.width==1&&avif.height==1?' avif':' no-avif');};avif.src=['data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAAEcbWV0YQAAAAAAAABIaGRscgAAAAAAAAAAcGljdAAAAAAAAAAA','AAAAAGNhdmlmIC0gaHR0cHM6Ly9naXRodWIuY29tL2xpbmstdS9jYXZpZgAAAAAeaWxvYwAAAAAEQAABAAEAAAAAAUQAAQAAABcAAAAqaWluZgEAAAAAAAA','BAAAAGmluZmUCAAAAAAEAAGF2MDFJbWFnZQAAAAAOcGl0bQAAAAAAAQAAAHJpcHJwAAAAUmlwY28AAAAQcGFzcAAAAAEAAAABAAAAFGlzcGUAAAAAAAAAAQ','AAAAEAAAAQcGl4aQAAAAADCAgIAAAAFmF2MUOBAAwACggYAAYICGgIIAAAABhpcG1hAAAAAAAAAAEAAQUBAoMDhAAAAB9tZGF0CggYAAYICGgIIBoFHiAAA','EQiBACwDoA='].join('');$html.style.setProperty('--vh',(window.innerHeight*0.01).toFixed()+'px');var fixedBlock=document.createElement('div');fixedBlock.style='width: 1px; height: 100vh; position: fixed; left: 0px; top: 0px; bottom: 0px; visibility: hidden;';$html.appendChild(fixedBlock);$html.style.setProperty('--lvh',(fixedBlock.clientHeight*0.01).toFixed()+'px');fixedBlock.remove();$html.style.setProperty('--svh',($html.clientHeight*0.01).toFixed()+'px');$html.style.setProperty('--dvh',(window.innerHeight*0.01).toFixed()+'px');document.cookie='_js=1; path=/; SameSite=Lax';var scrollbarOuter=document.createElement('div');scrollbarOuter.style.zIndex='-9999';scrollbarOuter.style.position='absolute';scrollbarOuter.style.visibility='hidden';scrollbarOuter.style.width='100px';scrollbarOuter.style.marginLeft='-100px';scrollbarOuter.style.overflow='scroll';$html.appendChild(scrollbarOuter);var scrollbarInner=document.createElement('div');scrollbarInner.style.width='100%';scrollbarOuter.appendChild(scrollbarInner);$html.style.setProperty('--scrollbar-width',(100-scrollbarInner.offsetWidth)+'px');scrollbarOuter.remove();})(document.documentElement));
+  </script>
+  <!-- /head-js -->
+  <!-- open-graph -->
+  <meta content="ru_RU" property="og:locale"/>
+  <meta content="article" property="og:type"/>
+  <meta content="О нас — Agile Business" property="og:title"/>
+  <meta content="Agile Business — команда экспертов в стратегии, аналитике и технологиях. Agile подход к решению сложных бизнес-задач." property="og:description"/>
+  <meta content="https://agile-business-pro.com/assets/logo.png" property="og:image"/>
+  <meta content="Agile Business — бизнес-консалтинг." property="og:site_name"/>
+  <meta content="https://agile-business-pro.com/about" property="og:url"/>
+  <!-- /open-graph -->
+  <!-- favicons -->
+  <link href="/assets/front/build/img/favicons/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/assets/front/build/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/assets/front/build/img/favicons/manifest.json" rel="manifest"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="#03000e" name="theme-color"/>
+  <meta content="agile-business-pro.com" name="application-name"/>
+  <link href="/assets/front/build/img/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Agile Business — бизнес-консалтинг" name="apple-mobile-web-app-title"/>
+  <!-- /favicons -->
+  <meta content="0f60c6cded052d83" name="yandex-verification"/>
+  <meta content="_csrf" name="csrf-param"/>
+  <meta content="lElAlV9zp93HkEpJo2N0Y1ZFK4Nm5IGpVGoaaoj25BrVKDf4BRifvJ-jGz3ENTFWOSBk0wzQxdAuXkNH-ZXQQw==" name="csrf-token"/>
+  <link href="https://agile-business-pro.com/about" rel="canonical"/>
+  <link fetchpriority="high" href="/assets/front/build/css/app.min.css?v20260722" id="css-app" rel="stylesheet"/>
+  <script>
+   if(location.hash==="#nowebgl")history.replaceState(null,"",location.pathname+location.search);
+  </script>
+  <link href="/css/agile-overrides.css?v20260722p" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="counters-body">
+  </div>
+  <header class="header js-header" data-component="HeaderIntro">
+   <div class="header__inner">
+    <div class="header__logo">
+     <a class="logo logo--lg js-header-logo" href="/">
+      <div class="logo__inner">
+       <img alt="Agile Business" decoding="async" fetchpriority="high" height="52" loading="eager" src="/assets/logo.png" style="height:48px;width:auto;display:block" width="200"/>
+      </div>
+     </a>
+    </div>
+    <div class="header__feedback">
+     <button aria-controls="offcanvas-brief" class="header-feedback header-link hover-underline" data-bs-target="#offcanvas-brief" data-bs-toggle="offcanvas" type="button">
+      <span class="header-link__inner js-header-link">
+       Обсудить проект
+      </span>
+     </button>
+    </div>
+    <div class="header__burger">
+     <button aria-label="Меню" class="burger" data-component="Burger" type="button">
+      <span class="burger__inner">
+       <span class="burger__line">
+       </span>
+       <span class="burger__line">
+       </span>
+      </span>
+     </button>
+    </div>
+    <div class="header__menu">
+     <div class="menu-overlay">
+      <div class="menu-overlay__nav">
+       <ul class="menu" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/works" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Проекты
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/services" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Услуги
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/about" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Компания
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/awards" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Награды
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/reviews" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Отзывы
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/blog" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Блог
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/contacts" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Контакты
+          </div>
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="menu-overlay__contacts">
+       <div class="nav-contacts">
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com">
+          info@agile-business-pro.com
+         </a>
+        </div>
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="tel:+79636177373">
+          +7 (963) 617-73-73
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="menu-overlay__cities">
+       <div class="nav-cities">
+        <span class="nav-cities__item">
+         Москва
+        </span>
+       </div>
+      </div>
+      <div class="menu-overlay__socials">
+       <div class="nav-socials" data-barba-prevent="all">
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="header-backdrop js-header-backdrop">
+  </div>
+  <div class="messages">
+   <div class="toast-container messages__container">
+    <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages__item fade" data-bs-autohide="true" data-bs-delay="10000" id="messages-toast" role="alert">
+     <div class="toast-header messages-toast__header">
+      <span class="toast-title messages-toast__title">
+       Agile Business
+      </span>
+      <button aria-label="Закрыть" class="btn-close messages-toast__btn-close" data-bs-dismiss="toast" type="button">
+       <span aria-hidden="true">
+       </span>
+      </button>
+     </div>
+     <div class="toast-body messages-toast__body">
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 w-100 p-2">
+   <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages-toast--light fade mx-auto" data-bs-autohide="false" data-component="ToastCookie" id="messages-cookie" role="alert">
+    <div class="toast-header messages-toast__header pb-0">
+    </div>
+    <div class="toast-body messages-toast__body">
+     <div class="text-center small">
+      Продолжая пользоваться сайтом, Вы выражаете свое согласие на сбор и обработку информации о Вашей активности на настоящем сайте в соответствии с
+      <a class="text-nowrap hover-underline hover-underline--underline" href="/policy">
+       Политикой конфиденциальности
+      </a>
+      .
+     </div>
+     <button class="btn form-submit mt-2 w-100 px-2 py-1 overflow-hidden" data-bs-dismiss="toast" data-component="ButtonHover" type="button">
+      <span class="form-submit__text js-button-hover-inner small">
+       Хорошо
+      </span>
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="smooth-wrapper" data-component="Scroll" id="smooth-wrapper">
+   <div class="barba-wrapper smooth-content" data-barba="wrapper" id="smooth-content">
+    <div id="top">
+    </div>
+    <div class="barba-container" data-barba="container" tabindex="-1">
+     <div class="about">
+      <div class="about__content">
+       <div class="about__block">
+        <h1 class="about__title js-barba-transition">
+         Компания
+        </h1>
+        <div class="about__text js-barba-transition">
+         Надёжный веб-продакшн. Решаем задачи бизнеса. Гарантируем результат.
+        </div>
+        <div class="about__info js-barba-transition">
+         <div class="about__number">
+          <div class="about__value">
+           800+
+          </div>
+          <div class="about__description">
+           проектов
+          </div>
+         </div>
+         <div class="about__number">
+          <div class="about__value">
+           30+
+          </div>
+          <div class="about__description">
+           специалистов
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="about__block js-barba-transition">
+        <div class="about__heading" data-component="AboutHeadings">
+         <div class="about__heading-item js-about-headings-item" data-component="Heading">
+          <div class="about__heading-text js-heading-text">
+           Agile Business
+          </div>
+         </div>
+         <div class="about__heading-item js-about-headings-item" data-component="Heading">
+          <div class="about__heading-text js-heading-text">
+           Agile Business
+          </div>
+         </div>
+         <div class="about__heading-item js-about-headings-item" data-component="Heading">
+          <div class="about__heading-text js-heading-text">
+           Agile Business
+          </div>
+         </div>
+         <div class="about__heading-item js-about-headings-item" data-component="Heading">
+          <div class="about__heading-text js-heading-text">
+           Agile Business
+          </div>
+         </div>
+         <div class="about__heading-item js-about-headings-item" data-component="Heading">
+          <div class="about__heading-text js-heading-text">
+           Agile Business
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="section section--wide">
+      <div class="section__content">
+       <h2 class="section__text">
+        <span class="text-red">
+         Создаем сайты
+        </span>
+        и сервисы, решающие задачи бизнеса.
+        <span class="text-red">
+         Достигаем целей
+        </span>
+        , укладываемся в сроки, остаемся
+        <span class="text-red">
+         в рамках бюджета
+        </span>
+        .
+       </h2>
+       <div class="pitcher-sign">
+        <svg>
+         <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+         </use>
+        </svg>
+       </div>
+      </div>
+     </div>
+     <div class="section">
+      <div class="section__content">
+       <h2 class="section__text section__text--directions">
+        Мы хороши в следующем
+       </h2>
+       <div class="directions">
+        <div class="directions__item">
+         <a class="directions__title directions__link" href="/services/website">
+          Сайты
+         </a>
+         <ul class="directions__list">
+          <li class="directions__list-item">
+           <a href="/services/construction">
+            Сайты для девелоперов и ЖК
+           </a>
+          </li>
+          <li class="directions__list-item">
+           <a href="/services/industry">
+            Сайты для промышленности
+           </a>
+          </li>
+          <li class="directions__list-item">
+           <a href="/services/b2b">
+            Сайты B2B-услуг
+           </a>
+          </li>
+         </ul>
+        </div>
+        <div class="directions__item">
+         <a class="directions__title directions__link" href="/services/online">
+          Сервисы
+         </a>
+         <ul class="directions__list">
+          <li class="directions__list-item">
+           Личные кабинеты
+          </li>
+          <li class="directions__list-item">
+           ИТ и разработкаы
+          </li>
+          <li class="directions__list-item">
+           ERP-системы
+          </li>
+          <li class="directions__list-item">
+           E-com
+          </li>
+          <li class="directions__list-item">
+           CRM
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="section section--achievements">
+      <div class="section__content">
+       <h2 class="section__title">
+        Достижения
+       </h2>
+       <div class="achievements">
+        <div class="achievements__row">
+         <div class="achievements__left">
+          <div class="achievements__item">
+           <div class="achievements__value">
+            11
+           </div>
+           <div class="achievements__text">
+            в рейтинге «Креатив в Цифровых продуктах»
+           </div>
+          </div>
+          <div class="achievements__item">
+           <div class="achievements__value">
+            24
+           </div>
+           <div class="achievements__text">
+            в рейтинге «Разработка корпоративных сайтов»
+           </div>
+          </div>
+         </div>
+         <div class="achievements__right">
+          <div class="achievements__item">
+           <div class="achievements__value">
+            в топ-100
+           </div>
+           <div class="achievements__text">
+            лучших дизайн-студий России
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="achievements__row">
+         <div class="achievements__left">
+          <div class="achievements__item">
+           <div class="achievements__value">
+            3
+           </div>
+           <div class="achievements__text">
+            в рейтинге разработчиков сайтов для сферы Строительство
+           </div>
+          </div>
+          <div class="achievements__item">
+           <div class="achievements__value">
+            16
+           </div>
+           <div class="achievements__text">
+            в рейтинге разработчиков сайтов для сферы Металлургия
+           </div>
+          </div>
+         </div>
+         <div class="achievements__right">
+          <div class="achievements__item">
+           <div class="achievements__value">
+            17
+           </div>
+           <div class="achievements__text">
+            в рейтинге разработчиков сайтов для сферы Энергетика
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="showreel">
+      <div class="showreel__video" data-component="Video" data-video-desktop="/assets/front/build/upload/video/showreel@resize-1920x-desktop.mp4" data-video-mobile="/assets/front/build/upload/video/showreel@resize-1024x-mobile.mp4" data-video-poster="/assets/front/build/upload/video/showreel@resize-1920x-desktop.jpg" style="--video-width:1920;--video-height:1080;">
+      </div>
+     </div>
+     <div class="section section--industries">
+      <div class="section__content">
+       <h2 class="section__text">
+        Умеем работать с различными отраслями, но максимальный опыт у нас в следующих
+       </h2>
+      </div>
+      <div class="industries" data-component="Industries">
+       <ul class="industries__list js-industries-list">
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/works/industry/industry">
+          Промышленность
+         </a>
+        </li>
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/works/industry/construction">
+          Строительство
+         </a>
+        </li>
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/works/industry/services">
+          B2B-услуги
+         </a>
+        </li>
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/works/industry/itadv">
+          ИТ
+         </a>
+        </li>
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/works/industry/trade">
+          Торговля
+         </a>
+        </li>
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/works/industry/energy">
+          Энергетика
+         </a>
+        </li>
+        <li class="industries__item">
+         <a class="text-decoration-none d-inline-block" href="/works/industry/gos">
+          Госструктуры
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="section section--industries">
+      <div class="clients-grid">
+       <div class="clients-grid__item" title="СИАЛ">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="СИАЛ" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/sial.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Сибирский цемент">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Сибирский цемент" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/sibcem.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Зенит">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Зенит" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/zenit.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="НПЦ Магнитной гидродинамики">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="НПЦ Магнитной гидродинамики" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/npcmgd.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Технониколь">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Технониколь" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/tekhnonikol.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Knauf">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Knauf" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/knauf.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Русгидро">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Русгидро" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/rushydro.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Самараэнергосбыт">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Самараэнергосбыт" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/samges.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Красноярскэнергосбыт">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Красноярскэнергосбыт" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/krsk-sbit.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Росатом">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Росатом" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/rosatom.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Арбан">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Арбан" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/arban.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Malltech">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Malltech" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/malltech.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="A-100 девелопмент">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="A-100 девелопмент" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/a100.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Монолитхолдинг">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Монолитхолдинг" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/monolit-holding.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="Nissan">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="Nissan" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/nissan.svg" width="130"/>
+        </picture>
+       </div>
+       <div class="clients-grid__item" title="TTK">
+        <picture class="clients-grid__logo" style="--image-width:130;--image-height:70;">
+         <img alt="TTK" decoding="async" fetchpriority="low" height="70" intrinsicsize="130x70" loading="lazy" src="/assets/front/build/upload/clients/ttk.svg" width="130"/>
+        </picture>
+       </div>
+      </div>
+     </div>
+     <div class="section section--team">
+      <div class="section__content">
+       <h2 class="section__title">
+        Проектом занимаются
+        <br/>
+        не менеджеры, а эксперты
+       </h2>
+       <p class="section__text section__text--sm">
+        Мы понимаем, как устроен бизнес в вашей индустрии. У нас за плечами огромная насмотренность и сотни реализованных проектов. Поэтому мы быстро погружаемся в задачу, и сразу говорим на языке клиента.
+       </p>
+       <div class="team">
+        <div aria-label="Руководство" class="splide team__slider" data-component="TeamSlider">
+         <div class="splide__track">
+          <ul class="splide__list team__slider-list">
+           <li class="splide__slide team__slider-slide">
+            <div class="team__item">
+             <picture class="team__photo" style="--image-width:527;--image-height:527;">
+              <img alt="Евгений Кровяков" decoding="async" fetchpriority="low" height="527" intrinsicsize="527x527" loading="lazy" src="/assets/front/build/upload/managers/krovyakov.jpg" width="527"/>
+             </picture>
+             <div class="team__name">
+              Евгений Кровяков
+             </div>
+             <div class="team__position">
+              Руководитель агенства
+             </div>
+             <div class="team__credentials">
+              Инженер и магистр в области разработки ПО, президентская программа подготовки управленческих кадров
+             </div>
+             <div class="team__experience">
+              В деле 25 лет
+             </div>
+             <div class="team__role">
+              Отвечает за менеджмент проекта
+             </div>
+            </div>
+           </li>
+           <li class="splide__slide team__slider-slide">
+            <div class="team__item">
+             <picture class="team__photo" style="--image-width:527;--image-height:527;">
+              <img alt="Павел Колодяжный" decoding="async" fetchpriority="low" height="527" intrinsicsize="527x527" loading="lazy" src="/assets/front/build/upload/managers/kolodyazhniy.jpg" width="527"/>
+             </picture>
+             <div class="team__name">
+              Павел Колодяжный
+             </div>
+             <div class="team__position">
+              Креативный директор
+             </div>
+             <div class="team__credentials">
+              Практикующий дизайнер, член Союза Дизайнеров России
+             </div>
+             <div class="team__experience">
+              В деле 26 лет
+             </div>
+             <div class="team__role">
+              Отвечает за дизайн, внешний вид и эмоции
+             </div>
+            </div>
+           </li>
+           <li class="splide__slide team__slider-slide">
+            <div class="team__item">
+             <picture class="team__photo" style="--image-width:640;--image-height:640;">
+              <img alt="Дмитрий Пятков" decoding="async" fetchpriority="low" height="640" intrinsicsize="640x640" loading="lazy" src="/assets/front/build/upload/managers/pyatkov.jpg" width="640"/>
+             </picture>
+             <div class="team__name">
+              Дмитрий Пятков
+             </div>
+             <div class="team__position">
+              Технический директор
+             </div>
+             <div class="team__credentials">
+              Опыт в проектировании 500+ систем, fullstack-разработчик
+             </div>
+             <div class="team__experience">
+              В деле 23 года
+             </div>
+             <div class="team__role">
+              Может реализовать любую техническую идею
+             </div>
+            </div>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="team__links">
+      </div>
+     </div>
+     <div class="section section--wide">
+      <div class="section__content">
+       <h2 class="section__text">
+        Мы на связи 12 часов и можем приехать к вам на встречу в Москве, Питере, Краснодаре и Красноярске.
+       </h2>
+       <p class="section__text section__text--sm">
+        Есть проект? Свяжитесь c нами, мы обсудим ваши задачи и найдем решение.
+       </p>
+       <div class="pitcher-sign">
+        <svg>
+         <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+         </use>
+        </svg>
+       </div>
+      </div>
+     </div>
+     <div class="section">
+      <div class="section__content">
+       <h2 class="section__title">
+        Соблюдаем принципы
+       </h2>
+       <ul class="rules">
+        <li class="rules__item">
+         <div class="rules__item-block">
+          <div class="rules__count">
+           01
+          </div>
+          <div class="rules__title">
+           Цели
+          </div>
+         </div>
+         <div class="rules__item-block">
+          <div class="rules__text">
+           Всегда решаем задачи бизнеса, а не имитируем бурную деятельность
+          </div>
+         </div>
+        </li>
+        <li class="rules__item">
+         <div class="rules__item-block">
+          <div class="rules__count">
+           02
+          </div>
+          <div class="rules__title">
+           Сроки
+          </div>
+         </div>
+         <div class="rules__item-block">
+          <div class="rules__text">
+           Укладываемся в дедлайны, не придумываем отмазки
+          </div>
+         </div>
+        </li>
+        <li class="rules__item">
+         <div class="rules__item-block">
+          <div class="rules__count">
+           03
+          </div>
+          <div class="rules__title">
+           Бюджет
+          </div>
+         </div>
+         <div class="rules__item-block">
+          <div class="rules__text">
+           Остаемся в рамках бюджета, не вымогаем деньги за оценённые заранее работы
+          </div>
+         </div>
+        </li>
+        <li class="rules__item">
+         <div class="rules__item-block">
+          <div class="rules__count">
+           04
+          </div>
+          <div class="rules__title">
+           Результат
+          </div>
+         </div>
+         <div class="rules__item-block">
+          <div class="rules__text">
+           Всегда доводим дело до конца, не боимся трудностей
+          </div>
+         </div>
+        </li>
+        <li class="rules__item">
+         <div class="rules__item-block">
+          <div class="rules__count">
+           05
+          </div>
+          <div class="rules__title">
+           Процессы
+          </div>
+         </div>
+         <div class="rules__item-block">
+          <div class="rules__text">
+           Работаем по чётким процессам, достигаем прогнозируемого результата в срок
+          </div>
+         </div>
+        </li>
+        <li class="rules__item">
+         <div class="rules__item-block">
+          <div class="rules__count">
+           06
+          </div>
+          <div class="rules__title">
+           Отношения
+          </div>
+         </div>
+         <div class="rules__item-block">
+          <div class="rules__text">
+           Работаем вдолгую, ценим доверительные отношения
+          </div>
+         </div>
+        </li>
+        <li class="rules__item">
+         <div class="rules__item-block">
+          <div class="rules__count">
+           07
+          </div>
+          <div class="rules__title">
+           Проактивность
+          </div>
+         </div>
+         <div class="rules__item-block">
+          <div class="rules__text">
+           Всегда предлагаем решения, подсказываем направления для развития
+          </div>
+         </div>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="arda">
+      <div class="arda__block">
+       <div class="arda__text">
+        Участник ассоциации
+        <br/>
+        развития digital-агентств
+       </div>
+       <svg class="arda__logo">
+        <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-arda">
+        </use>
+       </svg>
+      </div>
+     </div>
+     <div class="section section--awards">
+      <div class="section__content">
+       <h2 class="section__title">
+        Награды
+       </h2>
+       <p class="section__text section__text--sm">
+        Наши проекты отмечены наградами в известных дизайнерских конкурсах
+       </p>
+       <ul class="awards">
+        <li class="awards__item">
+         <svg class="awards__icon">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-award-cssda">
+          </use>
+         </svg>
+         <h3 class="awards__title">
+          CSS Design Awards
+         </h3>
+         <div class="awards__count">
+          37
+         </div>
+        </li>
+        <li class="awards__item">
+         <svg class="awards__icon">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-award-tagline">
+          </use>
+         </svg>
+         <h3 class="awards__title">
+          Tagline Awards
+         </h3>
+         <div class="awards__count">
+          10
+         </div>
+        </li>
+        <li class="awards__item">
+         <svg class="awards__icon">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-award-dprofile">
+          </use>
+         </svg>
+         <h3 class="awards__title">
+          Telegram
+         </h3>
+         <div class="awards__count">
+          4
+         </div>
+        </li>
+        <li class="awards__item">
+         <svg class="awards__icon">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-award-runet">
+          </use>
+         </svg>
+         <h3 class="awards__title">
+          Рейтинг рунета
+         </h3>
+         <div class="awards__count">
+          2
+         </div>
+        </li>
+        <li class="awards__item">
+         <svg class="awards__icon">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-award-behance">
+          </use>
+         </svg>
+         <h3 class="awards__title">
+          Telegram
+         </h3>
+         <div class="awards__count">
+          1
+         </div>
+        </li>
+        <li class="awards__item">
+         <svg class="awards__icon">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-award-goldensite">
+          </use>
+         </svg>
+         <h3 class="awards__title">
+          Золотой сайт
+         </h3>
+         <div class="awards__count">
+          1
+         </div>
+        </li>
+        <li class="awards__item">
+         <svg class="awards__icon">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-award-workspace">
+          </use>
+         </svg>
+         <h3 class="awards__title">
+          Workspace Design Awards
+         </h3>
+         <div class="awards__count">
+          1
+         </div>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="section">
+      <div class="section__content">
+       <h2 class="section__title">
+        Отзывы
+       </h2>
+       <ul class="reviews-list">
+        <li class="reviews-list__item">
+         <div class="reviews-list__title">
+          <span>
+           Центра занятости населения Красноярска
+          </span>
+         </div>
+         <div class="reviews-list__info">
+          <div aria-label="Оценка: 5" class="reviews-list__rate" title="Оценка: 5">
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+          </div>
+          <div class="reviews-list__icon">
+           <a aria-label="Отзыв на ratingruneta.ru" class="reviews-list__icon-link" data-barba-prevent="self" href="https://ratingruneta.ru/agile-business/reviews-web/8670/" rel="nofollow" target="_blank" title="Отзыв на ratingruneta.ru">
+            <svg class="reviews-list__icon-svg">
+             <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-review-runet">
+             </use>
+            </svg>
+           </a>
+          </div>
+          <div class="reviews-list__link">
+           <a href="/works/krasczn#review">
+            Проект
+           </a>
+          </div>
+         </div>
+        </li>
+        <li class="reviews-list__item">
+         <div class="reviews-list__title">
+          <span>
+           Портал Минздрава о донорстве органов
+          </span>
+         </div>
+         <div class="reviews-list__info">
+          <div aria-label="Оценка: 5" class="reviews-list__rate" title="Оценка: 5">
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+          </div>
+          <div class="reviews-list__icon">
+           <a aria-label="Отзыв на ratingruneta.ru" class="reviews-list__icon-link" data-barba-prevent="self" href="https://ratingruneta.ru/agile-business/reviews-web/9074/" rel="nofollow" target="_blank" title="Отзыв на ratingruneta.ru">
+            <svg class="reviews-list__icon-svg">
+             <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-review-runet">
+             </use>
+            </svg>
+           </a>
+          </div>
+          <div class="reviews-list__link">
+           <a data-barba-prevent="self" href="https://ratingruneta.ru/agile-business/reviews-web/9074/" target="_blank">
+            Отзыв
+           </a>
+          </div>
+         </div>
+        </li>
+        <li class="reviews-list__item">
+         <div class="reviews-list__title">
+          <span>
+           FI.center
+          </span>
+         </div>
+         <div class="reviews-list__info">
+          <div aria-label="Оценка: 5" class="reviews-list__rate" title="Оценка: 5">
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+          </div>
+          <div class="reviews-list__icon">
+           <a aria-label="Отзыв на ratingruneta.ru" class="reviews-list__icon-link" data-barba-prevent="self" href="https://ratingruneta.ru/agile-business/reviews-web/9473/" rel="nofollow" target="_blank" title="Отзыв на ratingruneta.ru">
+            <svg class="reviews-list__icon-svg">
+             <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-review-runet">
+             </use>
+            </svg>
+           </a>
+          </div>
+          <div class="reviews-list__link">
+           <a href="/works/fi#review">
+            Проект
+           </a>
+          </div>
+         </div>
+        </li>
+        <li class="reviews-list__item">
+         <div class="reviews-list__title">
+          <span>
+           Волна
+          </span>
+         </div>
+         <div class="reviews-list__info">
+          <div aria-label="Оценка: 5" class="reviews-list__rate" title="Оценка: 5">
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+          </div>
+          <div class="reviews-list__icon">
+           <a aria-label="Отзыв на ratingruneta.ru" class="reviews-list__icon-link" data-barba-prevent="self" href="https://ratingruneta.ru/agile-business/reviews-web/9053/" rel="nofollow" target="_blank" title="Отзыв на ratingruneta.ru">
+            <svg class="reviews-list__icon-svg">
+             <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-review-runet">
+             </use>
+            </svg>
+           </a>
+          </div>
+          <div class="reviews-list__link">
+           <a href="/works/volna#review">
+            Проект
+           </a>
+          </div>
+         </div>
+        </li>
+        <li class="reviews-list__item">
+         <div class="reviews-list__title">
+          <span>
+           Dataру
+          </span>
+         </div>
+         <div class="reviews-list__info">
+          <div aria-label="Оценка: 5" class="reviews-list__rate" title="Оценка: 5">
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+          </div>
+          <div class="reviews-list__icon">
+           <a aria-label="Отзыв на ratingruneta.ru" class="reviews-list__icon-link" data-barba-prevent="self" href="https://ratingruneta.ru/agile-business/reviews-web/9484/" rel="nofollow" target="_blank" title="Отзыв на ratingruneta.ru">
+            <svg class="reviews-list__icon-svg">
+             <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-review-runet">
+             </use>
+            </svg>
+           </a>
+          </div>
+          <div class="reviews-list__link">
+           <a data-barba-prevent="self" href="https://ratingruneta.ru/agile-business/reviews-web/9484/" target="_blank">
+            Отзыв
+           </a>
+          </div>
+         </div>
+        </li>
+        <li class="reviews-list__item">
+         <div class="reviews-list__title">
+          <span>
+           Зенит
+          </span>
+         </div>
+         <div class="reviews-list__info">
+          <div aria-label="Оценка: 5" class="reviews-list__rate" title="Оценка: 5">
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+          </div>
+          <div class="reviews-list__icon">
+          </div>
+          <div class="reviews-list__link">
+           <a href="/works/zenith#review">
+            Проект
+           </a>
+          </div>
+         </div>
+        </li>
+        <li class="reviews-list__item">
+         <div class="reviews-list__title">
+          <span>
+           Гуриати
+          </span>
+         </div>
+         <div class="reviews-list__info">
+          <div aria-label="Оценка: 5" class="reviews-list__rate" title="Оценка: 5">
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+           <svg class="reviews-star">
+            <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+            </use>
+           </svg>
+          </div>
+          <div class="reviews-list__icon">
+           <a aria-label="Отзыв на ratingruneta.ru" class="reviews-list__icon-link" data-barba-prevent="self" href="https://ratingruneta.ru/agile-business/reviews-web/9047/" rel="nofollow" target="_blank" title="Отзыв на ratingruneta.ru">
+            <svg class="reviews-list__icon-svg">
+             <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-review-runet">
+             </use>
+            </svg>
+           </a>
+          </div>
+          <div class="reviews-list__link">
+           <a href="/works/guriati#review">
+            Проект
+           </a>
+          </div>
+         </div>
+        </li>
+       </ul>
+       <a href="/reviews">
+        Все отзывы
+       </a>
+      </div>
+     </div>
+     <div class="quote">
+      <div class="quote__block">
+       <picture class="quote__picture" style="--image-width:640;--image-height:640;">
+        <source srcset="/assets/front/build/img/thumbs/eugene-krovyakov@resize-x-webp.webp" type="image/webp"/>
+        <img alt="Евгений Кровяков" decoding="async" fetchpriority="low" height="640" intrinsicsize="640x640" loading="lazy" src="/assets/front/build/img/eugene-krovyakov.jpg" width="640"/>
+       </picture>
+      </div>
+      <figure class="quote__block">
+       <blockquote class="quote__blockquote">
+        <p class="quote__text">
+         «Всегда решаем задачи бизнеса, а не имитируем бурную деятельность»
+        </p>
+       </blockquote>
+       <div class="pitcher-sign">
+        <svg>
+         <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+         </use>
+        </svg>
+       </div>
+       <figcaption class="quote__person">
+        Евгений Кровяков
+        <div class="quote__post">
+         Директор
+        </div>
+       </figcaption>
+      </figure>
+     </div>
+     <div class="heading heading--black" data-component="Heading">
+      <div class="heading__inner">
+       <div class="heading__text js-heading-text">
+        Обсудить проект
+       </div>
+      </div>
+     </div>
+     <footer class="footer" data-component="Footer">
+      <div class="footer__inner js-footer-inner">
+       <div class="footer__inner-top">
+        <div class="footer__form">
+         <div class="footer__form-title">
+          Обсудим задачу
+          <br/>
+          вашего бизнеса
+         </div>
+         <div class="footer__form-body">
+          <form action="/feedback/callback" class="form form--footer" data-component="FormSubmit" data-form-name="Callback" id="callback-footer" method="post">
+           <input name="_csrf" type="hidden" value="lElAlV9zp93HkEpJo2N0Y1ZFK4Nm5IGpVGoaaoj25BrVKDf4BRifvJ-jGz3ENTFWOSBk0wzQxdAuXkNH-ZXQQw=="/>
+           <input id="callback-footer-subject" name="Callback[subject]" type="hidden" value="Заявка с сайта Agile Business"/>
+           <input id="callback-footer-request_uri" name="Callback[request_uri]" type="hidden"/>
+           <input id="callback-footer-doc_referer" name="Callback[doc_referer]" type="hidden"/>
+           <input id="callback-footer-utm" name="Callback[utm]" type="hidden"/>
+           <input id="callback-footer-js" name="Callback[js]" type="hidden" value="0"/>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <textarea class="form-control form-control-fluid form-textarea" id="callback-footer-message" name="Callback[message]" placeholder="Расскажите кратко о вашем проекте" rows="3"></textarea>
+             <label for="callback-footer-message">
+              Расскажите кратко о вашем проекте
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-name" name="Callback[name]" placeholder="Ваше имя *" required="" type="text"/>
+             <label for="callback-footer-name">
+              Ваше имя *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-phone" name="Callback[phone]" placeholder="Телефон *" required="" type="tel"/>
+             <label for="callback-footer-phone">
+              Телефон *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-check form__check my-3">
+             <input class="form-check-input" id="callback-footer-rules" name="Callback[rules]" required="" type="checkbox" value="1"/>
+             <label class="form-check-label" for="callback-footer-rules">
+              Нажимая кнопку «Отправить», я даю
+              <a class="hover-underline hover-underline--underline" href="/approval">
+               согласие на обработку своих персональных данных
+              </a>
+              и соглашаюсь с
+              <a class="hover-underline hover-underline--underline" href="/policy">
+               Политикой конфиденциальности
+              </a>
+              .
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <button class="btn form-submit" data-component="ButtonHover" type="submit">
+             <span class="form-submit__text js-button-hover-inner">
+              Отправить
+             </span>
+            </button>
+           </div>
+          </form>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-middle" itemscope="" itemtype="http://schema.org/Organization">
+        <div class="d-none" itemprop="name">
+         Agile Business
+        </div>
+        <link href="https://agile-business-pro.com/" itemprop="url"/>
+        <div class="footer__contacts">
+         <div class="nav-contacts">
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com" itemprop="email">
+            info@agile-business-pro.com
+           </a>
+          </div>
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="tel:+79636177373" itemprop="telephone">
+            +7 (963) 617-73-73
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="footer__cities">
+         <div class="nav-cities">
+          <span class="nav-cities__item">
+           Москва
+          </span>
+         </div>
+        </div>
+        <div class="footer__socials">
+         <div class="nav-socials" data-barba-prevent="all">
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-bottom">
+        <div class="footer__copyright">
+         <div class="nav-copyright">
+          © 2026 Agile Business
+         </div>
+        </div>
+        <div class="footer__time">
+         <div class="nav-time">
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Europe/Moscow">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            МСК
+           </span>
+          </span>
+          ,
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Asia/Krasnoyarsk">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            КРСК
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </footer>
+    </div>
+   </div>
+  </div>
+  <div aria-labelledby="offcanvas-brief-label" class="offcanvas offcanvas-top offcanvas-brief" data-component="Offcanvas" id="offcanvas-brief" tabindex="-1">
+   <div class="offcanvas-brief__close">
+    <button aria-label="Закрыть" class="btn-close" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body offcanvas-brief__body">
+    <div class="brief">
+     <div class="brief__top">
+      <div class="brief__title" id="offcanvas-brief-label">
+       Обсудить проект
+      </div>
+      <div class="pitcher-sign">
+       <svg>
+        <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+        </use>
+       </svg>
+      </div>
+     </div>
+     <form action="/feedback/brief" class="form" data-component="FormSubmit" data-form-name="Brief" id="brief-offcanvas" method="post">
+      <input name="_csrf" type="hidden" value="lElAlV9zp93HkEpJo2N0Y1ZFK4Nm5IGpVGoaaoj25BrVKDf4BRifvJ-jGz3ENTFWOSBk0wzQxdAuXkNH-ZXQQw=="/>
+      <input id="brief-offcanvas-subject" name="Brief[subject]" type="hidden" value="Обсудить проект"/>
+      <input id="brief-offcanvas-request_uri" name="Brief[request_uri]" type="hidden"/>
+      <input id="brief-offcanvas-doc_referer" name="Brief[doc_referer]" type="hidden"/>
+      <input id="brief-offcanvas-utm" name="Brief[utm]" type="hidden"/>
+      <input id="brief-offcanvas-js" name="Brief[js]" type="hidden" value="0"/>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Ваши контакты
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-name" name="Brief[name]" placeholder="Расскажите кратко о вашем проекте *" required="" type="text"/>
+           <label for="brief-offcanvas-name">
+            Ваше имя *
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-phone" name="Brief[phone]" placeholder="Расскажите кратко о вашем проекте *" required="" type="tel"/>
+           <label for="brief-offcanvas-phone">
+            Телефон *
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-email" name="Brief[email]" placeholder="Эл. почта" type="email"/>
+           <label for="brief-offcanvas-email">
+            Эл. почта
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-company" name="Brief[company]" placeholder="Компания" type="text"/>
+           <label for="brief-offcanvas-company">
+            Компания
+           </label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        О задаче
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Kompleks-rabot" name="Brief[type]" type="radio" value="Комплексный консалтинг"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Kompleks-rabot">
+             Комплексный консалтинг
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Korp-sajt" name="Brief[type]" type="radio" value="Бизнес-аналитика"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Korp-sajt">
+             Бизнес-аналитика
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Onlajn-servis" name="Brief[type]" type="radio" value="ИТ и разработка"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Onlajn-servis">
+             ИТ и разработка
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Brending" name="Brief[type]" type="radio" value="Креатив"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Brending">
+             Брендинг
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group">
+          <div class="form-floating form-floating-fluid">
+           <textarea class="form-control form-control-fluid form-textarea" id="brief-offcanvas-message" name="Brief[message]" placeholder="Расскажите кратко о вашем проекте" rows="5"></textarea>
+           <label for="brief-offcanvas-message">
+            Расскажите кратко о вашем проекте
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <ol class="brief__list">
+          <li>
+           Из какой вы компании, чем она занимается?
+          </li>
+          <li>
+           С чем мы можем помочь? Как представляете результат?
+          </li>
+          <li>
+           На какой срок работы и бюджет рассчитываете?
+          </li>
+          <li>
+           Напишите, если удобнее общаться в мессенджере.
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Бюджет
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Menee-1-mln" name="Brief[budget]" type="radio" value="Менее 1 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Menee-1-mln">
+             Менее 1 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-1-2-mln" name="Brief[budget]" type="radio" value="1-2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-1-2-mln">
+             1-2 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Bolee-2-mln" name="Brief[budget]" type="radio" value="Более 2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Bolee-2-mln">
+             Более 2 млн
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Откуда вы узнали о нас
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rejtingi" name="Brief[source]" type="radio" value="Рейтинги"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rejtingi">
+             Рейтинги
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Kopirajt-na-sajte" name="Brief[source]" type="radio" value="Копирайт на сайте"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Kopirajt-na-sajte">
+             Копирайт на сайте
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rekomendovali" name="Brief[source]" type="radio" value="Рекомендовали"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rekomendovali">
+             Рекомендовали
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Davno-znau" name="Brief[source]" type="radio" value="Давно знаю"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Davno-znau">
+             Давно знаю
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__submit">
+       <div>
+        <button class="btn form-submit" data-component="ButtonHover" type="submit">
+         <span class="form-submit__text js-button-hover-inner">
+          Отправить
+         </span>
+        </button>
+       </div>
+       <div class="brief__submit-text">
+        <div class="form-check">
+         <input class="form-check-input" id="brief-offcanvas-rules" name="Brief[rules]" required="" type="checkbox" value="1"/>
+         <label class="form-check-label" for="brief-offcanvas-rules">
+          Нажимая кнопку «Отправить», я даю
+          <a class="hover-underline hover-underline--underline" href="/approval">
+           согласие на обработку своих персональных данных
+          </a>
+          и соглашаюсь с
+          <a class="hover-underline hover-underline--underline" href="/policy">
+           Политикой конфиденциальности
+          </a>
+          .
+         </label>
+        </div>
+       </div>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div>
+  <div class="counters-body">
+  </div>
+  <script defer="" fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260722">
+  </script>
+  <script defer="" src="/js/agile-perf.js?v20260722p">
+  </script>
+  <script defer="" src="/js/agile-global.js?v20260722p">
+  </script>
+ </body>
+</html>
+

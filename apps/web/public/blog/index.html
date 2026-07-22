@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html class="no-js is-scroll-unknown" data-node-env="production" data-public-path="/assets/front/build/" lang="ru-RU">
+ <!-- set webpack public path on the fly https://webpack.js.org/guides/public-path/#set-value-on-the-fly -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <title>
+   Статьи — Agile Business
+  </title>
+  <meta content="Экспертные статьи по бизнес-консалтингу, аналитике, ИТ и маркетингу от Agile Business." name="description"/>
+  <!-- fonts-preload -->
+  <style>
+   @supports (font-variation-settings: normal){:root{--font-variation-supports: 1}}
+  </style>
+  <script>
+   (document.documentElement&&document.head&&function($html,$head){var webpackPublicPath=$html.getAttribute('data-public-path');var preloadFonts=['fonts/Manrope-VariableFont_wght.woff2','fonts/OpenSans-VariableFont_wdth,wght.woff2'];try{var rootStyles=getComputedStyle($html);if(!rootStyles.getPropertyValue('--font-variation-supports')){return;} preloadFonts.forEach(function(font){var link=document.createElement('link');link.href=webpackPublicPath+font;link.rel='preload';link.setAttribute('fetchpriority','high');link.setAttribute('crossorigin','anonymous');link.setAttribute('as','font');$head.appendChild(link);});}catch(error){console.error('[fonts-preload]',error);}})(document.documentElement,document.head);
+  </script>
+  <!-- /fonts-preload -->
+  <!-- head-js -->
+  <script>
+   (document.documentElement&&document.documentElement.className&&(function($html){$html.className=$html.className.replace('no-js','js');var webp=new Image();webp.onload=webp.onerror=function(){$html.className+=(webp.width==1&&webp.height==1?' webp':' no-webp');};webp.src='data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';var avif=new Image();avif.onload=avif.onerror=function(){$html.className+=(avif.width==1&&avif.height==1?' avif':' no-avif');};avif.src=['data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAAEcbWV0YQAAAAAAAABIaGRscgAAAAAAAAAAcGljdAAAAAAAAAAA','AAAAAGNhdmlmIC0gaHR0cHM6Ly9naXRodWIuY29tL2xpbmstdS9jYXZpZgAAAAAeaWxvYwAAAAAEQAABAAEAAAAAAUQAAQAAABcAAAAqaWluZgEAAAAAAAA','BAAAAGmluZmUCAAAAAAEAAGF2MDFJbWFnZQAAAAAOcGl0bQAAAAAAAQAAAHJpcHJwAAAAUmlwY28AAAAQcGFzcAAAAAEAAAABAAAAFGlzcGUAAAAAAAAAAQ','AAAAEAAAAQcGl4aQAAAAADCAgIAAAAFmF2MUOBAAwACggYAAYICGgIIAAAABhpcG1hAAAAAAAAAAEAAQUBAoMDhAAAAB9tZGF0CggYAAYICGgIIBoFHiAAA','EQiBACwDoA='].join('');$html.style.setProperty('--vh',(window.innerHeight*0.01).toFixed()+'px');var fixedBlock=document.createElement('div');fixedBlock.style='width: 1px; height: 100vh; position: fixed; left: 0px; top: 0px; bottom: 0px; visibility: hidden;';$html.appendChild(fixedBlock);$html.style.setProperty('--lvh',(fixedBlock.clientHeight*0.01).toFixed()+'px');fixedBlock.remove();$html.style.setProperty('--svh',($html.clientHeight*0.01).toFixed()+'px');$html.style.setProperty('--dvh',(window.innerHeight*0.01).toFixed()+'px');document.cookie='_js=1; path=/; SameSite=Lax';var scrollbarOuter=document.createElement('div');scrollbarOuter.style.zIndex='-9999';scrollbarOuter.style.position='absolute';scrollbarOuter.style.visibility='hidden';scrollbarOuter.style.width='100px';scrollbarOuter.style.marginLeft='-100px';scrollbarOuter.style.overflow='scroll';$html.appendChild(scrollbarOuter);var scrollbarInner=document.createElement('div');scrollbarInner.style.width='100%';scrollbarOuter.appendChild(scrollbarInner);$html.style.setProperty('--scrollbar-width',(100-scrollbarInner.offsetWidth)+'px');scrollbarOuter.remove();})(document.documentElement));
+  </script>
+  <!-- /head-js -->
+  <!-- open-graph -->
+  <meta content="ru_RU" property="og:locale"/>
+  <meta content="article" property="og:type"/>
+  <meta content="Статьи — Agile Business" property="og:title"/>
+  <meta content="Экспертные статьи по бизнес-консалтингу, аналитике, ИТ и маркетингу от Agile Business." property="og:description"/>
+  <meta content="https://agile-business-pro.com/assets/logo.png" property="og:image"/>
+  <meta content="Agile Business — бизнес-консалтинг." property="og:site_name"/>
+  <meta content="https://agile-business-pro.com/blog" property="og:url"/>
+  <!-- /open-graph -->
+  <!-- favicons -->
+  <link href="/assets/front/build/img/favicons/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/assets/front/build/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/assets/front/build/img/favicons/manifest.json" rel="manifest"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="#03000e" name="theme-color"/>
+  <meta content="agile-business-pro.com" name="application-name"/>
+  <link href="/assets/front/build/img/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Agile Business — бизнес-консалтинг" name="apple-mobile-web-app-title"/>
+  <!-- /favicons -->
+  <meta content="0f60c6cded052d83" name="yandex-verification"/>
+  <meta content="_csrf" name="csrf-param"/>
+  <meta content="i0Zizc5xXj7ezDqOVmS21MVIQFldXiNuhBwMJEMqLza7ET2qvBY1VbX1Ar0sJsStgnEFajcvWx_iLX1TCm1ZQg==" name="csrf-token"/>
+  <link href="https://agile-business-pro.com/blog" rel="canonical"/>
+  <link fetchpriority="high" href="/assets/front/build/css/app.min.css?v20260722" id="css-app" rel="stylesheet"/>
+  <script>
+   if(location.hash==="#nowebgl")history.replaceState(null,"",location.pathname+location.search);
+  </script>
+  <link href="/css/agile-overrides.css?v20260722p" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="counters-body">
+  </div>
+  <header class="header js-header" data-component="HeaderIntro">
+   <div class="header__inner">
+    <div class="header__logo">
+     <a class="logo logo--lg js-header-logo" href="/">
+      <div class="logo__inner">
+       <img alt="Agile Business" decoding="async" fetchpriority="high" height="52" loading="eager" src="/assets/logo.png" style="height:48px;width:auto;display:block" width="200"/>
+      </div>
+     </a>
+    </div>
+    <div class="header__feedback">
+     <button aria-controls="offcanvas-brief" class="header-feedback header-link hover-underline" data-bs-target="#offcanvas-brief" data-bs-toggle="offcanvas" type="button">
+      <span class="header-link__inner js-header-link">
+       Обсудить проект
+      </span>
+     </button>
+    </div>
+    <div class="header__burger">
+     <button aria-label="Меню" class="burger" data-component="Burger" type="button">
+      <span class="burger__inner">
+       <span class="burger__line">
+       </span>
+       <span class="burger__line">
+       </span>
+      </span>
+     </button>
+    </div>
+    <div class="header__menu">
+     <div class="menu-overlay">
+      <div class="menu-overlay__nav">
+       <ul class="menu" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/works" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Проекты
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/services" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Услуги
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/about" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Компания
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/awards" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Награды
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/reviews" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Отзывы
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/blog" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Блог
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/contacts" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Контакты
+          </div>
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="menu-overlay__contacts">
+       <div class="nav-contacts">
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com">
+          info@agile-business-pro.com
+         </a>
+        </div>
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="tel:+79636177373">
+          +7 (963) 617-73-73
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="menu-overlay__cities">
+       <div class="nav-cities">
+        <span class="nav-cities__item">
+         Москва
+        </span>
+       </div>
+      </div>
+      <div class="menu-overlay__socials">
+       <div class="nav-socials" data-barba-prevent="all">
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="header-backdrop js-header-backdrop">
+  </div>
+  <div class="messages">
+   <div class="toast-container messages__container">
+    <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages__item fade" data-bs-autohide="true" data-bs-delay="10000" id="messages-toast" role="alert">
+     <div class="toast-header messages-toast__header">
+      <span class="toast-title messages-toast__title">
+       Agile Business
+      </span>
+      <button aria-label="Закрыть" class="btn-close messages-toast__btn-close" data-bs-dismiss="toast" type="button">
+       <span aria-hidden="true">
+       </span>
+      </button>
+     </div>
+     <div class="toast-body messages-toast__body">
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 w-100 p-2">
+   <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages-toast--light fade mx-auto" data-bs-autohide="false" data-component="ToastCookie" id="messages-cookie" role="alert">
+    <div class="toast-header messages-toast__header pb-0">
+    </div>
+    <div class="toast-body messages-toast__body">
+     <div class="text-center small">
+      Продолжая пользоваться сайтом, Вы выражаете свое согласие на сбор и обработку информации о Вашей активности на настоящем сайте в соответствии с
+      <a class="text-nowrap hover-underline hover-underline--underline" href="/policy">
+       Политикой конфиденциальности
+      </a>
+      .
+     </div>
+     <button class="btn form-submit mt-2 w-100 px-2 py-1 overflow-hidden" data-bs-dismiss="toast" data-component="ButtonHover" type="button">
+      <span class="form-submit__text js-button-hover-inner small">
+       Хорошо
+      </span>
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="smooth-wrapper" data-component="Scroll" id="smooth-wrapper">
+   <div class="barba-wrapper smooth-content" data-barba="wrapper" id="smooth-content">
+    <div id="top">
+    </div>
+    <div class="barba-container" data-barba="container" tabindex="-1">
+     <div class="posts-list" data-component="Posts" itemscope="" itemtype="https://schema.org/Blog">
+      <div class="posts-list__inner">
+       <h1 class="posts-list__title js-barba-transition">
+        Блог
+       </h1>
+       <div class="posts-list__description js-barba-transition" itemprop="description">
+        Рассказываем невыдуманные истории по теме разработки классных сайтов, креативе и тонкостям процесса.
+       </div>
+       <div class="js-barba-transition">
+        <div class="posts-list__item js-posts-item" itemid_3d-industry="" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/3d-industry">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-375x-ss.jpg" type="image/jpeg"/>
+           <source srcset="/uploads/blog/3d-industry/thumbs/6a50bbd32d34e@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Почему 3D-технологии становятся обязательным элементом сайтов промышленных предприятий" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/3d-industry/6a50bbd32d34e.jpg" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Почему 3D-технологии становятся обязательным элементом сайтов промышленных предприятий
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Креатив
+           </div>
+          </div>
+          <meta content="Промышленный B2B-маркетинг долгое время полагался на проверенные инструменты: текстовые описания технических характеристик, статичные фотографии оборудования и чертежи. Однако в эпоху цифровизации такой подход перестаёт работать. Сайт промышленного предприятия всё чаще становится первой и главной точкой контакта, и если он не способен наглядно продемонстрировать технологический уровень компании, шансы на успешное сотрудничество могут быть упущены." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid_solve-business-problem="" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/solve-business-problem">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/solve-business-problem/thumbs/6a4ba715c566f@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/solve-business-problem/thumbs/6a4ba715c566f@resize-375x-ss.jpg" type="image/jpeg"/>
+           <source srcset="/uploads/blog/solve-business-problem/thumbs/6a4ba715c566f@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Как заказчику выбрать дизайн‑студию, которая решает задачи бизнеса, а не просто «рисует»" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/solve-business-problem/6a4ba715c566f.jpg" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Как заказчику выбрать дизайн‑студию, которая решает задачи бизнеса, а не просто «рисует»
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Гайд
+           </div>
+          </div>
+          <meta content="Вы ставите задачу на редизайн, выделяете бюджет, ждете результата — и получаете красивые макеты. Карточки стильные, шрифты подобраны, отступы идеальны. Но спустя время конверсия не растёт, пользователи по‑прежнему уходят, а поддержка получает те же самые жалобы. Знакомая ситуация?" itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid_storytelling="" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/storytelling">
+          <picture class="posts-list__item-picture" style="--image-width:1640;--image-height:964;">
+           <source srcset="/uploads/blog/storytelling/thumbs/6a3bdf6e66588@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/storytelling/thumbs/6a3bdf6e66588@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/storytelling/thumbs/6a3bdf6e66588@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Сторителлинг как метод создания впечатляющих сайтов" class="js-posts-item-image" decoding="async" fetchpriority="low" height="964" intrinsicsize="1640x964" itemprop="image" loading="lazy" src="/uploads/blog/storytelling/6a3bdf6e66588.png" width="1640"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Сторителлинг как метод создания впечатляющих сайтов
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Креатив
+           </div>
+          </div>
+          <meta content="Сторителлинг в дизайне веб-сайтов — это метод создания визуального или пользовательского опыта (UX/UI), который проводит зрителя через продукт или услугу с помощью повествования. Вместо простой блочной демонстрации информации, он вовлекает пользователя в диалог, задает ритм и связывает элементы в единый, эмоциональный сюжет." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid_top-realtors="" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/top-realtors">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/top-realtors/thumbs/6a02efe881693@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/top-realtors/thumbs/6a02efe881693@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/top-realtors/thumbs/6a02efe881693@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Лучшие сайты агентств недвижимости" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/top-realtors/6a02efe881693.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Лучшие сайты агентств недвижимости
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Подборки
+           </div>
+          </div>
+          <meta content="Часто риелторские агентства фокусируются на информационном наполнении своих сайтов, недооценивая важность визуального стиля, удобства навигации, современных интерфейсов и административной части. Сегодняшний рынок требует актуального дизайна и передовых технических решений, которым устаревшие сайты просто не соответствуют. Устаревший визуальный дизайн и не соответствующие современным требованиям технические возможности сайта не позволяют ему отвечать актуальным реалиям рынка." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/kak-my-sozdaem-kreativnye-sajty" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/kak-my-sozdaem-kreativnye-sajty">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/kak-my-sozdaem-kreativnye-sajty/thumbs/65c60a4d61ee0@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/kak-my-sozdaem-kreativnye-sajty/thumbs/65c60a4d61ee0@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/kak-my-sozdaem-kreativnye-sajty/thumbs/65c60a4d61ee0@resize-x-webp.webp" type="image/webp"/>
+           <img alt="От идеи до реализации: как мы создаем креативные сайты" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/kak-my-sozdaem-kreativnye-sajty/65c60a4d61ee0.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           От идеи до реализации: как мы создаем креативные сайты
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Креатив
+           </div>
+          </div>
+          <meta content="Креатив в мире корпоративных сайтов — не просто украшение, а мощный инструмент для укрепления имиджа компании. Каждая наша идея разрабатывается с фокусом на эффективное решение задач клиента. Рассказываем, как воплощаем этот подход в жизнь и создаем веб-сайты, способные вдохновить и привлечь внимание пользователей." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/top-banks" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/top-banks">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/top-banks/thumbs/69cd4199038b8@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/top-banks/thumbs/69cd4199038b8@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/top-banks/thumbs/69cd4199038b8@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Лучшие сайты банков" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/top-banks/69cd4199038b8.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Лучшие сайты банков
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Подборки
+           </div>
+          </div>
+          <meta content="Сайты банков можно условно разделить на две категории. Первая — это имиджевые корпоративные сайты, где акцент сделан на доверии, технологичности и ощущении стабильности: крупная типографика, чистая композиция, аккуратные анимации, продуманная визуальная система. Задача таких сайтов — сформировать сильный образ банка и подчеркнуть его надежность. Вторая категория — продуктовые сайты и сервисные витрины, где в центре внимания карты, вклады, кредиты, ипотека и другие банковские продукты. Их задача — как можно быстрее провести пользователя к нужной услуге, заявке или расчету. Лучшие сайты банков обычно сочетают оба подхода: работают и на бренд, и на конверсию, оставаясь при этом понятными, быстрыми и удобными для клиента." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/top-medicine" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/top-medicine">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/top-medicine/thumbs/69c10d3215f3e@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/top-medicine/thumbs/69c10d3215f3e@resize-375x-ss.jpg" type="image/jpeg"/>
+           <source srcset="/uploads/blog/top-medicine/thumbs/69c10d3215f3e@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Лучшие медицинские сайты" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/top-medicine/69c10d3215f3e.jpg" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Лучшие медицинские сайты
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Подборки
+           </div>
+          </div>
+          <meta content="Основными задачами сайта медицинской клиники являются доказательство экспертности и качества оказания услуг. Если эта задача решена на этапе дизайна, то посетитель сайта выберет вашу клинику. Наряду с полным описанием услуг и презентацией команды важны нюансы дизайна сайтов клиник: определенная цветовая гамма, успокаивающая и вселяющая уверенность, правильная подача информации, отвечающая на вопросы кто мы / что мы делаем / почему выбрать нас." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/top-hotels" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/top-hotels">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/top-hotels/thumbs/69020a58374a9@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/top-hotels/thumbs/69020a58374a9@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/top-hotels/thumbs/69020a58374a9@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Лучшие сайты отелей" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/top-hotels/69020a58374a9.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Лучшие сайты отелей
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Подборки
+           </div>
+          </div>
+          <meta content='Разработка сайтов отелей и гостиниц имеет свои нюансы при разработке. Задачи дизайна сайта — передавать особенности отеля, демонстрировать комфорт и сервис, который получит клиент отеля. Так же дизайн должен обладать удобным пользовательским интерфейсом, чтобы посетитель мог решить свою главную задачу – забронировать номер. <a href="/blog/kak-my-sozdaem-kreativnye-sajty">Креативная концепция</a> дизайна должна выделять отель среди конкурентов, помогать решать брендинговые и PR-задачи. ' itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/fujida" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/fujida">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/fujida/thumbs/65e6edc7c0374@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/fujida/thumbs/65e6edc7c0374@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/fujida/thumbs/65e6edc7c0374@resize-x-webp.webp" type="image/webp"/>
+           <img alt="3D-технологии в разработке презентационного сайта: Fujida в новом свете" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/fujida/65e6edc7c0374.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           3D-технологии в разработке презентационного сайта: Fujida в новом свете
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Кейс
+           </div>
+          </div>
+          <meta content="Около 20 лет мы создаем веб-сайты, объединяя функциональность с впечатляющим дизайном. Недавно мы приступили к интересному проекту — разработке презентационного сайта для производителя видеооборудования Fujida. Расскажем, как мы превратили обычный веб-ресурс в красочный презентационный каталог, и как нам в этом помогли 3D-технологии." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/top-developers" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/top-developers">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/top-developers/thumbs/693c005fa669e@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/top-developers/thumbs/693c005fa669e@resize-375x-ss.jpg" type="image/jpeg"/>
+           <source srcset="/uploads/blog/top-developers/thumbs/693c005fa669e@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Лучшие сайты девелоперов" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/top-developers/693c005fa669e.jpg" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Лучшие сайты девелоперов
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Подборки
+           </div>
+          </div>
+          <meta content="Сайты девелоперов и застройщиков можно разделить на две категории. Первая — это корпоративная презентация, с крупными заголовками, большими и яркими изображениями, оригинальной сеткой/подходом и анимациями. Задача таких сайтов максимально эффектно представить компанию. Второй тип сайтов — это сайты-каталоги, витрины проектов. Их задача предоставить возможность пользователю как можно быстрее перейти к приобретению квартиры. Некоторые сайты девелоперов пытаются соединить эти два подхода." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/top-services" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/top-services">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/top-services/thumbs/685a3ea80b4d9@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/top-services/thumbs/685a3ea80b4d9@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/top-services/thumbs/685a3ea80b4d9@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Лучшие сайты для компаний из сферы услуг для бизнеса" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/top-services/685a3ea80b4d9.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Лучшие сайты для компаний из сферы услуг для бизнеса
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Подборки
+           </div>
+          </div>
+          <meta content="Особенностью хороших сайтов сферы услуг для бизнеса является хорошая типографика, микро-анимации и наличие 3D. Эти сайты выгодно отличаются от конкурентов и притягивают внимание к услугам только в случае применения нестандартного подхода в дизайне, включая проработанные анимации и качественный CGI (компьютерная графика)." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/top-real-estate" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/top-real-estate">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/top-real-estate/thumbs/671f81f461019@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/top-real-estate/thumbs/671f81f461019@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/top-real-estate/thumbs/671f81f461019@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Лучшие сайты жилых комплексов" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/top-real-estate/671f81f461019.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Лучшие сайты жилых комплексов
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Подборки
+           </div>
+          </div>
+          <meta content="В мире недвижимости сайт — это не просто визитная карточка. Это основная платформа для привлечения клиентов, демонстрации уникальности вашего проекта и установления доверия с потенциальными покупателями. Задача подобных сайтов, как правило, не только продать недвижимость/получить заявку, но и провести пользователя через презентацию объекта, передать настроение, влюбить, так как первое впечатление имеет решающее значение." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/specification" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/specification">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/specification/thumbs/65c0e43b26774@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/specification/thumbs/65c0e43b26774@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/specification/thumbs/65c0e43b26774@resize-x-webp.webp" type="image/webp"/>
+           <img alt="ТЗ как «живой» документ: наш подход к разработке технического задания" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/specification/65c0e43b26774.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           ТЗ как «живой» документ: наш подход к разработке технического задания
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Гайд
+           </div>
+          </div>
+          <meta content="Мы, в Agile Business, проектируем сайты уже более 20 лет и наступили на ряд граблей, чего вам не желаем :) В данной статье поделимся своим опытом разработки технических заданий, нашим видением идеального ТЗ, а также обсудим ключевые моменты в процессе проектирования." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/best-industrial-websites" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/best-industrial-websites">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/best-industrial-websites/thumbs/66cf1e0cdaaaa@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/best-industrial-websites/thumbs/66cf1e0cdaaaa@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/best-industrial-websites/thumbs/66cf1e0cdaaaa@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Лучшие сайты промышленных компаний" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/best-industrial-websites/66cf1e0cdaaaa.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Лучшие сайты промышленных компаний
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Подборки
+           </div>
+          </div>
+          <meta content="Сайты промышленных компаний — как отдельная сфера дизайна — имеют ряд особенностей, на которые необходимо обратить внимание и заказчику и разработчику. Существующий подход, при котором сайт имеет объемное текстовое и часто сдержанное оформление уже может не сработать и потеряется в современных конкурентных условиях. Простого оформления мало. Нужен другой подход: хорошая визуальная презентация, продуманная структура, удобство работы с интерфейсом, многое зависит от задач заказчика и типа сайта. Эти параметры являются важным критерием заметности компании, укрепления репутации и лояльности пользователей. Посмотрите, как разные компании в сфере производства и промышленности представляют себя в интернете:" itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/top-lawyers" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/top-lawyers">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/top-lawyers/thumbs/6617dc5baad05@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/top-lawyers/thumbs/6617dc5baad05@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/top-lawyers/thumbs/6617dc5baad05@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Лучшие сайты юридических компаний" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/top-lawyers/6617dc5baad05.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Лучшие сайты юридических компаний
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Подборки
+           </div>
+          </div>
+          <meta content="Из-за специфики бизнеса, сайты юридических компаний, как правило, не отличаются креативом или интересными дизайнерскими решениями. В сети существует множество сайтов с сухими текстами и однотипными образами в дизайне — фемида, молоток судьи, элементы античной архитектуры. Возможно в среде юристов считается, что сайт не должен быть оформлен нестандартно, но следование современным трендам, и красивый дизайн никак не испортит «серьезности», но позволит выделиться и запомниться на фоне однообразных сайтов." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/kak-vybrat-digital-agentstvo" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/kak-vybrat-digital-agentstvo">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/kak-vybrat-digital-agentstvo/thumbs/64cab2fdb0ffb@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/kak-vybrat-digital-agentstvo/thumbs/64cab2fdb0ffb@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/kak-vybrat-digital-agentstvo/thumbs/64cab2fdb0ffb@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Комплексная разработка сайтов в digital-агентстве: гайд для заказчиков" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/kak-vybrat-digital-agentstvo/64cab2fdb0ffb.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Комплексная разработка сайтов в digital-агентстве: гайд для заказчиков
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Гайд
+           </div>
+          </div>
+          <meta content="Продолжаем серию увлекательных статей про выбор подрядчиков и разработку сайтов. Рассказываем как сделать все правильно, чтобы не было больно за <s>бесцельно прожитые годы</s> потраченное время." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/kreativnaya-koncepciya" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/kreativnaya-koncepciya">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/kreativnaya-koncepciya/thumbs/64cab0a6020ac@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/kreativnaya-koncepciya/thumbs/64cab0a6020ac@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/kreativnaya-koncepciya/thumbs/64cab0a6020ac@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Что такое креативная концепция и для чего она нужна" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/kreativnaya-koncepciya/64cab0a6020ac.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Что такое креативная концепция и для чего она нужна
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Креатив
+           </div>
+          </div>
+          <meta content="Рынок разработки веб-сайтов уже много лет перешел во вторую стадию развития. Все компании уже давно разработали свой первый сайт и определились с пользой, которую приносит виртуальное представительство в сети." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/zakazyvaem-sozdanie-sajta" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/zakazyvaem-sozdanie-sajta">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/zakazyvaem-sozdanie-sajta/thumbs/64caa5294137b@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/zakazyvaem-sozdanie-sajta/thumbs/64caa5294137b@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/zakazyvaem-sozdanie-sajta/thumbs/64caa5294137b@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Разработка сайта: планирование и рецепт счастливого сотрудничества" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/zakazyvaem-sozdanie-sajta/64caa5294137b.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Разработка сайта: планирование и рецепт счастливого сотрудничества
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Гайд
+           </div>
+          </div>
+          <meta content="Как сделать так, чтобы затраты на создание сайта стали возвращаемыми в краткосрочной перспективе и как правильно взаимодействовать с агентством. Раскрываем секреты компаний-разработчиков и показываем на что необходимо обратить ваше пристальное внимание, наши любимые клиенты." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/tickets" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/tickets">
+          <picture class="posts-list__item-picture" style="--image-width:2430;--image-height:1366;">
+           <source srcset="/uploads/blog/tickets/thumbs/652cd3a2ba27b@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/tickets/thumbs/652cd3a2ba27b@resize-375x-ss.jpeg" type="image/jpeg"/>
+           <source srcset="/uploads/blog/tickets/thumbs/652cd3a2ba27b@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Кейс: как мы сделали из обычного сайта билетного агентства полноценную платформу для управления продажами" class="js-posts-item-image" decoding="async" fetchpriority="low" height="1366" intrinsicsize="2430x1366" itemprop="image" loading="lazy" src="/uploads/blog/tickets/652cd3a2ba27b.jpeg" width="2430"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Кейс: как мы сделали из обычного сайта билетного агентства полноценную платформу для управления продажами
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Кейс
+           </div>
+          </div>
+          <meta content="Рассказываем как мы реализовали онлайн-сервис по продаже билетов на мероприятия, интегрированный с 9-ю билетными системами и решили проблему сбоев в системе." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/sem-priznakov" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/sem-priznakov">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/sem-priznakov/thumbs/64cab14bd0ebb@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/sem-priznakov/thumbs/64cab14bd0ebb@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/sem-priznakov/thumbs/64cab14bd0ebb@resize-x-webp.webp" type="image/webp"/>
+           <img alt="7 признаков того, что ваш сайт пора модернизировать" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/sem-priznakov/64cab14bd0ebb.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           7 признаков того, что ваш сайт пора модернизировать
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Гайд
+           </div>
+          </div>
+          <meta content="Любой современный сайт, как один из основных инструментов бизнеса, нуждается в постоянном обновлении и развитии. Сегодня тренды веб-дизайна меняются настолько часто, что даже самый продвинутый ресурс устаревает всего за 1-2 года и становится менее привлекательным для пользователей. А это значительные потери для бизнеса — меньше посетителей, меньше продаж." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/osnovnye-principy-sozdaniya-sajta" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/osnovnye-principy-sozdaniya-sajta">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/osnovnye-principy-sozdaniya-sajta/thumbs/64caaffb19433@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/osnovnye-principy-sozdaniya-sajta/thumbs/64caaffb19433@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/osnovnye-principy-sozdaniya-sajta/thumbs/64caaffb19433@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Как создать эффективный сайт" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/osnovnye-principy-sozdaniya-sajta/64caaffb19433.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Как создать эффективный сайт
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Гайд
+           </div>
+          </div>
+          <meta content="Удивительно, но многие сайты создаются по принципу «чтобы был». У конкурентов есть,  нам тоже надо. Такая позиция заведомо проигрышная — ресурс, созданный в отрыве от бизнеса,  не будет приносить продаж." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/konstruktory-sajtov-za-i-protiv" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/konstruktory-sajtov-za-i-protiv">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/konstruktory-sajtov-za-i-protiv/thumbs/64caaf087c413@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/konstruktory-sajtov-za-i-protiv/thumbs/64caaf087c413@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/konstruktory-sajtov-za-i-protiv/thumbs/64caaf087c413@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Конструкторы сайтов: за и против" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/konstruktory-sajtov-za-i-protiv/64caaf087c413.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Конструкторы сайтов: за и против
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Гайд
+           </div>
+          </div>
+          <meta content="Сегодня есть много конструкторов, которые позволяют быстро собрать практически любой сайт — визитку, лендинг, блог или даже интернет-магазин. Однако при всем удобстве способа до сих пор услуги специалистов, разрабатывающих сайты, остаются востребованными. Несмотря на то, что они обходятся дороже, требуют для разработки больше времени и привлечения целой команды специалистов — продюссера, менеджера проекта, маркетолога, аниматора, 3D-дизайнера, UI/UX-дизайнера, frontend-программиста, backend-программиста и копирайтера." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/prodvizhenie-na-marketplejsah" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/prodvizhenie-na-marketplejsah">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/prodvizhenie-na-marketplejsah/thumbs/64cab7fb649c4@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/prodvizhenie-na-marketplejsah/thumbs/64cab7fb649c4@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/prodvizhenie-na-marketplejsah/thumbs/64cab7fb649c4@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Продвижение товаров на маркетплейсах: возможности и инструменты" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/prodvizhenie-na-marketplejsah/64cab7fb649c4.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Продвижение товаров на маркетплейсах: возможности и инструменты
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="Маркетплейс (online marketplace) — это онлайн-платформа для продажи товаров через интернет. На электронной витрине разные продавцы размещают продукцию, а покупатели выбирают их, в соответствии с желаемыми характеристиками: ценой, цветом, размером, по другим параметрам. При этом на одной торговой площадке могут размещаться тысячи различных категорий продукции: от чипсов до промышленного оборудования." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/bannernaya-reklama-v-internete" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/bannernaya-reklama-v-internete">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/bannernaya-reklama-v-internete/thumbs/64cab77fc3fe2@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/bannernaya-reklama-v-internete/thumbs/64cab77fc3fe2@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/bannernaya-reklama-v-internete/thumbs/64cab77fc3fe2@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Баннерная реклама в интернете" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/bannernaya-reklama-v-internete/64cab77fc3fe2.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Баннерная реклама в интернете
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="В 2022 году количество рекламных источников для продвижения сократилось и компаниям пришлось искать альтернативные способы взамен уже привычным рекламным площадкам. При этом, ситуация сложилась таким образом, что возросший спрос на действующие системы привел к увеличению стоимости размещения и для рекламодателей это обернулось несоразмерными тратами на маркетинг." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/zakon-ob-internet-reklame" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/zakon-ob-internet-reklame">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/zakon-ob-internet-reklame/thumbs/64cab697d2d27@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/zakon-ob-internet-reklame/thumbs/64cab697d2d27@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/zakon-ob-internet-reklame/thumbs/64cab697d2d27@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Что изменилось с 1 сентября 2022 по Закону о рекламе" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/zakon-ob-internet-reklame/64cab697d2d27.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Что изменилось с 1 сентября 2022 по Закону о рекламе
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="С 1 сентября 2022 года вступил в силу Федеральный закон О внесении изменений в Федеральный закон «О рекламе» от 02.07.2022 г. № 347 ФЗ. Это значит, что теперь все без исключения, физлица и организации, которых закон определит в качестве «рекламодателей, рекламораспространителей, операторов рекламных систем и операторов рекламных данных», будут обязаны передавать данные о рекламных кампаниях в интернете в единую систему учета и маркировать буквально каждое объявление. В этой бочке есть капля меда: исключением станут e-mail-рассылки и push уведомления." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/kak-otvechat-na-otzyvy-v-internete" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/kak-otvechat-na-otzyvy-v-internete">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/kak-otvechat-na-otzyvy-v-internete/thumbs/64cab5b8491e8@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/kak-otvechat-na-otzyvy-v-internete/thumbs/64cab5b8491e8@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/kak-otvechat-na-otzyvy-v-internete/thumbs/64cab5b8491e8@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Как и зачем отвечать на положительные и негативные отзывы. Примеры." class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/kak-otvechat-na-otzyvy-v-internete/64cab5b8491e8.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Как и зачем отвечать на положительные и негативные отзывы. Примеры.
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="Отзыв — это высказывание мнения по отношению к какому-либо товару, оказанной услуге или по поводу взаимоотношения с какой-либо организацией. Как правило, отзыв выражает субъективное личное мнение человека и имеет эмоциональную окраску. В этой статье определим роль отзывов в деятельности компании и разберемся в основных нюансах работы с отзывами на примерах." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/domain-name-in-seo" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/domain-name-in-seo">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/domain-name-in-seo/thumbs/64caae4bcb50a@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/domain-name-in-seo/thumbs/64caae4bcb50a@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/domain-name-in-seo/thumbs/64caae4bcb50a@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Как имя домена влияет на продвижение сайта" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/domain-name-in-seo/64caae4bcb50a.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Как имя домена влияет на продвижение сайта
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="В первую очередь под влиянием имени домена на продвижение сайта понимается наличие или отсутствие в доменном имени ключевого слова, по которому планируется продвигать сайт. Чтобы было понятно, о чём идёт речь, проведём мысленный эксперимент." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/seo-proektirovanie-sayta" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/seo-proektirovanie-sayta">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/seo-proektirovanie-sayta/thumbs/64caad3ab8826@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/seo-proektirovanie-sayta/thumbs/64caad3ab8826@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/seo-proektirovanie-sayta/thumbs/64caad3ab8826@resize-x-webp.webp" type="image/webp"/>
+           <img alt="SEO-проектирование сайта: что это и для чего нужно?" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/seo-proektirovanie-sayta/64caad3ab8826.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           SEO-проектирование сайта: что это и для чего нужно?
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="Структуру вашего будущего сайта, особенно каталога, необходимо продумать еще  на стадии проектирования. Каталог (или же раздел «Услуги», или Блог) — это,  можно сказать, конверсионное ядро вашего веб-проекта,  принимающее на входе целевые посещения и конвертирующие их в заказы, лиды.  Как сделать сайт максимально эффективным в привлечении целевого трафика?  Ответ прост — необходимо еще при разработке сайта включить этап SEO-проектирования." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/kluchevie-slova" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/kluchevie-slova">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/kluchevie-slova/thumbs/64caac4039bba@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/kluchevie-slova/thumbs/64caac4039bba@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/kluchevie-slova/thumbs/64caac4039bba@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Ключевые слова для продвижения сайта — как использовать" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/kluchevie-slova/64caac4039bba.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Ключевые слова для продвижения сайта — как использовать
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="Ключевыми словами называются слова, словосочетания и фразы, которые описывают содержание страницы сайта. Рассказываем как правильно их использовать, для улучшения индексирования вашего сайта." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/target-b2b" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/target-b2b">
+          <picture class="posts-list__item-picture" style="--image-width:1601;--image-height:900;">
+           <source srcset="/uploads/blog/target-b2b/thumbs/64caaab194735@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/target-b2b/thumbs/64caaab194735@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/target-b2b/thumbs/64caaab194735@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Таргетированная реклама для B2B: 16 способов настройки" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1601x900" itemprop="image" loading="lazy" src="/uploads/blog/target-b2b/64caaab194735.png" width="1601"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Таргетированная реклама для B2B: 16 способов настройки
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="Соцсети для B2B работают менее эффективно, чем для B2C. Если на данное заявление  вы реагировали в духе Станиславского и кричали: «Не верю!», были правы.  Просто тут критерии оценки эффективности отличаются, да и в работе нужно  учитывать специфику сферы. Об этом вам и расскажем в нашем материале,  рассмотрим 16 способов поиска целевой аудитории в разных соцсетях,  поговорим о нюансах и предостережем от ошибок." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/zakon-cipfa" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/zakon-cipfa">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/zakon-cipfa/thumbs/64caa9a9610b7@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/zakon-cipfa/thumbs/64caa9a9610b7@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/zakon-cipfa/thumbs/64caa9a9610b7@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Как поисковые системы оценивают тексты: закон Ципфа, индекс туманности и прочее" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/zakon-cipfa/64caa9a9610b7.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Как поисковые системы оценивают тексты: закон Ципфа, индекс туманности и прочее
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="Начиная с этой статьи, мы решили освещать тему работы алгоритмов поисковых систем. В первой статье мы расскажем о том, какие алгоритмы существуют для оценки текстов на страницах сайта." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/voice-search" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/voice-search">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/voice-search/thumbs/64caa7534a52f@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/voice-search/thumbs/64caa7534a52f@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/voice-search/thumbs/64caa7534a52f@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Голосовой поиск: зачем оптимизировать под него сайт" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/voice-search/64caa7534a52f.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Голосовой поиск: зачем оптимизировать под него сайт
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="Время голосового поиска пришло. Даже если вы лично не используете виртуальных  ассистентов, то наверняка слышите подобное в своем окружении: «Ок, Google,  найди кофейню рядом со мной», «Siri, напиши смс», «Алиса, на улице сейчас  идет дождь?». В поисковых системах давно реализована возможность поиска голосом,  а цифровые помощники постепенно входят в нашу жизнь с системами управления «умный дом»." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/yandex-direct" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/yandex-direct">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/yandex-direct/thumbs/64c909ce087f2@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/yandex-direct/thumbs/64c909ce087f2@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/yandex-direct/thumbs/64c909ce087f2@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Контекстная реклама — Яндекс.Директ" class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/yandex-direct/64c909ce087f2.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Контекстная реклама — Яндекс.Директ
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="Эта статья для тех, кто знает про контекстную рекламу, использует, хочет попробовать или пробовал, и для тех, кто не знает про контекстную рекламу ничего. После этой статьи вы сможете проверить свою рекламную кампанию и настроить её самостоятельно, либо обратиться к специалисту." itemprop="description"/>
+         </a>
+        </div>
+        <div class="posts-list__item js-posts-item" itemid="https://agile-business-pro.com/blog/internet-marketing" itemprop="blogPosts" itemscope="" itemtype="https://schema.org/BlogPosting">
+         <a class="posts-list__item-link" href="/blog/internet-marketing">
+          <picture class="posts-list__item-picture" style="--image-width:1600;--image-height:900;">
+           <source srcset="/uploads/blog/internet-marketing/thumbs/64c907c38d527@resize-375x-ss.webp" type="image/webp"/>
+           <source srcset="/uploads/blog/internet-marketing/thumbs/64c907c38d527@resize-375x-ss.png" type="image/png"/>
+           <source srcset="/uploads/blog/internet-marketing/thumbs/64c907c38d527@resize-x-webp.webp" type="image/webp"/>
+           <img alt="Интернет-маркетинг. Основные инструменты." class="js-posts-item-image" decoding="async" fetchpriority="low" height="900" intrinsicsize="1600x900" itemprop="image" loading="lazy" src="/uploads/blog/internet-marketing/64c907c38d527.png" width="1600"/>
+          </picture>
+          <div class="posts-list__item-top" itemprop="headline">
+           Интернет-маркетинг. Основные инструменты.
+          </div>
+          <div class="posts-list__item-bottom">
+           <div class="posts-list__item-date">
+           </div>
+           <div class="posts-list__item-type">
+            Маркетинг
+           </div>
+          </div>
+          <meta content="Интернет-маркетинг сегодня очень популярен. Это не удивительно, ведь цифровой мир буквально поглощает нас. А значит, для того, чтобы эффективно продвигать товары/услуги именно в этой реальности, компаниям необходимо использовать соответствующие ей инструменты." itemprop="description"/>
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="heading heading--black" data-component="Heading">
+      <div class="heading__inner">
+       <div class="heading__text js-heading-text">
+        Agile Business
+       </div>
+      </div>
+     </div>
+     <footer class="footer" data-component="Footer">
+      <div class="footer__inner js-footer-inner">
+       <div class="footer__inner-top">
+        <div class="footer__form">
+         <div class="footer__form-title">
+          Обсудим задачу
+          <br/>
+          вашего бизнеса
+         </div>
+         <div class="footer__form-body">
+          <form action="/feedback/callback" class="form form--footer" data-component="FormSubmit" data-form-name="Callback" id="callback-footer" method="post">
+           <input name="_csrf" type="hidden" value="i0Zizc5xXj7ezDqOVmS21MVIQFldXiNuhBwMJEMqLza7ET2qvBY1VbX1Ar0sJsStgnEFajcvWx_iLX1TCm1ZQg=="/>
+           <input id="callback-footer-subject" name="Callback[subject]" type="hidden" value="Заявка с сайта Agile Business"/>
+           <input id="callback-footer-request_uri" name="Callback[request_uri]" type="hidden"/>
+           <input id="callback-footer-doc_referer" name="Callback[doc_referer]" type="hidden"/>
+           <input id="callback-footer-utm" name="Callback[utm]" type="hidden"/>
+           <input id="callback-footer-js" name="Callback[js]" type="hidden" value="0"/>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <textarea class="form-control form-control-fluid form-textarea" id="callback-footer-message" name="Callback[message]" placeholder="Расскажите кратко о вашем проекте" rows="3"></textarea>
+             <label for="callback-footer-message">
+              Расскажите кратко о вашем проекте
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-name" name="Callback[name]" placeholder="Ваше имя *" required="" type="text"/>
+             <label for="callback-footer-name">
+              Ваше имя *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-phone" name="Callback[phone]" placeholder="Телефон *" required="" type="tel"/>
+             <label for="callback-footer-phone">
+              Телефон *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-check form__check my-3">
+             <input class="form-check-input" id="callback-footer-rules" name="Callback[rules]" required="" type="checkbox" value="1"/>
+             <label class="form-check-label" for="callback-footer-rules">
+              Нажимая кнопку «Отправить», я даю
+              <a class="hover-underline hover-underline--underline" href="/approval">
+               согласие на обработку своих персональных данных
+              </a>
+              и соглашаюсь с
+              <a class="hover-underline hover-underline--underline" href="/policy">
+               Политикой конфиденциальности
+              </a>
+              .
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <button class="btn form-submit" data-component="ButtonHover" type="submit">
+             <span class="form-submit__text js-button-hover-inner">
+              Отправить
+             </span>
+            </button>
+           </div>
+          </form>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-middle" itemscope="" itemtype="http://schema.org/Organization">
+        <div class="d-none" itemprop="name">
+         Agile Business
+        </div>
+        <link href="https://agile-business-pro.com/" itemprop="url"/>
+        <div class="footer__contacts">
+         <div class="nav-contacts">
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com" itemprop="email">
+            info@agile-business-pro.com
+           </a>
+          </div>
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="tel:+79636177373" itemprop="telephone">
+            +7 (963) 617-73-73
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="footer__cities">
+         <div class="nav-cities">
+          <span class="nav-cities__item">
+           Москва
+          </span>
+         </div>
+        </div>
+        <div class="footer__socials">
+         <div class="nav-socials" data-barba-prevent="all">
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-bottom">
+        <div class="footer__copyright">
+         <div class="nav-copyright">
+          © 2026 Agile Business
+         </div>
+        </div>
+        <div class="footer__time">
+         <div class="nav-time">
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Europe/Moscow">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            МСК
+           </span>
+          </span>
+          ,
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Asia/Krasnoyarsk">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            КРСК
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </footer>
+    </div>
+   </div>
+  </div>
+  <div aria-labelledby="offcanvas-brief-label" class="offcanvas offcanvas-top offcanvas-brief" data-component="Offcanvas" id="offcanvas-brief" tabindex="-1">
+   <div class="offcanvas-brief__close">
+    <button aria-label="Закрыть" class="btn-close" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body offcanvas-brief__body">
+    <div class="brief">
+     <div class="brief__top">
+      <div class="brief__title" id="offcanvas-brief-label">
+       Обсудить проект
+      </div>
+      <div class="pitcher-sign">
+       <svg>
+        <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+        </use>
+       </svg>
+      </div>
+     </div>
+     <form action="/feedback/brief" class="form" data-component="FormSubmit" data-form-name="Brief" id="brief-offcanvas" method="post">
+      <input name="_csrf" type="hidden" value="i0Zizc5xXj7ezDqOVmS21MVIQFldXiNuhBwMJEMqLza7ET2qvBY1VbX1Ar0sJsStgnEFajcvWx_iLX1TCm1ZQg=="/>
+      <input id="brief-offcanvas-subject" name="Brief[subject]" type="hidden" value="Обсудить проект"/>
+      <input id="brief-offcanvas-request_uri" name="Brief[request_uri]" type="hidden"/>
+      <input id="brief-offcanvas-doc_referer" name="Brief[doc_referer]" type="hidden"/>
+      <input id="brief-offcanvas-utm" name="Brief[utm]" type="hidden"/>
+      <input id="brief-offcanvas-js" name="Brief[js]" type="hidden" value="0"/>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Ваши контакты
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-name" name="Brief[name]" placeholder="Расскажите кратко о вашем проекте *" required="" type="text"/>
+           <label for="brief-offcanvas-name">
+            Ваше имя *
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-phone" name="Brief[phone]" placeholder="Расскажите кратко о вашем проекте *" required="" type="tel"/>
+           <label for="brief-offcanvas-phone">
+            Телефон *
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-email" name="Brief[email]" placeholder="Эл. почта" type="email"/>
+           <label for="brief-offcanvas-email">
+            Эл. почта
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-company" name="Brief[company]" placeholder="Компания" type="text"/>
+           <label for="brief-offcanvas-company">
+            Компания
+           </label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        О задаче
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Kompleks-rabot" name="Brief[type]" type="radio" value="Комплексный консалтинг"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Kompleks-rabot">
+             Комплексный консалтинг
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Korp-sajt" name="Brief[type]" type="radio" value="Бизнес-аналитика"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Korp-sajt">
+             Бизнес-аналитика
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Onlajn-servis" name="Brief[type]" type="radio" value="ИТ и разработка"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Onlajn-servis">
+             ИТ и разработка
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Brending" name="Brief[type]" type="radio" value="Креатив"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Brending">
+             Брендинг
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group">
+          <div class="form-floating form-floating-fluid">
+           <textarea class="form-control form-control-fluid form-textarea" id="brief-offcanvas-message" name="Brief[message]" placeholder="Расскажите кратко о вашем проекте" rows="5"></textarea>
+           <label for="brief-offcanvas-message">
+            Расскажите кратко о вашем проекте
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <ol class="brief__list">
+          <li>
+           Из какой вы компании, чем она занимается?
+          </li>
+          <li>
+           С чем мы можем помочь? Как представляете результат?
+          </li>
+          <li>
+           На какой срок работы и бюджет рассчитываете?
+          </li>
+          <li>
+           Напишите, если удобнее общаться в мессенджере.
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Бюджет
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Menee-1-mln" name="Brief[budget]" type="radio" value="Менее 1 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Menee-1-mln">
+             Менее 1 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-1-2-mln" name="Brief[budget]" type="radio" value="1-2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-1-2-mln">
+             1-2 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Bolee-2-mln" name="Brief[budget]" type="radio" value="Более 2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Bolee-2-mln">
+             Более 2 млн
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Откуда вы узнали о нас
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rejtingi" name="Brief[source]" type="radio" value="Рейтинги"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rejtingi">
+             Рейтинги
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Kopirajt-na-sajte" name="Brief[source]" type="radio" value="Копирайт на сайте"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Kopirajt-na-sajte">
+             Копирайт на сайте
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rekomendovali" name="Brief[source]" type="radio" value="Рекомендовали"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rekomendovali">
+             Рекомендовали
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Davno-znau" name="Brief[source]" type="radio" value="Давно знаю"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Davno-znau">
+             Давно знаю
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__submit">
+       <div>
+        <button class="btn form-submit" data-component="ButtonHover" type="submit">
+         <span class="form-submit__text js-button-hover-inner">
+          Отправить
+         </span>
+        </button>
+       </div>
+       <div class="brief__submit-text">
+        <div class="form-check">
+         <input class="form-check-input" id="brief-offcanvas-rules" name="Brief[rules]" required="" type="checkbox" value="1"/>
+         <label class="form-check-label" for="brief-offcanvas-rules">
+          Нажимая кнопку «Отправить», я даю
+          <a class="hover-underline hover-underline--underline" href="/approval">
+           согласие на обработку своих персональных данных
+          </a>
+          и соглашаюсь с
+          <a class="hover-underline hover-underline--underline" href="/policy">
+           Политикой конфиденциальности
+          </a>
+          .
+         </label>
+        </div>
+       </div>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div>
+  <div class="counters-body">
+  </div>
+  <script defer="" fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260722">
+  </script>
+  <script defer="" src="/js/agile-perf.js?v20260722p">
+  </script>
+  <script defer="" src="/js/agile-global.js?v20260722p">
+  </script>
+ </body>
+</html>
+

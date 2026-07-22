@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html class="no-js is-scroll-unknown" data-node-env="production" data-public-path="/assets/front/build/" lang="ru-RU">
+ <!-- set webpack public path on the fly https://webpack.js.org/guides/public-path/#set-value-on-the-fly -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <title>
+   Проект Just Deco — портфолио работ digital-агентства Agile Business.
+  </title>
+  <meta content="Проект Just Deco в нашем портфолио с отзывом от клиента. Кейсы Agile Business: консалтинг, аналитика, ИТ и креатив. Проект Agile Business — комплексный консалтинг с измеримым результатом." name="description"/>
+  <!-- fonts-preload -->
+  <style>
+   @supports (font-variation-settings: normal){:root{--font-variation-supports: 1}}
+  </style>
+  <script>
+   (document.documentElement&&document.head&&function($html,$head){var webpackPublicPath=$html.getAttribute('data-public-path');var preloadFonts=['fonts/Manrope-VariableFont_wght.woff2','fonts/OpenSans-VariableFont_wdth,wght.woff2'];try{var rootStyles=getComputedStyle($html);if(!rootStyles.getPropertyValue('--font-variation-supports')){return;} preloadFonts.forEach(function(font){var link=document.createElement('link');link.href=webpackPublicPath+font;link.rel='preload';link.setAttribute('fetchpriority','high');link.setAttribute('crossorigin','anonymous');link.setAttribute('as','font');$head.appendChild(link);});}catch(error){console.error('[fonts-preload]',error);}})(document.documentElement,document.head);
+  </script>
+  <!-- /fonts-preload -->
+  <!-- head-js -->
+  <script>
+   (document.documentElement&&document.documentElement.className&&(function($html){$html.className=$html.className.replace('no-js','js');var webp=new Image();webp.onload=webp.onerror=function(){$html.className+=(webp.width==1&&webp.height==1?' webp':' no-webp');};webp.src='data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';var avif=new Image();avif.onload=avif.onerror=function(){$html.className+=(avif.width==1&&avif.height==1?' avif':' no-avif');};avif.src=['data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAAEcbWV0YQAAAAAAAABIaGRscgAAAAAAAAAAcGljdAAAAAAAAAAA','AAAAAGNhdmlmIC0gaHR0cHM6Ly9naXRodWIuY29tL2xpbmstdS9jYXZpZgAAAAAeaWxvYwAAAAAEQAABAAEAAAAAAUQAAQAAABcAAAAqaWluZgEAAAAAAAA','BAAAAGmluZmUCAAAAAAEAAGF2MDFJbWFnZQAAAAAOcGl0bQAAAAAAAQAAAHJpcHJwAAAAUmlwY28AAAAQcGFzcAAAAAEAAAABAAAAFGlzcGUAAAAAAAAAAQ','AAAAEAAAAQcGl4aQAAAAADCAgIAAAAFmF2MUOBAAwACggYAAYICGgIIAAAABhpcG1hAAAAAAAAAAEAAQUBAoMDhAAAAB9tZGF0CggYAAYICGgIIBoFHiAAA','EQiBACwDoA='].join('');$html.style.setProperty('--vh',(window.innerHeight*0.01).toFixed()+'px');var fixedBlock=document.createElement('div');fixedBlock.style='width: 1px; height: 100vh; position: fixed; left: 0px; top: 0px; bottom: 0px; visibility: hidden;';$html.appendChild(fixedBlock);$html.style.setProperty('--lvh',(fixedBlock.clientHeight*0.01).toFixed()+'px');fixedBlock.remove();$html.style.setProperty('--svh',($html.clientHeight*0.01).toFixed()+'px');$html.style.setProperty('--dvh',(window.innerHeight*0.01).toFixed()+'px');document.cookie='_js=1; path=/; SameSite=Lax';var scrollbarOuter=document.createElement('div');scrollbarOuter.style.zIndex='-9999';scrollbarOuter.style.position='absolute';scrollbarOuter.style.visibility='hidden';scrollbarOuter.style.width='100px';scrollbarOuter.style.marginLeft='-100px';scrollbarOuter.style.overflow='scroll';$html.appendChild(scrollbarOuter);var scrollbarInner=document.createElement('div');scrollbarInner.style.width='100%';scrollbarOuter.appendChild(scrollbarInner);$html.style.setProperty('--scrollbar-width',(100-scrollbarInner.offsetWidth)+'px');scrollbarOuter.remove();})(document.documentElement));
+  </script>
+  <!-- /head-js -->
+  <!-- open-graph -->
+  <meta content="ru_RU" property="og:locale"/>
+  <meta content="article" property="og:type"/>
+  <meta content="Just Deco | Agile Business. Разработка сайтов и сервисов." property="og:title"/>
+  <meta content="Проект Just Deco в нашем портфолио с отзывом от клиента. Кейсы Agile Business: консалтинг, аналитика, ИТ и креатив. Проект Agile Business — комплексный консалтинг с измеримым результатом." property="og:description"/>
+  <meta content="https://agile-business-pro.com/uploads/works/justdeco/64f8b0828b3a3.png" property="og:image"/>
+  <meta content="Agile Business. Разработка сайтов и сервисов." property="og:site_name"/>
+  <meta content="https://agile-business-pro.com/works/justdeco" property="og:url"/>
+  <!-- /open-graph -->
+  <!-- favicons -->
+  <link href="/assets/front/build/img/favicons/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/assets/front/build/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/assets/front/build/img/favicons/manifest.json" rel="manifest"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="#03000e" name="theme-color"/>
+  <meta content="agile-business-pro.com" name="application-name"/>
+  <link href="/assets/front/build/img/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Agile Business — создаем сайты и сервисы" name="apple-mobile-web-app-title"/>
+  <!-- /favicons -->
+  <meta content="0f60c6cded052d83" name="yandex-verification"/>
+  <meta content="_csrf" name="csrf-param"/>
+  <meta content="bwLuYZD_4oCrlGsBhsdUffzsTts9YTXJpvGJKBwgghoVQZtX3qmR7pjjCk3n8mU_maI0qWQFRvvXwbFnKQ3DfQ==" name="csrf-token"/>
+  <link href="https://agile-business-pro.com/works/justdeco" rel="canonical"/>
+  <link content="2024-06-07T15:49:59+03:00" property="article:modified_time"/>
+  <link fetchpriority="high" href="/assets/front/build/css/app.min.css?v20260722" id="css-app" rel="stylesheet"/>
+  <script>
+   if(location.hash==="#nowebgl")history.replaceState(null,"",location.pathname+location.search);
+  </script>
+  <link href="/css/agile-overrides.css?v20260722p" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="counters-body">
+  </div>
+  <header class="header js-header" data-component="HeaderIntro">
+   <div class="header__inner">
+    <div class="header__logo">
+     <a class="logo logo--lg js-header-logo" href="/">
+      <div class="logo__inner">
+       <img alt="Agile Business" decoding="async" fetchpriority="high" height="52" loading="eager" src="/assets/logo.png" style="height:48px;width:auto;display:block" width="200"/>
+      </div>
+     </a>
+    </div>
+    <div class="header__feedback">
+     <button aria-controls="offcanvas-brief" class="header-feedback header-link hover-underline" data-bs-target="#offcanvas-brief" data-bs-toggle="offcanvas" type="button">
+      <span class="header-link__inner js-header-link">
+       Обсудить проект
+      </span>
+     </button>
+    </div>
+    <div class="header__burger">
+     <button aria-label="Меню" class="burger" data-component="Burger" type="button">
+      <span class="burger__inner">
+       <span class="burger__line">
+       </span>
+       <span class="burger__line">
+       </span>
+      </span>
+     </button>
+    </div>
+    <div class="header__menu">
+     <div class="menu-overlay">
+      <div class="menu-overlay__nav">
+       <ul class="menu" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/works" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Проекты
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/services" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Услуги
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/about" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Компания
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/awards" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Награды
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/reviews" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Отзывы
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/blog" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Блог
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/contacts" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Контакты
+          </div>
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="menu-overlay__contacts">
+       <div class="nav-contacts">
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com">
+          info@agile-business-pro.com
+         </a>
+        </div>
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="tel:+79636177373">
+          +7 (963) 617-73-73
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="menu-overlay__cities">
+       <div class="nav-cities">
+        <span class="nav-cities__item">
+         Москва
+        </span>
+       </div>
+      </div>
+      <div class="menu-overlay__socials">
+       <div class="nav-socials" data-barba-prevent="all">
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="header-backdrop js-header-backdrop">
+  </div>
+  <div class="messages">
+   <div class="toast-container messages__container">
+    <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages__item fade" data-bs-autohide="true" data-bs-delay="10000" id="messages-toast" role="alert">
+     <div class="toast-header messages-toast__header">
+      <span class="toast-title messages-toast__title">
+       Agile Business
+      </span>
+      <button aria-label="Закрыть" class="btn-close messages-toast__btn-close" data-bs-dismiss="toast" type="button">
+       <span aria-hidden="true">
+       </span>
+      </button>
+     </div>
+     <div class="toast-body messages-toast__body">
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 w-100 p-2">
+   <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages-toast--light fade mx-auto" data-bs-autohide="false" data-component="ToastCookie" id="messages-cookie" role="alert">
+    <div class="toast-header messages-toast__header pb-0">
+    </div>
+    <div class="toast-body messages-toast__body">
+     <div class="text-center small">
+      Продолжая пользоваться сайтом, Вы выражаете свое согласие на сбор и обработку информации о Вашей активности на настоящем сайте в соответствии с
+      <a class="text-nowrap hover-underline hover-underline--underline" href="/policy">
+       Политикой конфиденциальности
+      </a>
+      .
+     </div>
+     <button class="btn form-submit mt-2 w-100 px-2 py-1 overflow-hidden" data-bs-dismiss="toast" data-component="ButtonHover" type="button">
+      <span class="form-submit__text js-button-hover-inner small">
+       Хорошо
+      </span>
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="smooth-wrapper" data-component="Scroll" id="smooth-wrapper">
+   <div class="barba-wrapper smooth-content" data-barba="wrapper" id="smooth-content">
+    <div id="top">
+    </div>
+    <div class="barba-container" data-barba="container" tabindex="-1">
+     <div class="work-card-container">
+      <!-- work-card-hero -->
+      <div class="work-card-hero">
+       <div class="work-card-hero__header js-barba-transition">
+        <h1 class="work-card-hero__title">
+         Just Deco
+        </h1>
+        <a class="work-card-hero__back-link hover-underline" href="/works">
+         Назад к проектам
+        </a>
+       </div>
+       <div class="work-card-hero__body js-barba-transition">
+        <div class="work-card-hero__site">
+        </div>
+        <div class="work-card-hero__type">
+         <div class="work-card-hero__type-title">
+          Отрасль
+         </div>
+         <div class="work-card-hero__type-value">
+          <a href="/works/industry/trade">
+           Торговля
+          </a>
+         </div>
+        </div>
+        <div class="work-card-hero__category">
+         <div class="work-card-hero__category-title">
+          Экспертиза
+         </div>
+         <div class="work-card-hero__category-value">
+          <div>
+           <a href="/works/expertise/services">
+            ИТ и разработкаы
+           </a>
+          </div>
+          <div>
+           <a href="/works/expertise/uiux">
+            UI/UX дизайн
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- /work-card-hero -->
+      <!-- work-card-body (blocks) -->
+      <div data-component="WorkCardImages">
+       <div class="work-card-image" id="block677" style="--image-width: 2800; --image-height: 2525; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAwQGCf/EACIQAAEDBAICAwAAAAAAAAAAAAECAxIABBEhBRMGMRRRYf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/EABcRAQEBAQAAAAAAAAAAAAAAAAABEUH/2gAMAwEAAhEDEQA/ANLeU55218hb45F2lLiwhwNi3lBCiUgqMhqQxr1mmRnVKPW9mggfHaF8X+pHcW4dkRKOc4z9flPEYoL/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2525;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f872fce9287@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f872fce9287@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f872fce9287@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f872fce9287@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f872fce9287@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2525" intrinsicsize="2800x2525" loading="lazy" src="/uploads/works/justdeco/64f872fce9287.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block678" style="--image-width: 2800; --image-height: 1847; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAHAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQj/xAAiEAABAwMDBQAAAAAAAAAAAAABAgMRAAYSBCEyBQcTMUH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBf/EABoRAAIDAQEAAAAAAAAAAAAAAAABAhEhAxL/2gAMAwEAAhEDEQA/AKh7jHrT1i6pqz0hm5xiGXHyjxLlxJVOQMQgKA9bn7VJqfq7wlRfNRprRlHAZco3pdAP/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1847;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f84bfb3991e@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f84bfb3991e@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f84bfb3991e@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f84bfb3991e@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f84bfb3991e@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1847" intrinsicsize="2800x1847" loading="lazy" src="/uploads/works/justdeco/64f84bfb3991e.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block680" style="--image-width: 2800; --image-height: 1847; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAHAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABgj/xAAgEAACAQMEAwAAAAAAAAAAAAABAhEDBRIABAZBEyEx/8QAFQEBAQAAAAAAAAAAAAAAAAAABAX/xAAaEQACAgMAAAAAAAAAAAAAAAAAAgEDIjFx/9oADAMBAAIRAxEAPwCsOJ3HjO0tlIXR6b18yXpvsfIcYcYh+iSUM+4iO9V7FtlsddItTUwme+AhoyMfJ0sGf//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1847;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f84c3049af4@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f84c3049af4@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f84c3049af4@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f84c3049af4@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f84c3049af4@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1847" intrinsicsize="2800x1847" loading="lazy" src="/uploads/works/justdeco/64f84c3049af4.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block681" style="--image-width: 2800; --image-height: 2141; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAIAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwj/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABCEFERIGMVFSYf/EABUBAQEAAAAAAAAAAAAAAAAAAAQF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAQIAAxESIf/aAAwDAQACEQMRAD8ArFeltCWxleWG4M0pBaGGVgrAEnf4cNjzx9qou7g8GZKrrQr04grodkihVgHEYG5PakbGG1E//9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2141;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f8739284c09@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f8739284c09@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f8739284c09@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f8739284c09@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f8739284c09@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2141" intrinsicsize="2800x2141" loading="lazy" src="/uploads/works/justdeco/64f8739284c09.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block687" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/justdeco/video-homepage@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/justdeco/video-homepage@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/justdeco/video-homepage@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block688" style="--image-width: 2800; --image-height: 1889; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAHAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABgj/xAAgEAADAAECBwAAAAAAAAAAAAABAgMFABEEEiEiMkFx/8QAFgEBAQEAAAAAAAAAAAAAAAAABQME/8QAGREAAgMBAAAAAAAAAAAAAAAAAAIBAxIh/9oADAMBAAIRAxEAPwC6MJhErXGLW3Fqq1NjOU4mVNldeRye8qdw3T2o1axm3yTNUi47AQbyb7pILP/Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1889;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f850f8f3382@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f850f8f3382@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f850f8f3382@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f850f8f3382@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f850f8f3382@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1889" intrinsicsize="2800x1889" loading="lazy" src="/uploads/works/justdeco/64f850f8f3382.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block689" style="--image-width: 2800; --image-height: 2679; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAACQQI/8QAJBAAAgIBAgUFAAAAAAAAAAAAAQIDBAUAEQYIEyEzMkFxctH/xAAWAQEBAQAAAAAAAAAAAAAAAAADBAX/xAAZEQEAAgMAAAAAAAAAAAAAAAAAAQIDEzL/2gAMAwEAAhEDEQA/ANh4R7GT4k4Wzsj5eouPqzRvQWJBAS8jEszdQdyNhsAe2mvWdibHaNaU+o/P7rSZY3ebvKXK/Mtk44rc8UYansiSsB44/bfQW6W4+CQw+FPqNOif/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2679;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f85108a36ee@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f85108a36ee@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f85108a36ee@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f85108a36ee@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f85108a36ee@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2679" intrinsicsize="2800x2679" loading="lazy" src="/uploads/works/justdeco/64f85108a36ee.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block690" style="--image-width: 2800; --image-height: 2800; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABAUGCP/EACIQAAICAQQBBQAAAAAAAAAAAAECAwQRAAUTMQYSI0FCUf/EABYBAQEBAAAAAAAAAAAAAAAAAAMEBf/EABsRAQADAAMBAAAAAAAAAAAAAAEAAhEDEjFx/9oADAMBAAIRAxEAPwDauw2rFJ6laNFksXGeWvCLUUbzKmA+EYEsBj4/dX8gWfcyZvC2qebsBt7mLFqaXgRORy3pHS5JONMVwzZO21XJOyADz3YZ8e/FVKxy/ZAZGJAPYGdGh2fkSq9SND2dPAn/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2800;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f8511c9a732@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f8511c9a732@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f8511c9a732@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f8511c9a732@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f8511c9a732@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2800" intrinsicsize="2800x2800" loading="lazy" src="/uploads/works/justdeco/64f8511c9a732.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block691" style="--image-width: 2800; --image-height: 949; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAEAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABgj/xAAhEAABBAEDBQAAAAAAAAAAAAADAQIEBREABgchIkFh0f/EABYBAQEBAAAAAAAAAAAAAAAAAAUBAv/EABsRAAIDAAMAAAAAAAAAAAAAAAACARJRERMx/9oADAMBAAIRAxEAPwCnLPkjcorg4mXU1owrhGpJJh3Xz3e9KUXAiHfj2RbH3VdFAN6287Lmoq4kv+6tFwz2Psn/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:949;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f8513ec1df7@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f8513ec1df7@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f8513ec1df7@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f8513ec1df7@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f8513ec1df7@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="949" intrinsicsize="2800x949" loading="lazy" src="/uploads/works/justdeco/64f8513ec1df7.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block692" style="--image-width: 2800; --image-height: 2396; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAYI/8QAIRAAAQQBAwUAAAAAAAAAAAAAAQACAwQRBQZREyEiMTP/xAAWAQEBAQAAAAAAAAAAAAAAAAACBAX/xAAaEQEBAAIDAAAAAAAAAAAAAAAAAQISAyEx/9oADAMBAAIRAxEAPwDeG1adEaFOZb1Zk07XDozRhzm+wCDntlXZ27+M/ik07qIPiSOFUiKg+IRKCcpQX//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2396;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f85153c316e@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f85153c316e@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f85153c316e@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f85153c316e@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f85153c316e@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2396" intrinsicsize="2800x2396" loading="lazy" src="/uploads/works/justdeco/64f85153c316e.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block693" style="--image-width: 2800; --image-height: 2475; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAQMECP/EABsQAQACAgMAAAAAAAAAAAAAAAEAAhEhMlFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAVEQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEQMRAD8A1gFlTeZYQhquDcB3cCSvE8iD/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2475;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f85161a9b6e@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f85161a9b6e@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f85161a9b6e@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f85161a9b6e@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f85161a9b6e@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2475" intrinsicsize="2800x2475" loading="lazy" src="/uploads/works/justdeco/64f85161a9b6e.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block694" style="--image-width: 2800; --image-height: 2073; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAIAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABgj/xAAjEAABAgUDBQAAAAAAAAAAAAABAgUAAwQGERQhYSIjMXTR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwX/xAAcEQABBAMBAAAAAAAAAAAAAAABAAIDERMhURL/2gAMAwEAAhEDEQA/ALwcLifpUtwSXCr06ZXaWFADJOR1BIPjnjeEjBy0RpA91RWDtGRdD3jd4rs+yv7FHw3imZH9K//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2073;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f8517085fda@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f8517085fda@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f8517085fda@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f8517085fda@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f8517085fda@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2073" intrinsicsize="2800x2073" loading="lazy" src="/uploads/works/justdeco/64f8517085fda.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block695" style="--image-width: 2800; --image-height: 1632; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAGAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABgj/xAAeEAACAQQDAQAAAAAAAAAAAAABAgMABBESBSEisf/EABYBAQEBAAAAAAAAAAAAAAAAAAMEBf/EABkRAAIDAQAAAAAAAAAAAAAAAAACARIhEf/aAAwDAQACEQMRAD8Ao6Thp4b22je4L5ckej162P2r5Vu5Jlqy1nBWjaqBqpwMU1QbH//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1632;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f851801a46f@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f851801a46f@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f851801a46f@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f851801a46f@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f851801a46f@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1632" intrinsicsize="2800x1632" loading="lazy" src="/uploads/works/justdeco/64f851801a46f.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block696" style="--image-width: 2800; --image-height: 559; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAACAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQj/xAAgEAABAgUFAAAAAAAAAAAAAAABAgMABBESEyEiMkFi/8QAFgEBAQEAAAAAAAAAAAAAAAAABQAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AoeeZbMw6bE1vOtPULhDTKE4UbRxHUan/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:559;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f85197581c0@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f85197581c0@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f85197581c0@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f85197581c0@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f85197581c0@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="559" intrinsicsize="2800x559" loading="lazy" src="/uploads/works/justdeco/64f85197581c0.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block697" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/justdeco/video-designers@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/justdeco/video-designers@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/justdeco/video-designers@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block698" style="--image-width: 2800; --image-height: 1164; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAFAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwj/xAAhEAABAwQBBQAAAAAAAAAAAAABAgQFAAMRIRQWMVWU0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGxEAAgIDAQAAAAAAAAAAAAAAAQIAEgMRURP/2gAMAwEAAhEDEQA/ALPTNzbluu+J6StcdQUUJcEi4DkYVneNg6I7VROMWBkpcjUbZh9UzXl3/sr+0lF5C9H6Z//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1164;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f89a491358f@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f89a491358f@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f89a491358f@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f89a491358f@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f89a491358f@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1164" intrinsicsize="2800x1164" loading="lazy" src="/uploads/works/justdeco/64f89a491358f.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block699" style="--image-width: 2800; --image-height: 2269; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQYI/8QAIxAAAQIFAwUAAAAAAAAAAAAAAQIDAAQFBhEhIjEUNEFysf/EABYBAQEBAAAAAAAAAAAAAAAAAAMEAv/EABwRAAMAAgMBAAAAAAAAAAAAAAABAgMxERIikf/aAAwDAQACEQMRAD8A23JWdcZoi6hVr0uCllThDQbnS6lTeNiiQMjOunjHMV1mmefKIZwVSXthUvL1yYYbdZu2uuNLSFIX1ityTqDzDTcVKfVAVGSaa7P6UqOwZ9B8jDGWkCQi0BW2f//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2269;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f851c80ca3f@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f851c80ca3f@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f851c80ca3f@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f851c80ca3f@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f851c80ca3f@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2269" intrinsicsize="2800x2269" loading="lazy" src="/uploads/works/justdeco/64f851c80ca3f.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block700" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/justdeco/video-about@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/justdeco/video-about@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/justdeco/video-about@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block701" style="--image-width: 2800; --image-height: 1963; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAIAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQn/xAAdEAEAAgICAwAAAAAAAAAAAAABAgMEMQAFESEj/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEx/9oADAMBAAIRAxEAPwCnOTfG/Irtq7SddUkPlKDD06VHeuMQpHKqlES2tE8iS4aj/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1963;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f851dfb3d29@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f851dfb3d29@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f851dfb3d29@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f851dfb3d29@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f851dfb3d29@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1963" intrinsicsize="2800x1963" loading="lazy" src="/uploads/works/justdeco/64f851dfb3d29.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block702" style="--image-width: 2800; --image-height: 1430; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAGAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABAn/xAAgEAACAQQBBQAAAAAAAAAAAAACAwEEERIhAAUTFCKB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAYEQADAQEAAAAAAAAAAAAAAAAAARECIf/aAAwDAQACEQMRAD8AplAdWQypWLVMBpzIkxpZBElMRb11q33jmSd0NpKKp8VPdqmS3Ac5E7xe27a4XBqzp//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1430;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f857cedbdb3@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f857cedbdb3@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f857cedbdb3@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f857cedbdb3@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f857cedbdb3@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1430" intrinsicsize="2800x1430" loading="lazy" src="/uploads/works/justdeco/64f857cedbdb3.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block703" style="--image-width: 2800; --image-height: 2730; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgUI/8QAIhAAAQQCAQQDAAAAAAAAAAAAAQIDBAUAERIGFCExUWFx/8QAFwEBAAMAAAAAAAAAAAAAAAAAAwECBP/EABgRAQEAAwAAAAAAAAAAAAAAAAABAhEx/9oADAMBAAIRAxEAPwDfc+uTMty2LtqO+pKViL3CUOJSD4PDkCQT9Y+9M0lvFxIISATsj2fnJVGrXpOjsOp2rCVTV8mfxaT3T0VC3dAq0ORG/H7g5Hw4Tn2cYD//2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2730;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fa254c53@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fa254c53@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fa254c53@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fa254c53@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f89fa254c53@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2730" intrinsicsize="2800x2730" loading="lazy" src="/uploads/works/justdeco/64f89fa254c53.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block704" style="--image-width: 2800; --image-height: 2409; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABQYHCP/EACEQAAEDBAEFAAAAAAAAAAAAAAECAwUABCExBhETNVGC/8QAFwEBAAMAAAAAAAAAAAAAAAAAAwECBP/EABkRAQADAQEAAAAAAAAAAAAAAAABAiExEf/aAAwDAQACEQMRAD8A2ty6NauOexdy9EX0itotFhxqJdeaYUCeq+8hYAOdEYzupnbTCtMp6oZ2admH4rx6fqjnpq8L/ukC/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2409;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fab3da5e@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fab3da5e@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fab3da5e@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fab3da5e@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f89fab3da5e@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2409" intrinsicsize="2800x2409" loading="lazy" src="/uploads/works/justdeco/64f89fab3da5e.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block705" style="--image-width: 2800; --image-height: 1227; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAFAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAgEAABBAIBBQAAAAAAAAAAAAABAgMEEQAhFAUSMkFh/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQME/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQARAv/aAAwDAQACEQMRAD8Ao3zZzcSSOc8tdLW2tR8NaGqsCve/uWws50si9QmGM0XJbq1lA7lBRFmtmrxwjW//2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1227;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fb35cb02@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fb35cb02@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fb35cb02@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f89fb35cb02@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f89fb35cb02@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1227" intrinsicsize="2800x1227" loading="lazy" src="/uploads/works/justdeco/64f89fb35cb02.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block706" style="--image-width: 2800; --image-height: 2793; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABwUI/8QAJBAAAQQBAwMFAAAAAAAAAAAAAQIDBBESAAUhBhMxIjJRcdH/xAAVAQEBAAAAAAAAAAAAAAAAAAAEBf/EABoRAAMAAwEAAAAAAAAAAAAAAAABAgMRMgT/2gAMAwEAAhEDEQA/ANmbZ0qxukpKHTuiM2m3O/HkMhpJU4pGOCvUKCbJ8G6HOmXnc1pIBj86qdtkusSR5rjTAIidH7VCeix5bkOO5KLLaS+ppJWQl5wpGVXQPI+DqXfRYx8sPFe4/f7qoiOf/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2793;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64fe7b20b0791@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64fe7b20b0791@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64fe7b20b0791@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64fe7b20b0791@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64fe7b20b0791@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2793" intrinsicsize="2800x2793" loading="lazy" src="/uploads/works/justdeco/64fe7b20b0791.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block707" style="--image-width: 2800; --image-height: 2728; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAACAX/xAAhEAABBAICAgMAAAAAAAAAAAABAgMEEQUGACEHFCIxYf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGxEAAgIDAQAAAAAAAAAAAAAAAAECAxESIRP/2gAMAwEAAhEDEQA/AGZj9j1uHj4DuW2DX4expUwiRDk531QhCX1OAhoq+6VYBHy6BNcWyD9OBUzzVhkwmySOxfKZHC75m1bC5LynLky8RAlSSWLeejIWs0lNdkXw2ujwb1FA30hI/BxAD//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2728;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64fe7b59c46dd@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64fe7b59c46dd@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64fe7b59c46dd@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64fe7b59c46dd@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64fe7b59c46dd@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2728" intrinsicsize="2800x2728" loading="lazy" src="/uploads/works/justdeco/64fe7b59c46dd.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block708" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/justdeco/video-news@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/justdeco/video-news@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/justdeco/video-news@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block709" style="--image-width: 2800; --image-height: 1871; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAHAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQn/xAAeEAABBAIDAQAAAAAAAAAAAAABAgMEEQAFEjFxYf/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwT/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/AKAT9KuVKW4djIYDtBKGweKa8UO/MuyybNMAUACb+4S6/9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1871;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f86f85dc0f8@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f86f85dc0f8@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f86f85dc0f8@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f86f85dc0f8@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f86f85dc0f8@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1871" intrinsicsize="2800x1871" loading="lazy" src="/uploads/works/justdeco/64f86f85dc0f8.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block710" style="--image-width: 2800; --image-height: 2646; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEECf/EACMQAQAABAQHAAAAAAAAAAAAAAEAAgMRBAUSEwYjMVNxgYP/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAaEQEBAAIDAAAAAAAAAAAAAAAAAQISESEx/9oADAMBAAIRAxEAPwDSOpxFUDZ0Yknsc2TVMHl6Q7Gcy65MzXEdyo/RhahujpruzF222tvZCGeURRf/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2646;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f86f988f84d@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f86f988f84d@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f86f988f84d@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f86f988f84d@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f86f988f84d@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2646" intrinsicsize="2800x2646" loading="lazy" src="/uploads/works/justdeco/64f86f988f84d.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block711" style="--image-width: 2800; --image-height: 2656; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAKAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABQYHCP/EACQQAAICAQMDBQEAAAAAAAAAAAEDAgQFAAYREzFyITNCYoGx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgMB/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECMRH/2gAMAwEAAhEDEQA/AN8x3zvXCunHI7aGfrGZktu37Iixax2jJb5gzmfp6ao5RKa6F17wvvXFpweermYEui0LE4c/EgMI5HY8HWpLhnWL2Yw9C3v7bl59Ku67WE+hZYqMmK8ZEcx/NJ4CdKE/32eR/uisKPT/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2656;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f86fa3c75d1@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f86fa3c75d1@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f86fa3c75d1@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f86fa3c75d1@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f86fa3c75d1@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2656" intrinsicsize="2800x2656" loading="lazy" src="/uploads/works/justdeco/64f86fa3c75d1.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block712" style="--image-width: 2800; --image-height: 1518; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAGAAoDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAgn/xAAeEAACAgICAwAAAAAAAAAAAAABAgMEBREAIQYSYf/EABUBAQEAAAAAAAAAAAAAAAAAAAEE/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERUf/aAAwDAQACEQMRAD8AoHftWs42Vw09+7DHJEpElSzJXkRSSD6yIwZW2D2COURYS16Gr44tWtFCuWzjrGgQNJmbTsdDWyxk2T9PZ4RDXp//2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1518;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f86fabc8320@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f86fabc8320@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f86fabc8320@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f86fabc8320@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f86fabc8320@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1518" intrinsicsize="2800x1518" loading="lazy" src="/uploads/works/justdeco/64f86fabc8320.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block713" style="--image-width: 2800; --image-height: 2256; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABAUHCP/EACIQAAIBAwIHAAAAAAAAAAAAAAECBQADIQQGBxEUFTNxgf/EABYBAQEBAAAAAAAAAAAAAAAAAAMEBf/EAB4RAAIABgMAAAAAAAAAAAAAAAABAgMTQVGRESEx/9oADAMBAAIRAxEAPwDTGq39uxLwS3KyL2jkXOvccvdbKlwOyMOrMXPbGq8Q5NVAaYlCwGT3Bs0dJYWhKzy9k/Pl+1Vclh8C6QE//9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2256;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f8569918d39@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f8569918d39@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f8569918d39@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f8569918d39@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f8569918d39@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2256" intrinsicsize="2800x2256" loading="lazy" src="/uploads/works/justdeco/64f8569918d39.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block714" style="--image-width: 2800; --image-height: 2264; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAJAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQGCP/EACMQAAEEAQEJAAAAAAAAAAAAAAEAAgMFBBIGBxETISQxUdL/xAAXAQADAQAAAAAAAAAAAAAAAAACBAUA/8QAHBEAAQUBAQEAAAAAAAAAAAAAAAECAxESkVFS/9oADAMBAAIRAxEAPwDbVHvZxKWshwrWezys1oIfLzZHEkuJ46tfogeFQfFbrbRMjmy2nWqkk692lc4kX9qAT072X6TWGeJwT3J9L0bCEIFgkP/Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2264;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f871878da2e@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f871878da2e@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/justdeco/thumbs/64f871878da2e@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/justdeco/thumbs/64f871878da2e@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/justdeco/thumbs/64f871878da2e@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2264" intrinsicsize="2800x2264" loading="lazy" src="/uploads/works/justdeco/64f871878da2e.jpg" width="2800"/>
+        </picture>
+       </div>
+      </div>
+      <!-- /work-card-body (blocks) -->
+      <!-- work-card-footer -->
+      <div class="work-card-info">
+       <div class="work-card-info__body">
+        <div class="work-card-info__item work-card-info__item--wide">
+         <div class="work-card-info__item-title">
+          Клиент
+         </div>
+         <div class="work-card-info__item-value">
+          JustDeco
+         </div>
+        </div>
+        <div class="work-card-info__item">
+         <div class="work-card-info__item-title">
+          Фронтенд
+         </div>
+         <div class="work-card-info__item-value">
+          Webpack
+         </div>
+        </div>
+        <div class="work-card-info__item">
+         <div class="work-card-info__item-title">
+          Бэкенд
+         </div>
+         <div class="work-card-info__item-value">
+          Yii
+         </div>
+        </div>
+        <div class="work-card-info__item work-card-info__item--wide">
+         <div class="work-card-info__item-title">
+          Год
+         </div>
+         <div class="work-card-info__item-value">
+          2023
+         </div>
+        </div>
+        <div class="work-card-info__item">
+         <div class="work-card-info__item-title">
+          Отрасль
+         </div>
+         <div class="work-card-info__item-value">
+          <a href="/works/industry/trade">
+           Торговля
+          </a>
+         </div>
+        </div>
+        <div class="work-card-info__item">
+        </div>
+        <div class="pitcher-sign">
+         <svg>
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+          </use>
+         </svg>
+        </div>
+       </div>
+      </div>
+      <!-- /work-card-footer -->
+      <!-- other works -->
+      <div class="section section--works">
+       <div class="section__content">
+        <h2 class="section__title">
+         Другие проекты
+        </h2>
+       </div>
+       <div class="works-list" data-component="WorksList">
+        <a class="works-list__item js-works-list-item" href="/works/nto">
+         <div class="works-list__item-name">
+          НТО
+         </div>
+         <div class="works-list__item-category">
+          Промышленность
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 1С-Битрикс, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1200;--image-height:1200;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-x-webp.webp" type="image/webp"/>
+          <img alt="НТО" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1200" intrinsicsize="1200x1200" loading="lazy" src="/uploads/works/nto/6a5dc4da7aac7.jpg" width="1200"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"НТО","url":"https://semiteq.ru/","description":"Проект НТО в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-07-17"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/domkino">
+         <div class="works-list__item-name">
+          ЖК Дом Кино
+         </div>
+         <div class="works-list__item-category">
+          Строительство
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-x-webp.webp" type="image/webp"/>
+          <img alt="ЖК Дом Кино" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/domkino/699fe3d97680f.jpg" width="1080"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"ЖК Дом Кино","url":"https://dom-kino.ru","description":"Проект ЖК Дом Кино в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-02-26"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/rougebunnyrouge">
+         <div class="works-list__item-name">
+          Rouge Bunny Rouge
+         </div>
+         <div class="works-list__item-category">
+          Торговля
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, UI/UX дизайн
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Rouge Bunny Rouge" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/rougebunnyrouge/69933a61caba6.jpg" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"Rouge Bunny Rouge","url":"https://rougebunnyrouge.com","description":"Проект Rouge Bunny Rouge в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-02-16"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/nebonadeniseem">
+         <div class="works-list__item-name">
+          Небо над Енисеем
+         </div>
+         <div class="works-list__item-category">
+          Строительство
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Небо над Енисеем" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/nebonadeniseem/697b4cf4ccda5.jpg" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"Небо над Енисеем","url":"https://agile-business-pro.com/works/nebonadeniseem","description":"Проект Небо над Енисеем в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-08-02"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/bonbon">
+         <div class="works-list__item-name">
+          BonBon: айдентика
+         </div>
+         <div class="works-list__item-category">
+          Торговля
+         </div>
+         <div class="works-list__item-type">
+          Брендинг
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/bonbon/thumbs/685a59e3f3b08@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/bonbon/thumbs/685a59e3f3b08@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/bonbon/thumbs/685a59e3f3b08@resize-x-webp.webp" type="image/webp"/>
+          <img alt="BonBon: айдентика" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/bonbon/685a59e3f3b08.png" width="1080"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"BonBon: айдентика","url":"https://agile-business-pro.com/uploads/pdf/bonbon.pdf","description":"Проект BonBon: айдентика в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-06-24"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/dataru">
+         <div class="works-list__item-name">
+          DataРу
+         </div>
+         <div class="works-list__item-category">
+          ИТ
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-x-webp.webp" type="image/webp"/>
+          <img alt="DataРу" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/dataru/682daa5934160.jpg" width="1080"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"DataРу","url":"https://dataru.ru","description":"Проект DataРу в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-05-21"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/depo">
+         <div class="works-list__item-name">
+          DEPO
+         </div>
+         <div class="works-list__item-category">
+          Строительство
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, UI/UX дизайн
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-x-webp.webp" type="image/webp"/>
+          <img alt="DEPO" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/depo/682d754504ab4.png" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"DEPO","url":"https://agile-business-pro.com/works/depo","description":"Проект DEPO в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-05-21"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/fullview">
+         <div class="works-list__item-name">
+          Full View
+         </div>
+         <div class="works-list__item-category">
+          ИТ
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Full View" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/fullview/6801e0eca64da.png" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"Full View","url":"https://full-view.ru","description":"Проект Full View в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-04-18"}
+         </script>
+        </a>
+       </div>
+      </div>
+      <!-- /other works -->
+      <div class="heading heading--black" data-component="Heading">
+       <div class="heading__inner">
+        <div class="heading__text js-heading-text">
+         Agile Business
+        </div>
+       </div>
+      </div>
+     </div>
+     <script type="application/ld+json">
+      {"@context":"http://schema.org/","@type":"CreativeWork","name":"Just Deco","url":"https://agile-business-pro.com/works/justdeco","description":"Проект Just Deco в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2023-09-06"}
+     </script>
+     <footer class="footer" data-component="Footer">
+      <div class="footer__inner js-footer-inner">
+       <div class="footer__inner-top">
+        <div class="footer__form">
+         <div class="footer__form-title">
+          Обсудим задачу
+          <br/>
+          вашего бизнеса
+         </div>
+         <div class="footer__form-body">
+          <form action="/feedback/callback" class="form form--footer" data-component="FormSubmit" data-form-name="Callback" id="callback-footer" method="post">
+           <input name="_csrf" type="hidden" value="bwLuYZD_4oCrlGsBhsdUffzsTts9YTXJpvGJKBwgghoVQZtX3qmR7pjjCk3n8mU_maI0qWQFRvvXwbFnKQ3DfQ=="/>
+           <input id="callback-footer-subject" name="Callback[subject]" type="hidden" value="Заявка с сайта Agile Business"/>
+           <input id="callback-footer-request_uri" name="Callback[request_uri]" type="hidden"/>
+           <input id="callback-footer-doc_referer" name="Callback[doc_referer]" type="hidden"/>
+           <input id="callback-footer-utm" name="Callback[utm]" type="hidden"/>
+           <input id="callback-footer-js" name="Callback[js]" type="hidden" value="0"/>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <textarea class="form-control form-control-fluid form-textarea" id="callback-footer-message" name="Callback[message]" placeholder="Расскажите кратко о вашем проекте" rows="3"></textarea>
+             <label for="callback-footer-message">
+              Расскажите кратко о вашем проекте
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-name" name="Callback[name]" placeholder="Ваше имя *" required="" type="text"/>
+             <label for="callback-footer-name">
+              Ваше имя *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-phone" name="Callback[phone]" placeholder="Телефон *" required="" type="tel"/>
+             <label for="callback-footer-phone">
+              Телефон *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-check form__check my-3">
+             <input class="form-check-input" id="callback-footer-rules" name="Callback[rules]" required="" type="checkbox" value="1"/>
+             <label class="form-check-label" for="callback-footer-rules">
+              Нажимая кнопку «Отправить», я даю
+              <a class="hover-underline hover-underline--underline" href="/approval">
+               согласие на обработку своих персональных данных
+              </a>
+              и соглашаюсь с
+              <a class="hover-underline hover-underline--underline" href="/policy">
+               Политикой конфиденциальности
+              </a>
+              .
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <button class="btn form-submit" data-component="ButtonHover" type="submit">
+             <span class="form-submit__text js-button-hover-inner">
+              Отправить
+             </span>
+            </button>
+           </div>
+          </form>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-middle" itemscope="" itemtype="http://schema.org/Organization">
+        <div class="d-none" itemprop="name">
+         Agile Business
+        </div>
+        <link href="https://agile-business-pro.com/" itemprop="url"/>
+        <div class="footer__contacts">
+         <div class="nav-contacts">
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com" itemprop="email">
+            info@agile-business-pro.com
+           </a>
+          </div>
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="tel:+79636177373" itemprop="telephone">
+            +7 (963) 617-73-73
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="footer__cities">
+         <div class="nav-cities">
+          <span class="nav-cities__item">
+           Москва
+          </span>
+         </div>
+        </div>
+        <div class="footer__socials">
+         <div class="nav-socials" data-barba-prevent="all">
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-bottom">
+        <div class="footer__copyright">
+         <div class="nav-copyright">
+          © 2026 Agile Business
+         </div>
+        </div>
+        <div class="footer__time">
+         <div class="nav-time">
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Europe/Moscow">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            МСК
+           </span>
+          </span>
+          ,
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Asia/Krasnoyarsk">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            КРСК
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </footer>
+    </div>
+   </div>
+  </div>
+  <div aria-labelledby="offcanvas-brief-label" class="offcanvas offcanvas-top offcanvas-brief" data-component="Offcanvas" id="offcanvas-brief" tabindex="-1">
+   <div class="offcanvas-brief__close">
+    <button aria-label="Закрыть" class="btn-close" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body offcanvas-brief__body">
+    <div class="brief">
+     <div class="brief__top">
+      <div class="brief__title" id="offcanvas-brief-label">
+       Обсудить проект
+      </div>
+      <div class="pitcher-sign">
+       <svg>
+        <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+        </use>
+       </svg>
+      </div>
+     </div>
+     <form action="/feedback/brief" class="form" data-component="FormSubmit" data-form-name="Brief" id="brief-offcanvas" method="post">
+      <input name="_csrf" type="hidden" value="bwLuYZD_4oCrlGsBhsdUffzsTts9YTXJpvGJKBwgghoVQZtX3qmR7pjjCk3n8mU_maI0qWQFRvvXwbFnKQ3DfQ=="/>
+      <input id="brief-offcanvas-subject" name="Brief[subject]" type="hidden" value="Обсудить проект"/>
+      <input id="brief-offcanvas-request_uri" name="Brief[request_uri]" type="hidden"/>
+      <input id="brief-offcanvas-doc_referer" name="Brief[doc_referer]" type="hidden"/>
+      <input id="brief-offcanvas-utm" name="Brief[utm]" type="hidden"/>
+      <input id="brief-offcanvas-js" name="Brief[js]" type="hidden" value="0"/>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Ваши контакты
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-name" name="Brief[name]" placeholder="Расскажите кратко о вашем проекте *" required="" type="text"/>
+           <label for="brief-offcanvas-name">
+            Ваше имя *
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-phone" name="Brief[phone]" placeholder="Расскажите кратко о вашем проекте *" required="" type="tel"/>
+           <label for="brief-offcanvas-phone">
+            Телефон *
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-email" name="Brief[email]" placeholder="Эл. почта" type="email"/>
+           <label for="brief-offcanvas-email">
+            Эл. почта
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-company" name="Brief[company]" placeholder="Компания" type="text"/>
+           <label for="brief-offcanvas-company">
+            Компания
+           </label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        О задаче
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Kompleks-rabot" name="Brief[type]" type="radio" value="Комплексный консалтинг"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Kompleks-rabot">
+             Комплексный консалтинг
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Korp-sajt" name="Brief[type]" type="radio" value="Бизнес-аналитика"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Korp-sajt">
+             Бизнес-аналитика
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Onlajn-servis" name="Brief[type]" type="radio" value="ИТ и разработка"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Onlajn-servis">
+             ИТ и разработка
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Brending" name="Brief[type]" type="radio" value="Креатив"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Brending">
+             Брендинг
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group">
+          <div class="form-floating form-floating-fluid">
+           <textarea class="form-control form-control-fluid form-textarea" id="brief-offcanvas-message" name="Brief[message]" placeholder="Расскажите кратко о вашем проекте" rows="5"></textarea>
+           <label for="brief-offcanvas-message">
+            Расскажите кратко о вашем проекте
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <ol class="brief__list">
+          <li>
+           Из какой вы компании, чем она занимается?
+          </li>
+          <li>
+           С чем мы можем помочь? Как представляете результат?
+          </li>
+          <li>
+           На какой срок работы и бюджет рассчитываете?
+          </li>
+          <li>
+           Напишите, если удобнее общаться в мессенджере.
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Бюджет
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Menee-1-mln" name="Brief[budget]" type="radio" value="Менее 1 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Menee-1-mln">
+             Менее 1 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-1-2-mln" name="Brief[budget]" type="radio" value="1-2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-1-2-mln">
+             1-2 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Bolee-2-mln" name="Brief[budget]" type="radio" value="Более 2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Bolee-2-mln">
+             Более 2 млн
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Откуда вы узнали о нас
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rejtingi" name="Brief[source]" type="radio" value="Рейтинги"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rejtingi">
+             Рейтинги
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Kopirajt-na-sajte" name="Brief[source]" type="radio" value="Копирайт на сайте"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Kopirajt-na-sajte">
+             Копирайт на сайте
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rekomendovali" name="Brief[source]" type="radio" value="Рекомендовали"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rekomendovali">
+             Рекомендовали
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Davno-znau" name="Brief[source]" type="radio" value="Давно знаю"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Davno-znau">
+             Давно знаю
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__submit">
+       <div>
+        <button class="btn form-submit" data-component="ButtonHover" type="submit">
+         <span class="form-submit__text js-button-hover-inner">
+          Отправить
+         </span>
+        </button>
+       </div>
+       <div class="brief__submit-text">
+        <div class="form-check">
+         <input class="form-check-input" id="brief-offcanvas-rules" name="Brief[rules]" required="" type="checkbox" value="1"/>
+         <label class="form-check-label" for="brief-offcanvas-rules">
+          Нажимая кнопку «Отправить», я даю
+          <a class="hover-underline hover-underline--underline" href="/approval">
+           согласие на обработку своих персональных данных
+          </a>
+          и соглашаюсь с
+          <a class="hover-underline hover-underline--underline" href="/policy">
+           Политикой конфиденциальности
+          </a>
+          .
+         </label>
+        </div>
+       </div>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div>
+  <div class="counters-body">
+  </div>
+  <script defer="" fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260722">
+  </script>
+  <script defer="" src="/js/agile-perf.js?v20260722p">
+  </script>
+  <script defer="" src="/js/agile-global.js?v20260722p">
+  </script>
+ </body>
+</html>
+

@@ -1,0 +1,409 @@
+/* Agile Business — global overrides (colors, hero, WebGL off, brand system) */
+
+:root {
+  --agile-red: #c81e1e;
+  --agile-red-deep: #9e1515;
+  --agile-red-dark: #7a1212;
+  --agile-red-soft: rgba(200, 30, 30, 0.14);
+  --agile-red-glow: rgba(200, 30, 30, 0.35);
+  --agile-cream: #f7f3ee;
+  --agile-ink: #030206;
+  --agile-accent: var(--agile-red);
+  --agile-hero-divider: rgba(255, 255, 255, 0.38);
+
+  /* Pitcher pink/purple → Agile red */
+  --toast-bg: var(--agile-red);
+  --toast-header-bg: var(--agile-red);
+  --contacts-link-color: var(--agile-red);
+  --contacts-link-hover-color: var(--agile-red-deep);
+  --btn-color: var(--agile-red);
+  --btn-hover-bg: var(--agile-red);
+  --focus-ring-color: rgba(200, 30, 30, 0.25);
+}
+
+/* --- Scroll progress (unique Agile feature) --- */
+
+.agile-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 3px;
+  pointer-events: none;
+  background: rgba(200, 30, 30, 0.08);
+}
+
+.agile-scroll-progress__bar {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--agile-red-deep), var(--agile-red));
+  box-shadow: 0 0 12px var(--agile-red-glow);
+  transition: width 0.08s linear;
+}
+
+/* Cleanup leftover custom injections (not ModelSticky) */
+.agile-methodology,
+.agile-approach-steps,
+.agile-approach-visual,
+.agile-charts-stage {
+  display: none !important;
+}
+
+/* Manner highlight only — Подход left as original Pitcher */
+.manner__content-highlight {
+  color: var(--agile-red) !important;
+  font-weight: 800;
+}
+
+/* Hero Услуги / Продукты — slide-from-left */
+.hero-title.agile-hero-title .js-hero-title-inner {
+  overflow: visible;
+}
+
+.hero-title .agile-slide-clip {
+  display: inline-flex;
+  overflow: hidden;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+.hero-title.agile-hero-title:not(.is-inview) .agile-slide-clip > .hero-title__link,
+.hero-title.agile-hero-title:not(.is-inview) .agile-slide-clip > .hero-title__divider {
+  transform: translate3d(-105%, 0, 0);
+  opacity: 0 !important;
+}
+
+.hero-title.agile-hero-title .agile-slide-clip > .hero-title__link,
+.hero-title.agile-hero-title .agile-slide-clip > .hero-title__divider {
+  will-change: transform, opacity;
+  transition:
+    transform 1.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 1s ease;
+}
+
+.hero-title.agile-hero-title.is-inview .agile-slide-clip > .hero-title__link,
+.hero-title.agile-hero-title.is-inview .agile-slide-clip > .hero-title__divider {
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-title.agile-hero-title.is-inview .agile-slide-clip:nth-child(1) > * {
+  transition-delay: 0.08s;
+}
+
+.hero-title.agile-hero-title.is-inview .agile-slide-clip:nth-child(2) > * {
+  transition-delay: 0.32s;
+}
+
+.hero-title.agile-hero-title.is-inview .agile-slide-clip:nth-child(3) > * {
+  transition-delay: 0.56s;
+}
+
+.hero-title.agile-hero-title.is-inview .hero-title__link.active {
+  opacity: 1 !important;
+}
+
+.hero-title.agile-hero-title.is-inview .hero-title__link:not(.active) {
+  opacity: 0.38 !important;
+}
+
+.hero-title.agile-hero-title.is-inview .hero-title__divider {
+  opacity: 1 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title.agile-hero-title .agile-slide-clip > * {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-title.agile-hero-title:not(.is-inview) .agile-slide-clip > .hero-title__link.active {
+    opacity: 1 !important;
+  }
+
+  .hero-title.agile-hero-title:not(.is-inview) .agile-slide-clip > .hero-title__link:not(.active) {
+    opacity: 0.38 !important;
+  }
+}
+
+/* --- Hero WebGL off (animals) --- */
+
+.hero-canvas > canvas,
+.hero-canvas.is-webgl-init > canvas {
+  display: none !important;
+}
+
+.hero-canvas.is-webgl-init .hero-canvas__picture,
+.hero-canvas.is-webgl-init .agile-hero-bg {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.hero-canvas .js-hero-posterleft:not(.agile-hero-bg),
+.hero-canvas .js-hero-posterright:not(.agile-hero-bg) {
+  display: none !important;
+}
+
+.agile-hero-canvas,
+.hero-canvas.agile-hero-canvas {
+  background-color: var(--agile-ink);
+}
+
+.agile-hero-canvas::before,
+.hero-canvas.agile-hero-canvas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(200, 30, 30, 0.1) 0%,
+    transparent 45%,
+    transparent 55%,
+    rgba(158, 21, 21, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+.agile-hero-canvas::after,
+.hero-canvas.agile-hero-canvas::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+}
+
+.agile-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: opacity;
+}
+
+.agile-hero-bg--services {
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 22% 42%, rgba(200, 30, 30, 0.32), transparent 62%),
+    radial-gradient(ellipse 55% 45% at 78% 68%, rgba(255, 255, 255, 0.04), transparent 70%),
+    linear-gradient(145deg, #1a0808 0%, #030206 52%, #120808 100%);
+}
+
+.agile-hero-bg--products {
+  z-index: 1;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse 85% 65% at 78% 38%, rgba(158, 21, 21, 0.28), transparent 62%),
+    radial-gradient(ellipse 50% 40% at 18% 72%, rgba(200, 30, 30, 0.1), transparent 70%),
+    linear-gradient(215deg, #030206 0%, #180808 55%, #030206 100%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .agile-hero-bg--services,
+  .agile-hero-bg--products {
+    animation: agile-hero-drift 18s ease-in-out infinite alternate;
+  }
+
+  .agile-hero-bg--products {
+    animation-delay: -9s;
+  }
+}
+
+@keyframes agile-hero-drift {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to { transform: scale(1.03) translate3d(0, -1.5%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agile-hero-bg--services,
+  .agile-hero-bg--products {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* --- Hero toggle --- */
+
+.hero-title__inner {
+  gap: clamp(0.35rem, 1.2vw, 0.85rem);
+  align-items: center;
+}
+
+.hero-title__divider {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 2px;
+  height: 0.68em;
+  margin: 0 0.06em;
+  background: var(--agile-hero-divider);
+  box-shadow: 0 0 12px var(--agile-red-glow);
+  transform: skewX(-12deg);
+}
+
+.hero-title__link { transition: opacity 0.35s ease, color 0.35s ease; }
+.hero-title__link:not(.active) { opacity: 0.38; }
+.hero-title__link.active { opacity: 1; color: #fff; }
+.hero-title__link.active .splittext-char { text-shadow: 0 0 40px var(--agile-red-soft); }
+
+.hero-intro__footer-left,
+.hero-intro__footer-right { transition: opacity 0.35s ease; }
+.hero.is-agile-mode-products .hero-intro__footer-left { opacity: 0.45; }
+.hero.is-agile-mode-products .hero-intro__footer-right { opacity: 1; }
+.hero.is-agile-mode-services .hero-intro__footer-left { opacity: 1; }
+.hero.is-agile-mode-services .hero-intro__footer-right { opacity: 0.45; }
+
+.works-grid[data-agile-mode="services"] .works-grid-item[data-agile-mode="products"],
+.works-grid[data-agile-mode="products"] .works-grid-item[data-agile-mode="services"] {
+  opacity: 0.28;
+  filter: grayscale(0.55) saturate(0.7);
+  transform: scale(0.985);
+  transition: opacity 0.45s ease, filter 0.45s ease, transform 0.45s ease;
+}
+
+.works-grid[data-agile-mode="services"] .works-grid-item[data-agile-mode="services"],
+.works-grid[data-agile-mode="products"] .works-grid-item[data-agile-mode="products"] {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+/* --- Section headings: correct contrast per variant --- */
+
+.heading--red {
+  background-color: var(--agile-red) !important;
+  color: #fff !important;
+}
+
+.heading--red .heading__text,
+.heading--red .splittext-char {
+  color: #fff !important;
+}
+
+.heading--black {
+  background-color: var(--agile-ink) !important;
+  color: #fff !important;
+}
+
+.heading--black .heading__text,
+.heading--black .splittext-char {
+  color: #fff !important;
+}
+
+.heading--white {
+  background-color: #fff !important;
+  color: var(--agile-ink) !important;
+}
+
+.heading--white .heading__text,
+.heading--white .splittext-char {
+  color: var(--agile-ink) !important;
+}
+
+/* Default heading on white page background */
+.heading:not(.heading--red):not(.heading--black):not(.heading--white) {
+  background: #fff;
+  color: var(--agile-red) !important;
+}
+
+.heading:not(.heading--red):not(.heading--black):not(.heading--white) .heading__text,
+.heading:not(.heading--red):not(.heading--black):not(.heading--white) .splittext-char {
+  color: var(--agile-red) !important;
+}
+
+.heading:not(.heading--red):not(.heading--black) .heading__inner::before {
+  content: "";
+  display: block;
+  width: clamp(2.5rem, 6vw, 4rem);
+  height: 3px;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(90deg, var(--agile-red), transparent);
+}
+
+.about__heading-text.js-heading-text {
+  color: var(--agile-red);
+}
+
+/* --- Brand accents --- */
+
+.manner__content-highlight,
+.specialization__highlight {
+  color: var(--agile-red) !important;
+}
+
+.clients-content__number {
+  color: var(--agile-red) !important;
+}
+
+.clients-logos {
+  display: none !important;
+}
+
+.btn-primary,
+.form-check-input:checked {
+  background-color: var(--agile-red) !important;
+  border-color: var(--agile-red) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--agile-red-deep) !important;
+  border-color: var(--agile-red-deep) !important;
+}
+
+.contacts-link:hover,
+.contacts-link:focus,
+.footer__contacts a:hover,
+.industries__item a:hover,
+.specialization-services__item-link:hover,
+.specialization-services__item-link.is-active {
+  color: var(--agile-red) !important;
+}
+
+.form-check-input:checked,
+.form-check-input[type="checkbox"]:indeterminate {
+  background-color: var(--agile-red) !important;
+  border-color: var(--agile-red) !important;
+}
+
+.page-link.active,
+.active > .page-link {
+  background-color: var(--agile-red) !important;
+  border-color: var(--agile-red) !important;
+}
+
+.text-red {
+  color: var(--agile-red) !important;
+}
+
+.agile-brand {
+  color: var(--agile-red);
+  font-weight: inherit;
+}
+
+/* Stats pulse on reveal */
+.clients-content__number.is-agile-visible {
+  animation: agile-stat-pop 0.7s ease both;
+}
+
+@keyframes agile-stat-pop {
+  from { transform: scale(0.92); opacity: 0.4; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title__link,
+  .hero-intro__footer-left,
+  .hero-intro__footer-right,
+  .works-grid-item,
+  .clients-content__number.is-agile-visible {
+    transition: none !important;
+    animation: none !important;
+  }
+}

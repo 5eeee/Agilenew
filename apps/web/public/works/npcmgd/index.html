@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html class="no-js is-scroll-unknown" data-node-env="production" data-public-path="/assets/front/build/" lang="ru-RU">
+ <!-- set webpack public path on the fly https://webpack.js.org/guides/public-path/#set-value-on-the-fly -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <title>
+   Проект НПЦ Магнитной гидродинамики — Agile Business
+  </title>
+  <meta content="Проект НПЦ Магнитной гидродинамики в нашем портфолио с отзывом от клиента. Кейсы Agile Business: консалтинг, аналитика, ИТ и креатив. Проект Agile Business — комплексный консалтинг с измеримым результатом." name="description"/>
+  <!-- fonts-preload -->
+  <style>
+   @supports (font-variation-settings: normal){:root{--font-variation-supports: 1}}
+  </style>
+  <script>
+   (document.documentElement&&document.head&&function($html,$head){var webpackPublicPath=$html.getAttribute('data-public-path');var preloadFonts=['fonts/Manrope-VariableFont_wght.woff2','fonts/OpenSans-VariableFont_wdth,wght.woff2'];try{var rootStyles=getComputedStyle($html);if(!rootStyles.getPropertyValue('--font-variation-supports')){return;} preloadFonts.forEach(function(font){var link=document.createElement('link');link.href=webpackPublicPath+font;link.rel='preload';link.setAttribute('fetchpriority','high');link.setAttribute('crossorigin','anonymous');link.setAttribute('as','font');$head.appendChild(link);});}catch(error){console.error('[fonts-preload]',error);}})(document.documentElement,document.head);
+  </script>
+  <!-- /fonts-preload -->
+  <!-- head-js -->
+  <script>
+   (document.documentElement&&document.documentElement.className&&(function($html){$html.className=$html.className.replace('no-js','js');var webp=new Image();webp.onload=webp.onerror=function(){$html.className+=(webp.width==1&&webp.height==1?' webp':' no-webp');};webp.src='data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=';var avif=new Image();avif.onload=avif.onerror=function(){$html.className+=(avif.width==1&&avif.height==1?' avif':' no-avif');};avif.src=['data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAAEcbWV0YQAAAAAAAABIaGRscgAAAAAAAAAAcGljdAAAAAAAAAAA','AAAAAGNhdmlmIC0gaHR0cHM6Ly9naXRodWIuY29tL2xpbmstdS9jYXZpZgAAAAAeaWxvYwAAAAAEQAABAAEAAAAAAUQAAQAAABcAAAAqaWluZgEAAAAAAAA','BAAAAGmluZmUCAAAAAAEAAGF2MDFJbWFnZQAAAAAOcGl0bQAAAAAAAQAAAHJpcHJwAAAAUmlwY28AAAAQcGFzcAAAAAEAAAABAAAAFGlzcGUAAAAAAAAAAQ','AAAAEAAAAQcGl4aQAAAAADCAgIAAAAFmF2MUOBAAwACggYAAYICGgIIAAAABhpcG1hAAAAAAAAAAEAAQUBAoMDhAAAAB9tZGF0CggYAAYICGgIIBoFHiAAA','EQiBACwDoA='].join('');$html.style.setProperty('--vh',(window.innerHeight*0.01).toFixed()+'px');var fixedBlock=document.createElement('div');fixedBlock.style='width: 1px; height: 100vh; position: fixed; left: 0px; top: 0px; bottom: 0px; visibility: hidden;';$html.appendChild(fixedBlock);$html.style.setProperty('--lvh',(fixedBlock.clientHeight*0.01).toFixed()+'px');fixedBlock.remove();$html.style.setProperty('--svh',($html.clientHeight*0.01).toFixed()+'px');$html.style.setProperty('--dvh',(window.innerHeight*0.01).toFixed()+'px');document.cookie='_js=1; path=/; SameSite=Lax';var scrollbarOuter=document.createElement('div');scrollbarOuter.style.zIndex='-9999';scrollbarOuter.style.position='absolute';scrollbarOuter.style.visibility='hidden';scrollbarOuter.style.width='100px';scrollbarOuter.style.marginLeft='-100px';scrollbarOuter.style.overflow='scroll';$html.appendChild(scrollbarOuter);var scrollbarInner=document.createElement('div');scrollbarInner.style.width='100%';scrollbarOuter.appendChild(scrollbarInner);$html.style.setProperty('--scrollbar-width',(100-scrollbarInner.offsetWidth)+'px');scrollbarOuter.remove();})(document.documentElement));
+  </script>
+  <!-- /head-js -->
+  <!-- open-graph -->
+  <meta content="ru_RU" property="og:locale"/>
+  <meta content="article" property="og:type"/>
+  <meta content="НПЦ Магнитной гидродинамики | Agile Business — бизнес-консалтинг." property="og:title"/>
+  <meta content="Проект НПЦ Магнитной гидродинамики в нашем портфолио с отзывом от клиента. Кейсы Agile Business: консалтинг, аналитика, ИТ и креатив. Проект Agile Business — комплексный консалтинг с измеримым результатом." property="og:description"/>
+  <meta content="https://agile-business-pro.com/uploads/works/npcmgd/67e3c3950395e.png" property="og:image"/>
+  <meta content="Agile Business — бизнес-консалтинг." property="og:site_name"/>
+  <meta content="https://agile-business-pro.com/works/npcmgd" property="og:url"/>
+  <!-- /open-graph -->
+  <!-- favicons -->
+  <link href="/assets/front/build/img/favicons/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/assets/front/build/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+  <link href="/assets/front/build/img/favicons/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/assets/front/build/img/favicons/manifest.json" rel="manifest"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="#03000e" name="theme-color"/>
+  <meta content="agile-business-pro.com" name="application-name"/>
+  <link href="/assets/front/build/img/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Agile Business — бизнес-консалтинг" name="apple-mobile-web-app-title"/>
+  <!-- /favicons -->
+  <meta content="0f60c6cded052d83" name="yandex-verification"/>
+  <meta content="_csrf" name="csrf-param"/>
+  <meta content="DizyNrT_iNRCRXcFGQW6c7Rq0eMUHsVCrsImRsz05OtiZ8AFwbjt5wA3DmBeU_Imx1qFkGcrhBXZqnYUtbaejQ==" name="csrf-token"/>
+  <link href="https://agile-business-pro.com/works/npcmgd" rel="canonical"/>
+  <link content="2026-03-19T09:37:32+03:00" property="article:modified_time"/>
+  <link fetchpriority="high" href="/assets/front/build/css/app.min.css?v20260722" id="css-app" rel="stylesheet"/>
+  <script>
+   if(location.hash==="#nowebgl")history.replaceState(null,"",location.pathname+location.search);
+  </script>
+  <link href="/css/agile-overrides.css?v20260722p" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="counters-body">
+  </div>
+  <header class="header js-header" data-component="HeaderIntro">
+   <div class="header__inner">
+    <div class="header__logo">
+     <a class="logo logo--lg js-header-logo" href="/">
+      <div class="logo__inner">
+       <img alt="Agile Business" decoding="async" fetchpriority="high" height="52" loading="eager" src="/assets/logo.png" style="height:48px;width:auto;display:block" width="200"/>
+      </div>
+     </a>
+    </div>
+    <div class="header__feedback">
+     <button aria-controls="offcanvas-brief" class="header-feedback header-link hover-underline" data-bs-target="#offcanvas-brief" data-bs-toggle="offcanvas" type="button">
+      <span class="header-link__inner js-header-link">
+       Обсудить проект
+      </span>
+     </button>
+    </div>
+    <div class="header__burger">
+     <button aria-label="Меню" class="burger" data-component="Burger" type="button">
+      <span class="burger__inner">
+       <span class="burger__line">
+       </span>
+       <span class="burger__line">
+       </span>
+      </span>
+     </button>
+    </div>
+    <div class="header__menu">
+     <div class="menu-overlay">
+      <div class="menu-overlay__nav">
+       <ul class="menu" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/works" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Проекты
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/services" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Услуги
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/about" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Компания
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/awards" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Награды
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/reviews" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Отзывы
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/blog" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Блог
+          </div>
+         </a>
+        </li>
+        <li class="menu__item">
+         <a class="menu-link header-link hover-underline" href="/contacts" itemprop="url">
+          <div class="header-link__inner js-header-link" itemprop="name">
+           Контакты
+          </div>
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="menu-overlay__contacts">
+       <div class="nav-contacts">
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com">
+          info@agile-business-pro.com
+         </a>
+        </div>
+        <div class="nav-contacts__item">
+         <a class="nav-contacts__link" href="tel:+79636177373">
+          +7 (963) 617-73-73
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="menu-overlay__cities">
+       <div class="nav-cities">
+        <span class="nav-cities__item">
+         Москва
+        </span>
+       </div>
+      </div>
+      <div class="menu-overlay__socials">
+       <div class="nav-socials" data-barba-prevent="all">
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+        <div class="nav-socials__item">
+         <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" rel="nofollow" target="_blank">
+          Telegram
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="header-backdrop js-header-backdrop">
+  </div>
+  <div class="messages">
+   <div class="toast-container messages__container">
+    <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages__item fade" data-bs-autohide="true" data-bs-delay="10000" id="messages-toast" role="alert">
+     <div class="toast-header messages-toast__header">
+      <span class="toast-title messages-toast__title">
+       Agile Business
+      </span>
+      <button aria-label="Закрыть" class="btn-close messages-toast__btn-close" data-bs-dismiss="toast" type="button">
+       <span aria-hidden="true">
+       </span>
+      </button>
+     </div>
+     <div class="toast-body messages-toast__body">
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 w-100 p-2">
+   <div aria-atomic="true" aria-live="assertive" class="toast messages-toast messages-toast--light fade mx-auto" data-bs-autohide="false" data-component="ToastCookie" id="messages-cookie" role="alert">
+    <div class="toast-header messages-toast__header pb-0">
+    </div>
+    <div class="toast-body messages-toast__body">
+     <div class="text-center small">
+      Продолжая пользоваться сайтом, Вы выражаете свое согласие на сбор и обработку информации о Вашей активности на настоящем сайте в соответствии с
+      <a class="text-nowrap hover-underline hover-underline--underline" href="/policy">
+       Политикой конфиденциальности
+      </a>
+      .
+     </div>
+     <button class="btn form-submit mt-2 w-100 px-2 py-1 overflow-hidden" data-bs-dismiss="toast" data-component="ButtonHover" type="button">
+      <span class="form-submit__text js-button-hover-inner small">
+       Хорошо
+      </span>
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="smooth-wrapper" data-component="Scroll" id="smooth-wrapper">
+   <div class="barba-wrapper smooth-content" data-barba="wrapper" id="smooth-content">
+    <div id="top">
+    </div>
+    <div class="barba-container" data-barba="container" tabindex="-1">
+     <div class="work-card-container work-card-container--black">
+      <!-- work-card-hero -->
+      <div class="work-card-hero">
+       <div class="work-card-hero__header js-barba-transition">
+        <h1 class="work-card-hero__title">
+         НПЦ Магнитной гидродинамики
+        </h1>
+        <a class="work-card-hero__back-link hover-underline" href="/works">
+         Назад к проектам
+        </a>
+       </div>
+       <div class="work-card-hero__body js-barba-transition">
+        <div class="work-card-hero__site">
+         <a class="work-card-hero__site-link hover-underline" data-barba-prevent="self" href="https://npcmgd.com" rel="nofollow" target="_blank" title="Откроется в новом окне">
+          Смотреть сайт
+         </a>
+        </div>
+        <div class="work-card-hero__type">
+         <div class="work-card-hero__type-title">
+          Отрасль
+         </div>
+         <div class="work-card-hero__type-value">
+          <a href="/works/industry/industry">
+           Промышленность
+          </a>
+         </div>
+        </div>
+        <div class="work-card-hero__category">
+         <div class="work-card-hero__category-title">
+          Экспертиза
+         </div>
+         <div class="work-card-hero__category-value">
+          <div>
+           <a href="/works/expertise/website">
+            Корпоративные сайты
+           </a>
+          </div>
+          <div>
+           <a href="/works/expertise/3d">
+            3D
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- /work-card-hero -->
+      <!-- work-card-body (blocks) -->
+      <div data-component="WorkCardImages">
+       <div class="work-card-image" id="block895" style="--image-width: 2800; --image-height: 1800; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAMAAAAGcixRAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAsVBMVEX///8AAAAJCQkNDQ0ODg4SEx07S61KX9tNZfdTbPkLCwuZmZuys7aWmJ6XmqWwtMWlrNZPZ/NSa/kPDw/AwcLCw8iMi56Rj63Ix9DO1PROZvRNZvoAAQgPEBmVlpt/gImHbn+fc4y+sru5vd8wSOEtR/EJFnQPG3BTXJhnb6VhZ59XXZVdY5BLU4gMHIkIGp0dKnwaJncVIngRH3kKGHYGE28DC0MBBSICBiQCBin////WAC59AAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAABLSURBVAjXRcHDAcBAEADAvdi2bTv9N5ZnZgB+CGE4QVI0wwLieEGUZEXVAOmGadmO6/kQhFGcpFlelFDVTdv1wzjNsKzbfpzX/bwfij0GebPpsmgAAAAASUVORK5CYII=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1800;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c3d7c832a@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c3d7c832a@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c3d7c832a@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c3d7c832a@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3c3d7c832a@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1800" intrinsicsize="2800x1800" loading="lazy" src="/uploads/works/npcmgd/67e3c3d7c832a.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block896" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/npcmgd/homepage@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/npcmgd/homepage@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/npcmgd/homepage@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block897" style="--image-width: 2800; --image-height: 1344; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAMAAABLuo1aAAAAb1BMVEWbnKqTlKOhoq+foK+fpsSgp8qnrtCjq8/HzuvK0e+lprKio7Cho6+nqLGsrbapqrWmqLTg4eX////v7/Hz8/Xx8vTv7/C8vsfAws3y8vP5+fr+/v7+///5+fiaiJqojKX6+fr+/v/8/PzPyczTy87vHacmAAAAPUlEQVQI1wXBBwJAMAADwNjUKFEzVsv/3+gOiOIkzfKirGDqxrSd7QdidNO8rJvbCeo4r/uhCMmH9wte+gFLhwPLdsq9owAAAABJRU5ErkJggg==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1344;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c714bd9eb@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c714bd9eb@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c714bd9eb@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c714bd9eb@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3c714bd9eb@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1344" intrinsicsize="2800x1344" loading="lazy" src="/uploads/works/npcmgd/67e3c714bd9eb.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block898" style="--image-width: 2800; --image-height: 1189; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAMAAABLuo1aAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAflBMVEX////v7+/QztPh3+P4+PjU1NnU1dz49/eVlqhrbovd297Jycqgk5rHvMLg4OCXlaKjoLfn5uaWlqV2eJHQztDCwMp7eY+wrK/W09iopa+uq7Dk3+W9uL+1sbjt7PLKyM+WlqnIxsjY0dXBvMXMyMvg19vWztXOys/e2+L///9RwQlyAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAA2SURBVAjXY2BAAEYmZhZWNnYOTi4Gbh5ePn4BQSFhEQZRMXEJSSlpGVk5BnkFRSVlFVU1dQ0AL+kDNQkcGvUAAAAASUVORK5CYII=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1189;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c71deceb7@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c71deceb7@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c71deceb7@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c71deceb7@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3c71deceb7@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1189" intrinsicsize="2800x1189" loading="lazy" src="/uploads/works/npcmgd/67e3c71deceb7.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block899" style="--image-width: 2800; --image-height: 2079; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAMAAAD3JJ6EAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAvVBMVEX/////7ev/7ezs5+zl5Ozj5O7k5e7/s67wrquylpu/mp+ln9KEl+GIk9rGhJ23h6z5dm3zd2/ZcnGAgpyQc4nNYXeaXplVZsy5VXaiWYvTgoPKtb/AdoKQlMjGn63BSlqLTX49U7FAUa1AUq6ecZKTo+icb4m1ssuwkaFNNF4lMmwpNG0jLmkjLmiWQ1SIZ69gRmtySU1nOD9RHyhIHShIHihGHCZRNFFdVJkqKUseDRcgDxohERwiERz///+O1GS5AAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAABWSURBVAjXY2BAAEZGJiYmZhYWVjYGdnYOTi5uHl4+fgYBQSFhEVExcQlJBilpGVk5eQVFJWUGFVU1dQ1NLW0dXQY9fQNDI2MTUzMzBnMLSytrG1sgAADN8QhhZ3NBmwAAAABJRU5ErkJggg==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2079;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c729aaa69@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c729aaa69@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c729aaa69@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c729aaa69@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3c729aaa69@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2079" intrinsicsize="2800x2079" loading="lazy" src="/uploads/works/npcmgd/67e3c729aaa69.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block900" style="--image-width: 2800; --image-height: 1792; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAMAAAAGcixRAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAeFBMVEX///8JDBoICxkHChgFCBZTVV6dnqM8P0kFCBcLDhwmJzMiIy93dnzp2tZTUlkEBxYRFCFtZWhqX2CDfH/sx71RS1EECBYOER4/PUU+OUFrbHPGx8hCRE0NEB8nMVolL1kXGikhJC8QEiALDx4kLlkkLloLDh7///+dsyJXAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAABCSURBVAjXY2BAAEZGRiZmFlY2dg4gk4mTi5uHl48fxBQQFBIWERUDMcUlJKWkZVhATFk5eQVFJSYQU1lFVY2ZiREATO8DCEoEkT0AAAAASUVORK5CYII=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1792;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c733ef71a@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c733ef71a@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c733ef71a@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c733ef71a@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3c733ef71a@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1792" intrinsicsize="2800x1792" loading="lazy" src="/uploads/works/npcmgd/67e3c733ef71a.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block901" style="--image-width: 2800; --image-height: 2927; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAMAAABxsOwqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABC1BMVEX///9dYnVaX3NXW2xYXGxgZHJWWmpKT2FcYXRfZHYyP3Y0QXZscYp8gJF+gpRnbIBaX3Q/RmU3RHonPJExRZalq8bHydW/wdHMzdeussWfpsUyRpYmO5EzSqs2TqxVZ7STncrU1+bh5fRqdrGgq9hAVrAySqo9Vr1AWL1hdMClr9fY3Ozl6POkrdaSn9hEXL9WbcxedM7O1OrGyt3b3u7b3uuMm9hSasx9j9iEldrS1+qFjr27w+V0iuCbqN+mrth/kdmlseSkseWptu6+x+3a3e6yve2qt+2frOWjsOTN0/DK0e+os+K0vN3CxNXW2OKzvN+otOPw8vru8PjU1t/MztfP0NnNz9j///+jjxg3AAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAB4SURBVAjXY2BAAEYmZhZWNjZ2Dk4GLm4eXj5+AUFuIQZhEVExcQlJKWkZBlk5eQVFJWUVVTUGdQ1NLW0dXT19dQYDQyNjE1MzcwMDBgtLK2sbWzt7BwsGRydnF1c3dw9PRwYvbx9fP/+AQG8vhqDgkNCwcImQ4CAAm+cRrPgUyEQAAAAASUVORK5CYII=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2927;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c73d8748d@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c73d8748d@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c73d8748d@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c73d8748d@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3c73d8748d@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2927" intrinsicsize="2800x2927" loading="lazy" src="/uploads/works/npcmgd/67e3c73d8748d.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block902" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/npcmgd/catalog-1@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/npcmgd/catalog-1@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/npcmgd/catalog-1@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block906" style="--image-width: 2800; --image-height: 623; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAADCAMAAACd425HAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAQlBMVEX////T1uijqMnl5/B3grTFy+XT1eScoMTv8Pi2v+ft7/rR0de5uLzi5PGDjb/g4/Pg3+HLyc/5+fnEyuXg5fj////si4AlAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAgSURBVAjXY2BAAEYmZhZWNnYOTi4Gbh5ePn4BQSFhEQAGXADTI5f9IQAAAABJRU5ErkJggg==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:623;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c84bd4ebb@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c84bd4ebb@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c84bd4ebb@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c84bd4ebb@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3c84bd4ebb@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="623" intrinsicsize="2800x623" loading="lazy" src="/uploads/works/npcmgd/67e3c84bd4ebb.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block903" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/npcmgd/catalog-2@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/npcmgd/catalog-2@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/npcmgd/catalog-2@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block909" style="--image-width: 2800; --image-height: 624; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAADCAMAAACd425HAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAQlBMVEX///+oqbOxsbnFxcja2trNzc6/wtKwtdW/wMaiqcyorMSprLuipbq/wMTT0tPR0tO6usfGx9i+v8aNlsSqrsT////aimMEAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAgSURBVAjXY2BAAEYmZhZWNnYOTi4Gbh5ePn4BQSFhEQAGXADTI5f9IQAAAABJRU5ErkJggg==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:624;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c8ef04a9e@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c8ef04a9e@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c8ef04a9e@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c8ef04a9e@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3c8ef04a9e@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="624" intrinsicsize="2800x624" loading="lazy" src="/uploads/works/npcmgd/67e3c8ef04a9e.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block910" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/npcmgd/catalog-3@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/npcmgd/catalog-3@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/npcmgd/catalog-3@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block911" style="--image-width: 2800; --image-height: 1569; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAMAAADNLv/0AAAAq1BMVEVMU29hZnpfZHlgZXphZntTWXJZXnRbX3VaX3Wnrs3e3uHZ2d3j5Ojf3+Pb3OKssMWwsbzHyNDOztWosdXg4OHw8PLb3ODV1dbV1tzIzeDk4uPt6ejt7e7EzOzw8PDx8fHq6urq6/Da1uPruKvqsKDr3Nnf4/X4+Pjt7vTh5PL3+Pvz9Pbl4urtwrfsu6/s4N/u8Pr19vzx8vrp7Pny9Pvw8vry8vfy8fbz9fpTMxcJAAAASUlEQVQI1wXBAwLAMBAAsFtnq7NtdP7/y5YAUIhGDMvxAoiSrKiabpgW2NhxPT8IoxiSNMN5UVZ1A23XD+M0L+sGOznOi9zP+/2NYQaEBKGTxQAAAABJRU5ErkJggg==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1569;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c9b4f2dd0@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c9b4f2dd0@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c9b4f2dd0@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3c9b4f2dd0@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3c9b4f2dd0@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1569" intrinsicsize="2800x1569" loading="lazy" src="/uploads/works/npcmgd/67e3c9b4f2dd0.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block912" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/npcmgd/science-2@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/npcmgd/science-2@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/npcmgd/science-2@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block913" style="--image-width: 2800; --image-height: 4442; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAQAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABwYI/8QAJhAAAAUDAwMFAAAAAAAAAAAAAQIDBAUABhEHMUESEzIIFBYhYf/EABcBAQEBAQAAAAAAAAAAAAAAAAQGAwX/xAAhEQABAwMFAQEAAAAAAAAAAAABAAIDBBEhBhIUMVFh0f/aAAwDAQACEQMRAD8A2ppvIfJYeDuSIlm0Y2U7qazJEoGM46Tm35DxqkrIo6SZ9M6O5xny6FE4yNDwUan9XQFOYPebDjyqlGncdIPM+qWsB/GW/b1tQ8NqW8RiVWyq6AN10OlcRTE44yUTYExh+s8/lBqKkVMhndE0uNu7/q1YzY3YHGwQBNWxpYymH7cdUmyQpOFE+2Y5DCXBhDAjzjG9doajkAsWBF4TfV//2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:4442;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca0fd361a@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca0fd361a@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca0fd361a@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca0fd361a@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3ca0fd361a@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="4442" intrinsicsize="2800x4442" loading="lazy" src="/uploads/works/npcmgd/67e3ca0fd361a.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block914" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/npcmgd/services@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/npcmgd/services@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/npcmgd/services@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block915" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/npcmgd/science-1@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/npcmgd/science-1@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/npcmgd/science-1@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block916" style="--image-width: 2800; --image-height: 3593; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAANAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQHCP/EACYQAAEDAwMCBwAAAAAAAAAAAAECAwQFBxEAEhMGIRUlMUFRYdH/xAAYAQACAwAAAAAAAAAAAAAAAAAFBgIEB//EACcRAAIABAUDBQEAAAAAAAAAAAECAAMRIQQFEiJhMWLRBgdBUYHB/9oADAMBAAIRAxEAPwAlW8o1cpkeBMZivc6k8xV042EOAHtgbh8D31Sn55lzyyMKrhz01UpzW8afI9BZjIm68c6GUK10tu4pYwgbJ2tSSDQ4uR2PkCP3QI584t/D5hmX2+lsAwrfuXxGs69aZmFcmo1PxqouMtSUrbp5dIjoSobdgT6YGMj70XxhVlREULpFD3X6n6/ISspmne8zc0wkgknba9Pg15i6RrbUZyO0tUSOpSkgklkEk41MYWWRUiBBznFISoc0HJj/2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:3593;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca5eaacd1@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca5eaacd1@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca5eaacd1@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca5eaacd1@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3ca5eaacd1@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="3593" intrinsicsize="2800x3593" loading="lazy" src="/uploads/works/npcmgd/67e3ca5eaacd1.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block917" style="--image-width: 2800; --image-height: 3094; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAMAAoDAREAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABgcICf/EACYQAAEDAgUDBQAAAAAAAAAAAAECAwQFBgAIEUFRBxITFDEycaH/xAAXAQADAQAAAAAAAAAAAAAAAAAFBgcD/8QAKBEAAQMDAwALAAAAAAAAAAAAAQACAwQFERIVUgcWITFBQ1FhkcHw/9oADAMBAAIRAxEAPwCzra6j3Lf1Lh1+mXE3DgLbdekQ/AlS0oSSkFJ7Tun9wBp55qpoe1+Pb8FS7lQW6zzupJodRBADsnBJ7eQ8D6IFVnYKFFJS2SDproMC96fxTmOjyAjOsfKR2UrMTc1Ky10eEI1NkpQJZ8z7bhcVq657kOAb8bDDq2FkY0N7lC6mrmqpTNKcuP0s4ZHVK4y+6fXH5Hnn7xlt1PxR3rJch5i//9k=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:3094;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca6898610@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca6898610@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca6898610@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3ca6898610@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3ca6898610@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="3094" intrinsicsize="2800x3094" loading="lazy" src="/uploads/works/npcmgd/67e3ca6898610.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block918" style="--image-width: 2800; --image-height: 1575; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAMAAADNLv/0AAAAtFBMVEVTV2ZdYG5hZHFdYXBXW2tVWWhnanVHS10bITsTGTFGU4iEiqi5vMpXYpBKV4xncZrQ0dfQ0tuwtMdBTHw2TayBjb/b3eRQY7A4T65UZrHZ2+Pv7/Dm6O1cbbRZcM2Rnc/a2+Jsf8tbcs9vgcrc3eXu7u7n6O50hsucquGrtd3Axt6hrd+dq+Kjrdrh4ufy8vLp6u6msNre4vXc4fTb4PTd4fXd4vXY3Oza29/g4OLe3+PZ3OuzPFqmAAAASElEQVQI1wXBgwHAAAwAsM62bdv6/68lAAiK4QRJ0QywHC+IkqyoGuiGadmO6/kBhFGcpFlelBXUTdv1wzjNC6zbfpzX/bzfD5dLBusp5PL7AAAAAElFTkSuQmCC);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1575;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3e455f2f71@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3e455f2f71@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3e455f2f71@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3e455f2f71@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3e455f2f71@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1575" intrinsicsize="2800x1575" loading="lazy" src="/uploads/works/npcmgd/67e3e455f2f71.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block919" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/npcmgd/navigation@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/npcmgd/navigation@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/npcmgd/navigation@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block920" style="--image-width: 2800; --image-height: 4268; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAQAAoDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAACAYH/8QAJRAAAAUDAwQDAAAAAAAAAAAAAQIDBAUGBxEAEiITITFBCCOx/8QAGAEAAwEBAAAAAAAAAAAAAAAAAwUGAQL/xAAmEQABAwMDAgcAAAAAAAAAAAABAAIDBBESIUFRBSIGExQxcpHw/9oADAMBAAIRAxEAPwBPxl+WkzRMpKEmXbGYQQXOziHcsokddUo/WUxzGEAAwCHrvgRyHjVpUeH5oJxE3ubp3AJYysa9mR0PCoYy8FImjmoyFfkI/FIguCozqokBTHIC9/Gc40B3Q6q5xidb4rsVUe7h9rIWfyUYXQtxMVFS9VQ8dGKudqkZOpINXLZgkjtckREpjCdVQR4COP3Q4/IgkAkuSNwfd17i44G612b2nH8ESlL3WN6h+klUoJ5HbuEuces89VY61V21e1L/AEsXBX//2Q==);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:4268;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e4e89d42e00@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e4e89d42e00@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e4e89d42e00@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e4e89d42e00@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e4e89d42e00@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="4268" intrinsicsize="2800x4268" loading="lazy" src="/uploads/works/npcmgd/67e4e89d42e00.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block921" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/npcmgd/production@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/npcmgd/production@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/npcmgd/production@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block922" style="--image-width: 2800; --image-height: 2160; --work-card-image-placeholder: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAIAAoDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACP/EACAQAAEDBAIDAAAAAAAAAAAAAAECAwUABAcREmEJE0H/xAAWAQEBAQAAAAAAAAAAAAAAAAAGBAX/xAAeEQABBAIDAQAAAAAAAAAAAAABAAIDBBExBRIhof/aAAwDAQACEQMRAD8AUmHML2uOcdwUVIwKbl6PtyFttx4WrY9ijolB2TyTrvvVJLzoJbMhh8adfFFEHNjHbaJkv49Jy7lb19ES2EOvrWBw+FRNNmXOHDQC0ZWUYrOdr//Z);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2160;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3caefde4c7@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3caefde4c7@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3caefde4c7@resize-992x-lg.jpg" type="image/jpeg"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3caefde4c7@resize-1400x-xxl.jpg" type="image/jpeg"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3caefde4c7@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2160" intrinsicsize="2800x2160" loading="lazy" src="/uploads/works/npcmgd/67e3caefde4c7.jpg" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block923" style="--image-width: 2800; --image-height: 1707; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAMAAAAGcixRAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEX////09PTy8/Pz8/Tz8/Ph4eHCwsLb29zx8vLx8fHt6+vazc7RycnZ2NmYm6FbW2euqbnu7Pbt7PXw7/Xr4eSXg7J8cJmGgYh2eouIbIDYz+Lv8P/x8f/z8v734OG/oLeCbpyXkJWfoKaHeoWXfITNsr/o1uLw8Pz+8PD34OLbw8jn3N7x6+3g3N7Jw8bDoqOvj5DNzNX+9/j+9ff/8/X68PL28PL18vP18/Tx8vPm5+fp6er////WxHSoAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAABMSURBVAjXY2BAAEYmZhZWNnYOTkYGLm4eXj5+AUEhYQYRUTFxCUkpaRlZBjl5BUUlZRVVNXUGDU0tbR1dPX0DQwYjYxNTM3MLSytrAJe7BuyijnBLAAAAAElFTkSuQmCC);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1707;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3caf788068@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3caf788068@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3caf788068@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3caf788068@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3caf788068@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1707" intrinsicsize="2800x1707" loading="lazy" src="/uploads/works/npcmgd/67e3caf788068.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block924" style="--image-width: 2801; --image-height: 2053; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAMAAAD3JJ6EAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAz1BMVEX///9YWmNcXmZdX2hbXmdTVV9RU11VWGFVV2AcHysGChdtdqN9ib05PE4nJzIlJTEnJzMoJzMTEyALDBl3gLCLmNMxKTwbDBYcDRcbDRcdDhkeEBuQlLqdqNhLNURBLkVMPllLPVhLPVdMPlhHN1A2GiZ+bH+DeJBWMDxsbKaTodx2hcx1htOVo957g8FLJjlfICVfISVfIyqmnby9x+2Il9WDk9m4wuy2tthoMz9xIyZxIyV0KCy1nK2zsdCMi7aKibaopsi+sMR9OT////83S7WuAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAABXSURBVAjXY2BAAEYmZhZWNnYOTi4Gbh5ePn4BQT4hYQYRUTFxCQkJSSlpBhlZOXkFRSVlFVUGNXUNTS1tHV09fQYDQyNjE1MzcwtLBitrG1s7ewdHJ2cA7EIJJTwrP2MAAAAASUVORK5CYII=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2801;--image-height:2053;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb1294ef6@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb1294ef6@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb1294ef6@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb1294ef6@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3cb1294ef6@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2053" intrinsicsize="2801x2053" loading="lazy" src="/uploads/works/npcmgd/67e3cb1294ef6.png" width="2801"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block925" style="--image-width: 2801; --image-height: 3253; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAMCAMAAABstdySAAABR1BMVEVAGSEyFh8xFB4yFyA7GSI9Fx8zFyA2GySGU1aEXmKBWV1nNDlmMDVuNDhxNjpsOT5vPEBtO0CrQ0KwSUe4R0SzQDysMzCrMS2wOTWuNjOsNDCwOjeyNTS+ODXaRz/aSULbSkPYSULXSULbSEDZPDTYOjLWOTHZRz/ktbTTvsDXwMPcxcjZw8bktLPYRj/VOTHjPTTlS0PjxsXj5+jr7e/g4uXZ3d7jxcTlS0LvQDXwTkTw0M3t7u/h4urO0Nni4+Py0M76Qzf4ST/jjpfVl6XLjqPEiaDUl6nahZH3SD/6RTzvR0SVc59/gLh2drNXWqQ+RZpiRYfsRELxRkPjRUZUQG8vP3o6SIByfKhygK2JcpbmSEnoR0rZRElBJUIZHUAkJkdbW3BiYnZ4WmrdSEzdSFLYSFGnPEiaOUaaOEaYNkSWNUOkOUYq0dNlAAAAjElEQVQI12NgYGRkYmZhZWNnZODg5OLm4eXjFxBkEBIWERUTl5CUkmaQkZWTV1BUUlZRZVBT19DU0tbR1dNnMDA0MjYxNTO3MGCwtLK2sbWzd7CyZHB0cnZxdXP38HRk8PL28fXzDwgM8mIIDgkNC4+IjIoOZoiJjYtPSExKTolhSE1Lz8jMys5JSwUAaQ8Zqc/VeWQAAAAASUVORK5CYII=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2801;--image-height:3253;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb21671eb@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb21671eb@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb21671eb@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb21671eb@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3cb21671eb@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="3253" intrinsicsize="2801x3253" loading="lazy" src="/uploads/works/npcmgd/67e3cb21671eb.png" width="2801"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block926" style="--image-width: 2801; --image-height: 3069; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAMAAABxsOwqAAABAlBMVEWkZIGQZoqpUmh8SlSWTFnKSl/LSl/LS190ZptbarF5RWU8HyhgLjy7TGm9TGq9TWq9TGmnlK64u9GTWnOHOz2JOkasTnSuTnWuT3ZvYXxlaYKDSmahMjOaO0qbUH+cUH+eUYGeUIFjP25SN2N+SXqLRmmKSXOqiqe2o7SYZZWOUY2PUo2BVZqAVZp+VJi8sMbi4+aRcqR/U5aAVZhwVqVwV6VvVqO8tM3o6OyGea1nZqlqY6dhWLBhWbBgV66ysMzo5+p1drJQZsdJWbZRWrxSW7xncL91fcNYY7ZVasVGWbdFXMZDW8ZCWsZKXrVrc5dbZ5lCXchDXchGXsBbZqdRYa3IziHPAAAAfUlEQVQI1xXBhRpBMQAG0F9Nc+U0V8e9cnp6Oje8/6v4nANYrDa7gzgJgcvt8fr8gaCmIRSORGNxmqAUyVQ6k83lC7qOYqlcqdbqjWYLhmGa7U631x+AsSEbjSfT2RycL/hytd5sdxBiL8TheDpfcP273R/PF6RUUin5/nx/Hw0Te1TkL78AAAAASUVORK5CYII=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2801;--image-height:3069;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb367d81c@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb367d81c@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb367d81c@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cb367d81c@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3cb367d81c@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="3069" intrinsicsize="2801x3069" loading="lazy" src="/uploads/works/npcmgd/67e3cb367d81c.png" width="2801"/>
+        </picture>
+       </div>
+       <div class="work-card-video work-card-video--wide" id="block927" style="--video-width: 1920; --video-height: 1080;" title="">
+        <div class="work-card-video__container">
+         <div class="work-card-video__body" data-component="Video" data-video-desktop="/uploads/video/npcmgd/history@resize-1920x-desktop.mp4" data-video-mobile="/uploads/video/npcmgd/history@resize-1024x-mobile.mp4" data-video-poster="/uploads/video/npcmgd/history@resize-1920x-desktop.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="work-card-image" id="block928" style="--image-width: 2800; --image-height: 1575; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAMAAADNLv/0AAAArlBMVEVaWbVfYrxkbcRkbcNtdMVxd8ZxdsZkZr2dT4Ghbp+jkcKYg7uUgbrY1eXs6/Pu7fXAk7OcToDkR0zdUlvRUGHOTF/TYXH15+n+/v7+///vlpjjREncPDTSQju/NzK+NjLGT0zo2+Lv8vrw8/zki4nbODCAJylwLzNNKTJMKDFcPUeqqcW2udi2utmZaHR+JCUoEx0qGyYrIi4sIi4vJjFEOUNHPEZGO0U1JS8nEh1lyJM0AAAASklEQVQI12NgYGRiYmZhZWNnYODg5OLm4eXjFxBkEBIWERUTl5CUkmaQkZWTV1BUUlZRZVBT19DU0tbR1dNnMDA0MjYxNTO3sAQAiTAGeKQlLmIAAAAASUVORK5CYII=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1575;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbd614a72@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbd614a72@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbd614a72@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbd614a72@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3cbd614a72@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1575" intrinsicsize="2800x1575" loading="lazy" src="/uploads/works/npcmgd/67e3cbd614a72.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block929" style="--image-width: 2800; --image-height: 1575; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAMAAADNLv/0AAAAflBMVEUICxkWGSUwMjsgIy4oKzYLDhwJDBoGCRc6PUuZnbBjZXOcipefjJoWGCUGCBY9QlWkrtZpa4KZZ2+baXIXFiMEBxVUVl78+/uTlJjIycrNzs8ZHCgHChkFCBZBRFO8wdhwdISboLSeo7cWGCYPEyMfJDwVGSsaHzUbIDUKDRsIOMckAAAAQUlEQVQI12NgYGRiZmFhZWBjY2Dn4OTi5uEFMfn4BQSFhEVATFExcQlJKWkZIFNWTl5BUUkZJMqgoqqmrqEJZAIAWFcDpMD6Gh0AAAAASUVORK5CYII=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:1575;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbdfad609@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbdfad609@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbdfad609@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbdfad609@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3cbdfad609@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="1575" intrinsicsize="2800x1575" loading="lazy" src="/uploads/works/npcmgd/67e3cbdfad609.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block930" style="--image-width: 2800; --image-height: 2386; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAMAAAA8eE0hAAAA9lBMVEVub3hjZW5hY2xvcHlrbXVlZm9qbHRsbnY0NkEeIS2wsbjd3eHW1trq6uzY2Nu3u8nN0eDa3enIzdqTl6Wwsbf7+/z29vb09PPS09d4eZZ5d5ZjZop+fqBeZYbAwcT////x8vje4e+9wMxqW01vWUNcTkR5YUtbTUJlZ3CGh46BhJN+haJudJFNU2tWW3JYWmhRU109P0oGCRcEBhQhKEVkcaxfbaxDVKEyRZgVHUEHCRYICxkJDBoICxgVGzkvPX08SoaHkLiNlrwxNkwNEigXIEYdJktDSWZGTGcbHzEHChgJDBwLDyALDiAIDB8IDB4IDBsJCxk2SrTzAAAAaElEQVQI12NgYGRiZmFlY+fgZODi5uHl4xcQFBJmEBEVE5eQlJKWkWWQk1dQVFJWUVVTZ9DQ1NLW0dXTNzBkMDI2MTUzt7C0smawsbWzd3B0cjayYbCxdnF1c/fw9AIxvX18/fwDAm0A+J4OzsYg/nMAAAAASUVORK5CYII=);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2386;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbe8e88cc@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbe8e88cc@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbe8e88cc@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3cbe8e88cc@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3cbe8e88cc@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2386" intrinsicsize="2800x2386" loading="lazy" src="/uploads/works/npcmgd/67e3cbe8e88cc.png" width="2800"/>
+        </picture>
+       </div>
+       <div class="work-card-image" id="block931" style="--image-width: 2800; --image-height: 2800; --work-card-image-placeholder: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAmVBMVEUTDhoVDxsXEBxEGiFFGiFIHCOBKCmCKCmBJyiEKiqEKiuBJym9NjG9NTC/PTjAODLsQDbtQDbsRz3jZmG4T2HmQDr+UUX+UEX/UkbYZW2qdZz1VE7/UEX/dGv/dGr4dW/1d3P/opz/o53/o5z/0c77zsvovLzmu7vnurrjt7j7zcv/9/b06+y9t7+5tLyxrLW0r7ippK+5s7zwYvx+AAAAaUlEQVQI1x3FWxaCIABF0asglqFhGmZFBhr5tpz/4GR5PvYBPH/PAwilNAgcBIyFh2N0ChkDjzlPzrEbhEgvWX5NhYAs5K28P56FhFLqVb2dClobU9fGaI3mY79t29m+wTBO8/L7r+OwARzNCG0YyaLHAAAAAElFTkSuQmCC);">
+        <!-- options = [] -->
+        <picture style="--image-width:2800;--image-height:2800;">
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3e48418814@resize-992x-lg.webp" type="image/webp"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3e48418814@resize-1400x-xxl.webp" type="image/webp"/>
+         <source media="(max-width: 991.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3e48418814@resize-992x-lg.png" type="image/png"/>
+         <source media="(max-width: 1399.98px)" srcset="/uploads/works/npcmgd/thumbs/67e3e48418814@resize-1400x-xxl.png" type="image/png"/>
+         <source srcset="/uploads/works/npcmgd/thumbs/67e3e48418814@resize-x-webp.webp" type="image/webp"/>
+         <img decoding="async" fetchpriority="low" height="2800" intrinsicsize="2800x2800" loading="lazy" src="/uploads/works/npcmgd/67e3e48418814.png" width="2800"/>
+        </picture>
+       </div>
+      </div>
+      <!-- /work-card-body (blocks) -->
+      <!-- work-card-footer -->
+      <div class="work-card-info">
+       <div class="work-card-info__body">
+        <div class="work-card-info__item work-card-info__item--wide">
+         <div class="work-card-info__item-title">
+          Клиент
+         </div>
+         <div class="work-card-info__item-value">
+          НПЦ Магнитной гидродинамики
+         </div>
+        </div>
+        <div class="work-card-info__item">
+         <div class="work-card-info__item-title">
+          Фронтенд
+         </div>
+         <div class="work-card-info__item-value">
+          Webpack
+         </div>
+        </div>
+        <div class="work-card-info__item">
+         <div class="work-card-info__item-title">
+          Бэкенд
+         </div>
+         <div class="work-card-info__item-value">
+          Yii2
+         </div>
+        </div>
+        <div class="work-card-info__item work-card-info__item--wide">
+         <div class="work-card-info__item-title">
+          Год
+         </div>
+         <div class="work-card-info__item-value">
+          2025
+         </div>
+        </div>
+        <div class="work-card-info__item">
+         <div class="work-card-info__item-title">
+          Отрасль
+         </div>
+         <div class="work-card-info__item-value">
+          <a href="/works/industry/industry">
+           Промышленность
+          </a>
+         </div>
+        </div>
+        <div class="work-card-info__item">
+        </div>
+        <div class="pitcher-sign">
+         <svg>
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+          </use>
+         </svg>
+        </div>
+       </div>
+      </div>
+      <!-- /work-card-footer -->
+      <div id="review">
+      </div>
+      <!-- work-card-review -->
+      <div class="work-card-review">
+       <div class="work-card-review__top">
+        <h2 class="work-card-review__title">
+         Отзыв от клиента
+        </h2>
+        <a aria-label="Отзыв на ratingruneta.ru" class="work-card-review__link" data-barba-prevent="self" href="https://ratingruneta.ru/agile-business/reviews-web/9640/" rel="nofollow" target="_blank" title="Отзыв на ratingruneta.ru">
+         Источник
+        </a>
+        <div aria-label="Оценка: 5" class="work-card-review__rate" title="Оценка: 5">
+         <svg class="reviews-star reviews-star--lg">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+          </use>
+         </svg>
+         <svg class="reviews-star reviews-star--lg">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+          </use>
+         </svg>
+         <svg class="reviews-star reviews-star--lg">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+          </use>
+         </svg>
+         <svg class="reviews-star reviews-star--lg">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+          </use>
+         </svg>
+         <svg class="reviews-star reviews-star--lg">
+          <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-star">
+          </use>
+         </svg>
+        </div>
+       </div>
+       <div class="work-card-review__bottom">
+        Благодарим команду разработчиков за профессиональную работу над созданием нашего корпоративного сайта. В процессе сотрудничества специалисты внимательно отнеслись к нашим задачам и пожеланиям, предложили продуманные решения по структуре, дизайну и функционалу. В результате мы получили современный, удобный и визуально привлекательный сайт, который полностью соответствует нашим ожиданиям и хорошо отражает имидж компании. Рекомендуем команду как надежного партнера в разработке веб-проектов.
+       </div>
+      </div>
+      <!-- /work-card-review -->
+      <!-- other works -->
+      <div class="section section--works">
+       <div class="section__content">
+        <h2 class="section__title">
+         Другие проекты
+        </h2>
+       </div>
+       <div class="works-list" data-component="WorksList">
+        <a class="works-list__item js-works-list-item" href="/works/nto">
+         <div class="works-list__item-name">
+          НТО
+         </div>
+         <div class="works-list__item-category">
+          Промышленность
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 1С-Битрикс, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1200;--image-height:1200;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/nto/thumbs/6a5dc4da7aac7@resize-x-webp.webp" type="image/webp"/>
+          <img alt="НТО" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1200" intrinsicsize="1200x1200" loading="lazy" src="/uploads/works/nto/6a5dc4da7aac7.jpg" width="1200"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"НТО","url":"https://semiteq.ru/","description":"Проект НТО в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-07-17"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/domkino">
+         <div class="works-list__item-name">
+          ЖК Дом Кино
+         </div>
+         <div class="works-list__item-category">
+          Строительство
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/domkino/thumbs/699fe3d97680f@resize-x-webp.webp" type="image/webp"/>
+          <img alt="ЖК Дом Кино" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/domkino/699fe3d97680f.jpg" width="1080"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"ЖК Дом Кино","url":"https://dom-kino.ru","description":"Проект ЖК Дом Кино в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-02-26"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/rougebunnyrouge">
+         <div class="works-list__item-name">
+          Rouge Bunny Rouge
+         </div>
+         <div class="works-list__item-category">
+          Торговля
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, UI/UX дизайн
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/rougebunnyrouge/thumbs/69933a61caba6@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Rouge Bunny Rouge" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/rougebunnyrouge/69933a61caba6.jpg" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"Rouge Bunny Rouge","url":"https://rougebunnyrouge.com","description":"Проект Rouge Bunny Rouge в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2026-02-16"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/nebonadeniseem">
+         <div class="works-list__item-name">
+          Небо над Енисеем
+         </div>
+         <div class="works-list__item-category">
+          Строительство
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/nebonadeniseem/thumbs/697b4cf4ccda5@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Небо над Енисеем" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/nebonadeniseem/697b4cf4ccda5.jpg" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"Небо над Енисеем","url":"https://agile-business-pro.com/works/nebonadeniseem","description":"Проект Небо над Енисеем в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-08-02"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/bonbon">
+         <div class="works-list__item-name">
+          BonBon: айдентика
+         </div>
+         <div class="works-list__item-category">
+          Торговля
+         </div>
+         <div class="works-list__item-type">
+          Брендинг
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/bonbon/thumbs/685a59e3f3b08@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/bonbon/thumbs/685a59e3f3b08@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/bonbon/thumbs/685a59e3f3b08@resize-x-webp.webp" type="image/webp"/>
+          <img alt="BonBon: айдентика" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/bonbon/685a59e3f3b08.png" width="1080"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"BonBon: айдентика","url":"https://agile-business-pro.com/uploads/pdf/bonbon.pdf","description":"Проект BonBon: айдентика в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-06-24"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/dataru">
+         <div class="works-list__item-name">
+          DataРу
+         </div>
+         <div class="works-list__item-category">
+          ИТ
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1080;--image-height:1080;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-768x-md.jpg" type="image/jpeg"/>
+          <source srcset="/uploads/works/dataru/thumbs/682daa5934160@resize-x-webp.webp" type="image/webp"/>
+          <img alt="DataРу" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1080" intrinsicsize="1080x1080" loading="lazy" src="/uploads/works/dataru/682daa5934160.jpg" width="1080"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"DataРу","url":"https://dataru.ru","description":"Проект DataРу в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-05-21"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/depo">
+         <div class="works-list__item-name">
+          DEPO
+         </div>
+         <div class="works-list__item-category">
+          Строительство
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, UI/UX дизайн
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/depo/thumbs/682d754504ab4@resize-x-webp.webp" type="image/webp"/>
+          <img alt="DEPO" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/depo/682d754504ab4.png" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"DEPO","url":"https://agile-business-pro.com/works/depo","description":"Проект DEPO в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-05-21"}
+         </script>
+        </a>
+        <a class="works-list__item js-works-list-item" href="/works/fullview">
+         <div class="works-list__item-name">
+          Full View
+         </div>
+         <div class="works-list__item-category">
+          ИТ
+         </div>
+         <div class="works-list__item-type">
+          Корпоративные сайты, 3D
+         </div>
+         <picture class="works-list__item-picture" style="--image-width:1600;--image-height:1600;">
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-768x-md.webp" type="image/webp"/>
+          <source media="(max-width: 2303.98px)" srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-768x-md.png" type="image/png"/>
+          <source srcset="/uploads/works/fullview/thumbs/6801e0eca64da@resize-x-webp.webp" type="image/webp"/>
+          <img alt="Full View" class="js-works-list-item-image" decoding="async" fetchpriority="low" height="1600" intrinsicsize="1600x1600" loading="lazy" src="/uploads/works/fullview/6801e0eca64da.png" width="1600"/>
+         </picture>
+         <script type="application/ld+json">
+          {"@context":"http://schema.org/","@type":"CreativeWork","name":"Full View","url":"https://full-view.ru","description":"Проект Full View в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-04-18"}
+         </script>
+        </a>
+       </div>
+      </div>
+      <!-- /other works -->
+      <div class="heading heading--black" data-component="Heading">
+       <div class="heading__inner">
+        <div class="heading__text js-heading-text">
+         Agile Business
+        </div>
+       </div>
+      </div>
+     </div>
+     <script type="application/ld+json">
+      {"@context":"http://schema.org/","@type":"CreativeWork","name":"НПЦ Магнитной гидродинамики","url":"https://agile-business-pro.com/works/npcmgd","description":"Проект НПЦ Магнитной гидродинамики в нашем портфолио с отзывом от клиента. Проект Agile Business — комплексный консалтинг с измеримым результатом.","creator":{"@type":"Organization","name":"Agile Business"},"dateCreated":"2025-03-26"}
+     </script>
+     <footer class="footer" data-component="Footer">
+      <div class="footer__inner js-footer-inner">
+       <div class="footer__inner-top">
+        <div class="footer__form">
+         <div class="footer__form-title">
+          Обсудим задачу
+          <br/>
+          вашего бизнеса
+         </div>
+         <div class="footer__form-body">
+          <form action="/feedback/callback" class="form form--footer" data-component="FormSubmit" data-form-name="Callback" id="callback-footer" method="post">
+           <input name="_csrf" type="hidden" value="DizyNrT_iNRCRXcFGQW6c7Rq0eMUHsVCrsImRsz05OtiZ8AFwbjt5wA3DmBeU_Imx1qFkGcrhBXZqnYUtbaejQ=="/>
+           <input id="callback-footer-subject" name="Callback[subject]" type="hidden" value="Заявка с сайта Agile Business"/>
+           <input id="callback-footer-request_uri" name="Callback[request_uri]" type="hidden"/>
+           <input id="callback-footer-doc_referer" name="Callback[doc_referer]" type="hidden"/>
+           <input id="callback-footer-utm" name="Callback[utm]" type="hidden"/>
+           <input id="callback-footer-js" name="Callback[js]" type="hidden" value="0"/>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <textarea class="form-control form-control-fluid form-textarea" id="callback-footer-message" name="Callback[message]" placeholder="Расскажите кратко о вашем проекте" rows="3"></textarea>
+             <label for="callback-footer-message">
+              Расскажите кратко о вашем проекте
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-name" name="Callback[name]" placeholder="Ваше имя *" required="" type="text"/>
+             <label for="callback-footer-name">
+              Ваше имя *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-floating form-floating-fluid">
+             <input class="form-control form-control-fluid" id="callback-footer-phone" name="Callback[phone]" placeholder="Телефон *" required="" type="tel"/>
+             <label for="callback-footer-phone">
+              Телефон *
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <div class="form-check form__check my-3">
+             <input class="form-check-input" id="callback-footer-rules" name="Callback[rules]" required="" type="checkbox" value="1"/>
+             <label class="form-check-label" for="callback-footer-rules">
+              Нажимая кнопку «Отправить», я даю
+              <a class="hover-underline hover-underline--underline" href="/approval">
+               согласие на обработку своих персональных данных
+              </a>
+              и соглашаюсь с
+              <a class="hover-underline hover-underline--underline" href="/policy">
+               Политикой конфиденциальности
+              </a>
+              .
+             </label>
+            </div>
+           </div>
+           <div class="form__group">
+            <button class="btn form-submit" data-component="ButtonHover" type="submit">
+             <span class="form-submit__text js-button-hover-inner">
+              Отправить
+             </span>
+            </button>
+           </div>
+          </form>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-middle" itemscope="" itemtype="http://schema.org/Organization">
+        <div class="d-none" itemprop="name">
+         Agile Business
+        </div>
+        <link href="https://agile-business-pro.com/" itemprop="url"/>
+        <div class="footer__contacts">
+         <div class="nav-contacts">
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="mailto:info@agile-business-pro.com" itemprop="email">
+            info@agile-business-pro.com
+           </a>
+          </div>
+          <div class="nav-contacts__item">
+           <a class="nav-contacts__link" href="tel:+79636177373" itemprop="telephone">
+            +7 (963) 617-73-73
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="footer__cities">
+         <div class="nav-cities">
+          <span class="nav-cities__item">
+           Москва
+          </span>
+         </div>
+        </div>
+        <div class="footer__socials">
+         <div class="nav-socials" data-barba-prevent="all">
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+          <div class="nav-socials__item">
+           <a class="nav-socials__link hover-underline" href="https://t.me/agilebusiness" itemprop="sameAs" rel="nofollow" target="_blank">
+            Telegram
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="footer__inner-bottom">
+        <div class="footer__copyright">
+         <div class="nav-copyright">
+          © 2026 Agile Business
+         </div>
+        </div>
+        <div class="footer__time">
+         <div class="nav-time">
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Europe/Moscow">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            МСК
+           </span>
+          </span>
+          ,
+          <span class="text-nowrap">
+           <span class="nav-time__digits" data-component="Time" data-timezone="Asia/Krasnoyarsk">
+            <span class="nav-time__digits-hours" data-provide="hours">
+             00
+            </span>
+            <span class="nav-time__digits-colon">
+             :
+            </span>
+            <span class="nav-time__digits-minutes" data-provide="minutes">
+             00
+            </span>
+           </span>
+           <span class="nav-time__note">
+            КРСК
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </footer>
+    </div>
+   </div>
+  </div>
+  <div aria-labelledby="offcanvas-brief-label" class="offcanvas offcanvas-top offcanvas-brief" data-component="Offcanvas" id="offcanvas-brief" tabindex="-1">
+   <div class="offcanvas-brief__close">
+    <button aria-label="Закрыть" class="btn-close" data-bs-dismiss="offcanvas" type="button">
+    </button>
+   </div>
+   <div class="offcanvas-body offcanvas-brief__body">
+    <div class="brief">
+     <div class="brief__top">
+      <div class="brief__title" id="offcanvas-brief-label">
+       Обсудить проект
+      </div>
+      <div class="pitcher-sign">
+       <svg>
+        <use href="/assets/front/build/img/svg-sprite.svg?v20260722#icon-pitcher-sign">
+        </use>
+       </svg>
+      </div>
+     </div>
+     <form action="/feedback/brief" class="form" data-component="FormSubmit" data-form-name="Brief" id="brief-offcanvas" method="post">
+      <input name="_csrf" type="hidden" value="DizyNrT_iNRCRXcFGQW6c7Rq0eMUHsVCrsImRsz05OtiZ8AFwbjt5wA3DmBeU_Imx1qFkGcrhBXZqnYUtbaejQ=="/>
+      <input id="brief-offcanvas-subject" name="Brief[subject]" type="hidden" value="Обсудить проект"/>
+      <input id="brief-offcanvas-request_uri" name="Brief[request_uri]" type="hidden"/>
+      <input id="brief-offcanvas-doc_referer" name="Brief[doc_referer]" type="hidden"/>
+      <input id="brief-offcanvas-utm" name="Brief[utm]" type="hidden"/>
+      <input id="brief-offcanvas-js" name="Brief[js]" type="hidden" value="0"/>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Ваши контакты
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-name" name="Brief[name]" placeholder="Расскажите кратко о вашем проекте *" required="" type="text"/>
+           <label for="brief-offcanvas-name">
+            Ваше имя *
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-phone" name="Brief[phone]" placeholder="Расскажите кратко о вашем проекте *" required="" type="tel"/>
+           <label for="brief-offcanvas-phone">
+            Телефон *
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-email" name="Brief[email]" placeholder="Эл. почта" type="email"/>
+           <label for="brief-offcanvas-email">
+            Эл. почта
+           </label>
+          </div>
+         </div>
+         <div class="form__group form__group--brief">
+          <div class="form-floating form-floating-fluid">
+           <input class="form-control form-control-fluid" id="brief-offcanvas-company" name="Brief[company]" placeholder="Компания" type="text"/>
+           <label for="brief-offcanvas-company">
+            Компания
+           </label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        О задаче
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Kompleks-rabot" name="Brief[type]" type="radio" value="Комплексный консалтинг"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Kompleks-rabot">
+             Комплексный консалтинг
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Korp-sajt" name="Brief[type]" type="radio" value="Бизнес-аналитика"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Korp-sajt">
+             Бизнес-аналитика
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Onlajn-servis" name="Brief[type]" type="radio" value="ИТ и разработка"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Onlajn-servis">
+             ИТ и разработка
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-type-Brending" name="Brief[type]" type="radio" value="Креатив"/>
+            <label class="btn form-check-label" for="brief-offcanvas-type-Brending">
+             Брендинг
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <div class="form__group">
+          <div class="form-floating form-floating-fluid">
+           <textarea class="form-control form-control-fluid form-textarea" id="brief-offcanvas-message" name="Brief[message]" placeholder="Расскажите кратко о вашем проекте" rows="5"></textarea>
+           <label for="brief-offcanvas-message">
+            Расскажите кратко о вашем проекте
+           </label>
+          </div>
+         </div>
+        </div>
+        <div class="brief__block">
+         <ol class="brief__list">
+          <li>
+           Из какой вы компании, чем она занимается?
+          </li>
+          <li>
+           С чем мы можем помочь? Как представляете результат?
+          </li>
+          <li>
+           На какой срок работы и бюджет рассчитываете?
+          </li>
+          <li>
+           Напишите, если удобнее общаться в мессенджере.
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Бюджет
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Menee-1-mln" name="Brief[budget]" type="radio" value="Менее 1 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Menee-1-mln">
+             Менее 1 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-1-2-mln" name="Brief[budget]" type="radio" value="1-2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-1-2-mln">
+             1-2 млн
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-budget-Bolee-2-mln" name="Brief[budget]" type="radio" value="Более 2 млн"/>
+            <label class="btn form-check-label" for="brief-offcanvas-budget-Bolee-2-mln">
+             Более 2 млн
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__section">
+       <div class="brief__section-title">
+        Откуда вы узнали о нас
+       </div>
+       <div class="brief__section-content">
+        <div class="brief__block brief__block--wide">
+         <div class="form__group form__group--brief">
+          <div class="form-radio">
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rejtingi" name="Brief[source]" type="radio" value="Рейтинги"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rejtingi">
+             Рейтинги
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Kopirajt-na-sajte" name="Brief[source]" type="radio" value="Копирайт на сайте"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Kopirajt-na-sajte">
+             Копирайт на сайте
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Rekomendovali" name="Brief[source]" type="radio" value="Рекомендовали"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Rekomendovali">
+             Рекомендовали
+            </label>
+           </div>
+           <div class="form-radio__item">
+            <input class="btn-check" id="brief-offcanvas-source-Davno-znau" name="Brief[source]" type="radio" value="Давно знаю"/>
+            <label class="btn form-check-label" for="brief-offcanvas-source-Davno-znau">
+             Давно знаю
+            </label>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="brief__submit">
+       <div>
+        <button class="btn form-submit" data-component="ButtonHover" type="submit">
+         <span class="form-submit__text js-button-hover-inner">
+          Отправить
+         </span>
+        </button>
+       </div>
+       <div class="brief__submit-text">
+        <div class="form-check">
+         <input class="form-check-input" id="brief-offcanvas-rules" name="Brief[rules]" required="" type="checkbox" value="1"/>
+         <label class="form-check-label" for="brief-offcanvas-rules">
+          Нажимая кнопку «Отправить», я даю
+          <a class="hover-underline hover-underline--underline" href="/approval">
+           согласие на обработку своих персональных данных
+          </a>
+          и соглашаюсь с
+          <a class="hover-underline hover-underline--underline" href="/policy">
+           Политикой конфиденциальности
+          </a>
+          .
+         </label>
+        </div>
+       </div>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div>
+  <div class="counters-body">
+  </div>
+  <script defer="" fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260722">
+  </script>
+  <script defer="" fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260722">
+  </script>
+  <script defer="" src="/js/agile-perf.js?v20260722p">
+  </script>
+  <script defer="" src="/js/agile-global.js?v20260722p">
+  </script>
+ </body>
+</html>
+
