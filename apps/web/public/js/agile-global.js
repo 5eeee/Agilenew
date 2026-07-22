@@ -14,10 +14,37 @@
     return document.querySelector(".works-grid");
   }
 
-  function setMode(mode) {
+  function getTitleLinks() {
+    return {
+      left: document.querySelector(".js-hero-title-linkleft"),
+      right: document.querySelector(".js-hero-title-linkright"),
+    };
+  }
+
+  function currentMode() {
+    var links = getTitleLinks();
+    if (links.right && links.right.classList.contains("active")) {
+      return "products";
+    }
+    return "services";
+  }
+
+  function syncHeroPosters(mode) {
+    var isProducts = mode === "products";
+    document.querySelectorAll(".agile-hero-bg--services").forEach(function (el) {
+      el.style.opacity = isProducts ? "0" : "1";
+    });
+    document.querySelectorAll(".agile-hero-bg--products").forEach(function (el) {
+      el.style.opacity = isProducts ? "1" : "0";
+    });
+  }
+
+  function setMode(mode, options) {
+    options = options || {};
     var config = MODES[mode] || MODES.services;
     var hero = getHero();
     var grid = getWorksGrid();
+    var links = getTitleLinks();
 
     if (hero) {
       hero.classList.remove("is-agile-mode-services", "is-agile-mode-products");
@@ -27,38 +54,106 @@
     if (grid) {
       grid.setAttribute("data-agile-mode", config.gridMode);
     }
+
+    if (options.syncActive !== false && links.left && links.right) {
+      if (mode === "products") {
+        links.left.classList.remove("active");
+        links.right.classList.add("active");
+      } else {
+        links.right.classList.remove("active");
+        links.left.classList.add("active");
+      }
+    }
+
+    syncHeroPosters(mode);
   }
 
-  function readModeFromLink(link) {
-    return link && link.getAttribute("data-agile-mode") === "products" ? "products" : "services";
+  function unwrapSlideClips() {
+    document.querySelectorAll(".hero-title .agile-slide-clip").forEach(function (clip) {
+      var parent = clip.parentNode;
+      if (!parent) return;
+      while (clip.firstChild) {
+        parent.insertBefore(clip.firstChild, clip);
+      }
+      clip.remove();
+    });
+    var title = document.querySelector(".hero-title");
+    if (title) {
+      title.classList.remove("agile-hero-title", "is-inview");
+    }
   }
 
-  function syncFromActiveLink() {
-    var active = document.querySelector(".js-hero-title-linkright.active");
-    setMode(active ? "products" : "services");
+  function ensureHeroTitleVisible() {
+    var inner = document.querySelector(".js-hero-title-inner");
+    if (!inner) return;
+    inner.style.transform = "none";
+    inner.style.opacity = "1";
+    inner.style.willChange = "auto";
+    var title = document.querySelector(".hero-title");
+    if (title) {
+      title.style.overflow = "visible";
+    }
   }
 
-  function observeTitleLinks() {
-    var left = document.querySelector(".js-hero-title-linkleft");
-    var right = document.querySelector(".js-hero-title-linkright");
+  /** Manner-like letter split for hover stagger if Pitcher SplitText is missing */
+  function ensureMannerLikeChars(link) {
+    if (!link || link.querySelector(".splittext-char, .agile-char")) {
+      return;
+    }
+    var text = (link.textContent || "").replace(/\s+/g, " ").trim();
+    if (!text) return;
 
-    if (!left || !right) {
+    link.setAttribute("aria-label", text);
+    link.textContent = "";
+    link.classList.add("is-agile-char-split");
+
+    var chars = Array.from(text);
+    link.style.setProperty("--splittext-chars-length", String(chars.length));
+
+    chars.forEach(function (ch, index) {
+      var span = document.createElement("span");
+      span.className = "agile-char splittext-char";
+      span.textContent = ch === " " ? "\u00a0" : ch;
+      span.style.setProperty("--splittext-char-index", String(index + 1));
+      link.appendChild(span);
+    });
+  }
+
+  function prepareTitleChars() {
+    var links = getTitleLinks();
+    ensureMannerLikeChars(links.left);
+    ensureMannerLikeChars(links.right);
+  }
+
+  function bindTitleToggle() {
+    var links = getTitleLinks();
+    if (!links.left || !links.right || links.left.dataset.agileToggleBound === "1") {
       return;
     }
 
-    var observer = new MutationObserver(syncFromActiveLink);
-    observer.observe(left, { attributes: true, attributeFilter: ["class"] });
-    observer.observe(right, { attributes: true, attributeFilter: ["class"] });
+    links.left.dataset.agileToggleBound = "1";
+    links.right.dataset.agileToggleBound = "1";
 
-    [left, right].forEach(function (link) {
-      ["mouseenter", "focus", "click"].forEach(function (eventName) {
-        link.addEventListener(eventName, function () {
-          setMode(readModeFromLink(link));
+    function activate(link, event) {
+      if (event) {
+        if (event.type === "click") {
+          event.preventDefault();
+        }
+        event.stopPropagation();
+      }
+      var mode = link.getAttribute("data-agile-mode") === "products" ? "products" : "services";
+      setMode(mode);
+    }
+
+    [links.left, links.right].forEach(function (link) {
+      ["mouseenter", "focus", "click"].forEach(function (name) {
+        link.addEventListener(name, function (event) {
+          activate(link, event);
         });
       });
     });
 
-    syncFromActiveLink();
+    setMode(currentMode(), { syncActive: true });
   }
 
   function ensureStaticHeroLayers(canvas) {
@@ -79,7 +174,7 @@
     productsBg.setAttribute("aria-hidden", "true");
 
     canvas.insertBefore(servicesBg, canvas.firstChild);
-    canvas.insertBefore(productsBg, canvas.firstChild.nextSibling);
+    canvas.insertBefore(productsBg, servicesBg.nextSibling);
   }
 
   function forceStaticHero() {
@@ -88,17 +183,12 @@
       canvas.classList.add("is-webgl-error", "agile-hero-canvas");
       canvas.classList.remove("is-webgl-init");
 
-      canvas.querySelectorAll(".js-hero-posterleft, .js-hero-posterright").forEach(function (poster, index) {
-        if (poster.classList.contains("agile-hero-bg")) {
-          poster.style.opacity = index === 0 ? "1" : "0";
-        }
-      });
-
       var webglCanvas = canvas.querySelector("canvas");
       if (webglCanvas) {
         webglCanvas.style.display = "none";
       }
     });
+    syncHeroPosters(currentMode());
   }
 
   function cleanupCustomApproachJunk() {
@@ -109,13 +199,8 @@
       .forEach(function (node) {
         node.remove();
       });
-
-    document.querySelectorAll(".model-sticky").forEach(function (block) {
-      block.classList.remove("agile-no-model");
-    });
   }
 
-  // Only block WebGL inside hero animals — leave ModelSticky original
   function blockHeroWebGLOnly() {
     if (window.__agileHeroWebGLBlocked) {
       return;
@@ -128,10 +213,12 @@
 
     var OriginalGetContext = HTMLCanvasElement.prototype.getContext;
     HTMLCanvasElement.prototype.getContext = function (type) {
-      if (type === "webgl" || type === "webgl2" || type === "experimental-webgl") {
-        if (this.closest && this.closest(".hero-canvas")) {
-          return null;
-        }
+      if (
+        (type === "webgl" || type === "webgl2" || type === "experimental-webgl") &&
+        this.closest &&
+        this.closest(".hero-canvas")
+      ) {
+        return null;
       }
       return OriginalGetContext.apply(this, arguments);
     };
@@ -191,95 +278,30 @@
     });
   }
 
-  function prepareHeroTitleSlide() {
-    var title = document.querySelector(".hero-title");
-    var inner = title && title.querySelector(".js-hero-title-inner");
-    if (!title || !inner) {
-      return;
-    }
-
-    if (!title.classList.contains("agile-hero-title")) {
-      title.classList.add("agile-hero-title");
-      Array.prototype.slice.call(inner.children).forEach(function (child) {
-        if (child.classList.contains("agile-slide-clip")) {
-          return;
-        }
-        var clip = document.createElement("span");
-        clip.className = "agile-slide-clip";
-        inner.insertBefore(clip, child);
-        clip.appendChild(child);
-      });
-    }
-
-    if (title.classList.contains("is-inview")) {
-      return;
-    }
-
-    // Hero is on first screen — play shortly after load so effect is visible
-    function revealHero() {
-      title.classList.add("is-inview");
-    }
-
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      revealHero();
-      return;
-    }
-
-    setTimeout(revealHero, 280);
-    setTimeout(function () {
-      if (!title.classList.contains("is-inview")) {
-        revealHero();
-      }
-    }, 1200);
-  }
-
   function init() {
     document.documentElement.classList.add("is-agile-ready");
     clearNowebglHash();
     blockHeroWebGLOnly();
+    unwrapSlideClips();
     forceStaticHero();
     cleanupCustomApproachJunk();
-    observeTitleLinks();
+    ensureHeroTitleVisible();
+    prepareTitleChars();
+    bindTitleToggle();
     ensureScrollProgress();
     observeStats();
-    prepareHeroTitleSlide();
-  }
 
-  function watchHeroCanvas() {
-    forceStaticHero();
-    if (!("MutationObserver" in window)) {
-      return;
-    }
-    var hero = document.querySelector(".hero");
-    if (!hero || hero.dataset.agileHeroWatch === "1") {
-      return;
-    }
-    hero.dataset.agileHeroWatch = "1";
-    var timer = null;
-    var observer = new MutationObserver(function () {
-      if (timer) {
-        return;
-      }
-      timer = setTimeout(function () {
-        timer = null;
-        forceStaticHero();
-      }, 120);
-    });
-    observer.observe(hero, { childList: true, subtree: true, attributes: true });
+    // HeroTitle may wait for barba events that already fired — unstick after a beat
+    setTimeout(ensureHeroTitleVisible, 400);
+    setTimeout(prepareTitleChars, 700);
+    setTimeout(bindTitleToggle, 700);
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      init();
-      watchHeroCanvas();
-    });
+    document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
-    watchHeroCanvas();
   }
 
-  window.addEventListener("barba.afterEnter", function () {
-    init();
-    watchHeroCanvas();
-  });
+  window.addEventListener("barba.afterEnter", init);
 })();

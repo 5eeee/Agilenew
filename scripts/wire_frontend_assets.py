@@ -12,9 +12,20 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "apps" / "web" / "public"
-VERSION = "v20260722t"
+VERSION = "v20260722u"
 AGILE_CSS = f"/css/agile-overrides.css?{VERSION}"
 AGILE_JS = f"/js/agile-global.js?{VERSION}"
+
+# Block hero WebGL before Pitcher app boots (so poster/toggle path stays usable)
+HERO_BOOT = (
+    "<script>"
+    "(function(){if(window.__agileHeroWebGLBlocked)return;window.__agileHeroWebGLBlocked=1;"
+    "var o=HTMLCanvasElement.prototype.getContext;"
+    "HTMLCanvasElement.prototype.getContext=function(t){"
+    "if((t==='webgl'||t==='webgl2'||t==='experimental-webgl')&&this.closest&&this.closest('.hero-canvas'))return null;"
+    "return o.apply(this,arguments);};})();"
+    "</script>\n"
+)
 
 SCRIPT_STACK = [
     ("js-vendorpolyfills", f"/assets/front/build/js/vendor.polyfills.min.js?{VERSION}"),
@@ -69,7 +80,10 @@ def wire_html(path: Path, prefix: str = "") -> bool:
     # single overrides css before </head>
     css = f'<link href="{prefix}{AGILE_CSS}" rel="stylesheet"/>\n'
     if "</head>" in text:
-        text = text.replace("</head>", css + "</head>", 1)
+        if "agileHeroWebGLBlocked" not in text:
+            text = text.replace("</head>", HERO_BOOT + css + "</head>", 1)
+        else:
+            text = text.replace("</head>", css + "</head>", 1)
 
     # ensure webpack public path attribute stays absolute for current host root/prefix
     if prefix and 'data-public-path="' in text:

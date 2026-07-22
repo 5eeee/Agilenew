@@ -54,7 +54,8 @@
   <script>
    if(location.hash==="#nowebgl")history.replaceState(null,"",location.pathname+location.search);
   </script>
-  <link href="/css/agile-overrides.css?v20260722t" rel="stylesheet"/>
+  <script>(function(){if(window.__agileHeroWebGLBlocked)return;window.__agileHeroWebGLBlocked=1;var o=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(t){if((t==='webgl'||t==='webgl2'||t==='experimental-webgl')&&this.closest&&this.closest('.hero-canvas'))return null;return o.apply(this,arguments);};})();</script>
+<link href="/css/agile-overrides.css?v20260722u" rel="stylesheet"/>
 </head>
  <body>
   <div class="counters-body">
@@ -1262,17 +1263,17 @@
   </div>
   <div class="counters-body">
   </div>
-  <script defer fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260722t"></script>
-<script defer fetchpriority="auto" id="js-vendorthree-addons" src="/assets/front/build/js/vendor.three-addons.min.js?v20260722t"></script>
-<script defer fetchpriority="auto" id="js-vendorthree" src="/assets/front/build/js/vendor.three.min.js?v20260722t"></script>
-<script defer fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260722t"></script>
-<script defer fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260722t"></script>
-<script defer fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260722t"></script>
-<script defer fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260722t"></script>
-<script defer fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260722t"></script>
-<script defer fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260722t"></script>
-<script defer fetchpriority="auto" id="js-app" src="/assets/front/build/js/app.min.js?v20260722t"></script>
-<script defer src="/js/agile-global.js?v20260722t"></script>
+  <script defer fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260722u"></script>
+<script defer fetchpriority="auto" id="js-vendorthree-addons" src="/assets/front/build/js/vendor.three-addons.min.js?v20260722u"></script>
+<script defer fetchpriority="auto" id="js-vendorthree" src="/assets/front/build/js/vendor.three.min.js?v20260722u"></script>
+<script defer fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260722u"></script>
+<script defer fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260722u"></script>
+<script defer fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260722u"></script>
+<script defer fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260722u"></script>
+<script defer fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260722u"></script>
+<script defer fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260722u"></script>
+<script defer fetchpriority="auto" id="js-app" src="/assets/front/build/js/app.min.js?v20260722u"></script>
+<script defer src="/js/agile-global.js?v20260722u"></script>
 </body>
 </html>
 
