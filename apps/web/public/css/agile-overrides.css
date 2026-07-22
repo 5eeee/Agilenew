@@ -1,6 +1,71 @@
 /* Agile Business — global overrides (colors, hero, WebGL off, brand system) */
 
-/* Fail-safe if app.js fails to boot (e.g. wrong GH Pages asset base) */
+/* ===== GitHub Pages static mode (Pitcher app.js disabled) ===== */
+html.is-agile-pages,
+html.is-agile-pages body {
+  background: #f7f3ee !important;
+  color: #030206 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: auto !important;
+  height: auto !important;
+  transform: none !important;
+}
+
+html.is-agile-pages .hero {
+  color: #fff !important;
+  min-height: 100vh;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+html.is-agile-pages .hero-canvas canvas,
+html.is-agile-pages canvas {
+  display: none !important;
+}
+
+html.is-agile-pages .header,
+html.is-agile-pages .hero,
+html.is-agile-pages .hero-title,
+html.is-agile-pages .hero-intro,
+html.is-agile-pages .hero-title__link,
+html.is-agile-pages .hero-title__divider,
+html.is-agile-pages .section,
+html.is-agile-pages .heading,
+html.is-agile-pages .manner,
+html.is-agile-pages .works-grid,
+html.is-agile-pages .clients,
+html.is-agile-pages .posts,
+html.is-agile-pages .footer,
+html.is-agile-pages img,
+html.is-agile-pages .logo,
+html.is-agile-pages .agile-slide-clip,
+html.is-agile-pages .agile-slide-clip > * {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  clip-path: none !important;
+  filter: none !important;
+}
+
+html.is-agile-pages .hero-title__link {
+  color: #fff !important;
+}
+
+html.is-agile-pages .hero-title__link.active {
+  opacity: 1 !important;
+}
+
+html.is-agile-pages .hero-title__link:not(.active) {
+  opacity: 0.55 !important;
+}
+
+html.is-agile-pages .messages-toast--light,
+html.is-agile-pages #messages-cookie {
+  display: none !important;
+}
+
+/* Fail-safe if app.js fails to boot locally */
 html.is-agile-boot-failed body,
 html.is-agile-boot-failed .page,
 html.is-agile-boot-failed .hero,
@@ -9,22 +74,16 @@ html.is-agile-boot-failed .header {
   visibility: visible !important;
 }
 
-/* GitHub Pages / slow boot: never leave users on a black empty hero */
-html.is-agile-pages .hero-title.agile-hero-title:not(.is-inview) .agile-slide-clip > *,
 html.is-agile-ready .hero-title.agile-hero-title:not(.is-inview) .agile-slide-clip > *,
 html.is-agile-boot-failed .hero-title.agile-hero-title:not(.is-inview) .agile-slide-clip > * {
   transform: none !important;
   opacity: 1 !important;
 }
 
-html.is-agile-pages .hero-title__link.active,
 html.is-agile-ready .hero-title__link.active {
   opacity: 1 !important;
 }
 
-html.is-agile-pages .hero-intro,
-html.is-agile-pages .header,
-html.is-agile-pages .section,
 html.is-agile-ready .hero-intro,
 html.is-agile-ready .header,
 html.is-agile-ready .section {
