@@ -29,18 +29,7 @@
     return "services";
   }
 
-  function syncHeroPosters(mode) {
-    var isProducts = mode === "products";
-    document.querySelectorAll(".agile-hero-bg--services").forEach(function (el) {
-      el.style.opacity = isProducts ? "0" : "1";
-    });
-    document.querySelectorAll(".agile-hero-bg--products").forEach(function (el) {
-      el.style.opacity = isProducts ? "1" : "0";
-    });
-  }
-
-  function setMode(mode, options) {
-    options = options || {};
+  function setMode(mode) {
     var config = MODES[mode] || MODES.services;
     var hero = getHero();
     var grid = getWorksGrid();
@@ -55,7 +44,7 @@
       grid.setAttribute("data-agile-mode", config.gridMode);
     }
 
-    if (options.syncActive !== false && links.left && links.right) {
+    if (links.left && links.right) {
       if (mode === "products") {
         links.left.classList.remove("active");
         links.right.classList.add("active");
@@ -64,8 +53,6 @@
         links.left.classList.add("active");
       }
     }
-
-    syncHeroPosters(mode);
   }
 
   function unwrapSlideClips() {
@@ -77,10 +64,6 @@
       }
       clip.remove();
     });
-    var title = document.querySelector(".hero-title");
-    if (title) {
-      title.classList.remove("agile-hero-title", "is-inview");
-    }
   }
 
   function ensureHeroTitleVisible() {
@@ -92,14 +75,27 @@
     var title = document.querySelector(".hero-title");
     if (title) {
       title.style.overflow = "visible";
+      title.classList.remove("agile-hero-title");
     }
   }
 
-  /** Manner-like letter split for hover stagger if Pitcher SplitText is missing */
   function ensureMannerLikeChars(link) {
-    if (!link || link.querySelector(".splittext-char, .agile-char")) {
+    if (!link) return;
+
+    // Prefer Pitcher SplitText if already present
+    if (link.querySelector(".splittext-char")) {
+      var existing = link.querySelectorAll(".splittext-char");
+      link.style.setProperty("--splittext-chars-length", String(existing.length));
+      existing.forEach(function (node, index) {
+        if (!node.style.getPropertyValue("--splittext-char-index")) {
+          node.style.setProperty("--splittext-char-index", String(index + 1));
+        }
+      });
       return;
     }
+
+    if (link.querySelector(".agile-char")) return;
+
     var text = (link.textContent || "").replace(/\s+/g, " ").trim();
     if (!text) return;
 
@@ -147,48 +143,107 @@
 
     [links.left, links.right].forEach(function (link) {
       ["mouseenter", "focus", "click"].forEach(function (name) {
-        link.addEventListener(name, function (event) {
-          activate(link, event);
-        });
+        link.addEventListener(
+          name,
+          function (event) {
+            activate(link, event);
+          },
+          true
+        );
       });
     });
 
-    setMode(currentMode(), { syncActive: true });
+    setMode(currentMode());
   }
 
-  function ensureStaticHeroLayers(canvas) {
-    if (!canvas || canvas.querySelector(".agile-hero-bg--services")) {
-      return;
+  function ensureParallaxHero(canvas) {
+    if (!canvas) return;
+    canvas.classList.add("agile-hero-canvas");
+    canvas.querySelectorAll(".agile-parallax, .agile-topo-canvas").forEach(function (el) {
+      el.remove();
+    });
+  }
+
+  function ensureAgileHeroWord() {
+    var inner = document.querySelector(".js-hero-title-inner");
+    if (!inner) return;
+    var title = document.querySelector(".hero-title");
+    if (title) {
+      title.classList.add("agile-hero-brand");
+    }
+    if (!inner.querySelector("[data-agile-cursor-fill]")) {
+      inner.innerHTML =
+        '<span class="agile-hero-word" data-agile-cursor-fill>' +
+        '<span class="agile-hero-word__outline" aria-hidden="true">AGILE</span>' +
+        '<span class="agile-hero-word__fill" aria-hidden="true">AGILE</span>' +
+        '<span class="agile-hero-word__sr">AGILE</span>' +
+        "</span>";
+    }
+  }
+
+  function initCursorFill() {
+    var word = document.querySelector("[data-agile-cursor-fill]");
+    var hero = document.querySelector(".hero");
+    if (!word || !hero || word.dataset.agileFillBound === "1") return;
+    word.dataset.agileFillBound = "1";
+
+    var radius = Math.max(180, Math.min(420, window.innerWidth * 0.22));
+
+    function setPos(clientX, clientY, active) {
+      var rect = word.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      var x = ((clientX - rect.left) / rect.width) * 100;
+      var y = ((clientY - rect.top) / rect.height) * 100;
+      word.style.setProperty("--agile-fill-x", x.toFixed(2) + "%");
+      word.style.setProperty("--agile-fill-y", y.toFixed(2) + "%");
+      word.style.setProperty("--agile-fill-size", active ? radius + "px" : "0px");
     }
 
-    canvas.classList.add("agile-hero-canvas");
+    hero.addEventListener(
+      "mousemove",
+      function (e) {
+        setPos(e.clientX, e.clientY, true);
+      },
+      { passive: true }
+    );
 
-    var servicesBg = document.createElement("div");
-    servicesBg.className =
-      "agile-hero-bg agile-hero-bg--services hero-canvas__picture js-hero-posterleft";
-    servicesBg.setAttribute("aria-hidden", "true");
+    hero.addEventListener(
+      "mouseleave",
+      function () {
+        word.style.setProperty("--agile-fill-size", "0px");
+      },
+      { passive: true }
+    );
 
-    var productsBg = document.createElement("div");
-    productsBg.className =
-      "agile-hero-bg agile-hero-bg--products hero-canvas__picture js-hero-posterright";
-    productsBg.setAttribute("aria-hidden", "true");
+    // touch support
+    hero.addEventListener(
+      "touchmove",
+      function (e) {
+        if (!e.touches || !e.touches[0]) return;
+        setPos(e.touches[0].clientX, e.touches[0].clientY, true);
+      },
+      { passive: true }
+    );
 
-    canvas.insertBefore(servicesBg, canvas.firstChild);
-    canvas.insertBefore(productsBg, servicesBg.nextSibling);
+    window.addEventListener(
+      "resize",
+      function () {
+        radius = Math.max(180, Math.min(420, window.innerWidth * 0.22));
+      },
+      { passive: true }
+    );
   }
 
   function forceStaticHero() {
     document.querySelectorAll(".hero-canvas").forEach(function (canvas) {
-      ensureStaticHeroLayers(canvas);
+      ensureParallaxHero(canvas);
       canvas.classList.add("is-webgl-error", "agile-hero-canvas");
       canvas.classList.remove("is-webgl-init");
-
       var webglCanvas = canvas.querySelector("canvas");
       if (webglCanvas) {
         webglCanvas.style.display = "none";
       }
     });
-    syncHeroPosters(currentMode());
   }
 
   function cleanupCustomApproachJunk() {
@@ -278,23 +333,118 @@
     });
   }
 
+  function paintHeaderAlways() {
+    var header = document.querySelector(".header");
+    if (header) {
+      header.classList.add("is-agile-colored-header");
+    }
+  }
+
+  function killHeaderIntro() {
+    if (document.body) {
+      document.body.classList.remove("is-header-intro-show", "is-header-intro-init");
+    }
+
+    document.querySelectorAll('[data-component="HeaderIntro"]').forEach(function (el) {
+      el.removeAttribute("data-component");
+    });
+
+    document.querySelectorAll(".header-backdrop").forEach(function (el) {
+      el.classList.add("fade");
+      el.style.display = "none";
+      el.style.opacity = "0";
+      el.style.pointerEvents = "none";
+    });
+
+    document
+      .querySelectorAll(
+        ".header .js-header-link, .header .header-link__inner, .header__feedback, .header__burger, .header__logo, .header .logo"
+      )
+      .forEach(function (el) {
+        el.style.opacity = "1";
+        el.style.visibility = "visible";
+        el.style.transform = "none";
+      });
+
+    var logo = document.querySelector(".js-header-logo");
+    if (logo) {
+      logo.classList.remove("logo--lg", "logo--sm", "logo--xs", "active");
+      logo.classList.add("logo--text");
+    }
+  }
+
+  function removeBrandText() {
+    document.querySelectorAll(".agile-brand-text, .header .logo__text").forEach(function (el) {
+      el.remove();
+    });
+  }
+
+  function siteBase() {
+    var publicPath = document.documentElement.getAttribute("data-public-path") || "";
+    var match = publicPath.match(/^(.*?)\/assets\/front\/build\/?$/);
+    return match && match[1] ? match[1] : "";
+  }
+
+  function ensureHeaderNav() {
+    var inner = document.querySelector(".header__inner");
+    if (!inner || inner.querySelector(".header__nav")) {
+      return;
+    }
+
+    var feedback = inner.querySelector(".header__feedback");
+    var nav = document.createElement("nav");
+    nav.className = "header__nav";
+    nav.setAttribute("aria-label", "Основное меню");
+    var base = siteBase();
+
+    var items = [
+      { href: "/services", label: "Услуги" },
+      { href: "/works", label: "Проекты" },
+      { href: "/about", label: "О нас" },
+      { href: "/awards", label: "Подход" },
+      { href: "/contacts", label: "Контакты" },
+    ];
+
+    items.forEach(function (item) {
+      var link = document.createElement("a");
+      link.className = "header__nav-link";
+      link.href = base + item.href;
+      link.textContent = item.label;
+      nav.appendChild(link);
+    });
+
+    if (feedback) {
+      inner.insertBefore(nav, feedback);
+    } else {
+      inner.appendChild(nav);
+    }
+  }
+
   function init() {
-    document.documentElement.classList.add("is-agile-ready");
+    document.documentElement.classList.add("is-agile-ready", "is-agile-light");
+    document.body.classList.add("is-agile-light");
+
+    killHeaderIntro();
+    removeBrandText();
+    ensureHeaderNav();
     clearNowebglHash();
     blockHeroWebGLOnly();
     unwrapSlideClips();
     forceStaticHero();
+    ensureAgileHeroWord();
+    initCursorFill();
     cleanupCustomApproachJunk();
     ensureHeroTitleVisible();
-    prepareTitleChars();
-    bindTitleToggle();
+    paintHeaderAlways();
     ensureScrollProgress();
     observeStats();
 
-    // HeroTitle may wait for barba events that already fired — unstick after a beat
+    setTimeout(killHeaderIntro, 200);
+    setTimeout(ensureHeaderNav, 200);
+    setTimeout(forceStaticHero, 200);
+    setTimeout(ensureAgileHeroWord, 200);
+    setTimeout(initCursorFill, 250);
     setTimeout(ensureHeroTitleVisible, 400);
-    setTimeout(prepareTitleChars, 700);
-    setTimeout(bindTitleToggle, 700);
   }
 
   if (document.readyState === "loading") {
@@ -304,4 +454,5 @@
   }
 
   window.addEventListener("barba.afterEnter", init);
+  window.addEventListener("barba.afterOnce", killHeaderIntro);
 })();

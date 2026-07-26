@@ -132,10 +132,11 @@ def main() -> int:
         f"Prepared {out} base={BASE} size_mb={total/1024/1024:.1f} "
         f"removed_files={removed} removed_mb={bytes_removed/1024/1024:.1f}"
     )
-    print("has_app", "app.min.js" in index)
+    print("has_app_in_html", "app.min.js" in index)
     print("has_gsap", "vendor.gsap" in index)
-    print("has_three", "vendor.three.min.js" in index)
+    print("has_three_in_html", "vendor.three.min.js" in index)
     print("has_agile_global", "agile-global.js" in index)
+    print("note", "app/three are deferred by agile-global.js")
     print("has_perf", "agile-perf.js" in index)
     print("public_path", re.search(r'data-public-path="([^"]+)"', index).group(1))
     return 0

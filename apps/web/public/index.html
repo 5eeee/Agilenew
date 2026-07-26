@@ -53,22 +53,49 @@
   <script>
    if(location.hash==="#nowebgl")history.replaceState(null,"",location.pathname+location.search);
   </script>
-  <script>(function(){if(window.__agileHeroWebGLBlocked)return;window.__agileHeroWebGLBlocked=1;var o=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(t){if((t==='webgl'||t==='webgl2'||t==='experimental-webgl')&&this.closest&&this.closest('.hero-canvas'))return null;return o.apply(this,arguments);};})();</script>
-<link href="/css/agile-overrides.css?v20260722u" rel="stylesheet"/>
+  <script>(function(){if(window.__agileHeroWebGLBlocked)return;window.__agileHeroWebGLBlocked=1;var o=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(t){if((t==='webgl'||t==='webgl2'||t==='experimental-webgl')&&this.closest&&this.closest('.hero-canvas'))return null;return o.apply(this,arguments);};function killIntro(){var b=document.body;if(!b)return;b.classList.remove('is-header-intro-show','is-header-intro-init');document.querySelectorAll('[data-component="HeaderIntro"]').forEach(function(el){el.removeAttribute('data-component');});document.querySelectorAll('.header-backdrop').forEach(function(el){el.classList.add('fade');el.style.display='none';});}if(document.body)killIntro();document.addEventListener('DOMContentLoaded',killIntro);})();</script>
+<link href="/css/agile-overrides.css?v20260727a" rel="stylesheet"/>
 </head>
  <body>
   <div class="counters-body">
   </div>
-  <header class="header js-header" data-component="HeaderIntro">
+  <header class="header js-header">
    <div class="header__inner">
     <div class="header__logo">
-     <a class="logo logo--lg js-header-logo" href="/">
+     <a class="logo js-header-logo" href="/">
       <div class="logo__inner">
-       <img alt="Agile Business" decoding="async" fetchpriority="high" height="52" loading="eager" src="/assets/logo.png" style="height:48px;width:auto;display:block" width="200"/>
+       <img alt="Agile Business" decoding="async" fetchpriority="high" height="52" loading="eager" src="/assets/logo.png" width="200"/>
       </div>
      </a>
     </div>
-    <div class="header__feedback">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <nav class="header__nav" aria-label="Основное меню">
+     <a class="header__nav-link" href="/services">Услуги</a>
+     <a class="header__nav-link" href="/works">Проекты</a>
+     <a class="header__nav-link" href="/about">О нас</a>
+     <a class="header__nav-link" href="/awards">Подход</a>
+     <a class="header__nav-link" href="/contacts">Контакты</a>
+    </nav>
+<div class="header__feedback">
      <button aria-controls="offcanvas-brief" class="header-feedback header-link hover-underline" data-bs-target="#offcanvas-brief" data-bs-toggle="offcanvas" type="button">
       <span class="header-link__inner js-header-link">
        Обсудить проект
@@ -231,36 +258,29 @@
      <div class="hero hero--black is-agile-mode-services">
       <div class="hero__inner js-hero-inner">
        <div class="hero-canvas js-hero-sticky-trigger agile-hero-canvas" data-component="HeroCanvas">
-        <div aria-hidden="true" class="agile-hero-bg agile-hero-bg--services hero-canvas__picture js-hero-posterleft">
-        </div>
-        <div aria-hidden="true" class="agile-hero-bg agile-hero-bg--products hero-canvas__picture js-hero-posterright">
-        </div>
        </div>
        <div class="hero-intro hero-intro--title">
         <div class="hero-intro__body js-hero-body">
-         <div class="hero-title" data-component="HeroTitle">
+         <div class="hero-title agile-hero-brand" data-component="HeroTitle">
           <div class="hero-title__inner js-hero-title-inner">
-           <a class="hero-title__link js-hero-title-linkleft active" data-agile-mode="services" href="/services">
-            Услуги
-           </a>
-           <span aria-hidden="true" class="hero-title__divider">
+           <span class="agile-hero-word" data-agile-cursor-fill>
+            <span class="agile-hero-word__outline" aria-hidden="true">AGILE</span>
+            <span class="agile-hero-word__fill" aria-hidden="true">AGILE</span>
+            <span class="agile-hero-word__sr">AGILE</span>
            </span>
-           <a class="hero-title__link js-hero-title-linkright" data-agile-mode="products" href="/products">
-            Продукты
-           </a>
           </div>
          </div>
         </div>
         <div class="hero-intro__footer js-hero-footer">
          <div class="hero-intro__footer-left">
-          <div class="hero-footer-text js-hero-footer-services" data-component="HeroFooterText">
+          <div class="hero-footer-text">
            Консалтинг и проекты
            <br/>
            под ключ для бизнеса
           </div>
          </div>
          <div class="hero-intro__footer-right">
-          <div class="hero-footer-text js-hero-footer-products" data-component="HeroFooterText">
+          <div class="hero-footer-text">
            Собственные продукты
            <br/>
            для команд и руководителей
@@ -1306,17 +1326,17 @@
   </div>
   <div class="counters-body">
   </div>
-  <script defer fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260722u"></script>
-<script defer fetchpriority="auto" id="js-vendorthree-addons" src="/assets/front/build/js/vendor.three-addons.min.js?v20260722u"></script>
-<script defer fetchpriority="auto" id="js-vendorthree" src="/assets/front/build/js/vendor.three.min.js?v20260722u"></script>
-<script defer fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260722u"></script>
-<script defer fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260722u"></script>
-<script defer fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260722u"></script>
-<script defer fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260722u"></script>
-<script defer fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260722u"></script>
-<script defer fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260722u"></script>
-<script defer fetchpriority="auto" id="js-app" src="/assets/front/build/js/app.min.js?v20260722u"></script>
-<script defer src="/js/agile-global.js?v20260722u"></script>
+  <script defer fetchpriority="auto" id="js-vendorpolyfills" src="/assets/front/build/js/vendor.polyfills.min.js?v20260727a"></script>
+<script defer fetchpriority="low" id="js-vendorthree-addons" src="/assets/front/build/js/vendor.three-addons.min.js?v20260727a"></script>
+<script defer fetchpriority="low" id="js-vendorthree" src="/assets/front/build/js/vendor.three.min.js?v20260727a"></script>
+<script defer fetchpriority="auto" id="js-vendorpopperjs-core" src="/assets/front/build/js/vendor.popperjs-core.min.js?v20260727a"></script>
+<script defer fetchpriority="auto" id="js-vendorimask" src="/assets/front/build/js/vendor.imask.min.js?v20260727a"></script>
+<script defer fetchpriority="auto" id="js-vendorbootstrap" src="/assets/front/build/js/vendor.bootstrap.min.js?v20260727a"></script>
+<script defer fetchpriority="auto" id="js-vendorgsap" src="/assets/front/build/js/vendor.gsap.min.js?v20260727a"></script>
+<script defer fetchpriority="auto" id="js-vendorsplidejs-splide" src="/assets/front/build/js/vendor.splidejs-splide.min.js?v20260727a"></script>
+<script defer fetchpriority="auto" id="js-vendorbarba-core" src="/assets/front/build/js/vendor.barba-core.min.js?v20260727a"></script>
+<script defer fetchpriority="auto" id="js-app" src="/assets/front/build/js/app.min.js?v20260727a"></script>
+<script defer src="/js/agile-global.js?v20260727a"></script>
 </body>
 </html>
 
