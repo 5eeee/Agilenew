@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "apps" / "web" / "public"
-VERSION = "v20260727a"
+VERSION = "v20260727b"
 AGILE_CSS = f"/css/agile-overrides.css?{VERSION}"
 AGILE_JS = f"/js/agile-global.js?{VERSION}"
 

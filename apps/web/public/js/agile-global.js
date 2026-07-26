@@ -181,6 +181,10 @@
     }
   }
 
+  function isMobileHero() {
+    return window.matchMedia("(max-width: 767.98px), (hover: none) and (pointer: coarse)").matches;
+  }
+
   function initCursorFill() {
     var word = document.querySelector("[data-agile-cursor-fill]");
     var hero = document.querySelector(".hero");
@@ -189,19 +193,40 @@
 
     var radius = Math.max(180, Math.min(420, window.innerWidth * 0.22));
 
+    function syncMobileMode() {
+      if (isMobileHero()) {
+        word.classList.add("is-agile-mobile-fill");
+        word.style.removeProperty("--agile-fill-x");
+        word.style.removeProperty("--agile-fill-y");
+        word.style.removeProperty("--agile-fill-size");
+      } else {
+        word.classList.remove("is-agile-mobile-fill");
+        word.style.setProperty("--agile-fill-size", "0px");
+      }
+    }
+
     function setPos(clientX, clientY, active) {
       var rect = word.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
+      word.classList.remove("is-agile-mobile-fill");
       var x = ((clientX - rect.left) / rect.width) * 100;
       var y = ((clientY - rect.top) / rect.height) * 100;
+      var size = active
+        ? isMobileHero()
+          ? Math.max(120, Math.min(240, window.innerWidth * 0.42)) + "px"
+          : radius + "px"
+        : "0px";
       word.style.setProperty("--agile-fill-x", x.toFixed(2) + "%");
       word.style.setProperty("--agile-fill-y", y.toFixed(2) + "%");
-      word.style.setProperty("--agile-fill-size", active ? radius + "px" : "0px");
+      word.style.setProperty("--agile-fill-size", size);
     }
+
+    syncMobileMode();
 
     hero.addEventListener(
       "mousemove",
       function (e) {
+        if (isMobileHero()) return;
         setPos(e.clientX, e.clientY, true);
       },
       { passive: true }
@@ -210,12 +235,24 @@
     hero.addEventListener(
       "mouseleave",
       function () {
+        if (isMobileHero()) {
+          syncMobileMode();
+          return;
+        }
         word.style.setProperty("--agile-fill-size", "0px");
       },
       { passive: true }
     );
 
-    // touch support
+    hero.addEventListener(
+      "touchstart",
+      function (e) {
+        if (!e.touches || !e.touches[0]) return;
+        setPos(e.touches[0].clientX, e.touches[0].clientY, true);
+      },
+      { passive: true }
+    );
+
     hero.addEventListener(
       "touchmove",
       function (e) {
@@ -225,10 +262,19 @@
       { passive: true }
     );
 
+    hero.addEventListener(
+      "touchend",
+      function () {
+        window.setTimeout(syncMobileMode, 180);
+      },
+      { passive: true }
+    );
+
     window.addEventListener(
       "resize",
       function () {
         radius = Math.max(180, Math.min(420, window.innerWidth * 0.22));
+        syncMobileMode();
       },
       { passive: true }
     );
