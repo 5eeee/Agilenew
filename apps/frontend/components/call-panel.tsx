@@ -6,10 +6,19 @@ type Call = { id: string; callerId: string; calleeId: string; status: "RINGING" 
 type Signal = { id: string; type: "offer" | "answer" | "ice" | "hangup"; payload: RTCSessionDescriptionInit | RTCIceCandidateInit };
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(url, { ...init, headers: { "content-type": "application/json" }, cache: "no-store" });
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.detail || "Ошибка звонка");
-  return data;
+  const attempts = !init?.method || init.method === "GET" ? 2 : 1;
+  for (let attempt = 0; attempt < attempts; attempt++) {
+    const response = await fetch(url, { ...init, headers: { "content-type": "application/json" }, cache: "no-store" });
+    const data = await response.json().catch(() => ({}));
+    if (response.ok) return data;
+    if (response.status >= 500 && attempt + 1 < attempts) {
+      await new Promise(resolve => window.setTimeout(resolve, 350));
+      continue;
+    }
+    const detail = typeof data.detail === "string" ? data.detail : "";
+    throw new Error(response.status >= 500 || detail === "Internal server error" ? "Сервис звонков временно недоступен. Повторите попытку." : detail || "Ошибка звонка");
+  }
+  throw new Error("Сервис звонков временно недоступен. Повторите попытку.");
 }
 
 export function CallPanel({ userId, onStatus }: { userId: string; onStatus: (value: string) => void }) {

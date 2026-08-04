@@ -12,10 +12,19 @@ type Channel = { id: string; name: string; type: string; participants: { user: {
 type Message = { id: string; ciphertext: string; iv: string; createdAt: string; sender: { id: string; name: string } };
 
 async function jsonFetch<T>(url: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(url, { ...init, headers: { "content-type": "application/json", ...init?.headers }, cache: "no-store" });
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.detail || "Не удалось выполнить запрос");
-  return data;
+  const attempts = !init?.method || init.method === "GET" ? 2 : 1;
+  for (let attempt = 0; attempt < attempts; attempt++) {
+    const response = await fetch(url, { ...init, headers: { "content-type": "application/json", ...init?.headers }, cache: "no-store" });
+    const data = await response.json().catch(() => ({}));
+    if (response.ok) return data;
+    if (response.status >= 500 && attempt + 1 < attempts) {
+      await new Promise(resolve => window.setTimeout(resolve, 350));
+      continue;
+    }
+    const detail = typeof data.detail === "string" ? data.detail : "";
+    throw new Error(response.status >= 500 || detail === "Internal server error" ? "Сервис временно недоступен. Повторите через несколько секунд." : detail || "Не удалось выполнить запрос");
+  }
+  throw new Error("Сервис временно недоступен. Повторите через несколько секунд.");
 }
 
 export function ProductWorkspace({ userId }: { userId: string }) {
