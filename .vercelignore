@@ -1,0 +1,14 @@
+.vercel
+.env*
+/node_modules
+apps/gateway
+apps/leads
+apps/content
+apps/web
+packages
+scripts
+docker
+data
+docs
+tests
+*.log

@@ -1,0 +1,21 @@
+{
+  "name": "agile-business-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/frontend"
+  ],
+  "scripts": {
+    "dev": "python -u scripts/dev_up.py",
+    "dev:web": "npm run dev --workspace agile-business-frontend",
+    "build": "npm run build --workspace agile-business-frontend",
+    "lint": "npm run lint --workspace agile-business-frontend",
+    "check:python": "python -m compileall -q apps packages scripts",
+    "check": "npm run lint && npm run check:python && npm run build"
+  },
+  "engines": {
+    "node": ">=24",
+    "npm": ">=11"
+  },
+  "packageManager": "npm@11.9.0"
+}
