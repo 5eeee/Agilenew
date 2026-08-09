@@ -32,12 +32,8 @@ function SectionBar({ left = "AGILE BUSINESS", right = "People | Process | Techn
   return <div className="pres-section-bar"><span>{left}</span><span>{right}</span></div>;
 }
 
-function WaveField() {
-  return <div className="pres-fold-field" aria-hidden="true">
-    <div className="pres-fold-track">
-      {Array.from({ length: 34 }, (_, index) => <i key={index} style={{ "--fold": index, "--delay": `${-index * 0.23}s` } as CSSProperties} />)}
-    </div>
-  </div>;
+function GradientField() {
+  return <div className="pres-gradient-field" aria-hidden="true"><i /><i /><i /></div>;
 }
 
 export function PresentationHome(props: PresentationHomeProps) {
@@ -63,7 +59,7 @@ export function PresentationHome(props: PresentationHomeProps) {
       <section className="pres-block pres-hero">
         <SectionBar />
         <div className="pres-hero-stage">
-          <div className="pres-curtain" aria-hidden="true"><WaveField /></div>
+          <div className="pres-curtain" aria-hidden="true"><GradientField /></div>
           <div className="pres-hero-copy">
             <p>{props.text}</p>
             <h1>{props.title}</h1>
