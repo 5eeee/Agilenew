@@ -68,7 +68,7 @@ const productContent = {
 } as const;
 
 const projectContent = {
-  ru: { label: "Проекты", intro: "Реальные запущенные продукты — смотрите desktop и мобильную композицию каждого проекта.", items: [
+  ru: { label: "Проекты", intro: "Избранные кейсы: задача, решение и результат. Остальные проекты собраны в полном каталоге.", items: [
     { slug: "13auto", title: "13AUTO", label: "E-commerce", year: "2026", image: "/projects/real/13auto-desktop.jpg", url: "https://13auto-storefront.vercel.app/", description: "Каталог автозапчастей с подбором, личным кабинетом и прозрачным сценарием заказа.", features: ["UX/UI", "Каталог", "Личный кабинет"], more: "Открыть сайт" },
     { slug: "prokub", title: "Прокуб", label: "B2B platform", year: "2026", image: "/projects/real/prokub-desktop.jpg", url: "https://prokub-rf.vercel.app/", description: "Прайс-платформа бетона с доставкой, быстрым расчётом и заявками.", features: ["Продуктовая структура", "Расчёт", "Адаптив"], more: "Открыть сайт" },
     { slug: "profist", title: "Профист", label: "Industry", year: "2026", image: "/projects/real/profist-desktop.jpg", url: "https://profist-rf.vercel.app/", description: "Каталог металлопроката с подбором продукции под конкретную бизнес-задачу.", features: ["Каталог", "Лидогенерация", "UI-система"], more: "Открыть сайт" },
@@ -77,7 +77,7 @@ const projectContent = {
     { slug: "royal-horse", title: "Royal Horse", label: "Hospitality", year: "2026", image: "/projects/real/royal-horse-desktop.jpg", url: "https://royal-horse-lake.vercel.app/", description: "Премиальный сайт конно-спортивного комплекса с выразительной атмосферой бренда.", features: ["Art direction", "Адаптив", "Бронирование"], more: "Открыть сайт" },
     { slug: "beef-flame", title: "Beefshteks", label: "Food delivery", year: "2026", image: "/projects/real/beef-flame-desktop.jpg", url: "https://beef-flame.vercel.app/", description: "Интерфейс доставки бургеров с яркой продуктовой подачей и быстрым заказом.", features: ["Меню", "Корзина", "Mobile UX"], more: "Открыть сайт" },
   ] },
-  en: { label: "Projects", intro: "Live digital products presented in desktop and compact mobile compositions.", items: [
+  en: { label: "Projects", intro: "Selected case studies: challenge, solution and outcome. Explore the complete portfolio in the project catalogue.", items: [
     { slug: "13auto", title: "13AUTO", label: "E-commerce", year: "2026", image: "/projects/real/13auto-desktop.jpg", url: "https://13auto-storefront.vercel.app/", description: "Automotive parts catalogue with product matching, account tools and a clear order journey.", features: ["UX/UI", "Catalogue", "Account"], more: "Open website" },
     { slug: "prokub", title: "Prokub", label: "B2B platform", year: "2026", image: "/projects/real/prokub-desktop.jpg", url: "https://prokub-rf.vercel.app/", description: "Concrete pricing platform with delivery calculation and a focused lead flow.", features: ["Product structure", "Calculator", "Responsive"], more: "Open website" },
     { slug: "profist", title: "Profist", label: "Industry", year: "2026", image: "/projects/real/profist-desktop.jpg", url: "https://profist-rf.vercel.app/", description: "Metal products catalogue designed around precise business requirements.", features: ["Catalogue", "Lead generation", "UI system"], more: "Open website" },
@@ -86,7 +86,7 @@ const projectContent = {
     { slug: "royal-horse", title: "Royal Horse", label: "Hospitality", year: "2026", image: "/projects/real/royal-horse-desktop.jpg", url: "https://royal-horse-lake.vercel.app/", description: "Premium equestrian complex website with a strong branded atmosphere.", features: ["Art direction", "Responsive", "Booking"], more: "Open website" },
     { slug: "beef-flame", title: "Beefshteks", label: "Food delivery", year: "2026", image: "/projects/real/beef-flame-desktop.jpg", url: "https://beef-flame.vercel.app/", description: "Burger delivery interface built for vivid presentation and fast ordering.", features: ["Menu", "Cart", "Mobile UX"], more: "Open website" },
   ] },
-  hy: { label: "Նախագծեր", intro: "Իրական գործարկված թվային նախագծեր՝ desktop և mobile կոմպոզիցիաներով։", items: [
+  hy: { label: "Նախագծեր", intro: "Ընտրված նախագծեր՝ խնդիր, լուծում և արդյունք։ Մնացած աշխատանքները ներկայացված են ամբողջական կատալոգում։", items: [
     { slug: "13auto", title: "13AUTO", label: "E-commerce", year: "2026", image: "/projects/real/13auto-desktop.jpg", url: "https://13auto-storefront.vercel.app/", description: "Ավտոպահեստամասերի կատալոգ՝ ընտրությամբ, անձնական էջով և պարզ պատվերով։", features: ["UX/UI", "Կատալոգ", "Անձնական էջ"], more: "Բացել կայքը" },
     { slug: "prokub", title: "Прокуб", label: "B2B platform", year: "2026", image: "/projects/real/prokub-desktop.jpg", url: "https://prokub-rf.vercel.app/", description: "Բետոնի գնային հարթակ՝ առաքման հաշվարկով և արագ հայտերով։", features: ["Կառուցվածք", "Հաշվարկ", "Ադապտիվ"], more: "Բացել կայքը" },
     { slug: "profist", title: "Профист", label: "Industry", year: "2026", image: "/projects/real/profist-desktop.jpg", url: "https://profist-rf.vercel.app/", description: "Մետաղական արտադրանքի կատալոգ՝ բիզնես խնդրին համապատասխան ընտրությամբ։", features: ["Կատալոգ", "Հայտեր", "UI համակարգ"], more: "Բացել կայքը" },

@@ -11,9 +11,23 @@ export type Project = {
   result: string;
   deliverables: readonly string[];
   tech: readonly string[];
+  image?: string;
+  mobileImage?: string;
+  website?: string;
+  year?: string;
+  featured?: boolean;
 };
 
-const projects = [
+type ProjectSource = Pick<Project, "slug" | "title" | "category" | "lead" | "tech" | "image" | "mobileImage" | "website" | "year" | "featured">;
+
+const projects: readonly ProjectSource[] = [
+  { slug: "13auto", title: "13AUTO", category: "E-commerce", lead: "Каталог автозапчастей с подбором, личным кабинетом и прозрачным сценарием заказа.", tech: ["Next.js", "TypeScript", "E-commerce", "Responsive UX"], image: "/projects/real/13auto-desktop.png", mobileImage: "/projects/real/13auto-mobile.png", website: "https://13auto-storefront.vercel.app/", year: "2026", featured: true },
+  { slug: "prokub", title: "Прокуб", category: "B2B platform", lead: "Прайс-платформа бетона с доставкой, быстрым расчётом и заявками.", tech: ["Next.js", "Calculator", "B2B UX", "SEO"], image: "/projects/real/prokub-desktop.png", mobileImage: "/projects/real/prokub-mobile.png", website: "https://prokub-rf.vercel.app/", year: "2026", featured: true },
+  { slug: "profist", title: "Профист", category: "Industry", lead: "Каталог металлопроката с подбором продукции под конкретную бизнес-задачу.", tech: ["Product catalogue", "Lead generation", "UI system", "SEO"], image: "/projects/real/profist-desktop.png", mobileImage: "/projects/real/profist-mobile.png", website: "https://profist-rf.vercel.app/", year: "2026", featured: true },
+  { slug: "dianafarm", title: "Dianafarm", category: "International", lead: "Международная платформа по ВНЖ, недвижимости и сопровождению бизнеса.", tech: ["Multilingual", "Content system", "Conversion UX", "Next.js"], image: "/projects/real/dianafarm-desktop.png", mobileImage: "/projects/real/dianafarm-mobile.png", website: "https://dianafarm.group/", year: "2026", featured: true },
+  { slug: "boostmarine", title: "Boost Marine", category: "Service", lead: "Сервисный сайт по ремонту водной техники с понятной навигацией по услугам.", tech: ["Service architecture", "Lead forms", "SEO", "Responsive UX"], image: "/projects/real/boostmarine-desktop.png", mobileImage: "/projects/real/boostmarine-mobile.png", website: "https://boostmarine.ru/", year: "2026", featured: true },
+  { slug: "royal-horse", title: "Royal Horse", category: "Hospitality", lead: "Премиальный сайт конно-спортивного комплекса с выразительной атмосферой бренда.", tech: ["Art direction", "Responsive UX", "Booking flow", "Next.js"], image: "/projects/real/royal-horse-desktop.png", mobileImage: "/projects/real/royal-horse-mobile.png", website: "https://royal-horse-lake.vercel.app/", year: "2026", featured: true },
+  { slug: "beef-flame", title: "Beefshteks", category: "Food delivery", lead: "Интерфейс доставки бургеров с яркой продуктовой подачей и быстрым заказом.", tech: ["Menu UX", "Cart", "Mobile UX", "Next.js"], image: "/projects/real/beef-flame-desktop.png", mobileImage: "/projects/real/beef-flame-mobile.png", website: "https://beef-flame.vercel.app/", year: "2026", featured: true },
   { slug: "agile-call", title: "Agile Call", category: "IT-продукт", lead: "Единая система для управления коммуникациями с клиентами.", tech: ["FastAPI", "React", "PostgreSQL", "WebSocket"] },
   { slug: "agile-kpi", title: "Agile KPI", category: "Бизнес-аналитика", lead: "Цифровая панель показателей для команд и руководителей.", tech: ["Next.js", "Python", "BI", "PostgreSQL"] },
   { slug: "corporate-site", title: "Корпоративный сайт", category: "Креатив и web", lead: "Имиджевая цифровая платформа с понятной продуктовой структурой.", tech: ["Next.js", "TypeScript", "CMS", "SEO"] },
@@ -23,7 +37,7 @@ const projects = [
   { slug: "web-service", title: "Веб-сервис", category: "IT-продукт", lead: "Масштабируемый сервис для автоматизации ключевого бизнес-процесса.", tech: ["FastAPI", "Next.js", "Docker", "PostgreSQL"] },
   { slug: "crm", title: "CRM-интеграция", category: "Автоматизация", lead: "Связали продажи, коммуникации и отчётность в одном процессе.", tech: ["CRM", "REST API", "Python", "Webhooks"] },
   { slug: "marketing", title: "Маркетинговая кампания", category: "Креатив", lead: "Кампания с единым визуальным языком и измеримой воронкой.", tech: ["Strategy", "Creative", "Performance", "Analytics"] },
-] as const;
+];
 
 export const projectSlugs = projects.map((project) => project.slug);
 
@@ -51,4 +65,8 @@ export function getProject(slug: string, locale: Locale): Project | undefined {
       : isArmenian ? "Թիմը ստացավ պարզ թվային գործիք, աշխատանքի թափանցիկ տրամաբանություն և հետագա մասշտաբավորման հիմք։" : "The team received a clear digital tool, transparent operating logic and a foundation for further scaling.",
     deliverables: isRussian ? ["Диагностика и сценарии", "UX-прототип", "Визуальная система", "Разработка и запуск"] : isArmenian ? ["Ախտորոշում և սցենարներ", "UX նախատիպ", "Տեսողական համակարգ", "Մշակում և գործարկում"] : ["Discovery and journeys", "UX prototype", "Visual system", "Development and launch"],
   };
+}
+
+export function getPortfolioProjects(locale: Locale) {
+  return projects.filter((project) => project.featured).map((project) => getProject(project.slug, locale)!).filter(Boolean);
 }

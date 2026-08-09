@@ -6,7 +6,8 @@ import type { Locale } from "@/lib/i18n";
 type FooterNav = { services: string; about: string; calculator: string; contacts: string };
 
 export function Footer({ locale, line, privacy, nav }: { locale: Locale; line: string; privacy: string; nav: FooterNav }) {
-  const links = [["services", nav.services], ["about", nav.about], ["calculator", nav.calculator], ["contacts", nav.contacts], ["account", locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"]];
+  const projectsLabel = locale === "ru" ? "Проекты" : locale === "ka" ? "პროექტები" : locale === "hy" ? "Նախագծեր" : locale === "bg" ? "Проекти" : "Projects";
+  const links = [["services", nav.services], ["projects", projectsLabel], ["about", nav.about], ["calculator", nav.calculator], ["contacts", nav.contacts], ["account", locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"]];
   return (
     <footer className="site-footer">
       <div className="footer-top">

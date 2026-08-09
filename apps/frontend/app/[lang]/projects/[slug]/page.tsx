@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ProductVisual } from "@/components/product-visual";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
@@ -33,12 +34,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
   return (
     <article className="case-page shell">
       <header className="case-head">
-        <Link href={`/${locale}#projects`} className="case-back">← {labels.all}</Link>
+        <Link href={`/${locale}/projects`} className="case-back">← {labels.all}</Link>
         <p>{project.category}</p>
         <h1>{project.title}</h1>
         <strong>{project.lead}</strong>
       </header>
-      <div className="case-cover"><ProductVisual product={project.slug} /></div>
+      <div className={`case-cover ${project.image ? "case-cover-real" : ""}`}>
+        {project.image ? <div className="case-device-preview">
+          <div className="case-browser-frame"><span><i /><i /><i /></span><Image src={project.image} alt={`${project.title} — desktop`} fill sizes="(max-width: 760px) 92vw, 78vw" priority /></div>
+          {project.mobileImage ? <div className="case-phone-frame"><span /><Image src={project.mobileImage} alt={`${project.title} — mobile`} fill sizes="(max-width: 760px) 120px, 210px" /></div> : null}
+        </div> : <ProductVisual product={project.slug} />}
+      </div>
       <section className="case-story">
         <div className="case-story-title"><span>01</span><h2>{labels.about}</h2></div>
         <p>{project.description}</p>
@@ -52,8 +58,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
         <ol>{project.deliverables.map((item, index) => <li key={item}><span>0{index + 1}</span><strong>{item}</strong></li>)}</ol>
       </section>
       <section className="case-tech"><p>{labels.tech}</p><div className="tech-stack" aria-label={labels.tech}>{project.tech.map((item) => <span key={item}>{item}</span>)}</div></section>
-      <blockquote className="case-result"><span>{labels.result}</span><p>“{project.result}”</p><Link className="button" href={`/${locale}/contacts?project=${project.slug}`}>{labels.cta}</Link></blockquote>
-      <Link className="case-all-link" href={`/${locale}#projects`}>{labels.all}<span>↓</span></Link>
+      <blockquote className="case-result"><span>{labels.result}</span><p>“{project.result}”</p><div className="case-result-actions"><Link className="button" href={`/${locale}/contacts?project=${project.slug}`}>{labels.cta}</Link>{project.website ? <a className="case-website-link" href={project.website} target="_blank" rel="noreferrer">{ru ? "Открыть сайт" : hy ? "Բացել կայքը" : "Visit website"}<span>↗</span></a> : null}</div></blockquote>
+      <Link className="case-all-link" href={`/${locale}/projects`}>{labels.all}<span>→</span></Link>
     </article>
   );
 }

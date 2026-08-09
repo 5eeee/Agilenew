@@ -20,11 +20,20 @@ type Product = {
 
 type ShowcaseGroup = { id: "products" | "projects"; label: string; intro: string; items: readonly Product[] };
 
+const showcaseCopy = {
+  ru: { all: "Все проекты", details: "Подробнее о проекте" },
+  en: { all: "All projects", details: "View case study" },
+  ka: { all: "ყველა პროექტი", details: "ქეისის ნახვა" },
+  hy: { all: "Բոլոր նախագծերը", details: "Դիտել նախագիծը" },
+  bg: { all: "Всички проекти", details: "Вижте проекта" },
+} as const;
+
 export function ProductShowcase({ locale, groups }: { locale: string; groups: readonly [ShowcaseGroup, ShowcaseGroup] }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeGroup, setActiveGroup] = useState<ShowcaseGroup["id"]>(groups[0].id);
   const [activeSlide, setActiveSlide] = useState(0);
   const current = groups.find((group) => group.id === activeGroup) ?? groups[0];
+  const labels = showcaseCopy[locale as keyof typeof showcaseCopy] ?? showcaseCopy.en;
   const move = (direction: number) => {
     const track = trackRef.current;
     if (!track) return;
@@ -50,7 +59,7 @@ export function ProductShowcase({ locale, groups }: { locale: string; groups: re
           </div>
           <p>{current.intro}</p>
         </div>
-        <div className="product-controls"><span>{String(activeSlide + 1).padStart(2, "0")} / {String(current.items.length).padStart(2, "0")}</span><button type="button" disabled={activeSlide === 0} onClick={() => move(-1)} aria-label="Previous item">←</button><button type="button" disabled={activeSlide === current.items.length - 1} onClick={() => move(1)} aria-label="Next item">→</button></div>
+        <div className="product-controls">{current.id === "projects" ? <Link className="showcase-all-link" href={`/${locale}/projects`}>{labels.all}<i aria-hidden="true">↗</i></Link> : null}<span>{String(activeSlide + 1).padStart(2, "0")} / {String(current.items.length).padStart(2, "0")}</span><button type="button" disabled={activeSlide === 0} onClick={() => move(-1)} aria-label="Previous item">←</button><button type="button" disabled={activeSlide === current.items.length - 1} onClick={() => move(1)} aria-label="Next item">→</button></div>
       </header>
       <div className="product-track" ref={trackRef} role="tabpanel" key={current.id} onScroll={(event) => {
         const track = event.currentTarget;
@@ -70,8 +79,8 @@ export function ProductShowcase({ locale, groups }: { locale: string; groups: re
               <h3>{product.title}</h3>
               <p>{product.description}</p>
               <ul>{product.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
-              {product.url
-                ? <a href={product.url} target="_blank" rel="noreferrer">{product.more}<i>↗</i></a>
+              {current.id === "projects"
+                ? <Link href={`/${locale}/projects/${product.slug}`}>{labels.details}<i>↗</i></Link>
                 : <Link href={`/${locale}/projects/${product.slug}`}>{product.more}<i>↗</i></Link>}
             </div>
             {desktopImage ? (
