@@ -76,11 +76,17 @@ export function ScrollServices({
           </header>
 
           <div className="scroll-services-stage">
-            <div className="service-scroll-tabs" aria-label={title}>
-              {items.map(([number, itemTitle], index) => (
+            <div className="service-orbit-wheel" aria-label={title}>
+              <svg viewBox="0 0 310 650" preserveAspectRatio="none" aria-hidden="true"><path d="M24 8 C205 128 205 522 24 642"/><path className="orbit-progress" d="M24 8 C205 128 205 522 24 642"/></svg>
+              <span className="service-orbit-axis" aria-hidden="true">SCROLL</span>
+              {items.map(([number, itemTitle], index) => {
+                const rawOffset = (index - activeIndex + items.length) % items.length;
+                const offset = rawOffset > items.length / 2 ? rawOffset - items.length : rawOffset;
+                return (
                 <button
                   type="button"
                   className={index === activeIndex ? "active" : ""}
+                  style={{ "--orbit-offset": offset, "--orbit-abs": Math.abs(offset) } as CSSProperties}
                   onClick={() => select(index)}
                   aria-current={index === activeIndex ? "step" : undefined}
                   key={number}
@@ -89,7 +95,7 @@ export function ScrollServices({
                   <strong>{itemTitle}</strong>
                   <i aria-hidden="true">{index === activeIndex ? "●" : "○"}</i>
                 </button>
-              ))}
+              )})}
             </div>
 
             <article className="scroll-service-card" key={active[0]}>

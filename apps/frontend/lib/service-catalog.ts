@@ -10,12 +10,14 @@ export type CatalogService = {
   features: readonly string[];
   recommended?: boolean;
   consultation?: boolean;
+  custom?: boolean;
 };
 
 type ServiceBase = Omit<CatalogService, "title" | "category" | "summary" | "duration" | "features">;
 
 const BASE: readonly ServiceBase[] = [
   { id: "consultation", price: 0, consultation: true, recommended: true },
+  { id: "custom-project", price: 100_000, custom: true },
   { id: "business-card", price: 90_000 },
   { id: "landing", price: 110_000, recommended: true },
   { id: "corporate", price: 140_000 },
@@ -31,6 +33,7 @@ type Copy = Omit<CatalogService, keyof ServiceBase>;
 const COPY: Record<Locale, readonly Copy[]> = {
   ru: [
     { title: "Стартовая консультация", category: "Знакомство", summary: "За 30 минут разберём задачу, обозначим реалистичный формат запуска и следующий шаг без обязательств.", duration: "30 минут", features: ["Разбор задачи", "Оценка формата", "Следующий шаг"] },
+    { title: "Индивидуальный проект", category: "Под вашу задачу", summary: "Соберите нестандартное решение из нужных функций, интеграций и этапов — калькулятор подготовит ориентир по бюджету.", duration: "от 4 недель", features: ["Персональный состав", "Расчёт бюджета", "Технический план"] },
     { title: "Сайт-визитка", category: "Сайты", summary: "Компактный имиджевый сайт с уникальным дизайном, базовым SEO и формой заявки.", duration: "3–4 недели", features: ["До 7 экранов", "Адаптив", "Базовое SEO"] },
     { title: "Конверсионный лендинг", category: "Сайты", summary: "Посадочная страница под рекламу с аналитикой, сильным оффером и продуманным сценарием заявки.", duration: "4–6 недель", features: ["UX-прототип", "Авторский UI", "Аналитика"] },
     { title: "Корпоративный сайт", category: "Сайты", summary: "Многостраничная система для услуг, команды, кейсов и органического привлечения клиентов.", duration: "7–10 недель", features: ["CMS", "Мультиязычность", "SEO-структура"] },
@@ -42,6 +45,7 @@ const COPY: Record<Locale, readonly Copy[]> = {
   ],
   en: [
     { title: "Introductory consultation", category: "Discovery", summary: "In 30 minutes we will clarify the task, suggest a realistic launch format and define the next step with no obligation.", duration: "30 minutes", features: ["Task review", "Format estimate", "Next step"] },
+    { title: "Custom project", category: "Built around you", summary: "Combine the functions, integrations and stages your business needs, then use the estimator to get a realistic budget range.", duration: "from 4 weeks", features: ["Custom scope", "Budget estimate", "Technical plan"] },
     { title: "Business website", category: "Web", summary: "A compact brand website with custom design, baseline SEO and a focused lead form.", duration: "3–4 weeks", features: ["Up to 7 sections", "Responsive", "Baseline SEO"] },
     { title: "Conversion landing page", category: "Web", summary: "A campaign landing page with analytics, a clear offer and a carefully designed lead journey.", duration: "4–6 weeks", features: ["UX prototype", "Custom UI", "Analytics"] },
     { title: "Corporate website", category: "Web", summary: "A scalable content system for services, team, cases and organic client acquisition.", duration: "7–10 weeks", features: ["CMS", "Multilingual", "SEO structure"] },
@@ -53,6 +57,7 @@ const COPY: Record<Locale, readonly Copy[]> = {
   ],
   hy: [
     { title: "Մեկնարկային խորհրդատվություն", category: "Ծանոթացում", summary: "30 րոպեում կհստակեցնենք խնդիրը, կառաջարկենք իրատեսական մեկնարկ և հաջորդ քայլը՝ առանց պարտավորության։", duration: "30 րոպե", features: ["Խնդրի վերլուծություն", "Ձևաչափի գնահատում", "Հաջորդ քայլ"] },
+    { title: "Անհատական նախագիծ", category: "Ձեր խնդրի համար", summary: "Միավորեք անհրաժեշտ գործառույթները, ինտեգրումները և փուլերը, իսկ հաշվիչը կտա բյուջեի իրատեսական միջակայք։", duration: "4 շաբաթից", features: ["Անհատական կազմ", "Բյուջեի հաշվարկ", "Տեխնիկական պլան"] },
     { title: "Ներկայացուցչական կայք", category: "Կայքեր", summary: "Կոմպակտ բրենդային կայք՝ անհատական դիզայնով, SEO-ով և հայտի ձևով։", duration: "3–4 շաբաթ", features: ["Մինչև 7 բաժին", "Ադապտիվ", "Բազային SEO"] },
     { title: "Կոնվերսիոն լենդինգ", category: "Կայքեր", summary: "Գովազդային էջ՝ ուժեղ առաջարկով, վերլուծությամբ և հայտի հստակ սցենարով։", duration: "4–6 շաբաթ", features: ["UX նախատիպ", "Հեղինակային UI", "Վերլուծություն"] },
     { title: "Կորպորատիվ կայք", category: "Կայքեր", summary: "Բազմաէջ համակարգ ծառայությունների, թիմի, քեյսերի և SEO առաջխաղացման համար։", duration: "7–10 շաբաթ", features: ["CMS", "Բազմալեզու", "SEO կառուցվածք"] },
@@ -64,6 +69,7 @@ const COPY: Record<Locale, readonly Copy[]> = {
   ],
   ka: [
     { title: "საწყისი კონსულტაცია", category: "გაცნობა", summary: "30 წუთში განვიხილავთ ამოცანას, შევარჩევთ რეალისტურ სტარტს და შემდეგ ნაბიჯს ვალდებულების გარეშე.", duration: "30 წუთი", features: ["ამოცანის განხილვა", "ფორმატის შეფასება", "შემდეგი ნაბიჯი"] },
+    { title: "ინდივიდუალური პროექტი", category: "თქვენს ამოცანაზე", summary: "შეაერთეთ საჭირო ფუნქციები, ინტეგრაციები და ეტაპები, ხოლო კალკულატორი რეალისტურ ბიუჯეტს დაგითვლით.", duration: "4 კვირიდან", features: ["ინდივიდუალური შემადგენლობა", "ბიუჯეტის შეფასება", "ტექნიკური გეგმა"] },
     { title: "სავიზიტო საიტი", category: "ვებგვერდები", summary: "კომპაქტური ბრენდული საიტი უნიკალური დიზაინით, საბაზისო SEO-თი და განაცხადის ფორმით.", duration: "3–4 კვირა", features: ["7-მდე სექცია", "ადაპტივი", "საბაზისო SEO"] },
     { title: "კონვერსიული ლენდინგი", category: "ვებგვერდები", summary: "სარეკლამო გვერდი ძლიერი შეთავაზებით, ანალიტიკით და განაცხადის მკაფიო გზით.", duration: "4–6 კვირა", features: ["UX პროტოტიპი", "ავტორული UI", "ანალიტიკა"] },
     { title: "კორპორაციული საიტი", category: "ვებგვერდები", summary: "მრავალგვერდიანი სისტემა სერვისებისთვის, გუნდისთვის, ქეისებისა და SEO-სთვის.", duration: "7–10 კვირა", features: ["CMS", "მრავალენოვანი", "SEO სტრუქტურა"] },
@@ -75,6 +81,7 @@ const COPY: Record<Locale, readonly Copy[]> = {
   ],
   bg: [
     { title: "Начална консултация", category: "Запознаване", summary: "За 30 минути ще уточним задачата, реалистичния формат за старт и следващата стъпка без ангажимент.", duration: "30 минути", features: ["Преглед на задачата", "Оценка на формата", "Следваща стъпка"] },
+    { title: "Индивидуален проект", category: "По ваша задача", summary: "Комбинирайте нужните функции, интеграции и етапи, а калкулаторът ще даде реалистичен бюджетен диапазон.", duration: "от 4 седмици", features: ["Персонален обхват", "Оценка на бюджета", "Технически план"] },
     { title: "Представителен сайт", category: "Уеб", summary: "Компактен бранд сайт с уникален дизайн, базово SEO и форма за запитване.", duration: "3–4 седмици", features: ["До 7 секции", "Адаптивен", "Базово SEO"] },
     { title: "Конверсионен лендинг", category: "Уеб", summary: "Рекламна страница със силна оферта, аналитика и ясен път към запитването.", duration: "4–6 седмици", features: ["UX прототип", "Авторски UI", "Аналитика"] },
     { title: "Корпоративен сайт", category: "Уеб", summary: "Многостранична система за услуги, екип, казуси и органично привличане.", duration: "7–10 седмици", features: ["CMS", "Многоезичност", "SEO структура"] },

@@ -1,10 +1,12 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n";
 import { projectSlugs } from "@/lib/projects";
+import { getServiceCatalog } from "@/lib/service-catalog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://agile-business-pro.com";
-  const pages = ["", "/services", "/about", "/calculator", "/contacts", "/privacy", ...projectSlugs.map((slug) => `/projects/${slug}`)];
+  const serviceSlugs = getServiceCatalog("ru").map((service) => service.id);
+  const pages = ["", "/services", "/about", "/calculator", "/contacts", "/privacy", ...projectSlugs.map((slug) => `/projects/${slug}`), ...serviceSlugs.map((slug) => `/services/${slug}`)];
   return locales.flatMap((locale) => pages.map((page) => ({
     url: `${base}/${locale}${page}`,
     lastModified: new Date(),

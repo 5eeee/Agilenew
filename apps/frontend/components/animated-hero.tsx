@@ -61,15 +61,38 @@ function createWaveLine(line: number) {
 
 const WAVE_LINES = Array.from({ length: 42 }, (_, line) => createWaveLine(line));
 
+function createMobileWaveLine(line: number) {
+  const points = Array.from({ length: 39 }, (_, point): Point => {
+    const x = -115 + point * 17;
+    const phase = line * .22;
+    const upperFold = gaussian(x, 80, 25000) * Math.sin(x / 62 + phase) * 54;
+    const centerValley = gaussian(x, 240, 39000) * Math.cos(x / 77 - phase * .7) * 76;
+    const lowerFold = gaussian(x, 430, 26000) * Math.sin(x / 58 + phase * .45) * 48;
+    const y = -52 + line * 25 + upperFold + centerValley + lowerFold + Math.sin(x / 145 + phase) * 10;
+    return [Number(x.toFixed(1)), Number(y.toFixed(1))];
+  });
+  return smoothPath(points);
+}
+
+const MOBILE_WAVE_LINES = Array.from({ length: 36 }, (_, line) => createMobileWaveLine(line));
+
 function PremiumContours() {
   return (
     <div className="hero-contours premium-contours" aria-hidden="true">
-      <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice">
+      <svg className="topo-desktop" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice">
         <g className="topo-wave-layer topo-wave-layer-a">
           {WAVE_LINES.filter((_, index) => index % 2 === 0).map((path, index) => <path d={path} key={index} />)}
         </g>
         <g className="topo-wave-layer topo-wave-layer-b">
           {WAVE_LINES.filter((_, index) => index % 2 !== 0).map((path, index) => <path d={path} key={index} />)}
+        </g>
+      </svg>
+      <svg className="topo-mobile" viewBox="0 0 390 780" preserveAspectRatio="xMidYMid slice">
+        <g className="topo-wave-layer topo-wave-layer-a">
+          {MOBILE_WAVE_LINES.filter((_, index) => index % 2 === 0).map((path, index) => <path d={path} key={index} />)}
+        </g>
+        <g className="topo-wave-layer topo-wave-layer-b">
+          {MOBILE_WAVE_LINES.filter((_, index) => index % 2 !== 0).map((path, index) => <path d={path} key={index} />)}
         </g>
       </svg>
     </div>

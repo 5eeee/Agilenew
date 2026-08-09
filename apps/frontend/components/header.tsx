@@ -9,6 +9,10 @@ import { localeNames, locales, type Locale } from "@/lib/i18n";
 
 type Nav = { services: string; about: string; calculator: string; contacts: string; cta: string };
 
+function CartIcon() {
+  return <svg className="cart-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5.5h2l1.5 9h9.8l2.1-6.2H6.1M9 19a1.35 1.35 0 1 0 0 .1M16 19a1.35 1.35 0 1 0 0 .1" /></svg>;
+}
+
 export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
   const [open, setOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
@@ -54,7 +58,7 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
     <header className="site-header">
       <div className="header-inner">
         <Brand href={`/${locale}`} />
-        <Link className="header-cart header-cart-mobile" href={`/${locale}/services#cart`} aria-label={locale === "ru" ? `Корзина: ${cartCount}` : `Cart: ${cartCount}`}><span aria-hidden="true">▱</span><b>{cartCount}</b></Link>
+        <Link className="header-cart header-cart-mobile" href={`/${locale}/services#cart`} aria-label={locale === "ru" ? `Корзина: ${cartCount}` : `Cart: ${cartCount}`}><CartIcon /><b>{cartCount}</b></Link>
         <button className="menu-button" type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="main-menu" onClick={() => setOpen(!open)}>
           <span /><span />
         </button>
@@ -69,7 +73,7 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
               </Link>
             ))}
           </div>
-          <div className="header-quick-actions"><Link className="header-cart" href={`/${locale}/services#cart`} aria-label={locale === "ru" ? `Корзина: ${cartCount}` : `Cart: ${cartCount}`}><span aria-hidden="true">▱</span><b>{cartCount}</b></Link><a className="header-phone" href="tel:+79636177373" aria-label="+7 963 617-73-73"><Image src="/social/phone.svg" alt="" width={20} height={20} /></a><Link className="header-account" href={`/${locale}/account`} aria-label={locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"}><Image src="/icons/account.svg" alt="" width={24} height={24} /></Link></div>
+          <div className="header-quick-actions"><Link className="header-cart" href={`/${locale}/services#cart`} aria-label={locale === "ru" ? `Корзина: ${cartCount}` : `Cart: ${cartCount}`}><CartIcon /><b>{cartCount}</b></Link><a className="header-phone" href="tel:+79636177373" aria-label="+7 963 617-73-73"><Image src="/social/phone.svg" alt="" width={20} height={20} /></a><Link className="header-account" href={`/${locale}/account`} aria-label={locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"}><Image src="/icons/account.svg" alt="" width={24} height={24} /></Link></div>
           <Link className="button button-small" href={`/${locale}/contacts`} onClick={() => setOpen(false)}>{nav.cta}</Link>
         </div>
       </div>
