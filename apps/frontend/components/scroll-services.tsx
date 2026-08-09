@@ -61,6 +61,7 @@ export function ScrollServices({
   };
 
   const active = items[activeIndex] ?? items[0];
+  const detailSlug = active[0] === "01" ? "business-audit" : active[0] === "02" ? "custom-project" : "growth-strategy";
 
   return (
     <section
@@ -77,7 +78,7 @@ export function ScrollServices({
 
           <div className="scroll-services-stage">
             <div className="service-orbit-wheel" aria-label={title}>
-              <svg viewBox="0 0 310 650" preserveAspectRatio="none" aria-hidden="true"><path d="M24 8 C205 128 205 522 24 642"/><path className="orbit-progress" d="M24 8 C205 128 205 522 24 642"/></svg>
+              <svg viewBox="0 0 280 360" aria-hidden="true"><path d="M18 28 A152 152 0 0 1 18 332"/><path className="orbit-progress" d="M18 28 A152 152 0 0 1 18 332"/></svg>
               <span className="service-orbit-axis" aria-hidden="true">SCROLL</span>
               {items.map(([number, itemTitle], index) => {
                 const rawOffset = (index - activeIndex + items.length) % items.length;
@@ -98,16 +99,15 @@ export function ScrollServices({
               )})}
             </div>
 
-            <article className="scroll-service-card" key={active[0]}>
-              <div className="scroll-service-card-top"><span>{active[0]} / 0{items.length}</span><i>AGILE BUSINESS</i></div>
+            <div className="service-focus" key={active[0]}>
+              <span className="service-focus-index">{active[0]} / 0{items.length}</span>
               <h3>{active[1]}</h3>
               <p>{active[2]}</p>
               <div className="scroll-service-actions">
                 <Link className="button" href={`${href}#${active[0]}`}>{orderLabel}<span>↗</span></Link>
-                <Link href={href}>{allLabel}<span>→</span></Link>
+                <Link href={`${href}/${detailSlug}`}>{allLabel}<span>→</span></Link>
               </div>
-              <div className="scroll-service-meter" aria-hidden="true"><i style={{ width: `${((activeIndex + 1) / items.length) * 100}%` }} /></div>
-            </article>
+            </div>
           </div>
         </div>
       </div>

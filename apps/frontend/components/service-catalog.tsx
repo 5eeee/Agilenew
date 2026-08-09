@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { Locale } from "@/lib/i18n";
 import type { CatalogService } from "@/lib/service-catalog";
 
@@ -41,8 +41,6 @@ export function ServiceCatalog({ services, locale }: { services: readonly Catalo
   const copy = labels[locale];
   const [selected, setSelected] = useState<string[]>([]);
   const [ready, setReady] = useState(false);
-  const [expanded, setExpanded] = useState<string[]>([]);
-  const [status, setStatus] = useState<"idle" | "sending" | "login" | "sent" | "error">("idle");
 
   useEffect(() => {
     try {
@@ -61,48 +59,20 @@ export function ServiceCatalog({ services, locale }: { services: readonly Catalo
     }
   }, [ready, selected]);
 
-  const chosen = useMemo(() => services.filter((service) => selected.includes(service.id)), [selected, services]);
-  const total = useMemo(() => chosen.reduce((sum, service) => sum + service.price, 0), [chosen]);
-
   const toggle = (id: string) => {
-    setStatus("idle");
     setSelected((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
   };
 
-  const checkout = async () => {
-    if (!selected.length || status === "sending") return;
-    setStatus("sending");
-    try {
-      const response = await fetch("/api/orders", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ serviceIds: selected, locale }),
-      });
-      if (response.status === 401) {
-        setStatus("login");
-        return;
-      }
-      if (!response.ok) throw new Error("order failed");
-      setSelected([]);
-      setStatus("sent");
-    } catch {
-      setStatus("error");
-    }
-  };
-
   return (
-    <div className="service-commerce">
+    <div className="service-commerce service-commerce-catalog-only">
       <div className="service-catalog-grid">
-        {services.map((service, index) => {
+        {services.map((service) => {
           const isSelected = selected.includes(service.id);
           return (
             <article className={`service-commerce-card ${isSelected ? "selected" : ""} ${service.consultation ? "consultation" : ""}`} id={service.id === "business-audit" ? "01" : service.id === "crm-mvp" ? "02" : service.id === "growth-strategy" ? "03" : service.id} key={service.id}>
-              <div className="service-commerce-card-head"><span>{String(index + 1).padStart(2, "0")} / {service.category}</span>{service.recommended ? <i>{copy.popular}</i> : null}</div>
               <ServiceGlyph id={service.id} />
               <h2><Link href={`/${locale}/services/${service.id}`}>{service.title}</Link></h2>
-              <p>{service.summary}</p>
-              <button className="service-scope-toggle" type="button" aria-expanded={expanded.includes(service.id)} onClick={() => setExpanded((current) => current.includes(service.id) ? current.filter((item) => item !== service.id) : [...current, service.id])}><span>{expanded.includes(service.id) ? copy.collapse : copy.scope}</span><i>{expanded.includes(service.id) ? "−" : "+"}</i></button>
-              <ul className={`service-scope ${expanded.includes(service.id) ? "open" : ""}`}>{service.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+              <ul className="service-scope">{service.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
               <div className="service-commerce-meta"><span>{service.duration}</span><strong>{service.consultation ? copy.free : `${copy.from} ${formatPrice(service.price, locale)}`}</strong></div>
               {service.consultation
                 ? <Link href={`/${locale}/contacts`}><span>{copy.consult}</span><i>↗</i></Link>
@@ -114,17 +84,6 @@ export function ServiceCatalog({ services, locale }: { services: readonly Catalo
           );
         })}
       </div>
-
-      <aside id="cart" className={`service-cart ${selected.length || status !== "idle" ? "visible" : ""}`} aria-live="polite">
-        <header><div><span>{copy.cart}</span><strong>{selected.length}</strong></div>{selected.length ? <button type="button" onClick={() => setSelected([])}>{copy.clear}</button> : null}</header>
-        {chosen.length ? <ul>{chosen.map((service) => <li key={service.id}><span>{service.title}</span><strong>{formatPrice(service.price, locale)}</strong><button type="button" onClick={() => toggle(service.id)} aria-label={`Remove ${service.title}`}>×</button></li>)}</ul> : <p>{copy.empty}</p>}
-        {chosen.length ? <div className="service-cart-total"><span>{copy.total}</span><strong>{formatPrice(total, locale)}</strong></div> : null}
-        {status === "login" ? <div className="service-cart-message"><p>{copy.login}</p><Link className="button" href={`/${locale}/account?returnTo=/${locale}/services`}>{copy.account}</Link></div> : null}
-        {status === "sent" ? <div className="service-cart-message success"><p>{copy.sent}</p><Link className="button" href={`/${locale}/account`}>{copy.open}</Link></div> : null}
-        {status === "error" ? <p className="service-cart-error">Something went wrong. Please try again.</p> : null}
-        {status !== "sent" ? <button className="button service-cart-checkout" type="button" disabled={!selected.length || status === "sending"} onClick={checkout}>{copy.checkout}<span>↗</span></button> : null}
-        <small>{copy.note}</small>
-      </aside>
     </div>
   );
 }

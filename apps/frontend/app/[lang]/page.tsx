@@ -108,10 +108,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const productTabLabel = locale === "ru" ? "Продукты" : locale === "hy" ? "Արտադրանքներ" : "Products";
   const metrics = heroMetrics[locale];
   const serviceActions = locale === "ru"
-    ? { all: "Все услуги и цены", order: "Заказать услугу" }
+    ? { all: "Подробнее об услуге", order: "Заказать услугу", title: "От задачи — к работающей системе", text: "Диагностируем процессы, проектируем решение и доводим его до измеримого результата — одним ответственным контуром." }
     : locale === "hy"
-      ? { all: "Բոլոր ծառայություններն ու գները", order: "Պատվիրել ծառայությունը" }
-      : { all: "All services and prices", order: "Order this service" };
+      ? { all: "Ծառայության մասին", order: "Պատվիրել ծառայությունը", title: "Խնդրից՝ աշխատող համակարգ", text: "Ախտորոշում ենք, նախագծում լուծումը և հասցնում չափելի արդյունքի՝ մեկ պատասխանատու թիմով։" }
+      : locale === "ka"
+        ? { all: "სერვისის შესახებ", order: "სერვისის შეკვეთა", title: "ამოცანიდან სამუშაო სისტემამდე", text: "ვიკვლევთ პროცესებს, ვქმნით გადაწყვეტას და მიგვყავს გაზომვად შედეგამდე ერთი პასუხისმგებელი გუნდით." }
+        : locale === "bg"
+          ? { all: "За услугата", order: "Поръчайте услугата", title: "От задачата до работеща система", text: "Диагностицираме, проектираме и внедряваме до измерим резултат с един отговорен екип." }
+          : { all: "About the service", order: "Order this service", title: "From challenge to working system", text: "We diagnose, design and deliver a measurable outcome through one accountable team." };
 
   return (
     <>
@@ -120,7 +124,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <section className="stats shell" aria-label="Key facts">
         {d.stats.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}
       </section>
-      <ScrollServices title={d.services.title} text={d.services.text} items={d.services.items} href={`/${locale}/services`} allLabel={serviceActions.all} orderLabel={serviceActions.order} />
+      <ScrollServices title={serviceActions.title} text={serviceActions.text} items={d.services.items} href={`/${locale}/services`} allLabel={serviceActions.all} orderLabel={serviceActions.order} />
       <section className="section section-dark">
         <div className="shell"><header className="section-heading"><h2>{d.method.title}</h2></header>
           <ol className="method-grid">{d.method.steps.map(([title, text], index) => <li key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol>
