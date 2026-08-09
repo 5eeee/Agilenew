@@ -11,13 +11,13 @@ const heroCopy = {
 } as const;
 
 const projects = [
-  { slug: "13auto", title: "13AUTO", description: "Каталог автозапчастей с точным подбором и личным кабинетом.", image: "/projects/real/13auto-desktop.png" },
-  { slug: "prokub", title: "Прокуб", description: "B2B-платформа бетона с быстрым расчётом и заявками.", image: "/projects/real/prokub-desktop.png" },
-  { slug: "profist", title: "Профист", description: "Каталог металлопроката с подбором под бизнес-задачу.", image: "/projects/real/profist-desktop.png" },
-  { slug: "dianafarm", title: "Dianafarm", description: "Международная платформа для недвижимости и сопровождения бизнеса.", image: "/projects/real/dianafarm-desktop.png" },
-  { slug: "boostmarine", title: "Boost Marine", description: "Сервисный сайт по ремонту водной техники.", image: "/projects/real/boostmarine-desktop.png" },
-  { slug: "royal-horse", title: "Royal Horse", description: "Премиальная цифровая среда конно-спортивного комплекса.", image: "/projects/real/royal-horse-desktop.png" },
-  { slug: "beef-flame", title: "Beefshteks", description: "Интерфейс доставки с быстрым сценарием заказа.", image: "/projects/real/beef-flame-desktop.png" },
+  { slug: "13auto", title: "13AUTO", description: "Каталог автозапчастей с точным подбором и личным кабинетом.", image: "/projects/real/13auto-desktop.png", website: "https://13auto-storefront.vercel.app/" },
+  { slug: "prokub", title: "Прокуб", description: "B2B-платформа бетона с быстрым расчётом и заявками.", image: "/projects/real/prokub-desktop.png", website: "https://prokub-rf.vercel.app/" },
+  { slug: "profist", title: "Профист", description: "Каталог металлопроката с подбором под бизнес-задачу.", image: "/projects/real/profist-desktop.png", website: "https://profist-rf.vercel.app/" },
+  { slug: "dianafarm", title: "Dianafarm", description: "Международная платформа для недвижимости и сопровождения бизнеса.", image: "/projects/real/dianafarm-desktop.png", website: "https://dianafarm.group/" },
+  { slug: "boostmarine", title: "Boost Marine", description: "Сервисный сайт по ремонту водной техники.", image: "/projects/real/boostmarine-desktop.png", website: "https://boostmarine.ru/" },
+  { slug: "royal-horse", title: "Royal Horse", description: "Премиальная цифровая среда конно-спортивного комплекса.", image: "/projects/real/royal-horse-desktop.png", website: "https://royal-horse-lake.vercel.app/" },
+  { slug: "beef-flame", title: "Beefshteks", description: "Интерфейс доставки с быстрым сценарием заказа.", image: "/projects/real/beef-flame-desktop.png", website: "https://beef-flame.vercel.app/" },
 ] as const;
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {

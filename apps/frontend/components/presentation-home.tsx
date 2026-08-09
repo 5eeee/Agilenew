@@ -7,7 +7,7 @@ import type { CSSProperties } from "react";
 
 type Service = readonly [string, string, string];
 type Step = readonly [string, string];
-type Project = { slug: string; title: string; description: string; image: string };
+type Project = { slug: string; title: string; description: string; image: string; website: string };
 
 type PresentationHomeProps = {
   locale: string;
@@ -35,7 +35,7 @@ function SectionBar({ left = "AGILE BUSINESS", right = "People | Process | Techn
 function WaveField() {
   return <div className="pres-fold-field" aria-hidden="true">
     <div className="pres-fold-track">
-      {Array.from({ length: 44 }, (_, index) => <i key={index} style={{ "--fold": index, "--delay": `${-index * 0.19}s` } as CSSProperties} />)}
+      {Array.from({ length: 34 }, (_, index) => <i key={index} style={{ "--fold": index, "--delay": `${-index * 0.23}s` } as CSSProperties} />)}
     </div>
   </div>;
 }
@@ -98,16 +98,15 @@ export function PresentationHome(props: PresentationHomeProps) {
         <div className="pres-work-showcase-grid">
           <div className="pres-work-logo-window" aria-label="Проекты Agile Business">
             <div className="pres-work-logo-track" style={{ "--project-index": projectIndex } as CSSProperties}>
-              {props.projects.map((project, index) => <div className="pres-work-logo-slide" key={project.slug}><span>0{index + 1}</span><strong>{project.title}</strong><small>Agile Business / Project</small></div>)}
+              {props.projects.map((project, index) => <div className="pres-work-logo-slide" key={project.slug}><span>0{index + 1}</span><strong>{project.title}</strong></div>)}
             </div>
-            <div className="pres-work-progress">{props.projects.map((project, index) => <i className={index === projectIndex ? "active" : ""} key={project.slug} />)}</div>
           </div>
-          <Link className="pres-work-project-window" href={`/${props.locale}/projects/${activeProject.slug}`}>
-            <div className="pres-work-project-frame" key={activeProject.slug}>
+          <div className="pres-work-project-window">
+            <Link className="pres-work-project-frame" href={`/${props.locale}/projects/${activeProject.slug}`} key={activeProject.slug}>
               <Image src={activeProject.image} alt={`${activeProject.title} interface`} fill sizes="(max-width: 760px) 96vw, 66vw" priority={projectIndex === 0} />
-              <div className="pres-work-project-caption"><span>0{projectIndex + 1} / 0{props.projects.length}</span><div><strong>{activeProject.title}</strong><p>{activeProject.description}</p></div><i>↗</i></div>
-            </div>
-          </Link>
+            </Link>
+            <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><span>0{projectIndex + 1} / 0{props.projects.length}</span><div><strong>{activeProject.title}</strong><p>{activeProject.description}</p></div><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
+          </div>
         </div>
       </section>
 
