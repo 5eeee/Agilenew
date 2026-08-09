@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 
 type Service = readonly [string, string, string];
@@ -33,12 +33,36 @@ function SectionBar({ left = "AGILE BUSINESS", right = "People | Process | Techn
 }
 
 function GradientField() {
-  return <div className="pres-gradient-field" aria-hidden="true"><i /><i /><i /></div>;
+  return <><div className="pres-gradient-field" aria-hidden="true"><i /><i /><i /></div><div className="pres-ribbed-glass" aria-hidden="true" /></>;
 }
 
 export function PresentationHome(props: PresentationHomeProps) {
   const [term, setTerm] = useState(0);
   const [projectIndex, setProjectIndex] = useState(0);
+  const heroStageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const stage = heroStageRef.current;
+    if (!stage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame = 0;
+    const updateHero = () => {
+      frame = 0;
+      const progress = Math.min(1, Math.max(0, -stage.getBoundingClientRect().top / Math.max(stage.offsetHeight, 1)));
+      stage.style.setProperty("--hero-bg-shift", `${progress * 38}px`);
+      stage.style.setProperty("--hero-bg-scale", `${1 + progress * 0.08}`);
+      stage.style.setProperty("--hero-copy-shift", `${progress * -36}px`);
+      stage.style.setProperty("--hero-copy-scale", `${1 + progress * 0.14}`);
+    };
+    const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
+    updateHero();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -58,7 +82,7 @@ export function PresentationHome(props: PresentationHomeProps) {
     <div className="presentation-shell">
       <section className="pres-block pres-hero">
         <SectionBar />
-        <div className="pres-hero-stage">
+        <div className="pres-hero-stage" ref={heroStageRef}>
           <div className="pres-curtain" aria-hidden="true"><GradientField /></div>
           <div className="pres-hero-copy">
             <p>{props.text}</p>
@@ -101,7 +125,7 @@ export function PresentationHome(props: PresentationHomeProps) {
             <Link className="pres-work-project-frame" href={`/${props.locale}/projects/${activeProject.slug}`} key={activeProject.slug}>
               <Image src={activeProject.image} alt={`${activeProject.title} interface`} fill sizes="(max-width: 760px) 96vw, 66vw" priority={projectIndex === 0} />
             </Link>
-            <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><span>0{projectIndex + 1} / 0{props.projects.length}</span><div><strong>{activeProject.title}</strong><p>{activeProject.description}</p></div><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
+            <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
           </div>
         </div>
       </section>
