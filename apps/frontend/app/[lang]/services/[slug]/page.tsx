@@ -17,6 +17,14 @@ function price(value: number, locale: Locale) {
   return new Intl.NumberFormat(locale === "ru" ? "ru-RU" : "en-US", { style: "currency", currency: "RUB", maximumFractionDigits: 0 }).format(value);
 }
 
+function getRoadmapKind(serviceId: string, consultation?: boolean, custom?: boolean) {
+  if (consultation) return "consultation";
+  if (custom) return "custom";
+  if (["landing", "corporate", "business-card", "ecommerce"].includes(serviceId) || serviceId.includes("site")) return "web";
+  if (serviceId.includes("crm") || serviceId.includes("bi")) return "system";
+  return "strategy";
+}
+
 export function generateStaticParams() {
   return locales.flatMap((lang) => getServiceCatalog(lang).map((service) => ({ lang, slug: service.id })));
 }
@@ -35,6 +43,14 @@ export default async function ServiceDetail({ params }: { params: Promise<{ lang
   const service = getServiceCatalog(locale).find((item) => item.id === slug);
   if (!service) notFound();
   const t = copy[locale];
+  const roadmapKind = getRoadmapKind(service.id, service.consultation, service.custom);
+  const roadmapSteps = [
+    { title: service.features[0] ?? t.steps[0], text: service.summary },
+    { title: service.features[1] ?? t.steps[1], text: t.stepText[1] },
+    { title: service.features[2] ?? t.steps[2], text: t.stepText[2] },
+    { title: t.steps[3], text: t.stepText[3] },
+    { title: t.steps[4], text: t.stepText[4] },
+  ];
 
   return <main className="service-detail shell">
     <Link className="service-detail-back" href={`/${locale}/services`}>← {t.back}</Link>
@@ -43,9 +59,9 @@ export default async function ServiceDetail({ params }: { params: Promise<{ lang
       <div className="service-detail-title"><h1>{service.title}</h1><p>{service.summary}</p></div>
       <dl><div><dt>{t.format}</dt><dd>{service.duration}</dd></div><div><dt>{t.budget}</dt><dd>{price(service.price, locale)}</dd></div><div><dt>{t.result}</dt><dd>{service.features.join(" · ")}</dd></div></dl>
     </section>
-    <section className="service-roadmap">
+    <section className={`service-roadmap service-roadmap-${roadmapKind}`}>
       <header><span>01—05</span><h2>{t.roadmap}</h2><p>{t.note}</p></header>
-      <ol>{t.steps.map((step, index) => <li key={step}><span>0{index + 1}</span><div><h3>{step}</h3><p>{t.stepText[index]}</p></div><i aria-hidden="true" /></li>)}</ol>
+      <ol>{roadmapSteps.map((step, index) => <li key={`${index}-${step.title}`}><span>0{index + 1}</span><div><h3>{step.title}</h3><p>{step.text}</p></div><i aria-hidden="true" /></li>)}</ol>
     </section>
     <section className="service-detail-cta">
       <p>{service.summary}</p>

@@ -61,21 +61,6 @@ function createWaveLine(line: number) {
 
 const WAVE_LINES = Array.from({ length: 52 }, (_, line) => createWaveLine(line));
 
-function createMobileWaveLine(line: number) {
-  const points = Array.from({ length: 47 }, (_, point): Point => {
-    const x = -145 + point * 15;
-    const phase = line * .16;
-    const leftRidge = gaussian(x, 55, 19000) * Math.sin(x / 54 + phase) * 78;
-    const centerValley = gaussian(x, 230, 29000) * Math.cos(x / 66 - phase * .66) * 112;
-    const rightRidge = gaussian(x, 430, 21000) * Math.sin(x / 52 + phase * .5) * 82;
-    const y = -76 + line * 20.5 + leftRidge + centerValley + rightRidge + Math.sin(x / 128 + phase) * 9;
-    return [Number(x.toFixed(1)), Number(y.toFixed(1))];
-  });
-  return smoothPath(points);
-}
-
-const MOBILE_WAVE_LINES = Array.from({ length: 44 }, (_, line) => createMobileWaveLine(line));
-
 function PremiumContours() {
   return (
     <div className="hero-contours premium-contours" aria-hidden="true">
@@ -87,14 +72,18 @@ function PremiumContours() {
           {WAVE_LINES.filter((_, index) => index % 2 !== 0).map((path, index) => <path d={path} key={index} />)}
         </g>
       </svg>
-      <svg className="topo-mobile" viewBox="0 0 390 780" preserveAspectRatio="xMidYMid slice">
-        <g className="topo-wave-layer topo-wave-layer-a">
-          {MOBILE_WAVE_LINES.filter((_, index) => index % 2 === 0).map((path, index) => <path d={path} key={index} />)}
-        </g>
-        <g className="topo-wave-layer topo-wave-layer-b">
-          {MOBILE_WAVE_LINES.filter((_, index) => index % 2 !== 0).map((path, index) => <path d={path} key={index} />)}
-        </g>
-      </svg>
+    </div>
+  );
+}
+
+function MobileSignalField() {
+  return (
+    <div className="mobile-signal-field" aria-hidden="true">
+      <span className="signal-ribbon signal-ribbon-red" />
+      <span className="signal-ribbon signal-ribbon-ink" />
+      <span className="signal-orbit signal-orbit-large" />
+      <span className="signal-orbit signal-orbit-small" />
+      <span className="signal-pulse"><i /><i /><i /></span>
     </div>
   );
 }
@@ -128,6 +117,7 @@ export function AnimatedHero({
   return (
     <section className="home-hero hero-premium shell">
       <PremiumContours />
+      <MobileSignalField />
       <div className="hero-premium-grain" aria-hidden="true" />
       <div className="home-hero-content">
         <div className="hero-premium-stage">
