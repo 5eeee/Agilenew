@@ -76,25 +76,20 @@ export function ScrollServices({
           </header>
 
           <div className="scroll-services-stage">
-            <div className="service-orbit" aria-label={title}>
-              <div className="service-orbit-ring" aria-hidden="true" />
-              <span className="service-orbit-center" aria-hidden="true"><i />SCROLL</span>
-              {items.map(([number, itemTitle], index) => {
-                const angle = (index - activeIndex) * 42;
-                return (
-                  <button
-                    type="button"
-                    className={`service-orbit-node ${index === activeIndex ? "active" : ""}`}
-                    style={{ "--orbit-angle": `${angle}deg` } as CSSProperties}
-                    onClick={() => select(index)}
-                    aria-current={index === activeIndex ? "step" : undefined}
-                    key={number}
-                  >
-                    <span>{number}</span>
-                    <strong>{itemTitle}</strong>
-                  </button>
-                );
-              })}
+            <div className="service-scroll-tabs" aria-label={title}>
+              {items.map(([number, itemTitle], index) => (
+                <button
+                  type="button"
+                  className={index === activeIndex ? "active" : ""}
+                  onClick={() => select(index)}
+                  aria-current={index === activeIndex ? "step" : undefined}
+                  key={number}
+                >
+                  <span>{number}</span>
+                  <strong>{itemTitle}</strong>
+                  <i aria-hidden="true">{index === activeIndex ? "●" : "○"}</i>
+                </button>
+              ))}
             </div>
 
             <article className="scroll-service-card" key={active[0]}>

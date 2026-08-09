@@ -133,14 +133,11 @@ export function AnimatedHero({
 
           <div className="hero-kpi hero-kpi-main" aria-live="polite">
             <div className="hero-kpi-content" key={activeTerm}>
-              <span>{activeKpi.label}</span>
+              <span className="hero-kpi-index">0{activeTerm + 1} / 04</span>
+              <span className="hero-kpi-label">{activeKpi.label}</span>
               <strong>{activeKpi.value}</strong>
               <i>{activeKpi.note}</i>
             </div>
-          </div>
-          <div className="hero-kpi hero-kpi-mini" aria-hidden="true">
-            <span>01—04</span>
-            <strong>BUSINESS<br />SYSTEMS</strong>
           </div>
         </div>
 

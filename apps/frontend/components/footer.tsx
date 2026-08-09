@@ -7,11 +7,8 @@ type FooterNav = { services: string; about: string; calculator: string; contacts
 
 export function Footer({ locale, line, privacy, nav }: { locale: Locale; line: string; privacy: string; nav: FooterNav }) {
   const links = [["services", nav.services], ["about", nav.about], ["calculator", nav.calculator], ["contacts", nav.contacts], ["account", locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"]];
-  const footerCta = locale === "ru" ? "Превратим задачу в работающую систему" : locale === "hy" ? "Խնդիրը կվերածենք աշխատող համակարգի" : locale === "ka" ? "ამოცანას სამუშაო სისტემად ვაქცევთ" : locale === "bg" ? "Превръщаме задачата в работеща система" : "Turn the challenge into a working system";
-  const footerButton = locale === "ru" ? "Обсудить проект" : locale === "hy" ? "Քննարկել նախագիծը" : locale === "ka" ? "პროექტის განხილვა" : locale === "bg" ? "Обсъди проект" : "Discuss a project";
   return (
     <footer className="site-footer">
-      <div className="footer-manifesto"><span>AGILE BUSINESS / CONTACT</span><h2>{footerCta}</h2><Link className="button" href={`/${locale}/contacts`}>{footerButton}<i>↗</i></Link></div>
       <div className="footer-top">
         <div className="footer-brand"><Brand href={`/${locale}`} /><p>{line}</p></div>
         <nav className="footer-nav" aria-label="Footer navigation">

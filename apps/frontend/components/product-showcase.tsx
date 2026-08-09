@@ -23,10 +23,21 @@ type ShowcaseGroup = { id: "products" | "projects"; label: string; intro: string
 export function ProductShowcase({ locale, groups }: { locale: string; groups: readonly [ShowcaseGroup, ShowcaseGroup] }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeGroup, setActiveGroup] = useState<ShowcaseGroup["id"]>(groups[0].id);
+  const [activeSlide, setActiveSlide] = useState(0);
   const current = groups.find((group) => group.id === activeGroup) ?? groups[0];
-  const move = (direction: number) => trackRef.current?.scrollBy({ left: direction * Math.min(trackRef.current.clientWidth * .82, 900), behavior: "smooth" });
+  const move = (direction: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const slides = Array.from(track.querySelectorAll<HTMLElement>(".product-slide"));
+    const next = Math.min(slides.length - 1, Math.max(0, activeSlide + direction));
+    const target = slides[next];
+    if (!target) return;
+    setActiveSlide(next);
+    track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: "smooth" });
+  };
   const selectGroup = (id: ShowcaseGroup["id"]) => {
     setActiveGroup(id);
+    setActiveSlide(0);
     trackRef.current?.scrollTo({ left: 0, behavior: "smooth" });
   };
 
@@ -39,9 +50,15 @@ export function ProductShowcase({ locale, groups }: { locale: string; groups: re
           </div>
           <p>{current.intro}</p>
         </div>
-        <div className="product-controls"><button type="button" onClick={() => move(-1)} aria-label="Previous item">←</button><button type="button" onClick={() => move(1)} aria-label="Next item">→</button></div>
+        <div className="product-controls"><span>{String(activeSlide + 1).padStart(2, "0")} / {String(current.items.length).padStart(2, "0")}</span><button type="button" disabled={activeSlide === 0} onClick={() => move(-1)} aria-label="Previous item">←</button><button type="button" disabled={activeSlide === current.items.length - 1} onClick={() => move(1)} aria-label="Next item">→</button></div>
       </header>
-      <div className="product-track" ref={trackRef} role="tabpanel" key={current.id}>
+      <div className="product-track" ref={trackRef} role="tabpanel" key={current.id} onScroll={(event) => {
+        const track = event.currentTarget;
+        const slides = Array.from(track.querySelectorAll<HTMLElement>(".product-slide"));
+        if (!slides.length) return;
+        const closest = slides.reduce((best, slide, index) => Math.abs(slide.offsetLeft - track.offsetLeft - track.scrollLeft) < Math.abs(slides[best].offsetLeft - track.offsetLeft - track.scrollLeft) ? index : best, 0);
+        if (closest !== activeSlide) setActiveSlide(closest);
+      }}>
         {current.items.map((product, index) => {
           const desktopImage = product.image?.replace(/-desktop\.jpg$/, "-desktop.png");
           const mobileImage = product.imageMobile ?? product.image?.replace(/-desktop\.jpg$/, "-mobile.png");
