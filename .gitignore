@@ -7,6 +7,17 @@ venv/
 .pytest_cache/
 .mypy_cache/
 apps/leads/data/leads.jsonl
+apps/leads/data/accounts.db
+apps/leads/data/*.tmp
+apps/frontend/node_modules/
+apps/frontend/.next/
+apps/frontend/out/
+node_modules/
+.runtime/
 _site/
 .DS_Store
 Thumbs.db
+.codex-dev-*.log
+
+.vercel
+.env*

@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     env: str = "development"
 
     gateway_host: str = "0.0.0.0"
-    gateway_port: int = 8080
+    gateway_port: int = 8091
 
     web_url: str = "http://127.0.0.1:8081"
     content_url: str = "http://127.0.0.1:8082"
@@ -29,7 +29,17 @@ class Settings(BaseSettings):
     leads_host: str = "0.0.0.0"
     leads_port: int = 8083
 
-    cors_origins: str = "http://localhost:8080,http://127.0.0.1:8080"
+    cors_origins: str = "http://localhost:8091,http://127.0.0.1:8091,http://localhost:8080,http://127.0.0.1:8080"
+
+    smtp_host: str = ""
+    smtp_port: int = 465
+    smtp_secure: bool = True
+    smtp_user: str = ""
+    smtp_pass: str = ""
+    email_from: str = ""
+    email_to: str = ""
+    leads_read_token: str = ""
+    auth_secret: str = "agile-local-development-secret-change-before-production"
 
 
 settings = Settings()

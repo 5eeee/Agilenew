@@ -18,16 +18,25 @@ services:
       - "8083:8083"
     volumes:
       - ./apps/leads/data:/app/apps/leads/data
+    environment:
+      AGILE_AUTH_SECRET: ${AGILE_AUTH_SECRET:-agile-local-development-secret-change-before-production}
 
   web:
     build:
       context: .
-      dockerfile: docker/Dockerfile
-    command: ["python", "apps/web/main.py"]
+      dockerfile: docker/frontend.Dockerfile
     ports:
       - "8081:8081"
-    volumes:
-      - ./apps/web/public:/app/apps/web/public
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-}
+      AGILE_LEADS_READ_TOKEN: ${AGILE_LEADS_READ_TOKEN:-}
+      AGILE_SMTP_HOST: ${AGILE_SMTP_HOST:-}
+      AGILE_SMTP_PORT: ${AGILE_SMTP_PORT:-465}
+      AGILE_SMTP_SECURE: ${AGILE_SMTP_SECURE:-true}
+      AGILE_SMTP_USER: ${AGILE_SMTP_USER:-}
+      AGILE_SMTP_PASS: ${AGILE_SMTP_PASS:-}
+      AGILE_EMAIL_FROM: ${AGILE_EMAIL_FROM:-}
+      AGILE_EMAIL_TO: ${AGILE_EMAIL_TO:-}
 
   gateway:
     build:
@@ -38,9 +47,10 @@ services:
       AGILE_WEB_URL: http://web:8081
       AGILE_CONTENT_URL: http://content:8082
       AGILE_LEADS_URL: http://leads:8083
-      AGILE_CORS_ORIGINS: http://localhost:8080,http://127.0.0.1:8080
+      AGILE_GATEWAY_PORT: 8091
+      AGILE_CORS_ORIGINS: http://localhost:8091,http://127.0.0.1:8091
     ports:
-      - "8080:8080"
+      - "8091:8091"
     depends_on:
       - web
       - content

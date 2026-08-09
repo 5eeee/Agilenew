@@ -43,18 +43,21 @@ def _filter_headers(headers) -> dict:
     return {k: v for k, v in headers.items() if k.lower() not in HOP_BY_HOP}
 
 
-async def _proxy(request: Request, base_url: str, path: str) -> Response:
+async def _proxy(request: Request, base_url: str, path: str, extra_headers: dict | None = None) -> Response:
     url = f"{base_url.rstrip('/')}/{path.lstrip('/')}"
     if request.url.query:
         url = f"{url}?{request.url.query}"
 
     body = await request.body()
+    forwarded_headers = _filter_headers(request.headers)
+    if extra_headers:
+        forwarded_headers.update(extra_headers)
     async with httpx.AsyncClient(timeout=60.0, follow_redirects=False) as client:
         upstream = await client.request(
             request.method,
             url,
             content=body if body else None,
-            headers=_filter_headers(request.headers),
+            headers=forwarded_headers,
         )
 
     return Response(
@@ -70,12 +73,12 @@ async def health():
     checks = {}
     async with httpx.AsyncClient(timeout=3.0) as client:
         for name, url in {
-            "web": settings.web_url,
-            "content": settings.content_url,
-            "leads": settings.leads_url,
+            "web": f"{settings.web_url.rstrip('/')}/api/health",
+            "content": f"{settings.content_url.rstrip('/')}/health",
+            "leads": f"{settings.leads_url.rstrip('/')}/health",
         }.items():
             try:
-                r = await client.get(f"{url.rstrip('/')}/health")
+                r = await client.get(url)
                 checks[name] = r.json() if r.status_code == 200 else {"status": "down"}
             except Exception as exc:  # noqa: BLE001
                 checks[name] = {"status": "down", "error": str(exc)}
@@ -93,19 +96,6 @@ async def health():
 )
 async def content_proxy(path: str, request: Request):
     return await _proxy(request, settings.content_url, f"/api/v1/{path}")
-
-
-@app.api_route("/api/leads", methods=["GET", "POST", "OPTIONS"])
-async def leads_root(request: Request):
-    return await _proxy(request, settings.leads_url, "/api/v1/leads")
-
-
-@app.api_route(
-    "/api/leads/{path:path}",
-    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-)
-async def leads_proxy(path: str, request: Request):
-    return await _proxy(request, settings.leads_url, f"/api/v1/{path}")
 
 
 @app.api_route("/", methods=["GET", "HEAD"])
