@@ -29,13 +29,13 @@ export default async function Services({ params }: { params: Promise<{ lang: str
   return (
     <>
       <section className="services-commerce-hero shell">
-        <div><span>{copy.kicker}</span><h1>{copy.title}</h1></div>
-        <div><p>{copy.text}</p><ol>{copy.steps.map((step, index) => <li key={step}><span>0{index + 1}</span>{step}</li>)}</ol></div>
+        <div><h1>{copy.title}</h1></div>
+        <div><ol>{copy.steps.map((step, index) => <li key={step}><span>0{index + 1}</span>{step}</li>)}</ol></div>
       </section>
       <section className="services-commerce-section shell">
         <ServiceCatalog services={services} locale={locale} />
       </section>
-      <section className="pricing-note shell"><span>PRICING LOGIC</span><p>{copy.market}</p></section>
+      <section className="pricing-note shell"><p>{copy.market}</p></section>
     </>
   );
 }

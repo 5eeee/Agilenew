@@ -7,7 +7,6 @@ type Service = readonly [string, string, string];
 
 export function ScrollServices({
   title,
-  text,
   items,
   href,
   allLabel,
@@ -72,8 +71,7 @@ export function ScrollServices({
       <div className="scroll-services-sticky">
         <div className="scroll-services-shell shell">
           <header className="scroll-services-head">
-            <div><span>03 / SYSTEM</span><h2>{title}</h2></div>
-            <p>{text}</p>
+            <h2>{title}</h2>
           </header>
 
           <div className="scroll-services-stage">
@@ -87,6 +85,7 @@ export function ScrollServices({
                 <button
                   type="button"
                   className={index === activeIndex ? "active" : ""}
+                  data-offset={offset}
                   style={{ "--orbit-offset": offset, "--orbit-abs": Math.abs(offset) } as CSSProperties}
                   onClick={() => select(index)}
                   aria-current={index === activeIndex ? "step" : undefined}
@@ -100,9 +99,7 @@ export function ScrollServices({
             </div>
 
             <div className="service-focus" key={active[0]}>
-              <span className="service-focus-index">{active[0]} / 0{items.length}</span>
               <h3>{active[1]}</h3>
-              <p>{active[2]}</p>
               <div className="scroll-service-actions">
                 <Link className="button" href={`${href}#${active[0]}`}>{orderLabel}<span>↗</span></Link>
                 <Link href={`${href}/${detailSlug}`}>{allLabel}<span>→</span></Link>

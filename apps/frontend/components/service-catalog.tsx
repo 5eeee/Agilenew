@@ -37,6 +37,10 @@ function formatPrice(price: number, locale: Locale) {
   }).format(price);
 }
 
+function SelectionIcon({ selected }: { selected: boolean }) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true">{selected ? <path d="m6.5 12.5 3.4 3.4 7.6-8" /> : <><path d="M12 6v12" /><path d="M6 12h12" /></>}</svg>;
+}
+
 export function ServiceCatalog({ services, locale }: { services: readonly CatalogService[]; locale: Locale }) {
   const copy = labels[locale];
   const [selected, setSelected] = useState<string[]>([]);
@@ -78,7 +82,7 @@ export function ServiceCatalog({ services, locale }: { services: readonly Catalo
                 ? <Link href={`/${locale}/contacts`}><span>{copy.consult}</span><i>↗</i></Link>
                 : service.custom
                   ? <Link href={`/${locale}/calculator`}><span>{copy.calculate}</span><i>↗</i></Link>
-                : <button type="button" aria-pressed={isSelected} onClick={() => toggle(service.id)}><span>{isSelected ? copy.added : copy.add}</span><i>{isSelected ? "✓" : "+"}</i></button>}
+                : <button type="button" aria-pressed={isSelected} onClick={() => toggle(service.id)}><span>{isSelected ? copy.added : copy.add}</span><i><SelectionIcon selected={isSelected} /></i></button>}
               <Link className="service-detail-link" href={`/${locale}/services/${service.id}`}>{copy.details}<span>→</span></Link>
             </article>
           );

@@ -45,36 +45,36 @@ function smoothPath(points: readonly Point[]) {
 }
 
 function createWaveLine(line: number) {
-  const points = Array.from({ length: 49 }, (_, point): Point => {
-    const x = -120 + point * 35;
-    const phase = line * .19;
-    const firstFold = gaussian(x, 245, 115000) * Math.sin(x / 115 + phase) * 82;
-    const centerFold = gaussian(x, 785, 175000) * Math.cos(x / 138 - phase * .72) * 108;
-    const finalFold = gaussian(x, 1240, 120000) * Math.sin(x / 92 + phase * .55) * 76;
-    const drift = Math.sin(x / 260 + phase) * 18 + Math.cos(x / 520 - phase) * 13;
-    const y = -55 + line * 21.5 + firstFold + centerFold + finalFold + drift;
+  const points = Array.from({ length: 57 }, (_, point): Point => {
+    const x = -160 + point * 31;
+    const phase = line * .145;
+    const leftRidge = gaussian(x, 300, 88000) * Math.sin(x / 112 + phase) * 118;
+    const centerValley = gaussian(x, 760, 125000) * Math.cos(x / 126 - phase * .62) * 162;
+    const rightRidge = gaussian(x, 1190, 92000) * Math.sin(x / 102 + phase * .48) * 126;
+    const depth = Math.sin((x + line * 17) / 245) * 16 + Math.cos(x / 410 - phase) * 12;
+    const y = -82 + line * 18.2 + leftRidge + centerValley + rightRidge + depth;
     return [Number(x.toFixed(1)), Number(y.toFixed(1))];
   });
 
   return smoothPath(points);
 }
 
-const WAVE_LINES = Array.from({ length: 42 }, (_, line) => createWaveLine(line));
+const WAVE_LINES = Array.from({ length: 52 }, (_, line) => createWaveLine(line));
 
 function createMobileWaveLine(line: number) {
-  const points = Array.from({ length: 39 }, (_, point): Point => {
-    const x = -115 + point * 17;
-    const phase = line * .22;
-    const upperFold = gaussian(x, 80, 25000) * Math.sin(x / 62 + phase) * 54;
-    const centerValley = gaussian(x, 240, 39000) * Math.cos(x / 77 - phase * .7) * 76;
-    const lowerFold = gaussian(x, 430, 26000) * Math.sin(x / 58 + phase * .45) * 48;
-    const y = -52 + line * 25 + upperFold + centerValley + lowerFold + Math.sin(x / 145 + phase) * 10;
+  const points = Array.from({ length: 47 }, (_, point): Point => {
+    const x = -145 + point * 15;
+    const phase = line * .16;
+    const leftRidge = gaussian(x, 55, 19000) * Math.sin(x / 54 + phase) * 78;
+    const centerValley = gaussian(x, 230, 29000) * Math.cos(x / 66 - phase * .66) * 112;
+    const rightRidge = gaussian(x, 430, 21000) * Math.sin(x / 52 + phase * .5) * 82;
+    const y = -76 + line * 20.5 + leftRidge + centerValley + rightRidge + Math.sin(x / 128 + phase) * 9;
     return [Number(x.toFixed(1)), Number(y.toFixed(1))];
   });
   return smoothPath(points);
 }
 
-const MOBILE_WAVE_LINES = Array.from({ length: 36 }, (_, line) => createMobileWaveLine(line));
+const MOBILE_WAVE_LINES = Array.from({ length: 44 }, (_, line) => createMobileWaveLine(line));
 
 function PremiumContours() {
   return (
@@ -130,11 +130,6 @@ export function AnimatedHero({
       <PremiumContours />
       <div className="hero-premium-grain" aria-hidden="true" />
       <div className="home-hero-content">
-        <div className="hero-premium-kicker">
-          <span>Agile Business / 2026</span>
-          <span>Strategy · Design · Technology</span>
-        </div>
-
         <div className="hero-premium-stage">
           <div className="hero-message">
             <h1 aria-label={`${title} ${terms[activeTerm]}`}>

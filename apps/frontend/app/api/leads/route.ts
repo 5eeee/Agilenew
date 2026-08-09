@@ -3,7 +3,17 @@ import { currentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { sendLeadEmail } from "@/lib/mail";
 
-const input = z.object({ name: z.string().trim().min(2).max(120), email: z.string().trim().toLowerCase().email().max(160), phone: z.string().max(40).optional(), company: z.string().max(160).optional(), message: z.string().trim().min(10).max(4000), source: z.string().max(80).default("site") });
+const unsafeText = /[<>]|(?:javascript:|data:text\/html|on\w+\s*=)/i;
+const controlCharacters = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/;
+const safeText = (minimum: number, maximum: number) => z.string().trim().min(minimum).max(maximum).refine((value) => !unsafeText.test(value) && !controlCharacters.test(value), "Unsafe text");
+const input = z.object({
+  name: safeText(2, 120),
+  email: z.string().trim().toLowerCase().email().max(160),
+  phone: z.string().trim().regex(/^\+[0-9][0-9 ()-]{7,24}$/).max(26).optional().or(z.literal("")),
+  company: safeText(2, 200).optional().or(z.literal("")),
+  message: safeText(10, 3000),
+  source: z.string().trim().regex(/^[a-z0-9_-]+$/i).max(80).default("site"),
+});
 
 function admin(request: Request) {
   const token = process.env.AGILE_LEADS_READ_TOKEN;

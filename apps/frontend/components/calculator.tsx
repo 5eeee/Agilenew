@@ -79,10 +79,11 @@ export function Calculator({ locale, labels }: { locale: Locale; labels: LegacyL
   </div>;
 
   return <div className="calculator calculator-detailed">
-    <header className="calculator-intro"><span>PROJECT CONFIGURATOR / 2026</span><h1>{t.title}</h1><p>{t.intro}</p></header>
+    <header className="calculator-intro"><h1>{t.title}</h1><p>{t.intro}</p></header>
+    <div className="calc-progress-label"><span>{t.steps[step]}</span><strong>{step + 1} / {stepKeys.length}</strong></div>
     <div className="calc-progress"><span style={{ width: `${((step + 1) / stepKeys.length) * 100}%` }} /></div>
     <nav className="calc-step-nav" aria-label="Calculator progress">{t.steps.map((item, index) => <button type="button" key={item} disabled={index > step} className={index === step ? "active" : index < step ? "done" : ""} onClick={() => index <= step && setStep(index)}><span>0{index + 1}</span>{item}</button>)}</nav>
-    <section className="calc-question"><div className="calc-head"><span>0{step + 1} / 0{stepKeys.length}</span><h2>{t.questions[step]}</h2>{key === "features" ? <small>{t.multi}</small> : null}</div>
+    <section className="calc-question"><div className="calc-head"><h2>{t.questions[step]}</h2>{key === "features" ? <small>{t.multi}</small> : null}</div>
       {key === "task" ? <textarea className="calc-textarea" placeholder={t.placeholder} value={values.task || ""} onChange={(event) => setValues({ ...values, task: event.target.value })} rows={7} maxLength={1800} autoFocus /> : <div className={`calc-options ${key === "features" ? "multi" : ""}`}>{options.map((option) => { const active = key === "features" ? features.includes(option) : values[key] === option; return <button key={option} type="button" className={active ? "selected" : ""} onClick={() => choose(option)}><span>{t.options[option as keyof typeof t.options]}</span><i aria-hidden="true">{active ? "✓" : "+"}</i></button>; })}</div>}
     </section>
     <div className="calc-actions"><button type="button" className="text-button" disabled={step === 0} onClick={() => setStep(step - 1)}>{labels.back}</button>{key === "features" ? <button type="button" className="button" disabled={!selected} onClick={() => setStep(step + 1)}>{t.continue}</button> : key === "task" ? <button type="button" className="button" disabled={!selected} onClick={() => setComplete(true)}>{labels.calculate}</button> : <span className="calc-live-estimate">{estimate ? `${t.estimate}: ${format(estimate)} ₽` : "AGILE BUSINESS"}</span>}</div>

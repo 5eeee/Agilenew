@@ -54,7 +54,7 @@ export function ServiceCart({ services, locale }: { services: readonly CatalogSe
   };
 
   return <main className="cart-page shell">
-    <header className="cart-page-head"><span>{t.eyebrow}</span><h1>{t.title}</h1><p>{t.text}</p></header>
+    <header className="cart-page-head"><h1>{t.title}</h1><p>{t.text}</p></header>
     {!ready ? <div className="cart-loading" /> : chosen.length ? <div className="cart-layout">
       <section className="cart-items">{chosen.map((service, index) => <article key={service.id}><span>0{index + 1}</span><div><h2>{service.title}</h2><ul>{service.features.map((feature) => <li key={feature}>{feature}</li>)}</ul></div><strong>{formatPrice(service.price, locale)}</strong><button type="button" onClick={() => remove(service.id)} aria-label={`${t.remove}: ${service.title}`}>×</button></article>)}</section>
       <aside className="cart-summary"><header><span>{t.total}</span><strong>{formatPrice(total, locale)}</strong></header>{status === "login" ? <div className="cart-status"><p>{t.login}</p><Link className="button" href={`/${locale}/account?returnTo=/${locale}/cart`}>{t.account}</Link></div> : null}{status === "sent" ? <div className="cart-status success"><p>{t.success}</p><Link className="button" href={`/${locale}/account`}>{t.open}</Link></div> : null}{status === "error" ? <p className="cart-error">{t.error}</p> : null}{status !== "sent" ? <button className="button" type="button" disabled={status === "sending"} onClick={checkout}>{t.checkout}<span>↗</span></button> : null}<button className="cart-clear" type="button" onClick={() => setSelected([])}>{t.clear}</button><small>{t.note}</small></aside>

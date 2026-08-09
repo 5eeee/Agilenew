@@ -10,6 +10,5 @@ export default async function Contacts({ params }: { params: Promise<{ lang: str
   if (!isLocale(lang)) notFound();
   const locale = lang as Locale;
   const d = getDictionary(locale);
-  const note = locale === "ru" ? "Регистрация не нужна. Первый разбор задачи — бесплатно." : locale === "hy" ? "Գրանցում պետք չէ։ Առաջին քննարկումն անվճար է։" : "No registration required. The first consultation is free.";
-  return <main className="contact-layout shell"><header className="contact-editorial"><span>AGILE / CONTACT / 2026</span><h1>{d.page.contactsTitle}</h1><p>{d.page.contactsText}</p><strong>{note}</strong></header><section className="contact-page"><div className="contact-intro"><ContactChannels locale={locale} /></div><ContactForm labels={d.form} locale={locale} /></section></main>;
+  return <main className="contact-layout shell"><header className="contact-editorial"><h1>{d.page.contactsTitle}</h1></header><section className="contact-page"><div className="contact-intro"><ContactChannels locale={locale} /></div><ContactForm labels={d.form} locale={locale} /></section></main>;
 }
