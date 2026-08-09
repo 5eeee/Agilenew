@@ -42,12 +42,21 @@ function WaveField() {
 
 export function PresentationHome(props: PresentationHomeProps) {
   const [term, setTerm] = useState(0);
+  const [projectIndex, setProjectIndex] = useState(0);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = window.setInterval(() => setTerm((current) => (current + 1) % props.outcomes.length), 3200);
     return () => window.clearInterval(timer);
   }, [props.outcomes.length]);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => setProjectIndex((current) => (current + 1) % props.projects.length), 2600);
+    return () => window.clearInterval(timer);
+  }, [props.projects.length]);
+
+  const activeProject = props.projects[projectIndex];
 
   return <main className="presentation-home">
     <div className="presentation-shell">
@@ -84,19 +93,22 @@ export function PresentationHome(props: PresentationHomeProps) {
         </div>
       </section>
 
-      <section className="pres-block pres-portfolio">
+      <section className="pres-block pres-portfolio pres-work-showcase">
         <SectionBar left="НАШИ РАБОТЫ" right="Clients | Products | Platforms" />
-        <div className="pres-logo-marquee" aria-label="Проекты Agile Business">
-          <div className="pres-logo-track">
-            {[...props.projects, ...props.projects].map((project, index) => <span key={`${project.slug}-${index}`}>{project.title}</span>)}
+        <div className="pres-work-showcase-grid">
+          <div className="pres-work-logo-window" aria-label="Проекты Agile Business">
+            <div className="pres-work-logo-track" style={{ "--project-index": projectIndex } as CSSProperties}>
+              {props.projects.map((project, index) => <div className="pres-work-logo-slide" key={project.slug}><span>0{index + 1}</span><strong>{project.title}</strong><small>Agile Business / Project</small></div>)}
+            </div>
+            <div className="pres-work-progress">{props.projects.map((project, index) => <i className={index === projectIndex ? "active" : ""} key={project.slug} />)}</div>
           </div>
+          <Link className="pres-work-project-window" href={`/${props.locale}/projects/${activeProject.slug}`}>
+            <div className="pres-work-project-frame" key={activeProject.slug}>
+              <Image src={activeProject.image} alt={`${activeProject.title} interface`} fill sizes="(max-width: 760px) 96vw, 66vw" priority={projectIndex === 0} />
+              <div className="pres-work-project-caption"><span>0{projectIndex + 1} / 0{props.projects.length}</span><div><strong>{activeProject.title}</strong><p>{activeProject.description}</p></div><i>↗</i></div>
+            </div>
+          </Link>
         </div>
-      </section>
-
-      <section className="pres-block pres-work">
-        <SectionBar left="НАШИ РАБОТЫ" right="Selected work" />
-        <div className="pres-work-head"><h2>Проекты, которые работают в бизнесе</h2><Link href={`/${props.locale}/projects`}>Все проекты ↗</Link></div>
-        <div className="pres-work-grid">{props.projects.slice(0, 6).map((project, index) => <Link href={`/${props.locale}/projects/${project.slug}`} className="pres-work-card" key={project.slug}><div><Image src={project.image} alt={`${project.title} interface`} fill sizes="(max-width: 760px) 92vw, 31vw" /></div><span>0{index + 1}</span><h3>{project.title}</h3><p>{project.description}</p><i>↗</i></Link>)}</div>
       </section>
 
       <section className="pres-block pres-process">
