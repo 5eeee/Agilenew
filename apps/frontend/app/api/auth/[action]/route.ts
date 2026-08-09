@@ -25,8 +25,17 @@ async function handler(request: NextRequest, { params }: { params: Promise<{ act
   if (action === "orders") {
     const user = await currentUser();
     if (!user) return Response.json({ detail: "Authentication required" }, { status: 401 });
-    const orders = await db.lead.findMany({ where: { userId: user.id }, orderBy: { createdAt: "desc" } });
-    return Response.json(orders.map(order => ({ ...order, created_at: order.createdAt.toISOString() })));
+    const orders = await db.serviceOrder.findMany({ where: { userId: user.id }, include: { items: true }, orderBy: { createdAt: "desc" } });
+    return Response.json(orders.map((order) => ({
+      id: order.id,
+      name: order.name,
+      status: order.status,
+      total: order.total,
+      currency: order.currency,
+      created_at: order.createdAt.toISOString(),
+      updated_at: order.updatedAt.toISOString(),
+      items: order.items,
+    })));
   }
   if (request.method !== "POST") return Response.json({ detail: "Method not allowed" }, { status: 405 });
   const parsed = credentials.safeParse(await request.json().catch(() => null));

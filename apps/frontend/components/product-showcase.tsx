@@ -13,6 +13,7 @@ type Product = {
   features: readonly string[];
   more: string;
   image?: string;
+  imageMobile?: string;
   url?: string;
   year?: string;
 };
@@ -21,7 +22,7 @@ type ShowcaseGroup = { id: "products" | "projects"; label: string; intro: string
 
 export function ProductShowcase({ locale, groups }: { locale: string; groups: readonly [ShowcaseGroup, ShowcaseGroup] }) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [activeGroup, setActiveGroup] = useState<ShowcaseGroup["id"]>("products");
+  const [activeGroup, setActiveGroup] = useState<ShowcaseGroup["id"]>(groups[0].id);
   const current = groups.find((group) => group.id === activeGroup) ?? groups[0];
   const move = (direction: number) => trackRef.current?.scrollBy({ left: direction * Math.min(trackRef.current.clientWidth * .82, 900), behavior: "smooth" });
   const selectGroup = (id: ShowcaseGroup["id"]) => {
@@ -41,8 +42,12 @@ export function ProductShowcase({ locale, groups }: { locale: string; groups: re
         <div className="product-controls"><button type="button" onClick={() => move(-1)} aria-label="Previous item">←</button><button type="button" onClick={() => move(1)} aria-label="Next item">→</button></div>
       </header>
       <div className="product-track" ref={trackRef} role="tabpanel" key={current.id}>
-        {current.items.map((product, index) => (
-          <article className={`product-slide ${product.image ? "product-slide-project" : ""}`} key={product.slug}>
+        {current.items.map((product, index) => {
+          const desktopImage = product.image?.replace(/-desktop\.jpg$/, "-desktop.png");
+          const mobileImage = product.imageMobile ?? product.image?.replace(/-desktop\.jpg$/, "-mobile.png");
+
+          return (
+          <article className={`product-slide ${desktopImage ? "product-slide-project" : ""}`} key={product.slug}>
             <div className="product-slide-copy">
               <span>0{index + 1} / {product.label}{product.year ? ` / ${product.year}` : ""}</span>
               <h3>{product.title}</h3>
@@ -52,20 +57,20 @@ export function ProductShowcase({ locale, groups }: { locale: string; groups: re
                 ? <a href={product.url} target="_blank" rel="noreferrer">{product.more}<i>↗</i></a>
                 : <Link href={`/${locale}/projects/${product.slug}`}>{product.more}<i>↗</i></Link>}
             </div>
-            {product.image ? (
+            {desktopImage ? (
               <div className="project-device-stack" aria-label={`${product.title} desktop and mobile preview`}>
                 <div className="project-browser-preview">
                   <span><i /><i /><i /></span>
-                  <Image src={product.image} alt={`${product.title} — desktop version`} fill sizes="(max-width: 760px) 88vw, 58vw" />
+                  <Image src={desktopImage} alt={`${product.title} — desktop version`} fill sizes="(max-width: 760px) 88vw, 58vw" />
                 </div>
                 <div className="project-phone-preview">
                   <span />
-                  <Image src={product.image} alt={`${product.title} — mobile composition`} fill sizes="180px" />
+                  <Image src={mobileImage ?? desktopImage} alt={`${product.title} — mobile version`} fill sizes="(max-width: 760px) 112px, 168px" />
                 </div>
               </div>
             ) : <ProductVisual product={product.slug} />}
           </article>
-        ))}
+        )})}
       </div>
     </section>
   );

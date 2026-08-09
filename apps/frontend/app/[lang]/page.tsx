@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AnimatedHero } from "@/components/animated-hero";
-import { KineticServices } from "@/components/kinetic-services";
+import { ScrollServices } from "@/components/scroll-services";
 import { ProductShowcase } from "@/components/product-showcase";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 
@@ -11,6 +11,54 @@ const homeContent = {
   ka: { title: "ვზრდით", terms: ["გაყიდვებს", "კონვერსიას", "მოგებას", "სიჩქარეს"], text: "ვქმნით საიტებს, CRM სისტემებსა და ანალიტიკას, რომლებიც მეტ მოთხოვნას გაყიდვად აქცევს და ხელმძღვანელს გამჭვირვალე მონაცემებს აძლევს.", kpiLabel: "სამიზნე მოქმედების ზრდა", kpiNote: "სისტემის დანერგვის შემდეგ", projectsEyebrow: "რჩეული პროექტები", projectsTitle: "გადაწყვეტილებები, რომლებითაც ვამაყობთ", category: ["IT", "IT", "კრეატივი", "კრეატივი", "ანალიტიკა", "ანალიტიკა", "IT", "IT", "კრეატივი"] },
   hy: { title: "Բարձրացնում ենք", terms: ["վաճառքները", "փոխարկումը", "շահույթը", "արագությունը"], text: "Ստեղծում ենք կայքեր, CRM համակարգեր և վերլուծություն, որոնք ավելի շատ դիմումներ վերածում են վաճառքի և ղեկավարին տալիս են հստակ թվեր։", kpiLabel: "Թիրախային գործողության աճ", kpiNote: "համակարգի ներդրումից հետո", projectsEyebrow: "Ընտրված նախագծեր", projectsTitle: "Լուծումներ, որոնցով հպարտանում ենք", category: ["ՏՏ", "ՏՏ", "Կրեատիվ", "Կրեատիվ", "Վերլուծություն", "Վերլուծություն", "ՏՏ", "ՏՏ", "Կրեատիվ"] },
   bg: { title: "Увеличаваме", terms: ["продажбите", "конверсията", "печалбата", "скоростта"], text: "Създаваме сайтове, CRM системи и анализи, които превръщат повече запитвания в продажби и дават на ръководителите ясни данни.", kpiLabel: "Ръст на целевото действие", kpiNote: "след внедряване на системата", projectsEyebrow: "Избрани проекти", projectsTitle: "Решения, с които се гордеем", category: ["ИТ", "ИТ", "Креатив", "Креатив", "Анализи", "Анализи", "ИТ", "ИТ", "Креатив"] },
+} as const;
+
+const heroMetrics = {
+  ru: {
+    hint: "Оценка и план за 1 рабочий день",
+    items: [
+      { label: "Рост продаж", value: "+32%", note: "за счёт связки сайта и CRM" },
+      { label: "Рост целевого действия", value: "+38%", note: "после переработки сценария" },
+      { label: "Рост операционной прибыли", value: "+24%", note: "через прозрачные процессы" },
+      { label: "Скорость обработки лида", value: "−31%", note: "времени до первого ответа" },
+    ],
+  },
+  en: {
+    hint: "Estimate and plan in one business day",
+    items: [
+      { label: "Sales growth", value: "+32%", note: "through website and CRM alignment" },
+      { label: "Target action growth", value: "+38%", note: "after journey redesign" },
+      { label: "Operating profit growth", value: "+24%", note: "through transparent processes" },
+      { label: "Lead response time", value: "−31%", note: "time to the first response" },
+    ],
+  },
+  ka: {
+    hint: "შეფასება და გეგმა ერთ სამუშაო დღეში",
+    items: [
+      { label: "გაყიდვების ზრდა", value: "+32%", note: "საიტისა და CRM-ის ერთიანობით" },
+      { label: "სამიზნე მოქმედების ზრდა", value: "+38%", note: "სცენარის განახლების შემდეგ" },
+      { label: "ოპერაციული მოგების ზრდა", value: "+24%", note: "გამჭვირვალე პროცესებით" },
+      { label: "ლიდის დამუშავების დრო", value: "−31%", note: "პირველ პასუხამდე" },
+    ],
+  },
+  hy: {
+    hint: "Գնահատում և պլան՝ 1 աշխատանքային օրում",
+    items: [
+      { label: "Վաճառքների աճ", value: "+32%", note: "կայքի և CRM-ի միասնական աշխատանքի շնորհիվ" },
+      { label: "Թիրախային գործողության աճ", value: "+38%", note: "սցենարի վերափոխումից հետո" },
+      { label: "Գործառնական շահույթի աճ", value: "+24%", note: "թափանցիկ գործընթացների շնորհիվ" },
+      { label: "Հայտի մշակման արագություն", value: "−31%", note: "մինչև առաջին պատասխանը" },
+    ],
+  },
+  bg: {
+    hint: "Оценка и план за 1 работен ден",
+    items: [
+      { label: "Ръст на продажбите", value: "+32%", note: "чрез свързване на сайта и CRM" },
+      { label: "Ръст на целевото действие", value: "+38%", note: "след редизайн на сценария" },
+      { label: "Ръст на оперативната печалба", value: "+24%", note: "чрез прозрачни процеси" },
+      { label: "Време за обработка на лийд", value: "−31%", note: "до първия отговор" },
+    ],
+  },
 } as const;
 
 const productContent = {
@@ -58,15 +106,21 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const products = productContent[locale === "ru" || locale === "hy" ? locale : "en"];
   const projects = projectContent[locale === "ru" || locale === "hy" ? locale : "en"];
   const productTabLabel = locale === "ru" ? "Продукты" : locale === "hy" ? "Արտադրանքներ" : "Products";
+  const metrics = heroMetrics[locale];
+  const serviceActions = locale === "ru"
+    ? { all: "Все услуги и цены", order: "Заказать услугу" }
+    : locale === "hy"
+      ? { all: "Բոլոր ծառայություններն ու գները", order: "Պատվիրել ծառայությունը" }
+      : { all: "All services and prices", order: "Order this service" };
 
   return (
     <>
-      <AnimatedHero title={home.title} terms={home.terms} text={home.text} primary={d.hero.primary} secondary={d.hero.secondary} primaryHref={`/${locale}/calculator`} secondaryHref={`/${locale}/services`} kpiLabel={home.kpiLabel} kpiNote={home.kpiNote} />
-      <ProductShowcase locale={locale} groups={[{ id: "products", label: productTabLabel, intro: products.intro, items: products.items }, { id: "projects", label: projects.label, intro: projects.intro, items: projects.items }]} />
+      <AnimatedHero title={home.title} terms={home.terms} text={home.text} primary={d.hero.primary} secondary={d.hero.secondary} primaryHref={`/${locale}/calculator`} secondaryHref={`/${locale}/services`} kpiLabel={home.kpiLabel} kpiNote={home.kpiNote} kpis={metrics.items} primaryHint={metrics.hint} />
+      <ProductShowcase locale={locale} groups={[{ id: "projects", label: projects.label, intro: projects.intro, items: projects.items }, { id: "products", label: productTabLabel, intro: products.intro, items: products.items }]} />
       <section className="stats shell" aria-label="Key facts">
         {d.stats.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}
       </section>
-      <KineticServices title={d.services.title} text={d.services.text} items={d.services.items} href={`/${locale}/services`} linkLabel={d.nav.services} />
+      <ScrollServices title={d.services.title} text={d.services.text} items={d.services.items} href={`/${locale}/services`} allLabel={serviceActions.all} orderLabel={serviceActions.order} />
       <section className="section section-dark">
         <div className="shell"><header className="section-heading"><h2>{d.method.title}</h2></header>
           <ol className="method-grid">{d.method.steps.map(([title, text], index) => <li key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol>

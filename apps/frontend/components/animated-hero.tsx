@@ -13,49 +13,64 @@ type AnimatedHeroProps = {
   secondaryHref: string;
   kpiLabel: string;
   kpiNote: string;
+  kpis?: readonly {
+    label: string;
+    value: string;
+    note: string;
+  }[];
+  primaryHint?: string;
 };
 
-type ContourCluster = {
-  cx: number;
-  cy: number;
-  rx: number;
-  ry: number;
-  rings: number;
-  phase: number;
-};
+type Point = readonly [number, number];
 
-const CLUSTERS: readonly ContourCluster[] = [
-  { cx: 260, cy: 340, rx: 345, ry: 245, rings: 17, phase: .2 },
-  { cx: 810, cy: 180, rx: 300, ry: 205, rings: 15, phase: 1.8 },
-  { cx: 1260, cy: 500, rx: 390, ry: 270, rings: 19, phase: 3.1 },
-];
-
-function createContour({ cx, cy, rx, ry, phase }: ContourCluster, ring: number) {
-  const scale = 1 - ring * .047;
-  const points = Array.from({ length: 56 }, (_, index) => {
-    const angle = (index / 56) * Math.PI * 2;
-    const distortion = 1 + Math.sin(angle * 3 + phase + ring * .19) * .055 + Math.cos(angle * 5 - phase) * .025;
-    const x = cx + Math.cos(angle) * rx * scale * distortion + Math.sin(angle * 2 + phase) * 18 * scale;
-    const y = cy + Math.sin(angle) * ry * scale * distortion + Math.cos(angle * 3 - phase) * 12 * scale;
-    return [Number(x.toFixed(1)), Number(y.toFixed(1))] as const;
-  });
-
-  return `${points.map(([x, y], index) => `${index === 0 ? "M" : "L"} ${x} ${y}`).join(" ")} Z`;
+function gaussian(value: number, center: number, spread: number) {
+  return Math.exp(-((value - center) ** 2) / spread);
 }
 
-const CONTOURS = CLUSTERS.map((cluster) =>
-  Array.from({ length: cluster.rings }, (_, ring) => createContour(cluster, ring)),
-);
+function smoothPath(points: readonly Point[]) {
+  if (points.length < 2) return "";
+  let path = `M ${points[0][0]} ${points[0][1]}`;
+
+  for (let index = 0; index < points.length - 1; index += 1) {
+    const previous = points[Math.max(0, index - 1)];
+    const current = points[index];
+    const next = points[index + 1];
+    const afterNext = points[Math.min(points.length - 1, index + 2)];
+    const controlA = [current[0] + (next[0] - previous[0]) / 6, current[1] + (next[1] - previous[1]) / 6];
+    const controlB = [next[0] - (afterNext[0] - current[0]) / 6, next[1] - (afterNext[1] - current[1]) / 6];
+    path += ` C ${controlA[0].toFixed(1)} ${controlA[1].toFixed(1)}, ${controlB[0].toFixed(1)} ${controlB[1].toFixed(1)}, ${next[0]} ${next[1]}`;
+  }
+
+  return path;
+}
+
+function createWaveLine(line: number) {
+  const points = Array.from({ length: 49 }, (_, point): Point => {
+    const x = -120 + point * 35;
+    const phase = line * .19;
+    const firstFold = gaussian(x, 245, 115000) * Math.sin(x / 115 + phase) * 82;
+    const centerFold = gaussian(x, 785, 175000) * Math.cos(x / 138 - phase * .72) * 108;
+    const finalFold = gaussian(x, 1240, 120000) * Math.sin(x / 92 + phase * .55) * 76;
+    const drift = Math.sin(x / 260 + phase) * 18 + Math.cos(x / 520 - phase) * 13;
+    const y = -55 + line * 21.5 + firstFold + centerFold + finalFold + drift;
+    return [Number(x.toFixed(1)), Number(y.toFixed(1))];
+  });
+
+  return smoothPath(points);
+}
+
+const WAVE_LINES = Array.from({ length: 42 }, (_, line) => createWaveLine(line));
 
 function PremiumContours() {
   return (
     <div className="hero-contours premium-contours" aria-hidden="true">
       <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice">
-        {CONTOURS.map((paths, clusterIndex) => (
-          <g className={`topo-cluster topo-cluster-${clusterIndex + 1}`} key={CLUSTERS[clusterIndex].cx}>
-            {paths.map((path, pathIndex) => <path d={path} key={pathIndex} />)}
-          </g>
-        ))}
+        <g className="topo-wave-layer topo-wave-layer-a">
+          {WAVE_LINES.filter((_, index) => index % 2 === 0).map((path, index) => <path d={path} key={index} />)}
+        </g>
+        <g className="topo-wave-layer topo-wave-layer-b">
+          {WAVE_LINES.filter((_, index) => index % 2 !== 0).map((path, index) => <path d={path} key={index} />)}
+        </g>
       </svg>
     </div>
   );
@@ -71,8 +86,11 @@ export function AnimatedHero({
   secondaryHref,
   kpiLabel,
   kpiNote,
+  kpis,
+  primaryHint,
 }: AnimatedHeroProps) {
   const [activeTerm, setActiveTerm] = useState(0);
+  const activeKpi = kpis?.[activeTerm] ?? { label: kpiLabel, value: "+38%", note: kpiNote };
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -104,15 +122,21 @@ export function AnimatedHero({
             </h1>
             <p>{text}</p>
             <div className="hero-actions">
-              <Link className="button" href={primaryHref}>{primary}</Link>
-              <Link className="text-link" href={secondaryHref}>{secondary}<span>↗</span></Link>
+              <Link className="button hero-primary-action" href={primaryHref}>
+                <span>{primary}</span>
+                {primaryHint ? <small>{primaryHint}</small> : null}
+                <i aria-hidden="true">↗</i>
+              </Link>
+              <Link className="text-link hero-secondary-action" href={secondaryHref}><span>{secondary}</span><i aria-hidden="true">↗</i></Link>
             </div>
           </div>
 
-          <div className="hero-kpi hero-kpi-main" aria-hidden="true">
-            <span>{kpiLabel}</span>
-            <strong>+38%</strong>
-            <i>{kpiNote}</i>
+          <div className="hero-kpi hero-kpi-main" aria-live="polite">
+            <div className="hero-kpi-content" key={activeTerm}>
+              <span>{activeKpi.label}</span>
+              <strong>{activeKpi.value}</strong>
+              <i>{activeKpi.note}</i>
+            </div>
           </div>
           <div className="hero-kpi hero-kpi-mini" aria-hidden="true">
             <span>01—04</span>
