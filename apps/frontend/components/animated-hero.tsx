@@ -11,71 +11,52 @@ type AnimatedHeroProps = {
   secondary: string;
   primaryHref: string;
   secondaryHref: string;
+  kpiLabel: string;
+  kpiNote: string;
 };
 
-const FLOW_PATH = Array.from({ length: 48 }, (_, index) => {
-  const y = -110 + index * 21;
-  const bend = Number((Math.sin(index * 0.42) * 42).toFixed(2));
-  const pinch = Number((Math.cos(index * 0.31) * 28).toFixed(2));
+type ContourCluster = {
+  cx: number;
+  cy: number;
+  rx: number;
+  ry: number;
+  rings: number;
+  phase: number;
+};
 
-  return `M -180 ${y} C 80 ${y - 85 - bend} 250 ${y - 78 + pinch} 430 ${y - 40} C 620 ${y + 10 + bend} 690 ${y + 150 + pinch} 860 ${y + 68} C 1040 ${y - 22 - bend} 1110 ${y - 128 + pinch} 1260 ${y - 72} C 1410 ${y - 10 + bend} 1500 ${y + 32 - pinch} 1620 ${y + 18}`;
-}).join(" ");
+const CLUSTERS: readonly ContourCluster[] = [
+  { cx: 260, cy: 340, rx: 345, ry: 245, rings: 17, phase: .2 },
+  { cx: 810, cy: 180, rx: 300, ry: 205, rings: 15, phase: 1.8 },
+  { cx: 1260, cy: 500, rx: 390, ry: 270, rings: 19, phase: 3.1 },
+];
 
-function HeroContourWaves() {
-  return (
-    <div className="hero-contours" aria-hidden="true">
-      <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice">
-        <g className="contour-layer contour-flow">
-          <path d={FLOW_PATH} />
-        </g>
-      </svg>
-    </div>
-  );
+function createContour({ cx, cy, rx, ry, phase }: ContourCluster, ring: number) {
+  const scale = 1 - ring * .047;
+  const points = Array.from({ length: 56 }, (_, index) => {
+    const angle = (index / 56) * Math.PI * 2;
+    const distortion = 1 + Math.sin(angle * 3 + phase + ring * .19) * .055 + Math.cos(angle * 5 - phase) * .025;
+    const x = cx + Math.cos(angle) * rx * scale * distortion + Math.sin(angle * 2 + phase) * 18 * scale;
+    const y = cy + Math.sin(angle) * ry * scale * distortion + Math.cos(angle * 3 - phase) * 12 * scale;
+    return [Number(x.toFixed(1)), Number(y.toFixed(1))] as const;
+  });
+
+  return `${points.map(([x, y], index) => `${index === 0 ? "M" : "L"} ${x} ${y}`).join(" ")} Z`;
 }
 
-function SceneArtwork({ variant }: { variant: number }) {
-  if (variant === 0) {
-    return (
-      <div className="scene-art scene-art-web" aria-hidden="true">
-        <span className="art-browser"><i /><i /><i /><b /><b /><b /></span>
-        <span className="art-web-card art-web-card-a" />
-        <span className="art-web-card art-web-card-b" />
-      </div>
-    );
-  }
+const CONTOURS = CLUSTERS.map((cluster) =>
+  Array.from({ length: cluster.rings }, (_, ring) => createContour(cluster, ring)),
+);
 
-  if (variant === 1) {
-    return (
-      <div className="scene-art scene-art-crm" aria-hidden="true">
-        <span className="art-crm-board"><i><b /></i><i><b /></i><i><b /></i></span>
-        <span className="art-crm-contact"><i /><b /></span>
-        <span className="art-crm-signal">+24</span>
-      </div>
-    );
-  }
-
-  if (variant === 2) {
-    return (
-      <div className="scene-art scene-art-product" aria-hidden="true">
-        <span className="art-product-phone"><i /><i /><i /></span>
-        <span className="art-product-module art-product-module-a" />
-        <span className="art-product-module art-product-module-b" />
-        <span className="art-product-orbit"><i /></span>
-      </div>
-    );
-  }
-
+function PremiumContours() {
   return (
-    <div className="scene-art scene-art-strategy" aria-hidden="true">
-      <span className="art-strategy-chart">
-        <svg viewBox="0 0 300 190" preserveAspectRatio="none">
-          <path d="M12 160 C58 146 72 112 110 120 S164 95 184 78 S230 74 288 20" />
-          <circle cx="12" cy="160" r="6" /><circle cx="110" cy="120" r="6" /><circle cx="184" cy="78" r="6" /><circle cx="288" cy="20" r="6" />
-        </svg>
-      </span>
-      <span className="art-strategy-step art-strategy-step-a">01</span>
-      <span className="art-strategy-step art-strategy-step-b">02</span>
-      <span className="art-strategy-step art-strategy-step-c">03</span>
+    <div className="hero-contours premium-contours" aria-hidden="true">
+      <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice">
+        {CONTOURS.map((paths, clusterIndex) => (
+          <g className={`topo-cluster topo-cluster-${clusterIndex + 1}`} key={CLUSTERS[clusterIndex].cx}>
+            {paths.map((path, pathIndex) => <path d={path} key={pathIndex} />)}
+          </g>
+        ))}
+      </svg>
     </div>
   );
 }
@@ -88,6 +69,8 @@ export function AnimatedHero({
   secondary,
   primaryHref,
   secondaryHref,
+  kpiLabel,
+  kpiNote,
 }: AnimatedHeroProps) {
   const [activeTerm, setActiveTerm] = useState(0);
 
@@ -96,18 +79,22 @@ export function AnimatedHero({
 
     const timer = window.setInterval(() => {
       setActiveTerm((current) => (current + 1) % terms.length);
-    }, 3200);
+    }, 3000);
 
     return () => window.clearInterval(timer);
   }, [terms.length]);
 
-  const sceneNumber = String(activeTerm + 1).padStart(2, "0");
-
   return (
-    <section className="home-hero shell">
-      <HeroContourWaves />
+    <section className="home-hero hero-premium shell">
+      <PremiumContours />
+      <div className="hero-premium-grain" aria-hidden="true" />
       <div className="home-hero-content">
-        <div className="hero-stage">
+        <div className="hero-premium-kicker">
+          <span>Agile Business / 2026</span>
+          <span>Strategy · Design · Technology</span>
+        </div>
+
+        <div className="hero-premium-stage">
           <div className="hero-message">
             <h1 aria-label={`${title} ${terms[activeTerm]}`}>
               <span className="hero-title-fixed">{title}</span>
@@ -122,31 +109,30 @@ export function AnimatedHero({
             </div>
           </div>
 
-          <div className={`hero-scene hero-scene-${activeTerm % 4}`}>
-            <div className="hero-scene-topline">
-              <span>Agile / digital system</span>
-              <strong>{sceneNumber}</strong>
-            </div>
-            <div className="hero-scene-canvas" key={`scene-${activeTerm}`}>
-              <SceneArtwork variant={activeTerm % 4} />
-              <span className="scene-cursor">↗</span>
-            </div>
-            <div className="hero-scene-rail">
-              {terms.map((term, index) => (
-                <button
-                  className={index === activeTerm ? "active" : ""}
-                  key={term}
-                  onClick={() => setActiveTerm(index)}
-                  aria-pressed={index === activeTerm}
-                  type="button"
-                >
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  {term}
-                </button>
-              ))}
-            </div>
-            <div className="hero-scene-progress"><i style={{ width: `${((activeTerm + 1) / terms.length) * 100}%` }} /></div>
+          <div className="hero-kpi hero-kpi-main" aria-hidden="true">
+            <span>{kpiLabel}</span>
+            <strong>+38%</strong>
+            <i>{kpiNote}</i>
           </div>
+          <div className="hero-kpi hero-kpi-mini" aria-hidden="true">
+            <span>01—04</span>
+            <strong>BUSINESS<br />SYSTEMS</strong>
+          </div>
+        </div>
+
+        <div className="hero-premium-rail" aria-label="Business outcomes">
+          {terms.map((term, index) => (
+            <button
+              className={index === activeTerm ? "active" : ""}
+              key={term}
+              onClick={() => setActiveTerm(index)}
+              aria-pressed={index === activeTerm}
+              type="button"
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              {term}
+            </button>
+          ))}
         </div>
       </div>
     </section>

@@ -17,7 +17,7 @@ node_modules/
 _site/
 .DS_Store
 Thumbs.db
-.codex-dev-*.log
+.codex-*.log
 
 .vercel
 .env*

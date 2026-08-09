@@ -1,10 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { ProductVisual } from "@/components/product-visual";
 
-type Product = { slug: string; title: string; label: string; description: string; features: readonly string[]; more: string };
+type Product = {
+  slug: string;
+  title: string;
+  label: string;
+  description: string;
+  features: readonly string[];
+  more: string;
+  image?: string;
+  url?: string;
+  year?: string;
+};
 
 type ShowcaseGroup = { id: "products" | "projects"; label: string; intro: string; items: readonly Product[] };
 
@@ -30,7 +41,31 @@ export function ProductShowcase({ locale, groups }: { locale: string; groups: re
         <div className="product-controls"><button type="button" onClick={() => move(-1)} aria-label="Previous item">←</button><button type="button" onClick={() => move(1)} aria-label="Next item">→</button></div>
       </header>
       <div className="product-track" ref={trackRef} role="tabpanel" key={current.id}>
-        {current.items.map((product, index) => <article className="product-slide" key={product.slug}><div className="product-slide-copy"><span>0{index + 1} / {product.label}</span><h3>{product.title}</h3><p>{product.description}</p><ul>{product.features.map(feature => <li key={feature}>{feature}</li>)}</ul><Link href={`/${locale}/projects/${product.slug}`}>{product.more}<i>↗</i></Link></div><ProductVisual product={product.slug} /></article>)}
+        {current.items.map((product, index) => (
+          <article className={`product-slide ${product.image ? "product-slide-project" : ""}`} key={product.slug}>
+            <div className="product-slide-copy">
+              <span>0{index + 1} / {product.label}{product.year ? ` / ${product.year}` : ""}</span>
+              <h3>{product.title}</h3>
+              <p>{product.description}</p>
+              <ul>{product.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
+              {product.url
+                ? <a href={product.url} target="_blank" rel="noreferrer">{product.more}<i>↗</i></a>
+                : <Link href={`/${locale}/projects/${product.slug}`}>{product.more}<i>↗</i></Link>}
+            </div>
+            {product.image ? (
+              <div className="project-device-stack" aria-label={`${product.title} desktop and mobile preview`}>
+                <div className="project-browser-preview">
+                  <span><i /><i /><i /></span>
+                  <Image src={product.image} alt={`${product.title} — desktop version`} fill sizes="(max-width: 760px) 88vw, 58vw" />
+                </div>
+                <div className="project-phone-preview">
+                  <span />
+                  <Image src={product.image} alt={`${product.title} — mobile composition`} fill sizes="180px" />
+                </div>
+              </div>
+            ) : <ProductVisual product={product.slug} />}
+          </article>
+        ))}
       </div>
     </section>
   );
