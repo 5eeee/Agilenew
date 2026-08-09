@@ -3,11 +3,11 @@ import { PresentationHome } from "@/components/presentation-home";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 
 const heroCopy = {
-  ru: { title: "Увеличиваем", terms: ["продажи", "конверсию", "прибыль", "скорость"], text: "Проектируем сайты, CRM и аналитику, которые превращают обращения в продажи." },
-  en: { title: "We increase", terms: ["sales", "conversion", "profit", "velocity"], text: "We design websites, CRM and analytics that turn enquiries into sales." },
-  ka: { title: "ვზრდით", terms: ["გაყიდვებს", "კონვერსიას", "მოგებას", "სიჩქარეს"], text: "ვქმნით საიტებს, CRM-სა და ანალიტიკას, რომლებიც მოთხოვნებს გაყიდვებად აქცევს." },
-  hy: { title: "Բարձրացնում ենք", terms: ["վաճառքները", "փոխարկումը", "շահույթը", "արագությունը"], text: "Նախագծում ենք կայքեր, CRM և վերլուծություն, որոնք դիմումները վերածում են վաճառքի։" },
-  bg: { title: "Увеличаваме", terms: ["продажбите", "конверсията", "печалбата", "скоростта"], text: "Проектираме сайтове, CRM и анализи, които превръщат запитванията в продажби." },
+  ru: { title: "Agile Business", terms: ["ИТ-разработка", "Бизнес-аналитика", "Стратегия и рост"], outcomes: ["продажи", "конверсию", "прибыль", "скорость"], text: "Проектируем цифровые системы, которые делают бизнес управляемым и сильным." },
+  en: { title: "Agile Business", terms: ["IT development", "Business analytics", "Strategy and growth"], outcomes: ["sales", "conversion", "profit", "velocity"], text: "We design digital systems that make business manageable and strong." },
+  ka: { title: "Agile Business", terms: ["IT განვითარება", "ბიზნეს ანალიტიკა", "სტრატეგია და ზრდა"], outcomes: ["გაყიდვებს", "კონვერსიას", "მოგებას", "სიჩქარეს"], text: "ვქმნით ციფრულ სისტემებს, რომლებიც ბიზნესს მართვადსა და ძლიერს ხდის." },
+  hy: { title: "Agile Business", terms: ["ՏՏ մշակում", "Բիզնես վերլուծություն", "Ռազմավարություն և աճ"], outcomes: ["վաճառքները", "փոխարկումը", "շահույթը", "արագությունը"], text: "Նախագծում ենք թվային համակարգեր, որոնք բիզնեսը դարձնում են կառավարելի և ուժեղ։" },
+  bg: { title: "Agile Business", terms: ["ИТ разработка", "Бизнес анализ", "Стратегия и растеж"], outcomes: ["продажбите", "конверсията", "печалбата", "скоростта"], text: "Проектираме дигитални системи, които правят бизнеса управляем и силен." },
 } as const;
 
 const projects = [
@@ -23,5 +23,5 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const d = getDictionary(locale);
   const hero = heroCopy[locale];
 
-  return <PresentationHome locale={locale} title={hero.title} terms={hero.terms} text={hero.text} primary={d.hero.primary} secondary={d.hero.secondary} servicesTitle={d.services.title} servicesText={d.services.text} services={d.services.items} methodTitle={d.method.title} steps={d.method.steps} projects={projects} ctaTitle={d.cta.title} ctaText={d.cta.text} ctaButton={d.cta.button} />;
+  return <PresentationHome locale={locale} title={hero.title} terms={hero.terms} outcomes={hero.outcomes} text={hero.text} primary={d.hero.primary} secondary={d.hero.secondary} servicesTitle={d.services.title} servicesText={d.services.text} services={d.services.items} methodTitle={d.method.title} steps={d.method.steps} projects={projects} ctaTitle={d.cta.title} ctaText={d.cta.text} ctaButton={d.cta.button} />;
 }
