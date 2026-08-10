@@ -2,16 +2,15 @@ export function SignatureLogo() {
   return (
     <svg className="signature-logo" viewBox="0 0 441.71 273.92" role="img" aria-label="Agile Business">
       <defs>
-        <mask id="signature-draw-mask" maskUnits="userSpaceOnUse" x="-20" y="-20" width="490" height="320">
-          <rect x="-20" y="-20" width="490" height="320" fill="black" />
-          <path className="signature-stroke signature-stroke-1" pathLength="1" d="M171 273 C190 230 229 142 294 1" />
-          <path className="signature-stroke signature-stroke-2" pathLength="1" d="M294 1 C260 54 211 128 159 186" />
-          <path className="signature-stroke signature-stroke-3" pathLength="1" d="M159 186 C174 129 178 92 139 85 C91 76 32 101 3 121 C52 139 142 128 229 127" />
-          <path className="signature-stroke signature-stroke-4" pathLength="1" d="M205 109 C265 112 348 112 441 110" />
-          <rect className="signature-business-mask" x="267" y="112" width="178" height="32" rx="2" fill="white" />
-        </mask>
+        <clipPath id="signature-business-clip"><rect x="267" y="112" width="178" height="32" /></clipPath>
       </defs>
-      <image href="/brand-signature.svg" width="441.71" height="273.92" mask="url(#signature-draw-mask)" />
+      <g className="signature-ink">
+        <path className="signature-stroke signature-stroke-1" pathLength="1" d="M171 272 C190 226 230 137 294 2" />
+        <path className="signature-stroke signature-stroke-2" pathLength="1" d="M294 2 C267 53 225 122 160 186" />
+        <path className="signature-stroke signature-stroke-3" pathLength="1" d="M160 186 C177 149 193 118 205 106 C170 82 126 80 77 92 C42 101 15 113 3 121 C36 136 116 132 205 128" />
+        <path className="signature-stroke signature-stroke-4" pathLength="1" d="M205 109 C270 111 351 111 441 110" />
+      </g>
+      <g className="signature-business" clipPath="url(#signature-business-clip)"><image href="/brand-signature.svg" width="441.71" height="273.92" /></g>
       <image className="signature-complete" href="/brand-signature.svg" width="441.71" height="273.92" />
     </svg>
   );
