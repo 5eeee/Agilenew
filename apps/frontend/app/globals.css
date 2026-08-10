@@ -1128,3 +1128,30 @@ img,svg{max-width:100%}
 
 @media(max-width:760px){.pres-hero{height:205svh}.pres-hero-stage{top:70px;height:calc(100svh - 70px)}.pres-ribbed-glass{background:repeating-linear-gradient(90deg,rgba(255,255,255,.3) 0 2px,rgba(255,255,255,.1) 2px 7px,rgba(45,0,5,.2) 7px 11px,rgba(255,255,255,.045) 11px 17px,rgba(255,255,255,.25) 17px 19px,rgba(18,0,3,.16) 19px 26px);opacity:.8}.pres-ribbed-glass:before{background-size:26px 100%}.pres-work-logo-slide:before{width:150px;height:150px}.pres-work-project-footer{right:14px;bottom:14px;width:auto;min-height:0;padding:0}.pres-work-project-footer>a{width:auto;min-width:164px;min-height:46px}}
 @media(prefers-reduced-motion:reduce){.pres-hero{height:auto}.pres-hero-stage{position:relative;top:auto}.pres-hero-white-reveal{display:none}}
+
+/* 2026-08-10: browser review pass — type, navigation, process motion and footer. */
+@font-face{font-family:"Manrope AB";src:url("/fonts/manrope-light.woff2") format("woff2");font-style:normal;font-weight:200 500;font-display:swap}
+@font-face{font-family:"Manrope AB";src:url("/fonts/manrope-bold.woff2") format("woff2");font-style:normal;font-weight:600 900;font-display:swap}
+body,button,input,textarea,select{font-family:"Manrope AB","Segoe UI",Arial,sans-serif}
+
+/* Keep the navigation on the true viewport centre and make language choice unambiguous. */
+@media(min-width:761px){.header-panel{position:static!important}.main-nav{position:absolute!important;left:50%!important;transform:translateX(-50%)!important}}
+.language-trigger{min-width:68px;justify-content:center;gap:10px;padding-inline:15px}.language-current strong{font-size:12px;letter-spacing:.08em}.language-options{width:190px}.language-options a>span{gap:0}
+
+/* Stronger repeated section labels. */
+.pres-section-bar{min-height:76px;padding-inline:36px}.pres-section-bar span:first-child{font-size:clamp(19px,1.65vw,25px);font-weight:750;letter-spacing:.09em}.pres-section-bar span:last-child{font-size:12px;font-weight:650}
+
+/* Clean project identity cards: no decorative dots or circles. */
+.pres-work-logo-slide:before,.pres-work-logo-slide:after{display:none!important}.pres-work-logo-window{background:#fff}.pres-work-logo-slide strong{font-family:"Manrope AB","Segoe UI",Arial,sans-serif!important;font-style:normal!important;font-weight:750!important}
+
+/* Restore a permanent orbital-ball animation to the process cards. */
+.pres-process li:before,.pres-process li:after{display:none!important}.pres-process-orbit{position:absolute;z-index:1;right:22px;top:22px;width:88px;height:88px;border:1px solid rgba(216,25,32,.24);border-radius:50%;animation:processOrbitShell 7s linear infinite}.pres-process-orbit:before{content:"";position:absolute;inset:17px;border:1px solid rgba(120,120,120,.24);border-radius:50%}.pres-process-orbit i{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 5px 16px rgba(216,25,32,.22)}.pres-process-orbit i:nth-child(1){left:5px;top:19px}.pres-process-orbit i:nth-child(2){right:7px;bottom:15px;width:9px;height:9px;background:#111}.pres-process-orbit i:nth-child(3){left:37px;top:34px;width:15px;height:15px}.pres-process li:nth-child(2n) .pres-process-orbit{border-color:rgba(255,255,255,.22)}.pres-process li:nth-child(2n) .pres-process-orbit:before{border-color:rgba(255,255,255,.16)}.pres-process li:nth-child(2n) .pres-process-orbit i:nth-child(2){background:#fff}@keyframes processOrbitShell{to{transform:rotate(360deg)}}
+
+/* Handwritten-signature impression: the mark is revealed by a moving pen point. */
+.brand{--write-duration:1.55s}.brand-logo{clip-path:inset(0 100% 0 0);animation:brandHandwrite var(--write-duration) cubic-bezier(.16,.72,.2,1) .18s forwards}.brand:after{content:"";position:absolute;z-index:4;left:0;top:48%;width:5px;height:5px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(216,25,32,.11),0 0 13px rgba(216,25,32,.48);opacity:0;animation:brandPen var(--write-duration) cubic-bezier(.16,.72,.2,1) .18s forwards}@keyframes brandHandwrite{to{clip-path:inset(0)}}@keyframes brandPen{0%{opacity:0;transform:translate(0,10px)}8%{opacity:1}55%{transform:translate(48%, -13px)}92%{opacity:1}100%{opacity:0;transform:translate(calc(100% + 8px),18px)}}
+
+/* Footer contacts use the same black/red product language and never break the phone number. */
+.footer-socials{gap:8px}.footer-socials a{min-width:0;min-height:84px;padding:14px 16px;border:1px solid #252525!important;border-radius:18px;background:#111;color:#fff}.footer-socials a:before{border-color:rgba(255,255,255,.11)}.footer-socials a:hover{border-color:var(--red)!important;background:var(--red);color:#fff}.footer-socials a strong{min-width:0;font-size:clamp(12px,1.05vw,16px);line-height:1.15}.footer-socials .footer-phone strong{font-size:clamp(11px,1.05vw,16px);white-space:nowrap;letter-spacing:-.035em}.footer-socials a>span{border-color:rgba(255,255,255,.55);color:#fff}.footer-socials a:hover>span{background:#fff;color:var(--red)!important}
+
+@media(max-width:760px){.pres-section-bar{min-height:62px;padding-inline:20px}.pres-section-bar span:first-child{font-size:16px}.pres-section-bar span:last-child{max-width:42%;font-size:9px;text-align:right}.pres-process-orbit{right:13px;top:13px;width:70px;height:70px}.footer-socials{grid-template-columns:1fr!important}.footer-socials a{min-height:68px}.footer-socials a strong,.footer-socials .footer-phone strong{font-size:14px}.language-trigger{justify-content:space-between}}
+@media(prefers-reduced-motion:reduce){.pres-process-orbit,.brand-logo,.brand:after{animation:none!important}.brand-logo{clip-path:none}.brand:after{display:none}}

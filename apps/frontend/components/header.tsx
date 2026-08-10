@@ -13,12 +13,12 @@ function CartIcon() {
   return <svg className="cart-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5.5h2l1.5 9h9.8l2.1-6.2H6.1M9 19a1.35 1.35 0 1 0 0 .1M16 19a1.35 1.35 0 1 0 0 .1" /></svg>;
 }
 
-const languageMeta: Record<Locale, { flag: string; name: string }> = {
-  ru: { flag: "🇷🇺", name: "Русский" },
-  en: { flag: "🇬🇧", name: "English" },
-  ka: { flag: "🇬🇪", name: "ქართული" },
-  hy: { flag: "🇦🇲", name: "Հայերեն" },
-  bg: { flag: "🇧🇬", name: "Български" },
+const languageMeta: Record<Locale, { name: string }> = {
+  ru: { name: "Русский" },
+  en: { name: "English" },
+  ka: { name: "ქართული" },
+  hy: { name: "Հայերեն" },
+  bg: { name: "Български" },
 };
 
 export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
@@ -94,12 +94,12 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
           </nav>
           <div className={`language-menu${languageOpen ? " is-open" : ""}`} ref={languageRef}>
             <button className="language-trigger" type="button" aria-label="Language selection" aria-haspopup="menu" aria-expanded={languageOpen} onClick={() => setLanguageOpen((current) => !current)}>
-              <span className="language-current"><b aria-hidden="true">{languageMeta[locale].flag}</b><strong>{localeNames[locale]}</strong></span><i aria-hidden="true">⌄</i>
+              <span className="language-current"><strong>{localeNames[locale]}</strong></span><i aria-hidden="true">⌄</i>
             </button>
             <div className="language-options" role="menu">
               {locales.map((item) => (
                 <Link key={item} role="menuitem" aria-current={item === locale ? "page" : undefined} className={item === locale ? "active" : ""} href={`/${item}${routeWithoutLocale === "/" ? "" : routeWithoutLocale}`} hrefLang={item} onClick={() => { setOpen(false); setLanguageOpen(false); }}>
-                  <span><b aria-hidden="true">{languageMeta[item].flag}</b><strong>{languageMeta[item].name}</strong></span><small>{localeNames[item]}</small>
+                  <span><strong>{languageMeta[item].name}</strong></span><small>{localeNames[item]}</small>
                 </Link>
               ))}
             </div>

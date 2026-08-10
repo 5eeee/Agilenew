@@ -177,7 +177,7 @@ export function PresentationHome(props: PresentationHomeProps) {
       <section className="pres-block pres-process">
         <SectionBar right="How we work" />
         <h2>{props.methodTitle}</h2>
-        <ol>{props.steps.map((step, index) => <li key={step[0]}><span>0{index + 1}</span><h3>{step[0]}</h3><p>{step[1]}</p></li>)}</ol>
+        <ol>{props.steps.map((step, index) => <li key={step[0]}><span>0{index + 1}</span><div className="pres-process-orbit" aria-hidden="true"><i /><i /><i /></div><h3>{step[0]}</h3><p>{step[1]}</p></li>)}</ol>
       </section>
 
       <section className="pres-block pres-final">
