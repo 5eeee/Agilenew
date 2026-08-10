@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
+import { SignatureLogo } from "@/components/signature-logo";
 
 type Service = readonly [string, string, string];
 type Step = readonly [string, string];
@@ -61,12 +62,22 @@ export function PresentationHome(props: PresentationHomeProps) {
       const compact = window.innerWidth < 600;
       const titleProgress = Math.min(progress / 0.62, 1);
       const revealProgress = Math.min(1, Math.max(0, (progress - 0.5) / 0.34));
+      const stroke1 = Math.min(1, revealProgress / 0.3);
+      const stroke2 = Math.min(1, Math.max(0, (revealProgress - 0.22) / 0.3));
+      const stroke3 = Math.min(1, Math.max(0, (revealProgress - 0.42) / 0.34));
+      const stroke4 = Math.min(1, Math.max(0, (revealProgress - 0.66) / 0.2));
+      const business = Math.min(1, Math.max(0, (revealProgress - 0.76) / 0.24));
       stage.style.setProperty("--hero-bg-shift", `${progress * (compact ? 28 : 48)}px`);
       stage.style.setProperty("--hero-bg-scale", `${1 + titleProgress * (compact ? 0.14 : 0.2)}`);
       stage.style.setProperty("--hero-copy-shift", `${titleProgress * (compact ? -20 : -42)}px`);
       stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? 1.05 : 1.5)}`);
       stage.style.setProperty("--hero-copy-opacity", `${1 - revealProgress}`);
       stage.style.setProperty("--hero-white-opacity", `${revealProgress}`);
+      stage.style.setProperty("--signature-stroke-1", `${stroke1}`);
+      stage.style.setProperty("--signature-stroke-2", `${stroke2}`);
+      stage.style.setProperty("--signature-stroke-3", `${stroke3}`);
+      stage.style.setProperty("--signature-stroke-4", `${stroke4}`);
+      stage.style.setProperty("--signature-business", `${business}`);
     };
     const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
     updateHero();
@@ -132,7 +143,7 @@ export function PresentationHome(props: PresentationHomeProps) {
             <h1>{props.title}</h1>
           </div>
           <div className="pres-hero-footer"><span>Strategy</span><span>Design</span><span>Technology</span></div>
-          <div className="pres-hero-white-reveal" aria-hidden="true" />
+          <div className="pres-hero-white-reveal"><SignatureLogo /></div>
         </div>
       </section>
 
