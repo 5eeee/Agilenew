@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Brand } from "@/components/brand";
 import { localeNames, locales, type Locale } from "@/lib/i18n";
 
@@ -13,11 +13,19 @@ function CartIcon() {
   return <svg className="cart-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5.5h2l1.5 9h9.8l2.1-6.2H6.1M9 19a1.35 1.35 0 1 0 0 .1M16 19a1.35 1.35 0 1 0 0 .1" /></svg>;
 }
 
+const languageMeta: Record<Locale, { flag: string; name: string }> = {
+  ru: { flag: "🇷🇺", name: "Русский" },
+  en: { flag: "🇬🇧", name: "English" },
+  ka: { flag: "🇬🇪", name: "ქართული" },
+  hy: { flag: "🇦🇲", name: "Հայերեն" },
+  bg: { flag: "🇧🇬", name: "Български" },
+};
+
 export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
   const [open, setOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
-  const [dark, setDark] = useState(false);
+  const languageRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const routeWithoutLocale = pathname.replace(/^\/(ru|en|ka|hy|bg)(?=\/|$)/, "") || "/";
   const links = [
@@ -57,19 +65,20 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
   }, []);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("agile-theme") === "dark";
-    setDark(saved);
-    document.documentElement.dataset.theme = saved ? "dark" : "light";
-  }, []);
-
-  const toggleTheme = () => {
-    setDark((current) => {
-      const next = !current;
-      document.documentElement.dataset.theme = next ? "dark" : "light";
-      window.localStorage.setItem("agile-theme", next ? "dark" : "light");
-      return next;
-    });
-  };
+    if (!languageOpen) return;
+    const closeLanguageMenu = (event: PointerEvent) => {
+      if (!languageRef.current?.contains(event.target as Node)) setLanguageOpen(false);
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setLanguageOpen(false);
+    };
+    document.addEventListener("pointerdown", closeLanguageMenu);
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeLanguageMenu);
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [languageOpen]);
 
   return (
     <header className="site-header">
@@ -83,14 +92,14 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
           <nav className="main-nav" aria-label="Main navigation">
             {links.map(([slug, label]) => <Link key={slug} className={pathname === `/${locale}/${slug}` ? "active" : ""} href={`/${locale}/${slug}`} onClick={() => setOpen(false)}>{label}</Link>)}
           </nav>
-          <div className={`language-menu${languageOpen ? " is-open" : ""}`}>
-            <button className="language-trigger" type="button" aria-label="Language selection" aria-expanded={languageOpen} onClick={() => setLanguageOpen((current) => !current)}>
-              <span>{localeNames[locale]}</span><i aria-hidden="true">⌄</i>
+          <div className={`language-menu${languageOpen ? " is-open" : ""}`} ref={languageRef}>
+            <button className="language-trigger" type="button" aria-label="Language selection" aria-haspopup="menu" aria-expanded={languageOpen} onClick={() => setLanguageOpen((current) => !current)}>
+              <span className="language-current"><b aria-hidden="true">{languageMeta[locale].flag}</b><strong>{localeNames[locale]}</strong></span><i aria-hidden="true">⌄</i>
             </button>
             <div className="language-options" role="menu">
               {locales.map((item) => (
-                <Link key={item} role="menuitem" className={item === locale ? "active" : ""} href={`/${item}${routeWithoutLocale === "/" ? "" : routeWithoutLocale}`} hrefLang={item} onClick={() => { setOpen(false); setLanguageOpen(false); }}>
-                  <span>{localeNames[item]}</span><small>{item.toUpperCase()}</small>
+                <Link key={item} role="menuitem" aria-current={item === locale ? "page" : undefined} className={item === locale ? "active" : ""} href={`/${item}${routeWithoutLocale === "/" ? "" : routeWithoutLocale}`} hrefLang={item} onClick={() => { setOpen(false); setLanguageOpen(false); }}>
+                  <span><b aria-hidden="true">{languageMeta[item].flag}</b><strong>{languageMeta[item].name}</strong></span><small>{localeNames[item]}</small>
                 </Link>
               ))}
             </div>
@@ -99,10 +108,6 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
             <Link className="header-cart" href={`/${locale}/cart`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? `Корзина: ${cartCount}` : `Cart: ${cartCount}`}><CartIcon /><b>{cartCount}</b></Link>
             <a className="header-phone" href="tel:+79636177373" aria-label="+7 963 617-73-73"><Image src="/social/phone.svg" alt="" width={20} height={20} /></a>
             <Link className="header-account" href={`/${locale}/account`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"}><Image src="/icons/account.svg" alt="" width={24} height={24} /></Link>
-            <button className={`header-theme${dark ? " is-dark" : ""}`} type="button" onClick={toggleTheme} aria-label={dark ? "Light theme" : "Dark theme"} aria-pressed={dark}>
-              <span className="theme-switch" aria-hidden="true"><i /></span>
-              <span className="theme-label">{locale === "ru" ? (dark ? "Светлая" : "Тёмная") : locale === "hy" ? (dark ? "Լույս" : "Մութ") : dark ? "Light" : "Dark"}</span>
-            </button>
             <Link className="button button-small" href={`/${locale}/contacts`} onClick={() => setOpen(false)}>{nav.cta}</Link>
           </div>
         </div>

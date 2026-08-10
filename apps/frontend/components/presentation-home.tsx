@@ -66,8 +66,7 @@ export function PresentationHome(props: PresentationHomeProps) {
       stage.style.setProperty("--hero-copy-shift", `${titleProgress * (compact ? -20 : -42)}px`);
       stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? 1.05 : 1.5)}`);
       stage.style.setProperty("--hero-copy-opacity", `${1 - revealProgress}`);
-      stage.style.setProperty("--hero-logo-opacity", `${revealProgress}`);
-      stage.style.setProperty("--hero-logo-scale", `${0.72 + revealProgress * 0.28}`);
+      stage.style.setProperty("--hero-white-opacity", `${revealProgress}`);
     };
     const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
     updateHero();
@@ -133,7 +132,7 @@ export function PresentationHome(props: PresentationHomeProps) {
             <h1>{props.title}</h1>
           </div>
           <div className="pres-hero-footer"><span>Strategy</span><span>Design</span><span>Technology</span></div>
-          <div className="pres-hero-logo-reveal" aria-hidden="true"><Image src="/brand-logo.png" alt="" width={1200} height={744} sizes="100vw" priority /></div>
+          <div className="pres-hero-white-reveal" aria-hidden="true" />
         </div>
       </section>
 
@@ -168,7 +167,7 @@ export function PresentationHome(props: PresentationHomeProps) {
           </div>
           <div className="pres-work-project-window">
             <Link className="pres-work-project-frame" href={`/${props.locale}/projects/${activeProject.slug}`} key={activeProject.slug}>
-              <Image src={activeProject.image} alt={`${activeProject.title} interface`} fill sizes="(max-width: 760px) 96vw, 66vw" priority={projectIndex === 0} />
+              <Image src={activeProject.image} alt={`${activeProject.title} interface`} fill sizes="(max-width: 760px) 96vw, 66vw" />
             </Link>
             <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
           </div>
