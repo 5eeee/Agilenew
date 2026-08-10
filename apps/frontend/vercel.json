@@ -1,24 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "installCommand": "npm install --workspaces=false",
-  "headers": [
-    {
-      "source": "/downloads/Agile-Business.apk",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/vnd.android.package-archive"
-        },
-        {
-          "key": "Content-Disposition",
-          "value": "attachment; filename=Agile-Business.apk"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=300, must-revalidate"
-        }
-      ]
-    }
-  ]
+  "installCommand": "npm install --workspaces=false"
 }

@@ -39,20 +39,35 @@ function GradientField() {
 export function PresentationHome(props: PresentationHomeProps) {
   const [term, setTerm] = useState(0);
   const [projectIndex, setProjectIndex] = useState(0);
+  const [visibleSections, setVisibleSections] = useState({ spheres: false, work: false });
+  const heroSceneRef = useRef<HTMLElement>(null);
   const heroStageRef = useRef<HTMLDivElement>(null);
+  const spheresRef = useRef<HTMLElement>(null);
+  const workRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const scene = heroSceneRef.current;
     const stage = heroStageRef.current;
-    if (!stage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!scene || !stage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let frame = 0;
+    let lastProgress = -1;
     const updateHero = () => {
       frame = 0;
-      const progress = Math.min(1, Math.max(0, -stage.getBoundingClientRect().top / Math.max(stage.offsetHeight, 1)));
+      const bounds = scene.getBoundingClientRect();
+      const travel = Math.max(scene.offsetHeight - window.innerHeight, 1);
+      const progress = Math.min(1, Math.max(0, -bounds.top / travel));
+      if (Math.abs(progress - lastProgress) < 0.002) return;
+      lastProgress = progress;
       const compact = window.innerWidth < 600;
-      stage.style.setProperty("--hero-bg-shift", `${progress * (compact ? 48 : 72)}px`);
-      stage.style.setProperty("--hero-bg-scale", `${1 + progress * (compact ? 0.12 : 0.18)}`);
-      stage.style.setProperty("--hero-copy-shift", `${progress * (compact ? -68 : -108)}px`);
-      stage.style.setProperty("--hero-copy-scale", `${1 + progress * (compact ? 0.36 : 0.52)}`);
+      const titleProgress = Math.min(progress / 0.62, 1);
+      const revealProgress = Math.min(1, Math.max(0, (progress - 0.5) / 0.34));
+      stage.style.setProperty("--hero-bg-shift", `${progress * (compact ? 28 : 48)}px`);
+      stage.style.setProperty("--hero-bg-scale", `${1 + titleProgress * (compact ? 0.14 : 0.2)}`);
+      stage.style.setProperty("--hero-copy-shift", `${titleProgress * (compact ? -20 : -42)}px`);
+      stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? 1.05 : 1.5)}`);
+      stage.style.setProperty("--hero-copy-opacity", `${1 - revealProgress}`);
+      stage.style.setProperty("--hero-logo-opacity", `${revealProgress}`);
+      stage.style.setProperty("--hero-logo-scale", `${0.72 + revealProgress * 0.28}`);
     };
     const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
     updateHero();
@@ -66,23 +81,51 @@ export function PresentationHome(props: PresentationHomeProps) {
   }, []);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setTerm((current) => (current + 1) % props.outcomes.length), 3200);
-    return () => window.clearInterval(timer);
-  }, [props.outcomes.length]);
+    const nodes = [[spheresRef.current, "spheres"], [workRef.current, "work"]] as const;
+    if (!("IntersectionObserver" in window)) {
+      setVisibleSections({ spheres: true, work: true });
+      return;
+    }
+    const visibility = { spheres: false, work: false };
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        const item = nodes.find(([node]) => node === entry.target);
+        if (item) visibility[item[1]] = entry.isIntersecting;
+      }
+      setVisibleSections({
+        spheres: visibility.spheres && !document.hidden,
+        work: visibility.work && !document.hidden,
+      });
+    }, { rootMargin: "180px 0px", threshold: 0.01 });
+    for (const [node] of nodes) if (node) observer.observe(node);
+    const handleVisibility = () => setVisibleSections({
+      spheres: visibility.spheres && !document.hidden,
+      work: visibility.work && !document.hidden,
+    });
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
+  }, []);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!visibleSections.spheres || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => setTerm((current) => (current + 1) % props.outcomes.length), 3200);
+    return () => window.clearInterval(timer);
+  }, [props.outcomes.length, visibleSections.spheres]);
+
+  useEffect(() => {
+    if (!visibleSections.work || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = window.setInterval(() => setProjectIndex((current) => (current + 1) % props.projects.length), 2600);
     return () => window.clearInterval(timer);
-  }, [props.projects.length]);
+  }, [props.projects.length, visibleSections.work]);
 
   const activeProject = props.projects[projectIndex];
 
   return <main className="presentation-home">
     <div className="presentation-shell">
-      <section className="pres-block pres-hero">
-        <SectionBar />
+      <section className="pres-block pres-hero" ref={heroSceneRef}>
         <div className="pres-hero-stage" ref={heroStageRef}>
           <div className="pres-curtain" aria-hidden="true"><GradientField /></div>
           <div className="pres-hero-copy">
@@ -90,10 +133,11 @@ export function PresentationHome(props: PresentationHomeProps) {
             <h1>{props.title}</h1>
           </div>
           <div className="pres-hero-footer"><span>Strategy</span><span>Design</span><span>Technology</span></div>
+          <div className="pres-hero-logo-reveal" aria-hidden="true"><Image src="/brand-logo.png" alt="" width={1200} height={744} sizes="100vw" priority /></div>
         </div>
       </section>
 
-      <section className="pres-block pres-spheres">
+      <section className="pres-block pres-spheres" ref={spheresRef}>
         <SectionBar left="СФЕРЫ КОМПАНИИ" right="Expertise | Systems | Growth" />
         <div className="pres-spheres-stage">
           <span className="pres-spheres-index">0{term + 1} / 0{props.outcomes.length}</span>
@@ -114,7 +158,7 @@ export function PresentationHome(props: PresentationHomeProps) {
         </div>
       </section>
 
-      <section className="pres-block pres-portfolio pres-work-showcase">
+      <section className="pres-block pres-portfolio pres-work-showcase" ref={workRef}>
         <SectionBar left="НАШИ РАБОТЫ" right="Clients | Products | Platforms" />
         <div className="pres-work-showcase-grid">
           <div className="pres-work-logo-window" aria-label="Проекты Agile Business">
