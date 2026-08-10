@@ -12,6 +12,7 @@ export function SignatureLogo() {
         </mask>
       </defs>
       <image href="/brand-signature.svg" width="441.71" height="273.92" mask="url(#signature-draw-mask)" />
+      <image className="signature-complete" href="/brand-signature.svg" width="441.71" height="273.92" />
     </svg>
   );
 }
