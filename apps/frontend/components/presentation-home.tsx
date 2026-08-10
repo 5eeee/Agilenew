@@ -48,10 +48,11 @@ export function PresentationHome(props: PresentationHomeProps) {
     const updateHero = () => {
       frame = 0;
       const progress = Math.min(1, Math.max(0, -stage.getBoundingClientRect().top / Math.max(stage.offsetHeight, 1)));
-      stage.style.setProperty("--hero-bg-shift", `${progress * 38}px`);
-      stage.style.setProperty("--hero-bg-scale", `${1 + progress * 0.08}`);
-      stage.style.setProperty("--hero-copy-shift", `${progress * -36}px`);
-      stage.style.setProperty("--hero-copy-scale", `${1 + progress * 0.14}`);
+      const compact = window.innerWidth < 600;
+      stage.style.setProperty("--hero-bg-shift", `${progress * (compact ? 48 : 72)}px`);
+      stage.style.setProperty("--hero-bg-scale", `${1 + progress * (compact ? 0.12 : 0.18)}`);
+      stage.style.setProperty("--hero-copy-shift", `${progress * (compact ? -68 : -108)}px`);
+      stage.style.setProperty("--hero-copy-scale", `${1 + progress * (compact ? 0.36 : 0.52)}`);
     };
     const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
     updateHero();
