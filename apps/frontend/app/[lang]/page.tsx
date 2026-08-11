@@ -11,10 +11,10 @@ const heroCopy = {
 } as const;
 
 const projects = [
-  { slug: "13auto", title: "13AUTO", description: "Каталог автозапчастей с точным подбором и личным кабинетом.", image: "/projects/real/13auto-desktop.webp", website: "https://13auto-storefront.vercel.app/" },
+  { slug: "13auto", title: "13AUTO", description: "Каталог автозапчастей с точным подбором и личным кабинетом.", image: "/projects/real/13auto-desktop.webp", website: "https://13auto-storefront.vercel.app/", logo: "/projects/logos/13auto.svg" },
   { slug: "prokub", title: "Прокуб", description: "B2B-платформа бетона с быстрым расчётом и заявками.", image: "/projects/real/prokub-desktop.webp", website: "https://prokub-rf.vercel.app/", logo: "https://prokub-rf.vercel.app/assets/brand/prokub-logo.png?v=2" },
   { slug: "profist", title: "Профист", description: "Каталог металлопроката с подбором под бизнес-задачу.", image: "/projects/real/profist-desktop.webp", website: "https://profist-rf.vercel.app/", logo: "https://profist-rf.vercel.app/assets/brand/profist-logo.png?v=2" },
-  { slug: "dianafarm", title: "Dianafarm", description: "Международная платформа для недвижимости и сопровождения бизнеса.", image: "/projects/real/dianafarm-desktop.webp", website: "https://dianafarm.group/" },
+  { slug: "dianafarm", title: "Dianafarm", description: "Международная платформа для недвижимости и сопровождения бизнеса.", image: "/projects/real/dianafarm-desktop.webp", website: "https://dianafarm.group/", logo: "/projects/logos/dianafarm.svg" },
   { slug: "boostmarine", title: "Boost Marine", description: "Сервисный сайт по ремонту водной техники.", image: "/projects/real/boostmarine-desktop.webp", website: "https://boostmarine.ru/", logo: "https://boostmarine.ru/assets/img/logo2.png" },
   { slug: "royal-horse", title: "Royal Horse", description: "Премиальная цифровая среда конно-спортивного комплекса.", image: "/projects/real/royal-horse-desktop.webp", website: "https://royal-horse-lake.vercel.app/", logo: "https://royal-horse-lake.vercel.app/images/horse_logo.png" },
   { slug: "beef-flame", title: "Beefshteks", description: "Интерфейс доставки с быстрым сценарием заказа.", image: "/projects/real/beef-flame-desktop.webp", website: "https://beef-flame.vercel.app/", logo: "https://beef-flame.vercel.app/images/brand/logo-mark.png" },
