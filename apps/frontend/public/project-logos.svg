@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#fff"/>
+  <style>text{font-family:Arial,sans-serif;fill:#111;font-weight:700} .n{font-size:16px;fill:#d81920}.logo{font-size:54px}</style>
+  <g transform="translate(70 90)"><text class="n">01</text><text class="logo" y="65">13AUTO</text></g>
+  <g transform="translate(630 90)"><text class="n">02</text><text class="logo" y="65">Прокуб</text></g>
+  <g transform="translate(70 270)"><text class="n">03</text><text class="logo" y="65">Профист</text></g>
+  <g transform="translate(630 270)"><text class="n">04</text><text class="logo" y="65">Dianafarm</text></g>
+  <g transform="translate(70 450)"><text class="n">05</text><text class="logo" y="65">Boost Marine</text></g>
+  <g transform="translate(630 450)"><text class="n">06</text><text class="logo" y="65">Royal Horse</text></g>
+  <g transform="translate(70 630)"><text class="n">07</text><text class="logo" y="55">Beefshteks</text></g>
+</svg>

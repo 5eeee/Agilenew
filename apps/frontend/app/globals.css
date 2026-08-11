@@ -1172,3 +1172,47 @@ body,button,input,textarea,select{font-family:"Manrope AB","Segoe UI",Arial,sans
 
 @media(max-width:760px){.pres-section-bar{min-height:62px;padding-inline:20px}.pres-section-bar span:first-child{font-size:16px}.pres-section-bar span:last-child{max-width:42%;font-size:9px;text-align:right}.pres-process-orbit{right:13px;top:13px;width:70px;height:70px}.footer-socials{grid-template-columns:1fr!important}.footer-socials a{min-height:68px}.footer-socials a strong,.footer-socials .footer-phone strong{font-size:14px}.language-trigger{justify-content:space-between}}
 @media(prefers-reduced-motion:reduce){.pres-process-orbit,.brand-logo,.brand:after{animation:none!important}.brand-logo{clip-path:none}.brand:after{display:none}}
+
+/* 2026-08-11 — unified visual/performance pass. */
+.footer-nav{display:flex;flex-flow:row wrap;align-content:flex-start;gap:8px}
+.footer-nav a{padding:9px 15px;border:1px solid rgba(17,17,17,.18);border-radius:999px;font-size:14px;line-height:1;transition:border-color .2s,color .2s,background .2s}
+.footer-nav a:hover{color:#fff;background:#111;border-color:#111;transform:none}
+
+.pres-services-grid article,.pres-services-grid article:first-child{background:#fff;color:#111;border:1px solid rgba(17,17,17,.09);transition:background .25s,color .25s,border-color .25s,transform .25s}
+.pres-services-grid article p,.pres-services-grid article:first-child p{color:#6b6b6b}
+.pres-services-grid article:first-child:hover,.pres-services-grid article:hover{background:var(--red);color:#fff;border-color:var(--red);transform:translateY(-3px)}
+.pres-services-grid article:hover p{color:rgba(255,255,255,.76)}
+.pres-services-grid article:hover a{border-color:rgba(255,255,255,.38)}
+.pres-services-grid article:hover a i{color:#fff}
+
+.pres-process ol{gap:8px}.pres-process li,.pres-process li:nth-child(2n){background:#fff!important;color:#111!important;border:1px solid rgba(17,17,17,.09)}
+.pres-process li p,.pres-process li:nth-child(2n) p{color:#777!important}
+.pres-process-orbit{opacity:0;transform:scale(.82);animation:none!important;transition:opacity .25s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.pres-process li:hover .pres-process-orbit{opacity:1;transform:scale(1);animation:processOrbitShell 7s linear infinite!important}
+
+.pres-work-toolbar{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin:8px 0;padding:12px;border:1px solid rgba(17,17,17,.09);border-radius:22px;background:#fff}
+.pres-work-tabs{display:flex;flex-wrap:wrap;gap:7px}.pres-work-tabs button,.pres-logo-download{min-height:38px;padding:0 14px;border:1px solid rgba(17,17,17,.13);border-radius:999px;background:#fff;color:#111;font:700 12px/1 "Manrope AB",sans-serif;cursor:pointer;transition:.2s}
+.pres-work-tabs button span{margin-right:7px;color:var(--red);font-size:9px}.pres-work-tabs button:hover,.pres-work-tabs button.active{background:#111;color:#fff;border-color:#111}.pres-logo-download{display:flex;align-items:center;gap:16px;white-space:nowrap}.pres-logo-download:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.pres-work-showcase-grid{grid-template-columns:minmax(285px,.38fr) 1.62fr}.pres-work-logo-window{aspect-ratio:auto;height:100%;min-height:460px}.pres-work-logo-slide{padding:30px}.pres-work-logo-slide strong{font-size:clamp(34px,3.2vw,52px)}
+
+/* Static multi-layer grain and ribbing: more tactile, fewer full-screen repaints. */
+.pres-gradient-field:after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.48'/%3E%3C/svg%3E");background-size:96px 96px;opacity:.16;mix-blend-mode:soft-light;animation:none!important}
+.pres-ribbed-glass{background:repeating-linear-gradient(90deg,rgba(255,255,255,.38) 0 1px,rgba(255,255,255,.08) 2px 6px,rgba(40,0,5,.16) 7px 10px,rgba(255,255,255,.18) 11px 13px,rgba(8,0,2,.22) 14px 18px);opacity:.72;mix-blend-mode:soft-light;box-shadow:inset 0 0 120px rgba(255,255,255,.12)}
+.pres-ribbed-glass:before{background:repeating-linear-gradient(90deg,transparent 0 13px,rgba(255,255,255,.24) 14px 15px,rgba(0,0,0,.2) 16px 18px,transparent 19px 30px);opacity:.65}
+.pres-gradient-field:before{animation-duration:20s;filter:blur(44px)}.pres-curtain .pres-gradient-field i{animation:none!important;filter:blur(46px)}
+.pres-hero{height:260svh}.pres-work-logo-track{will-change:auto}.pres-work-project-frame>img{transition:transform .6s ease}.pres-work-project-frame{animation-duration:.45s}
+
+/* Shared internal-page polish and cleaner commerce iconography. */
+.services-commerce-hero,.services-commerce-section,.cart-page,.calc-page,.about-hero,.about-process,.contact-layout,.legal{--panel-radius:28px}
+.service-commerce-card,.cart-items article,.cart-summary,.cart-empty,.calc-card,.about-copy article,.contact-card{border:1px solid rgba(17,17,17,.1);border-radius:var(--panel-radius);box-shadow:0 14px 45px rgba(17,17,17,.035)}
+.service-glyph{color:#111}.service-glyph rect:first-child{fill:#fafaf8;stroke:#d8d8d3}.service-glyph path,.service-glyph circle,.service-glyph rect{stroke-width:1.4}.service-glyph .accent{stroke:var(--red);stroke-width:2}.service-commerce-card:hover .service-glyph{transform:translateY(-3px)}
+.service-commerce-card>button:not(.service-scope-toggle),.service-commerce-card>a:not(.service-detail-link){border-radius:999px}.service-commerce-card.selected{border-color:var(--red);box-shadow:0 18px 55px rgba(216,25,32,.1)}
+
+@media(max-width:760px){
+  .footer-nav{grid-column:1/-1;display:flex;gap:6px}.footer-nav a{font-size:12px;padding:8px 12px}
+  .pres-work-toolbar{display:block;padding:9px;border-radius:17px}.pres-work-tabs{display:grid;grid-template-columns:1fr 1fr}.pres-work-tabs button{justify-content:flex-start;text-align:left;padding-inline:11px}.pres-logo-download{width:100%;justify-content:space-between;margin-top:8px}
+  .pres-work-showcase-grid{grid-template-columns:1fr}.pres-work-logo-window{min-height:220px;height:220px}.pres-work-project-window{height:440px}
+  .pres-process-orbit{display:none}.pres-services-grid article:hover{transform:none}
+  .pres-gradient-field:before,.pres-curtain .pres-gradient-field i{animation:none!important;filter:blur(36px)}.pres-ribbed-glass{opacity:.6}
+  .service-commerce-catalog-only .service-catalog-grid{grid-template-columns:1fr}.service-commerce-card .service-glyph{display:block;height:96px}.service-commerce-card{min-height:440px}
+}

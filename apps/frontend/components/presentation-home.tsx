@@ -123,6 +123,11 @@ export function PresentationHome(props: PresentationHomeProps) {
   }, [props.projects.length, visibleSections.work]);
 
   const activeProject = props.projects[projectIndex];
+  const orderedServices = [...props.services].sort((a, b) => {
+    const aIsIt = /^ИТ\b|^IT\b|разработ/i.test(a[1]) ? 1 : 0;
+    const bIsIt = /^ИТ\b|^IT\b|разработ/i.test(b[1]) ? 1 : 0;
+    return bIsIt - aIsIt;
+  });
 
   return <main className="presentation-home">
     <div className="presentation-shell">
@@ -154,13 +159,19 @@ export function PresentationHome(props: PresentationHomeProps) {
         <div className="pres-services-layout">
           <header><span className="pres-red-label">Business solutions</span><h2>{props.servicesTitle}</h2><p>{props.servicesText}</p><Link href={`/${props.locale}/services`}>Все услуги <i>↗</i></Link></header>
           <div className="pres-services-grid">
-            {props.services.map((service, index) => <article key={service[0]}><span>0{index + 1}</span><h3>{service[1]}</h3><p>{service[2]}</p><Link href={`/${props.locale}/services`}>Подробнее <i>↗</i></Link></article>)}
+            {orderedServices.map((service, index) => <article key={service[0]}><span>0{index + 1}</span><h3>{service[1]}</h3><p>{service[2]}</p><Link href={`/${props.locale}/services`}>Подробнее <i>↗</i></Link></article>)}
           </div>
         </div>
       </section>
 
       <section className="pres-block pres-portfolio pres-work-showcase" ref={workRef}>
         <SectionBar left="НАШИ РАБОТЫ" right="Clients | Products | Platforms" />
+        <div className="pres-work-toolbar">
+          <div className="pres-work-tabs" aria-label="Выбор проекта">
+            {props.projects.map((project, index) => <button type="button" className={index === projectIndex ? "active" : ""} onClick={() => setProjectIndex(index)} key={project.slug}><span>0{index + 1}</span>{project.title}</button>)}
+          </div>
+          <a className="pres-logo-download" href="/project-logos.svg" download>Скачать логотипы <i>↓</i></a>
+        </div>
         <div className="pres-work-showcase-grid">
           <div className="pres-work-logo-window" aria-label="Проекты Agile Business">
             <div className="pres-work-logo-track" style={{ "--project-index": projectIndex } as CSSProperties}>
