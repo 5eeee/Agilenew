@@ -1380,3 +1380,13 @@ body,button,input,textarea,select{font-family:"Manrope AB","Segoe UI",Arial,sans
 .signature-active .signature-business-letter{animation-duration:.08s!important;animation-delay:calc(2.94s + var(--letter-index) * .015s)!important}
 @media(max-width:760px){.presentation-home .pres-hero{margin-top:-70px}.presentation-home .pres-hero-stage{height:100svh}.pres-ribbed-glass{background:repeating-linear-gradient(90deg,rgba(0,0,0,.44) 0,rgba(255,255,255,.34) 9px,rgba(255,255,255,.58) 13px,rgba(40,0,5,.3) 21px,rgba(0,0,0,.47) 24px)!important}.pres-gradient-field:before{filter:blur(30px)!important;animation-duration:17s!important}}
 @media(prefers-reduced-motion:reduce){.pres-gradient-field:before{animation:none!important}.signature-business-cover{opacity:0!important}.signature-business-letter{opacity:1!important;transform:none!important}}
+
+/* Matte grain, lifted shadows and gentle section magnetism. */
+html{scroll-behavior:smooth;scroll-snap-type:y proximity;scroll-padding-top:82px}
+.presentation-shell>.pres-block,.site-footer{scroll-snap-align:start;scroll-margin-top:82px}
+.pres-gradient-field{background:linear-gradient(180deg,#f7eeee 0%,#d8757c 21%,#91202a 44%,#551019 68%,#210307 100%)!important}
+.pres-gradient-field:after{background-size:72px 72px!important;opacity:.3!important;mix-blend-mode:soft-light!important}
+.pres-ribbed-glass{opacity:.84!important;mix-blend-mode:soft-light!important;background:repeating-linear-gradient(90deg,rgba(21,2,5,.34) 0,rgba(52,8,13,.2) 4px,rgba(255,255,255,.28) 10px,rgba(255,255,255,.58) 14px,rgba(255,255,255,.22) 18px,rgba(70,11,18,.25) 24px,rgba(25,3,7,.36) 28px),linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.07) 44%,rgba(255,255,255,.1) 72%,rgba(43,3,8,.14))!important;box-shadow:inset 0 0 110px rgba(40,3,8,.17),inset 0 0 58px rgba(255,255,255,.18)!important}
+.pres-ribbed-glass:after{background:linear-gradient(98deg,rgba(255,255,255,.2),transparent 24% 72%,rgba(69,5,12,.12)),linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.04) 36% 67%,rgba(255,255,255,.09))!important;opacity:.92!important}
+@media(max-width:760px){html{scroll-padding-top:70px}.presentation-shell>.pres-block,.site-footer{scroll-margin-top:70px}.pres-gradient-field:after{opacity:.25!important}.pres-ribbed-glass{opacity:.82!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;scroll-snap-type:none}}
