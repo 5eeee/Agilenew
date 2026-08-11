@@ -1133,10 +1133,19 @@ img,svg{max-width:100%}
 @font-face{font-family:"Manrope AB";src:url("/fonts/manrope-light.woff2") format("woff2");font-style:normal;font-weight:200 500;font-display:swap}
 /* The original Illustrator centreline reveals the exact vector artwork as one uninterrupted pen stroke. */
 .signature-draw-path{stroke-dasharray:2000;stroke-dashoffset:2000}
-.signature-active .signature-draw-path{animation:signatureDraw 3.2s cubic-bezier(.42,0,.18,1) forwards}
+.signature-active .signature-draw-path{animation:signatureDraw 3.8s cubic-bezier(.42,0,.18,1) forwards}
 .signature-final-art{opacity:0}
-.signature-active .signature-final-art{animation:signatureFinalArt .38s 3.05s ease-out forwards}
+.signature-active .signature-final-art{animation:signatureFinalArt .32s 3.68s ease-out forwards}
+.signature-business-cover{fill:#fff;opacity:0}
+.signature-active .signature-business-cover{animation:signatureBusinessCover 0s 3.68s forwards}
+.signature-business-reveal{width:0}
+.signature-active .signature-business-reveal{animation:signatureBusinessWrite 1.25s 3.86s cubic-bezier(.3,0,.16,1) forwards}
+.signature-ink-overlay{fill:none;opacity:0}
+.signature-active .signature-ink-overlay{animation:signatureInkOverlay .2s 3.68s ease-out forwards}
 @keyframes signatureFinalArt{to{opacity:1}}
+@keyframes signatureBusinessCover{to{opacity:1}}
+@keyframes signatureBusinessWrite{to{width:176px}}
+@keyframes signatureInkOverlay{to{opacity:1}}
 .signature-active .signature-business{animation:signatureBusiness .68s 3.08s cubic-bezier(.16,.72,.2,1) forwards}
 @media(prefers-reduced-motion:reduce){.signature-draw-path{stroke-dashoffset:0!important;animation:none!important}}
 @font-face{font-family:"Manrope AB";src:url("/fonts/manrope-bold.woff2") format("woff2");font-style:normal;font-weight:600 900;font-display:swap}

@@ -4,8 +4,18 @@ const signaturePath =
 export function SignatureLogo() {
   return (
     <svg className="signature-logo" viewBox="30 310 500 300" role="img" aria-label="Agile Business">
-      <path className="signature-draw-path" d={signaturePath} transform="scale(1 -1)" fill="none" stroke="#e30613" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+      <defs>
+        <clipPath id="signature-business-write-clip">
+          <rect className="signature-business-reveal" x="310" y="435" width="0" height="32" />
+        </clipPath>
+      </defs>
+      <path className="signature-draw-path" d={signaturePath} transform="scale(1 -1)" fill="none" stroke="#e30613" strokeWidth="4.35" strokeLinecap="round" strokeLinejoin="round" />
       <image className="signature-final-art" href="/brand-signature-clean.svg" x="0" y="0" width="595.276" height="841.89" />
+      <rect className="signature-business-cover" x="310" y="435" width="176" height="32" />
+      <g clipPath="url(#signature-business-write-clip)">
+        <image href="/brand-signature-clean.svg" x="0" y="0" width="595.276" height="841.89" />
+      </g>
+      <path className="signature-ink-overlay" d={signaturePath} transform="scale(1 -1)" fill="none" stroke="#e30613" strokeWidth="4.35" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
