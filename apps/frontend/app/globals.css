@@ -1432,3 +1432,8 @@ html{scroll-snap-type:none!important}
 .signature-draw-path{transition-duration:2.2s!important}
 .signature-active .signature-final-art,.signature-active .signature-ink-overlay{transition-delay:2s!important}
 .signature-active .signature-business-letter{transition-duration:.1s!important;transition-delay:calc(2.03s + var(--letter-delay,0s))!important}
+
+/* Homepage header floats directly over the fluted hero. */
+body:has(.presentation-home) .site-header{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+body:has(.presentation-home) .header-inner{border-color:rgba(255,255,255,.28)!important;background:rgba(255,255,255,.14)!important;box-shadow:none!important;-webkit-backdrop-filter:blur(5px) saturate(1.06)!important;backdrop-filter:blur(5px) saturate(1.06)!important}
+@media(max-width:760px){body:has(.presentation-home) .header-inner{background:rgba(255,255,255,.18)!important}}
