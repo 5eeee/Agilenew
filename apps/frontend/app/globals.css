@@ -182,6 +182,8 @@ html[lang="hy"] body{font-family:var(--font-armenian),var(--font-main),Arial,san
 .logo-13auto strong{font-weight:900!important}.logo-13auto strong::first-letter{color:var(--red)}
 .logo-dianafarm strong{font-family:Georgia,serif!important;letter-spacing:.04em}
 .logo-boostmarine .project-site-logo{height:190px}.logo-royal-horse .project-site-logo{filter:contrast(1.1)}
+.logo-boostmarine strong:has(.project-site-logo),.logo-beef-flame strong:has(.project-site-logo){min-height:230px;padding:28px;border-radius:26px;background:#101010}
+.logo-beef-flame .project-site-logo{width:min(54%,190px);height:170px}
 @media(max-width:760px){.project-site-logo{height:120px}.logo-boostmarine .project-site-logo{height:145px}}
 
 /* Homepage presentation system — scoped so internal pages remain unchanged. */
