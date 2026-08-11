@@ -20,7 +20,7 @@ export function SignatureLogo() {
       <image className="signature-final-art" href="/brand-signature-clean.svg" x="0" y="0" width="595.276" height="841.89" />
       <rect className="signature-business-cover" x="310" y="435" width="176" height="32" />
       {businessLetters.map(([x], index) => (
-        <g className="signature-business-letter" clipPath={`url(#signature-letter-${index})`} style={{ "--letter-index": index } as CSSProperties} key={x}>
+        <g className="signature-business-letter" clipPath={`url(#signature-letter-${index})`} style={{ "--letter-index": index, "--letter-delay": `${index * 0.025}s`, "--letter-reverse-delay": `${(businessLetters.length - 1 - index) * 0.02}s` } as CSSProperties} key={x}>
           <image href="/brand-signature-clean.svg" x="0" y="0" width="595.276" height="841.89" />
         </g>
       ))}

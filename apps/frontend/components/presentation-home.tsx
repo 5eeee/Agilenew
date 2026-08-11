@@ -50,8 +50,9 @@ export function PresentationHome(props: PresentationHomeProps) {
     const scene = heroSceneRef.current;
     const stage = heroStageRef.current;
     if (!scene || !stage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const signatureLetters = stage.querySelectorAll<SVGGElement>(".signature-business-letter");
     let frame = 0;
+    let snapTimer = 0;
+    let snapping = false;
     let lastProgress = -1;
     const updateHero = () => {
       frame = 0;
@@ -63,31 +64,40 @@ export function PresentationHome(props: PresentationHomeProps) {
       const compact = window.innerWidth < 600;
       const titleProgress = Math.min(progress / 0.48, 1);
       const whiteProgress = Math.min(1, Math.max(0, (progress - 0.52) / 0.12));
-      const signatureProgress = Math.min(1, Math.max(0, (progress - 0.66) / 0.14));
-      const businessProgress = Math.min(1, Math.max(0, (signatureProgress - 0.72) / 0.18));
-      const signatureFinish = Math.min(1, Math.max(0, (signatureProgress - 0.94) / 0.06));
       stage.style.setProperty("--hero-bg-shift", `${progress * (compact ? 28 : 48)}px`);
       stage.style.setProperty("--hero-bg-scale", `${1 + titleProgress * (compact ? 0.14 : 0.2)}`);
       stage.style.setProperty("--hero-copy-shift", `${titleProgress * (compact ? -20 : -42)}px`);
       stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? 0.72 : 1.05)}`);
       stage.style.setProperty("--hero-copy-opacity", `${1 - whiteProgress}`);
       stage.style.setProperty("--hero-white-opacity", `${whiteProgress}`);
-      stage.style.setProperty("--signature-dash", `${2000 * (1 - signatureProgress)}`);
-      stage.style.setProperty("--signature-business-progress", `${businessProgress}`);
-      stage.style.setProperty("--signature-finish", `${signatureFinish}`);
-      signatureLetters.forEach((letter, index) => {
-        const letterProgress = Math.min(1, Math.max(0, (businessProgress - index * 0.075) / 0.24));
-        letter.style.setProperty("--signature-letter-progress", `${letterProgress}`);
-      });
       stage.classList.toggle("signature-active", progress >= 0.7);
     };
-    const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
+    const snapHero = () => {
+      snapTimer = 0;
+      if (snapping) return;
+      const bounds = scene.getBoundingClientRect();
+      const travel = Math.max(scene.offsetHeight - window.innerHeight, 1);
+      const progress = Math.min(1, Math.max(0, -bounds.top / travel));
+      if (progress <= 0.025 || progress >= 0.985) return;
+      const checkpoints = [0, 0.5, 0.72, 1];
+      const target = checkpoints.reduce((closest, point) => Math.abs(point - progress) < Math.abs(closest - progress) ? point : closest);
+      const sceneTop = window.scrollY + bounds.top;
+      snapping = true;
+      window.scrollTo({ top: sceneTop + target * travel, behavior: "smooth" });
+      window.setTimeout(() => { snapping = false; }, 700);
+    };
+    const requestUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateHero);
+      window.clearTimeout(snapTimer);
+      snapTimer = window.setTimeout(snapHero, 150);
+    };
     updateHero();
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
     return () => {
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
+      window.clearTimeout(snapTimer);
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);

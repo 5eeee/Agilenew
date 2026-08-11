@@ -1401,3 +1401,27 @@ html{scroll-behavior:smooth;scroll-snap-type:y proximity;scroll-padding-top:82px
 .signature-active .signature-business-cover,.signature-business-cover{animation:none!important;opacity:1!important}
 .signature-active .signature-business-letter,.signature-business-letter{animation:none!important;opacity:var(--signature-letter-progress,0)!important;transform:none!important}
 @media(prefers-reduced-motion:reduce){.signature-draw-path{stroke-dashoffset:0!important}.signature-final-art,.signature-ink-overlay{opacity:1!important}.signature-business-cover{opacity:0!important}.signature-business-letter{opacity:1!important;transform:none!important}}
+
+/* Snapped scene triggers a self-running, reversible signature animation. */
+.signature-draw-path{animation:none!important;stroke-dashoffset:2000!important;transition:stroke-dashoffset 1.35s cubic-bezier(.42,0,.18,1)}
+.signature-active .signature-draw-path{stroke-dashoffset:0!important}
+.signature-final-art,.signature-ink-overlay{animation:none!important;opacity:0!important;transition:opacity .14s ease-out}
+.signature-active .signature-final-art,.signature-active .signature-ink-overlay{opacity:1!important;transition-delay:1.18s}
+.signature-business-cover{animation:none!important;opacity:1!important}
+.signature-business-letter{animation:none!important;opacity:0!important;transform:none!important;transition:opacity .07s linear var(--letter-reverse-delay,0s)}
+.signature-active .signature-business-letter{opacity:1!important;transition-delay:calc(1.19s + var(--letter-delay,0s))}
+.site-header{border-bottom:0!important;box-shadow:none!important}
+
+@media(max-width:760px){
+  .pres-hero-copy{left:18px!important;right:18px!important;max-width:calc(100vw - 36px)}
+  .pres-hero h1{max-width:100%!important;font-size:clamp(42px,13vw,56px)!important;line-height:.92!important;overflow-wrap:normal!important;word-break:normal!important}
+  .pres-hero-copy>p{max-width:92%!important;font-size:12px!important;line-height:1.45!important}
+  .pres-work-project-frame>img,.case-cover img,.case-gallery img{object-fit:contain!important;object-position:center top!important}
+  .pres-work-project-window{height:min(118vw,430px)!important;background:#f1f1ef!important}
+  .pres-process li>.pres-process-orbit{display:none!important}
+  .pres-feature-media>img,.pres-work-project-frame>img,.project-card img{transition:none!important;transform:none!important}
+  .pres-gradient-field:before{animation:none!important}
+  .pres-ribbed-glass{mix-blend-mode:soft-light!important}
+}
+@media(hover:none){.pres-process li:hover>.pres-process-orbit{animation:none!important}.pres-services-grid article:hover,.footer-socials a:hover{transform:none!important}}
+@media(prefers-reduced-motion:reduce){.signature-draw-path{transition:none!important;stroke-dashoffset:0!important}.signature-final-art,.signature-ink-overlay,.signature-business-letter{transition:none!important;opacity:1!important}.signature-business-cover{opacity:0!important}}
