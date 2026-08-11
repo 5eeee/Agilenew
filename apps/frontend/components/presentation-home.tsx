@@ -8,7 +8,7 @@ import { SignatureLogo } from "@/components/signature-logo";
 
 type Service = readonly [string, string, string];
 type Step = readonly [string, string];
-type Project = { slug: string; title: string; description: string; image: string; website: string };
+type Project = { slug: string; title: string; description: string; image: string; website: string; logo?: string };
 
 type PresentationHomeProps = {
   locale: string;
@@ -166,16 +166,10 @@ export function PresentationHome(props: PresentationHomeProps) {
 
       <section className="pres-block pres-portfolio pres-work-showcase" ref={workRef}>
         <SectionBar left="НАШИ РАБОТЫ" right="Clients | Products | Platforms" />
-        <div className="pres-work-toolbar">
-          <div className="pres-work-tabs" aria-label="Выбор проекта">
-            {props.projects.map((project, index) => <button type="button" className={index === projectIndex ? "active" : ""} onClick={() => setProjectIndex(index)} key={project.slug}><span>0{index + 1}</span>{project.title}</button>)}
-          </div>
-          <a className="pres-logo-download" href="/project-logos.svg" download>Скачать логотипы <i>↓</i></a>
-        </div>
         <div className="pres-work-showcase-grid">
           <div className="pres-work-logo-window" aria-label="Проекты Agile Business">
             <div className="pres-work-logo-track" style={{ "--project-index": projectIndex } as CSSProperties}>
-              {props.projects.map((project, index) => <div className="pres-work-logo-slide" key={project.slug}><span>0{index + 1}</span><strong>{project.title}</strong></div>)}
+              {props.projects.map((project, index) => <div className={`pres-work-logo-slide logo-${project.slug}`} key={project.slug}><span>0{index + 1}</span><strong>{project.logo ? <i className="project-site-logo" style={{ backgroundImage: `url("${project.logo}")` }} aria-label={project.title} /> : project.title}</strong></div>)}
             </div>
           </div>
           <div className="pres-work-project-window">
