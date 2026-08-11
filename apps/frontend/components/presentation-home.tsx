@@ -51,8 +51,6 @@ export function PresentationHome(props: PresentationHomeProps) {
     const stage = heroStageRef.current;
     if (!scene || !stage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let frame = 0;
-    let snapTimer = 0;
-    let snapping = false;
     let lastProgress = -1;
     const updateHero = () => {
       frame = 0;
@@ -72,32 +70,13 @@ export function PresentationHome(props: PresentationHomeProps) {
       stage.style.setProperty("--hero-white-opacity", `${whiteProgress}`);
       stage.classList.toggle("signature-active", progress >= 0.7);
     };
-    const snapHero = () => {
-      snapTimer = 0;
-      if (snapping) return;
-      const bounds = scene.getBoundingClientRect();
-      const travel = Math.max(scene.offsetHeight - window.innerHeight, 1);
-      const progress = Math.min(1, Math.max(0, -bounds.top / travel));
-      if (progress <= 0.025 || progress >= 0.985) return;
-      const checkpoints = [0, 0.5, 0.72, 1];
-      const target = checkpoints.reduce((closest, point) => Math.abs(point - progress) < Math.abs(closest - progress) ? point : closest);
-      const sceneTop = window.scrollY + bounds.top;
-      snapping = true;
-      window.scrollTo({ top: sceneTop + target * travel, behavior: "smooth" });
-      window.setTimeout(() => { snapping = false; }, 700);
-    };
-    const requestUpdate = () => {
-      if (!frame) frame = window.requestAnimationFrame(updateHero);
-      window.clearTimeout(snapTimer);
-      snapTimer = window.setTimeout(snapHero, 150);
-    };
+    const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
     updateHero();
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
     return () => {
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
-      window.clearTimeout(snapTimer);
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);

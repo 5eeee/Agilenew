@@ -1425,3 +1425,10 @@ html{scroll-behavior:smooth;scroll-snap-type:y proximity;scroll-padding-top:82px
 }
 @media(hover:none){.pres-process li:hover>.pres-process-orbit{animation:none!important}.pres-services-grid article:hover,.footer-socials a:hover{transform:none!important}}
 @media(prefers-reduced-motion:reduce){.signature-draw-path{transition:none!important;stroke-dashoffset:0!important}.signature-final-art,.signature-ink-overlay,.signature-business-letter{transition:none!important;opacity:1!important}.signature-business-cover{opacity:0!important}}
+
+/* Free scrolling; the signature runs independently at a calmer pace. */
+html{scroll-snap-type:none!important}
+.presentation-shell>.pres-block,.site-footer{scroll-snap-align:none!important}
+.signature-draw-path{transition-duration:2.2s!important}
+.signature-active .signature-final-art,.signature-active .signature-ink-overlay{transition-delay:2s!important}
+.signature-active .signature-business-letter{transition-duration:.1s!important;transition-delay:calc(2.03s + var(--letter-delay,0s))!important}
