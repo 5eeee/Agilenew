@@ -22,7 +22,7 @@ function ServiceGlyph({ id }: { id: string }) {
     {kind === 0 ? <><path d="M39 70c0-25 18-43 41-43s41 18 41 43"/><circle cx="80" cy="47" r="12"/><path d="M30 76h100"/></> : null}
     {kind === 1 ? <><path d="M31 31h43v28H31zM86 31h43v18H86zM31 70h25v12H31zM68 65h61v17H68z"/><path className="accent" d="M74 45h12M49 59v11M99 49v16"/></> : null}
     {kind === 2 ? <><path d="M27 28h106v59H27zM27 42h106"/><circle cx="36" cy="35" r="2"/><circle cx="44" cy="35" r="2"/><path className="accent" d="M42 58h47M42 67h67M42 76h34"/></> : null}
-    {kind === 3 ? <><path d="M35 40h12l8 34h51l10-25H52M63 84a5 5 0 1 0 0 .1M101 84a5 5 0 1 0 0 .1"/><path className="accent" d="M71 32v27M61 42h20"/></> : null}
+    {kind === 3 ? <><path d="M31 35h15l9 40h52l13-31H51M64 86a5 5 0 1 0 0 .1M101 86a5 5 0 1 0 0 .1"/><path className="accent" d="M62 54h47M67 64h37"/></> : null}
     {kind === 4 ? <><rect x="28" y="25" width="104" height="62" rx="10"/><path d="M42 43h29M42 53h20M42 70h28M82 40h35M82 50h35M82 60h35M82 70h25"/><circle className="accent" cx="70" cy="70" r="7"/></> : null}
     {kind === 5 ? <><path d="M32 83V55h18v28M61 83V37h18v46M90 83V48h18v35M119 83V25h9v58"/><path className="accent" d="M27 30c25 11 42 6 58-3s29-7 45-17"/></> : null}
     {kind === 6 ? <><circle cx="80" cy="55" r="31"/><circle cx="80" cy="55" r="18"/><path d="M80 16v16M80 78v16M41 55h16M103 55h16"/><path className="accent" d="M80 55l23-18"/></> : null}

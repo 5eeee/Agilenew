@@ -65,7 +65,7 @@ export function PresentationHome(props: PresentationHomeProps) {
       stage.style.setProperty("--hero-bg-shift", `${progress * (compact ? 28 : 48)}px`);
       stage.style.setProperty("--hero-bg-scale", `${1 + titleProgress * (compact ? 0.14 : 0.2)}`);
       stage.style.setProperty("--hero-copy-shift", `${titleProgress * (compact ? -20 : -42)}px`);
-      stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? 1.05 : 1.5)}`);
+      stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? 0.72 : 1.05)}`);
       stage.style.setProperty("--hero-copy-opacity", `${1 - whiteProgress}`);
       stage.style.setProperty("--hero-white-opacity", `${whiteProgress}`);
       stage.classList.toggle("signature-active", progress >= 0.7);
@@ -176,8 +176,8 @@ export function PresentationHome(props: PresentationHomeProps) {
             <Link className="pres-work-project-frame" href={`/${props.locale}/projects/${activeProject.slug}`} key={activeProject.slug}>
               <Image src={activeProject.image} alt={`${activeProject.title} interface`} fill sizes="(max-width: 760px) 96vw, 66vw" />
             </Link>
-            <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
           </div>
+          <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
         </div>
       </section>
 

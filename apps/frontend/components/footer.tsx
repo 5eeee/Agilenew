@@ -25,7 +25,7 @@ export function Footer({ locale, line, privacy, nav }: { locale: Locale; line: s
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Agile Business</span>
         <Link href={`/${locale}/privacy`}>{privacy}</Link>
-        <span>Разработано компанией Agile Business</span>
+        <span className="footer-credit">Разработано компанией <Link href={`/${locale}`}>Agile Business</Link></span>
       </div>
     </footer>
   );

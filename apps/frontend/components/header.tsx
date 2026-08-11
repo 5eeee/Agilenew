@@ -94,7 +94,7 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
           </nav>
           <div className={`language-menu${languageOpen ? " is-open" : ""}`} ref={languageRef}>
             <button className="language-trigger" type="button" aria-label="Language selection" aria-haspopup="menu" aria-expanded={languageOpen} onClick={() => setLanguageOpen((current) => !current)}>
-              <span className="language-current"><strong>{localeNames[locale]}</strong></span><i aria-hidden="true">⌄</i>
+              <span className="language-current"><strong>{localeNames[locale]}</strong></span><svg className="language-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 6 4.5 4 4.5-4" /></svg>
             </button>
             <div className="language-options" role="menu">
               {locales.map((item) => (
