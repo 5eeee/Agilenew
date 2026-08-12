@@ -28,7 +28,8 @@ export function PortfolioGrid({ projects, locale }: { projects: readonly Project
       <div className="portfolio-grid" key={activeCategory}>
         {visibleProjects.map((project, index) => <article className={`portfolio-card ${expanded === project.slug ? "expanded" : ""}`} key={project.slug} style={{ "--portfolio-order": index } as CSSProperties}>
           <button className="portfolio-card-visual" type="button" onClick={() => setExpanded((current) => current === project.slug ? null : project.slug)} aria-expanded={expanded === project.slug} aria-label={`${t.caseStudy}: ${project.title}`}>
-            {project.image ? <Image src={project.image} alt={`${project.title} — interface preview`} fill sizes="(max-width: 760px) 92vw, (max-width: 1100px) 50vw, 40vw" /> : null}
+            <span className={`portfolio-card-logo logo-${project.slug}`}>{project.logo ? <Image src={project.logo} alt={`${project.title} logo`} fill sizes="220px" /> : project.title}</span>
+            <span className="portfolio-card-preview">{project.image ? <Image src={project.image} alt={`${project.title} — interface preview`} fill sizes="(max-width: 760px) 92vw, (max-width: 1100px) 50vw, 40vw" /> : null}</span>
             <span className="portfolio-card-index">{String(index + 1).padStart(2, "0")}</span>
             <span className="portfolio-card-open" aria-hidden="true">{expanded === project.slug ? "−" : "+"}</span>
           </button>

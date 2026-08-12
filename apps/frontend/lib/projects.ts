@@ -12,6 +12,7 @@ export type Project = {
   deliverables: readonly string[];
   tech: readonly string[];
   image?: string;
+  logo?: string;
   mobileImage?: string;
   website?: string;
   year?: string;
@@ -39,6 +40,16 @@ const projects: readonly ProjectSource[] = [
   { slug: "marketing", title: "Маркетинговая кампания", category: "Креатив", lead: "Кампания с единым визуальным языком и измеримой воронкой.", tech: ["Strategy", "Creative", "Performance", "Analytics"] },
 ];
 
+const projectLogos: Record<string, string> = {
+  "13auto": "/projects/logos/13auto.svg",
+  prokub: "/projects/logos/prokub.png",
+  profist: "/projects/logos/profist.png",
+  dianafarm: "/projects/logos/dianafarm.svg",
+  boostmarine: "/projects/logos/boostmarine.png",
+  "royal-horse": "/projects/logos/royal-horse.png",
+  "beef-flame": "/projects/logos/beef-flame.png",
+};
+
 export const projectSlugs = projects.map((project) => project.slug);
 
 const armenianTitles: Record<string, string> = { "corporate-site": "Կորպորատիվ կայք", landing: "Լենդինգ", "bi-analytics": "BI վերլուծություն", strategy: "Ռազմավարական խորհրդատվություն", "web-service": "Վեբ ծառայություն", crm: "CRM ինտեգրում", marketing: "Մարքեթինգային արշավ" };
@@ -52,6 +63,7 @@ export function getProject(slug: string, locale: Locale): Project | undefined {
   const isArmenian = locale === "hy";
   return {
     ...project,
+    logo: projectLogos[slug],
     title: isRussian ? project.title : isArmenian ? armenianTitles[slug] ?? project.title : englishTitles[slug] ?? project.title,
     category: isRussian ? project.category : isArmenian ? armenianCategories[project.category] ?? project.category : project.category.replace("ИТ", "IT"),
     lead: isRussian ? project.lead : isArmenian ? "Չափելի բիզնես նպատակի շուրջ կառուցված հստակ թվային լուծում։" : "A focused business solution designed around a measurable objective.",
