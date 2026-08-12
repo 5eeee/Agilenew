@@ -16,7 +16,12 @@ const labels = {
 } as const;
 
 function ServiceGlyph({ id }: { id: string }) {
-  const kind = id === "consultation" ? 0 : id === "custom-project" ? 1 : id.includes("site") || id === "landing" || id === "corporate" || id === "business-card" ? 2 : id === "ecommerce" ? 3 : id.includes("crm") ? 4 : id.includes("bi") ? 5 : 6;
+  const semanticKinds: Record<string, number> = {
+    consultation: 0, "custom-project": 1, "business-card": 2, landing: 6,
+    corporate: 4, ecommerce: 3, "crm-mvp": 4, "bi-dashboard": 5,
+    "business-audit": 6, "growth-strategy": 1,
+  };
+  const kind = semanticKinds[id] ?? Array.from(id).reduce((sum, letter) => sum + letter.charCodeAt(0), 0) % 7;
   return <svg className="service-glyph" viewBox="0 0 160 110" aria-hidden="true">
     <rect x="1" y="1" width="158" height="108" rx="20" />
     {kind === 0 ? <><path d="M39 70c0-25 18-43 41-43s41 18 41 43"/><circle cx="80" cy="47" r="12"/><path d="M30 76h100"/></> : null}

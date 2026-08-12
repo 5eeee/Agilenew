@@ -90,7 +90,7 @@ export function ContactForm({ labels, locale, source = "site" }: { labels: Label
       </div>
       <label className="form-message"><span>{labels.message}</span><textarea name="message" required minLength={10} maxLength={3000} rows={4} placeholder={ru ? "Коротко опишите задачу и желаемый результат" : hy ? "Հակիրճ նկարագրեք խնդիրը և ցանկալի արդյունքը" : "Briefly describe the task and desired result"} /></label>
       <div className="form-submit"><label className="form-consent"><input type="checkbox" required /><span>{labels.consent} <Link href={`/${locale}/privacy`}>{ru ? "Открыть политику" : hy ? "Դիտել քաղաքականությունը" : "View policy"}</Link></span></label><button className="button" type="submit" disabled={state === "sending"}>{state === "sending" ? labels.sending : labels.submit}</button></div>
-      <p className={`form-status ${state}`} aria-live="polite">{state === "success" ? labels.success : state === "error" ? labels.error : ""}</p>
+      <p className={`form-status ${state}`} aria-live="polite">{state === "success" ? (ru ? "Спасибо. Заявка принята — в ближайшее время с вами свяжется специалист." : labels.success) : state === "error" ? labels.error : ""}</p>
     </form>
   );
 }

@@ -45,6 +45,7 @@ export function PresentationHome(props: PresentationHomeProps) {
   const heroStageRef = useRef<HTMLDivElement>(null);
   const spheresRef = useRef<HTMLElement>(null);
   const workRef = useRef<HTMLElement>(null);
+  const signatureCompletedRef = useRef(false);
 
   useEffect(() => {
     const scene = heroSceneRef.current;
@@ -68,7 +69,19 @@ export function PresentationHome(props: PresentationHomeProps) {
       stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? 0.72 : 1.05)}`);
       stage.style.setProperty("--hero-copy-opacity", `${1 - whiteProgress}`);
       stage.style.setProperty("--hero-white-opacity", `${whiteProgress}`);
-      stage.classList.toggle("signature-active", progress >= 0.7);
+      const signatureActive = progress >= 0.7;
+      stage.classList.toggle("signature-active", signatureActive);
+      if (signatureActive && !signatureCompletedRef.current) {
+        signatureCompletedRef.current = true;
+        const scrollY = window.scrollY;
+        document.documentElement.classList.add("signature-scroll-lock");
+        document.body.style.top = `-${scrollY}px`;
+        window.setTimeout(() => {
+          document.documentElement.classList.remove("signature-scroll-lock");
+          document.body.style.top = "";
+          window.scrollTo({ top: scrollY, behavior: "auto" });
+        }, 2250);
+      }
     };
     const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
     updateHero();
@@ -78,6 +91,8 @@ export function PresentationHome(props: PresentationHomeProps) {
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
       if (frame) window.cancelAnimationFrame(frame);
+      document.documentElement.classList.remove("signature-scroll-lock");
+      document.body.style.top = "";
     };
   }, []);
 
@@ -184,12 +199,12 @@ export function PresentationHome(props: PresentationHomeProps) {
       <section className="pres-block pres-process">
         <SectionBar right="How we work" />
         <h2>{props.methodTitle}</h2>
-        <ol>{props.steps.map((step, index) => <li key={step[0]}><span>0{index + 1}</span><div className="pres-process-orbit" aria-hidden="true"><i /><i /><i /></div><h3>{step[0]}</h3><p>{step[1]}</p></li>)}</ol>
+        <ol>{props.steps.map((step, index) => <li key={step[0]}><span>0{index + 1}</span><h3>{step[0]}</h3><p>{step[1]}</p></li>)}</ol>
       </section>
 
       <section className="pres-block pres-final">
         <SectionBar right="Start a project" />
-        <div><h2>{props.ctaTitle}</h2><p>{props.ctaText}</p><Link href={`/${props.locale}/contacts`}>{props.ctaButton}<i>↗</i></Link></div>
+        <div><h2>{props.ctaTitle}</h2><p>{props.ctaText}</p><Link href={`/${props.locale}/contacts`}>{props.ctaButton}</Link><i className="pres-final-arrow" aria-hidden="true">↓</i></div>
       </section>
     </div>
   </main>;
