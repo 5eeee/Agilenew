@@ -74,13 +74,21 @@ export function PresentationHome(props: PresentationHomeProps) {
       if (signatureActive && !signatureCompletedRef.current) {
         signatureCompletedRef.current = true;
         const scrollY = window.scrollY;
+        const blockScroll = (event: Event) => event.preventDefault();
+        const blockKeys = (event: KeyboardEvent) => {
+          if (["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "].includes(event.key)) event.preventDefault();
+        };
         document.documentElement.classList.add("signature-scroll-lock");
-        document.body.style.top = `-${scrollY}px`;
+        window.addEventListener("wheel", blockScroll, { passive: false });
+        window.addEventListener("touchmove", blockScroll, { passive: false });
+        window.addEventListener("keydown", blockKeys, { passive: false });
         window.setTimeout(() => {
           document.documentElement.classList.remove("signature-scroll-lock");
-          document.body.style.top = "";
+          window.removeEventListener("wheel", blockScroll);
+          window.removeEventListener("touchmove", blockScroll);
+          window.removeEventListener("keydown", blockKeys);
           window.scrollTo({ top: scrollY, behavior: "auto" });
-        }, 2250);
+        }, 2500);
       }
     };
     const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
@@ -204,7 +212,7 @@ export function PresentationHome(props: PresentationHomeProps) {
 
       <section className="pres-block pres-final">
         <SectionBar right="Start a project" />
-        <div><h2>{props.ctaTitle}</h2><p>{props.ctaText}</p><Link href={`/${props.locale}/contacts`}>{props.ctaButton}</Link><i className="pres-final-arrow" aria-hidden="true">↓</i></div>
+        <div><h2>{props.ctaTitle}</h2><p>{props.ctaText}</p><Link href={`/${props.locale}/contacts`}>{props.ctaButton}</Link><i className="pres-final-arrow" aria-hidden="true">↑</i></div>
       </section>
     </div>
   </main>;
