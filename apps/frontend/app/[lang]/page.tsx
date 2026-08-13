@@ -17,7 +17,7 @@ const projects = [
   { slug: "dianafarm", title: "Dianafarm", description: "Международная платформа для недвижимости и сопровождения бизнеса.", image: "/projects/real/dianafarm-desktop.webp", website: "https://dianafarm.group/", logo: "/projects/logos/dianafarm.svg" },
   { slug: "boostmarine", title: "Boost Marine", description: "Сервисный сайт по ремонту водной техники.", image: "/projects/real/boostmarine-desktop.webp", website: "https://boostmarine.ru/", logo: "/projects/logos/boostmarine.png" },
   { slug: "royal-horse", title: "Royal Horse", description: "Премиальная цифровая среда конно-спортивного комплекса.", image: "/projects/real/royal-horse-desktop.webp", website: "https://royal-horse-lake.vercel.app/", logo: "/projects/logos/royal-horse.png" },
-  { slug: "beef-flame", title: "Beefshteks", description: "Интерфейс доставки с быстрым сценарием заказа.", image: "/projects/real/beef-flame-desktop.webp", website: "https://beef-flame.vercel.app/", logo: "/projects/logos/beef-flame.png" },
+  { slug: "beef-flame", title: "Beefshteks", description: "Интерфейс доставки с быстрым сценарием заказа.", image: "/projects/real/beef-flame-desktop-v2.webp", website: "https://beef-flame.vercel.app/", logo: "/projects/logos/beef-flame.png" },
 ] as const;
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {

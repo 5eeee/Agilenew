@@ -28,7 +28,7 @@ const projects: readonly ProjectSource[] = [
   { slug: "dianafarm", title: "Dianafarm", category: "International", lead: "Международная платформа по ВНЖ, недвижимости и сопровождению бизнеса.", tech: ["Multilingual", "Content system", "Conversion UX", "Next.js"], image: "/projects/real/dianafarm-desktop.webp", mobileImage: "/projects/real/dianafarm-mobile.webp", website: "https://dianafarm.group/", year: "2026", featured: true },
   { slug: "boostmarine", title: "Boost Marine", category: "Service", lead: "Сервисный сайт по ремонту водной техники с понятной навигацией по услугам.", tech: ["Service architecture", "Lead forms", "SEO", "Responsive UX"], image: "/projects/real/boostmarine-desktop.webp", mobileImage: "/projects/real/boostmarine-mobile.webp", website: "https://boostmarine.ru/", year: "2026", featured: true },
   { slug: "royal-horse", title: "Royal Horse", category: "Hospitality", lead: "Премиальный сайт конно-спортивного комплекса с выразительной атмосферой бренда.", tech: ["Art direction", "Responsive UX", "Booking flow", "Next.js"], image: "/projects/real/royal-horse-desktop.webp", mobileImage: "/projects/real/royal-horse-mobile.webp", website: "https://royal-horse-lake.vercel.app/", year: "2026", featured: true },
-  { slug: "beef-flame", title: "Beefshteks", category: "Food delivery", lead: "Интерфейс доставки бургеров с яркой продуктовой подачей и быстрым заказом.", tech: ["Menu UX", "Cart", "Mobile UX", "Next.js"], image: "/projects/real/beef-flame-desktop.webp", mobileImage: "/projects/real/beef-flame-mobile.webp", website: "https://beef-flame.vercel.app/", year: "2026", featured: true },
+  { slug: "beef-flame", title: "Beefshteks", category: "Food delivery", lead: "Интерфейс доставки бургеров с яркой продуктовой подачей и быстрым заказом.", tech: ["Menu UX", "Cart", "Mobile UX", "Next.js"], image: "/projects/real/beef-flame-desktop-v2.webp", mobileImage: "/projects/real/beef-flame-mobile.webp", website: "https://beef-flame.vercel.app/", year: "2026", featured: true },
   { slug: "agile-call", title: "Agile Call", category: "IT-продукт", lead: "Единая система для управления коммуникациями с клиентами.", tech: ["FastAPI", "React", "PostgreSQL", "WebSocket"] },
   { slug: "agile-kpi", title: "Agile KPI", category: "Бизнес-аналитика", lead: "Цифровая панель показателей для команд и руководителей.", tech: ["Next.js", "Python", "BI", "PostgreSQL"] },
   { slug: "corporate-site", title: "Корпоративный сайт", category: "Креатив и web", lead: "Имиджевая цифровая платформа с понятной продуктовой структурой.", tech: ["Next.js", "TypeScript", "CMS", "SEO"] },
@@ -61,6 +61,15 @@ export function getProject(slug: string, locale: Locale): Project | undefined {
   if (!project) return undefined;
   const isRussian = locale === "ru";
   const isArmenian = locale === "hy";
+  const businessBenefits: Record<string, string> = {
+    "13auto": "Сократили путь от поиска запчасти до заказа и сделали подбор понятным для покупателя и менеджера.",
+    prokub: "Ускорили получение расчёта и превратили сложный B2B-прайс в прозрачный сценарий заявки.",
+    profist: "Упростили подбор металлопроката и повысили качество входящих обращений за счёт точной структуры каталога.",
+    dianafarm: "Собрали международные услуги в единую воронку и сделали сложное предложение понятным для клиента.",
+    boostmarine: "Развели услуги по понятным сценариям и сократили путь клиента от проблемы до обращения в сервис.",
+    "royal-horse": "Усилили премиальное позиционирование комплекса и сделали запись на услуги заметнее и проще.",
+    "beef-flame": "Сделали продукт главным героем экрана и сократили путь пользователя от выбора бургера до заказа.",
+  };
   return {
     ...project,
     logo: projectLogos[slug],
@@ -73,7 +82,7 @@ export function getProject(slug: string, locale: Locale): Project | undefined {
     challenge: isRussian ? "Объединить разрозненные процессы в одном понятном инструменте и убрать ручные действия, которые замедляли команду." : isArmenian ? "Միավորել առանձին գործընթացները մեկ հասկանալի գործիքում և նվազեցնել թիմը դանդաղեցնող ձեռքի աշխատանքը։" : "Unify fragmented processes in one clear tool and remove manual work slowing the team down.",
     solution: isRussian ? "Спроектировали путь пользователя, логику ролей и ключевые экраны. Проверили прототип на реальных сценариях и только затем перешли к разработке." : isArmenian ? "Նախագծեցինք օգտատիրոջ ուղին, դերերի տրամաբանությունը և հիմնական էկրանները։ Նախատիպը ստուգեցինք իրական սցենարներով, ապա անցանք մշակմանը։" : "We designed the user journey, roles and key screens, validated the prototype on real scenarios and then moved into development.",
     result: isRussian
-      ? "Команда получила понятный цифровой инструмент, прозрачную логику работы и основу для дальнейшего масштабирования."
+      ? businessBenefits[slug] ?? "Команда получила понятный цифровой инструмент, прозрачную логику работы и основу для дальнейшего масштабирования."
       : isArmenian ? "Թիմը ստացավ պարզ թվային գործիք, աշխատանքի թափանցիկ տրամաբանություն և հետագա մասշտաբավորման հիմք։" : "The team received a clear digital tool, transparent operating logic and a foundation for further scaling.",
     deliverables: isRussian ? ["Диагностика и сценарии", "UX-прототип", "Визуальная система", "Разработка и запуск"] : isArmenian ? ["Ախտորոշում և սցենարներ", "UX նախատիպ", "Տեսողական համակարգ", "Մշակում և գործարկում"] : ["Discovery and journeys", "UX prototype", "Visual system", "Development and launch"],
   };

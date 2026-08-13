@@ -6,7 +6,7 @@ import { useMemo, useState, type CSSProperties } from "react";
 import type { Project } from "@/lib/projects";
 
 const labels = {
-  ru: { all: "Все", caseStudy: "Посмотреть проект", website: "Открыть сайт", result: "Результат" },
+  ru: { all: "Все", caseStudy: "Посмотреть проект", website: "Открыть сайт", result: "Польза бизнесу" },
   en: { all: "All", caseStudy: "View project", website: "Open website", result: "Outcome" },
   ka: { all: "ყველა", caseStudy: "პროექტის ნახვა", website: "საიტის გახსნა", result: "შედეგი" },
   hy: { all: "Բոլորը", caseStudy: "Դիտել նախագիծը", website: "Բացել կայքը", result: "Արդյունք" },
@@ -36,9 +36,9 @@ export function PortfolioGrid({ projects, locale }: { projects: readonly Project
           <div className="portfolio-card-copy">
             <div><span>{project.category}</span><span>{project.year}</span></div>
             <h2><Link href={`/${locale}/projects/${project.slug}`}>{project.title}</Link></h2>
-            <p><span>{t.result}</span>{project.lead}</p>
+            <p><span>{t.result}</span>{project.result}</p>
             <div className="portfolio-card-details" aria-hidden={expanded !== project.slug}>
-              <p>{project.result}</p>
+              <p>{project.description}</p>
               <ul>{project.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
             </div>
             <div className="portfolio-card-actions">

@@ -17,9 +17,9 @@ const labels = {
 
 function ServiceGlyph({ id }: { id: string }) {
   const semanticKinds: Record<string, number> = {
-    consultation: 0, "custom-project": 1, "business-card": 2, landing: 6,
-    corporate: 4, ecommerce: 3, "crm-mvp": 4, "bi-dashboard": 5,
-    "business-audit": 6, "growth-strategy": 1,
+    consultation: 0, "custom-project": 1, "business-card": 2, landing: 3,
+    corporate: 4, ecommerce: 5, "crm-mvp": 6, "bi-dashboard": 7,
+    "business-audit": 8, "growth-strategy": 9,
   };
   const kind = semanticKinds[id] ?? Array.from(id).reduce((sum, letter) => sum + letter.charCodeAt(0), 0) % 7;
   return <svg className="service-glyph" viewBox="0 0 160 110" aria-hidden="true">
@@ -31,6 +31,9 @@ function ServiceGlyph({ id }: { id: string }) {
     {kind === 4 ? <><rect x="28" y="25" width="104" height="62" rx="10"/><path d="M42 43h29M42 53h20M42 70h28M82 40h35M82 50h35M82 60h35M82 70h25"/><circle className="accent" cx="70" cy="70" r="7"/></> : null}
     {kind === 5 ? <><path d="M32 83V55h18v28M61 83V37h18v46M90 83V48h18v35M119 83V25h9v58"/><path className="accent" d="M27 30c25 11 42 6 58-3s29-7 45-17"/></> : null}
     {kind === 6 ? <><circle cx="80" cy="55" r="31"/><circle cx="80" cy="55" r="18"/><path d="M80 16v16M80 78v16M41 55h16M103 55h16"/><path className="accent" d="M80 55l23-18"/></> : null}
+    {kind === 7 ? <><path d="M28 82V29h104v53zM28 45h104M52 45v37M103 45v37"/><path d="M38 65h7M62 57h31M62 68h23M112 58h10M112 69h10"/><path className="accent" d="M62 76l10-8 9 4 12-16"/></> : null}
+    {kind === 8 ? <><circle cx="44" cy="39" r="9"/><circle cx="116" cy="39" r="9"/><circle cx="80" cy="78" r="9"/><path d="M53 39h54M49 47l24 25M111 47 87 72"/><path className="accent" d="m70 35 10 4-10 4M72 67l8 11 8-11"/></> : null}
+    {kind === 9 ? <><path d="M28 76c18-30 33-15 48-37s30-14 56-19"/><circle cx="30" cy="75" r="7"/><circle cx="77" cy="38" r="7"/><circle cx="130" cy="20" r="7"/><path d="M35 87h91"/><path className="accent" d="m111 18 19 2-7 18"/></> : null}
   </svg>;
 }
 
