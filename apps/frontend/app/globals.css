@@ -1489,3 +1489,38 @@ html.signature-scroll-lock{overflow:hidden!important;overscroll-behavior:none}ht
 .pres-final-arrow{grid-column:2!important;grid-row:3!important;position:static!important;justify-self:end!important;align-self:end!important}
 .portfolio-card-details p:first-child{padding:18px 20px;border-left:4px solid var(--red);border-radius:0 14px 14px 0;background:#fff;color:#111;font-size:16px!important;line-height:1.55}
 @media(max-width:760px){.pres-final>div:last-child{display:grid!important;grid-template-columns:1fr!important;grid-template-rows:auto 1fr auto auto!important;min-height:700px!important;padding:42px 20px 24px!important}.pres-final h2{grid-column:1!important;grid-row:1!important}.pres-final p{grid-column:1!important;grid-row:3!important}.pres-final a{grid-column:1!important;grid-row:2!important;align-self:center!important}.pres-final-arrow{grid-column:1!important;grid-row:4!important}.service-commerce-card:before,.service-commerce-card:after{content:none!important}}
+
+/* 2026-08-13 — strict eight-point acceptance pass. */
+.pres-gradient-field{background:#bd0b20 url('/hero-grain-red-v3.webp') center/cover no-repeat!important}
+.pres-gradient-field:after{display:block!important;opacity:.16!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.36'/%3E%3C/svg%3E")!important;mix-blend-mode:soft-light!important}
+.pres-ribbed-glass{display:block!important;position:absolute!important;inset:0!important;opacity:.48!important;mix-blend-mode:soft-light!important;background:repeating-linear-gradient(90deg,rgba(255,255,255,.32) 0 1px,rgba(255,255,255,.08) 2px 7px,rgba(73,0,9,.22) 8px 10px,rgba(255,255,255,.15) 11px 15px)!important;box-shadow:inset 0 0 90px rgba(51,0,8,.18)!important;pointer-events:none}
+.pres-ribbed-glass:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 14px,rgba(255,255,255,.23) 15px,rgba(44,0,7,.18) 17px,transparent 20px);opacity:.42}
+.pres-ribbed-glass:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.15),transparent 35% 72%,rgba(27,0,5,.18));opacity:.7!important}
+.project-site-logo-image{display:block!important;width:min(88%,360px)!important;height:190px!important;object-fit:contain!important;object-position:center!important;opacity:1!important;visibility:visible!important}
+.logo-boostmarine .project-site-logo-image,.logo-beef-flame .project-site-logo-image{width:78%!important;height:72%!important;filter:none!important}
+.pres-work-logo-slide.logo-boostmarine strong,.pres-work-logo-slide.logo-beef-flame strong{margin:68px 0 74px;border-radius:24px;background:#111}
+html.signature-scroll-lock,html.signature-scroll-lock body{overflow:hidden!important;overscroll-behavior:none!important}
+html.signature-scroll-lock body{position:fixed!important;left:0!important;right:0!important;width:100%!important;touch-action:none!important}
+.signature-draw-path{transition-duration:1.7s!important;transition-timing-function:cubic-bezier(.32,0,.14,1)!important;will-change:stroke-dashoffset}
+.signature-active .signature-final-art,.signature-active .signature-ink-overlay{transition-delay:1.52s!important}
+.signature-active .signature-business-letter{transition-duration:.055s!important;transition-delay:calc(1.54s + var(--letter-delay,0s))!important}
+.pres-final>div:last-child{grid-template-columns:minmax(0,1fr) minmax(330px,.34fr)!important;grid-template-rows:auto 1fr auto!important;column-gap:48px!important}
+.pres-final h2{grid-column:1/-1!important;grid-row:1!important;width:100%!important;max-width:none!important;font-size:clamp(76px,9.2vw,150px)!important;line-height:.8!important}
+.pres-final p{grid-column:1!important;grid-row:3!important}
+.pres-final a{grid-column:2!important;grid-row:2!important;align-self:start!important;margin-top:36px!important}
+.pres-final-arrow{grid-column:2!important;grid-row:3!important;justify-self:center!important;width:100px!important;height:100px!important;font-size:76px!important;line-height:1!important}
+.contact-channels .channel-phone{border-color:transparent!important;background:#fff!important;color:#111!important;box-shadow:none!important}
+.contact-channels .channel-phone:hover{border-color:transparent!important;background:#fff!important;transform:none!important}
+.contact-channels .channel-phone small{color:#777!important}.contact-channels .channel-phone em{color:#111!important}.contact-channels .channel-phone .channel-icon{background:#fff!important}
+.portfolio-card{display:block!important;padding:10px!important;background:#efeee9!important}
+.portfolio-card-visual{width:100%!important;height:clamp(330px,34vw,470px)!important;margin:0!important;display:block!important;background:#fff!important;border-radius:22px!important}
+.portfolio-card-logo{position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#fff!important;border-radius:22px!important}
+.portfolio-card-logo img{object-fit:contain!important;padding:clamp(54px,9vw,130px)!important}
+.portfolio-card-copy{padding:0 22px!important}
+.portfolio-card-details{display:block!important;max-height:0!important;opacity:0!important;padding-top:0!important;border:0!important;overflow:hidden!important;visibility:hidden!important;transition:max-height .65s cubic-bezier(.22,1,.36,1),opacity .3s,padding .3s,visibility 0s .65s!important}
+.portfolio-card.expanded .portfolio-card-details{max-height:1800px!important;opacity:1!important;padding-top:24px!important;visibility:visible!important;transition:max-height .75s cubic-bezier(.22,1,.36,1),opacity .3s,padding .3s,visibility 0s!important}
+.portfolio-card-preview{position:relative!important;width:100%!important;height:clamp(360px,45vw,620px)!important;display:block!important;margin-bottom:28px;border-radius:20px;background:#fff;overflow:hidden}
+.portfolio-card-preview img{object-fit:cover!important;object-position:top center!important}
+.portfolio-card-meta{display:flex!important;justify-content:space-between!important;color:var(--red)!important;font-size:10px!important;font-weight:850!important;text-transform:uppercase!important;letter-spacing:.09em!important}
+.portfolio-card h2{margin:24px 0 16px!important}.portfolio-business-benefit{display:grid!important;grid-template-columns:130px 1fr!important;gap:20px!important;margin:0 0 22px!important;padding:22px!important;border-left:4px solid var(--red)!important;background:#fff!important;color:#111!important}.portfolio-business-benefit span{font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}
+@media(max-width:760px){.pres-ribbed-glass{opacity:.38!important}.project-site-logo-image{height:128px!important}.pres-final>div:last-child{grid-template-rows:auto auto auto auto!important;min-height:720px!important}.pres-final h2{grid-column:1!important;grid-row:1!important;font-size:clamp(52px,16vw,76px)!important}.pres-final a{grid-column:1!important;grid-row:2!important;margin-top:22px!important}.pres-final p{grid-column:1!important;grid-row:3!important}.pres-final-arrow{grid-column:1!important;grid-row:4!important;width:78px!important;height:78px!important;font-size:58px!important}.portfolio-card-visual{height:260px!important}.portfolio-card-preview{height:330px!important}.portfolio-card-logo img{padding:55px!important}.portfolio-business-benefit{grid-template-columns:1fr!important;gap:8px!important}}

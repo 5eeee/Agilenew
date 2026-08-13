@@ -29,21 +29,21 @@ export function PortfolioGrid({ projects, locale }: { projects: readonly Project
         {visibleProjects.map((project, index) => <article className={`portfolio-card ${expanded === project.slug ? "expanded" : ""}`} key={project.slug} style={{ "--portfolio-order": index } as CSSProperties}>
           <button className="portfolio-card-visual" type="button" onClick={() => setExpanded((current) => current === project.slug ? null : project.slug)} aria-expanded={expanded === project.slug} aria-label={`${t.caseStudy}: ${project.title}`}>
             <span className={`portfolio-card-logo logo-${project.slug}`}>{project.logo ? <Image src={project.logo} alt={`${project.title} logo`} fill sizes="220px" /> : project.title}</span>
-            <span className="portfolio-card-preview">{project.image ? <Image src={project.image} alt={`${project.title} — interface preview`} fill sizes="(max-width: 760px) 92vw, (max-width: 1100px) 50vw, 40vw" /> : null}</span>
             <span className="portfolio-card-index">{String(index + 1).padStart(2, "0")}</span>
             <span className="portfolio-card-open" aria-hidden="true">{expanded === project.slug ? "−" : "+"}</span>
           </button>
           <div className="portfolio-card-copy">
-            <div><span>{project.category}</span><span>{project.year}</span></div>
-            <h2><Link href={`/${locale}/projects/${project.slug}`}>{project.title}</Link></h2>
-            <p><span>{t.result}</span>{project.result}</p>
             <div className="portfolio-card-details" aria-hidden={expanded !== project.slug}>
+              <div className="portfolio-card-preview">{project.image ? <Image src={project.image} alt={`${project.title} — interface preview`} fill sizes="(max-width: 760px) 92vw, 70vw" /> : null}</div>
+              <div className="portfolio-card-meta"><span>{project.category}</span><span>{project.year}</span></div>
+              <h2><Link href={`/${locale}/projects/${project.slug}`}>{project.title}</Link></h2>
+              <p className="portfolio-business-benefit"><span>{t.result}</span>{project.result}</p>
               <p>{project.description}</p>
               <ul>{project.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
-            </div>
-            <div className="portfolio-card-actions">
-              <Link className="portfolio-case-button" href={`/${locale}/projects/${project.slug}`}>{t.caseStudy}<i aria-hidden="true">→</i></Link>
-              {project.website ? <a className="portfolio-site-button" href={project.website} target="_blank" rel="noreferrer">{t.website}<i aria-hidden="true">↗</i></a> : null}
+              <div className="portfolio-card-actions">
+                <Link className="portfolio-case-button" href={`/${locale}/projects/${project.slug}`}>{t.caseStudy}<i aria-hidden="true">→</i></Link>
+                {project.website ? <a className="portfolio-site-button" href={project.website} target="_blank" rel="noreferrer">{t.website}<i aria-hidden="true">↗</i></a> : null}
+              </div>
             </div>
           </div>
         </article>)}

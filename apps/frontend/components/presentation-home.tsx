@@ -46,6 +46,7 @@ export function PresentationHome(props: PresentationHomeProps) {
   const spheresRef = useRef<HTMLElement>(null);
   const workRef = useRef<HTMLElement>(null);
   const signatureCompletedRef = useRef(false);
+  const signatureLockRef = useRef(false);
 
   useEffect(() => {
     const scene = heroSceneRef.current;
@@ -55,6 +56,7 @@ export function PresentationHome(props: PresentationHomeProps) {
     let lastProgress = -1;
     const updateHero = () => {
       frame = 0;
+      if (signatureLockRef.current) return;
       const bounds = scene.getBoundingClientRect();
       const travel = Math.max(scene.offsetHeight - window.innerHeight, 1);
       const progress = Math.min(1, Math.max(0, -bounds.top / travel));
@@ -73,22 +75,28 @@ export function PresentationHome(props: PresentationHomeProps) {
       stage.classList.toggle("signature-active", signatureActive);
       if (signatureActive && !signatureCompletedRef.current) {
         signatureCompletedRef.current = true;
-        const scrollY = window.scrollY;
+        signatureLockRef.current = true;
+        const sceneTop = window.scrollY + bounds.top;
+        const lockY = Math.round(sceneTop + travel * 0.7);
+        window.scrollTo({ top: lockY, behavior: "auto" });
         const blockScroll = (event: Event) => event.preventDefault();
         const blockKeys = (event: KeyboardEvent) => {
           if (["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "].includes(event.key)) event.preventDefault();
         };
+        document.body.style.top = `-${lockY}px`;
         document.documentElement.classList.add("signature-scroll-lock");
         window.addEventListener("wheel", blockScroll, { passive: false });
         window.addEventListener("touchmove", blockScroll, { passive: false });
         window.addEventListener("keydown", blockKeys, { passive: false });
         window.setTimeout(() => {
+          signatureLockRef.current = false;
           document.documentElement.classList.remove("signature-scroll-lock");
           window.removeEventListener("wheel", blockScroll);
           window.removeEventListener("touchmove", blockScroll);
           window.removeEventListener("keydown", blockKeys);
-          window.scrollTo({ top: scrollY, behavior: "auto" });
-        }, 2500);
+          document.body.style.top = "";
+          window.scrollTo({ top: lockY, behavior: "auto" });
+        }, 2150);
       }
     };
     const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
@@ -192,7 +200,7 @@ export function PresentationHome(props: PresentationHomeProps) {
         <div className="pres-work-showcase-grid">
           <div className="pres-work-logo-window" aria-label="Проекты Agile Business">
             <div className="pres-work-logo-track" style={{ "--project-index": projectIndex } as CSSProperties}>
-              {props.projects.map((project, index) => <div className={`pres-work-logo-slide logo-${project.slug}`} key={project.slug}><span>0{index + 1}</span><strong>{project.logo ? <i className="project-site-logo" style={{ backgroundImage: `url("${project.logo}")` }} aria-label={project.title} /> : project.title}</strong></div>)}
+              {props.projects.map((project, index) => <div className={`pres-work-logo-slide logo-${project.slug}`} key={project.slug}><span>0{index + 1}</span><strong>{project.logo ? <Image className="project-site-logo-image" src={project.logo} alt={`${project.title} logo`} width={360} height={190} /> : project.title}</strong></div>)}
             </div>
           </div>
           <div className="pres-work-project-window">
