@@ -11,13 +11,13 @@ const heroCopy = {
 } as const;
 
 const projects = [
-  { slug: "13auto", title: "13AUTO", description: "Каталог автозапчастей с точным подбором и личным кабинетом.", image: "/projects/real/13auto-desktop.webp", website: "https://13auto-storefront.vercel.app/", logo: "/projects/logos/13auto.svg" },
-  { slug: "prokub", title: "Прокуб", description: "B2B-платформа бетона с быстрым расчётом и заявками.", image: "/projects/real/prokub-desktop.webp", website: "https://prokub-rf.vercel.app/", logo: "/projects/logos/prokub.png" },
-  { slug: "profist", title: "Профист", description: "Каталог металлопроката с подбором под бизнес-задачу.", image: "/projects/real/profist-desktop.webp", website: "https://profist-rf.vercel.app/", logo: "/projects/logos/profist.png" },
-  { slug: "dianafarm", title: "Dianafarm", description: "Международная платформа для недвижимости и сопровождения бизнеса.", image: "/projects/real/dianafarm-desktop.webp", website: "https://dianafarm.group/", logo: "/projects/logos/dianafarm.svg" },
-  { slug: "boostmarine", title: "Boost Marine", description: "Сервисный сайт по ремонту водной техники.", image: "/projects/real/boostmarine-desktop.webp", website: "https://boostmarine.ru/", logo: "/projects/logos/boostmarine.png" },
-  { slug: "royal-horse", title: "Royal Horse", description: "Премиальная цифровая среда конно-спортивного комплекса.", image: "/projects/real/royal-horse-desktop.webp", website: "https://royal-horse-lake.vercel.app/", logo: "/projects/logos/royal-horse.png" },
-  { slug: "beef-flame", title: "Beefshteks", description: "Интерфейс доставки с быстрым сценарием заказа.", image: "/projects/real/beef-flame-desktop-v2.webp", website: "https://beef-flame.vercel.app/", logo: "/projects/logos/beef-flame.png" },
+  { slug: "13auto", title: "13AUTO", description: "Каталог автозапчастей с точным подбором и личным кабинетом.", image: "/projects/real/13auto-desktop.webp", mobileImage: "/projects/real/13auto-mobile.webp", website: "https://13auto-storefront.vercel.app/", logo: "/projects/logos/13auto.svg" },
+  { slug: "prokub", title: "Прокуб", description: "B2B-платформа бетона с быстрым расчётом и заявками.", image: "/projects/real/prokub-desktop.webp", mobileImage: "/projects/real/prokub-mobile.webp", website: "https://prokub-rf.vercel.app/", logo: "/projects/logos/prokub.png" },
+  { slug: "profist", title: "Профист", description: "Каталог металлопроката с подбором под бизнес-задачу.", image: "/projects/real/profist-desktop.webp", mobileImage: "/projects/real/profist-mobile.webp", website: "https://profist-rf.vercel.app/", logo: "/projects/logos/profist.png" },
+  { slug: "dianafarm", title: "Dianafarm", description: "Международная платформа для недвижимости и сопровождения бизнеса.", image: "/projects/real/dianafarm-desktop.webp", mobileImage: "/projects/real/dianafarm-mobile.webp", website: "https://dianafarm.group/", logo: "/projects/logos/dianafarm.svg" },
+  { slug: "boostmarine", title: "Boost Marine", description: "Сервисный сайт по ремонту водной техники.", image: "/projects/real/boostmarine-desktop.webp", mobileImage: "/projects/real/boostmarine-mobile.webp", website: "https://boostmarine.ru/", logo: "/projects/logos/boostmarine.png" },
+  { slug: "royal-horse", title: "Royal Horse", description: "Премиальная цифровая среда конно-спортивного комплекса.", image: "/projects/real/royal-horse-desktop.webp", mobileImage: "/projects/real/royal-horse-mobile.webp", website: "https://royal-horse-lake.vercel.app/", logo: "/projects/logos/royal-horse.png" },
+  { slug: "beef-flame", title: "Beefshteks", description: "Интерфейс доставки с быстрым сценарием заказа.", image: "/projects/real/beef-flame-desktop-v2.webp", mobileImage: "/projects/real/beef-flame-mobile.webp", website: "https://beef-flame.vercel.app/", logo: "/projects/logos/beef-flame.png" },
 ] as const;
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {

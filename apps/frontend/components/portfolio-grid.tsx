@@ -34,7 +34,10 @@ export function PortfolioGrid({ projects, locale }: { projects: readonly Project
           </button>
           <div className="portfolio-card-copy">
             <div className="portfolio-card-details" aria-hidden={expanded !== project.slug}>
-              <div className="portfolio-card-preview">{project.image ? <Image src={project.image} alt={`${project.title} — interface preview`} fill sizes="(max-width: 760px) 92vw, 70vw" /> : null}</div>
+              <div className="portfolio-card-preview">
+                {project.image ? <Image className="portfolio-shot portfolio-shot-desktop" src={project.image} alt={`${project.title} — desktop interface`} fill sizes="(max-width: 760px) 1px, 70vw" /> : null}
+                {project.mobileImage ? <Image className="portfolio-shot portfolio-shot-mobile" src={project.mobileImage} alt={`${project.title} — mobile interface`} fill sizes="(max-width: 760px) 92vw, 1px" /> : null}
+              </div>
               <div className="portfolio-card-meta"><span>{project.category}</span><span>{project.year}</span></div>
               <h2><Link href={`/${locale}/projects/${project.slug}`}>{project.title}</Link></h2>
               <p className="portfolio-business-benefit"><span>{t.result}</span>{project.result}</p>

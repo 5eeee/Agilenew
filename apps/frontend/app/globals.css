@@ -1560,3 +1560,20 @@ html.signature-scroll-lock body{position:fixed!important;left:0!important;right:
   .pres-services-grid,.pres-process ol,.service-commerce-catalog-only .service-catalog-grid,.about-capability-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
   .contact-channels,.footer-socials{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 }
+
+/* Project media: full desktop compositions and dedicated mobile captures. */
+.project-shot-mobile,.portfolio-shot-mobile{display:none!important}
+.pres-work-project-frame>.project-shot-desktop,.portfolio-card-preview>.portfolio-shot-desktop{object-fit:contain!important;object-position:center top!important;background:#f2f1ed}
+.pres-work-logo-slide:before,.pres-work-logo-slide:after{content:none!important;display:none!important}
+.project-site-logo-image{max-width:82%!important;height:clamp(110px,13vw,180px)!important}
+.logo-13auto .project-site-logo-image{max-width:76%!important}.logo-prokub .project-site-logo-image{max-width:62%!important}.logo-profist .project-site-logo-image{max-width:58%!important}.logo-dianafarm .project-site-logo-image{max-width:72%!important}.logo-royal-horse .project-site-logo-image{max-width:86%!important}
+.portfolio-card-logo img{object-fit:contain!important}
+@media(max-width:760px){
+  .project-shot-desktop,.portfolio-shot-desktop{display:none!important}
+  .project-shot-mobile,.portfolio-shot-mobile{display:block!important;object-fit:contain!important;object-position:center top!important;background:#f2f1ed}
+  .pres-work-project-window{aspect-ratio:4/5!important;height:auto!important;min-height:0!important}
+  .pres-work-project-frame{background:#f2f1ed!important}
+  .project-site-logo-image{width:76%!important;max-width:280px!important;height:118px!important}
+  .portfolio-card-preview{aspect-ratio:4/5!important;height:auto!important;background:#f2f1ed!important}
+  .portfolio-card-logo img{padding:28px 54px!important}
+}

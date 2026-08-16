@@ -8,7 +8,7 @@ import { SignatureLogo } from "@/components/signature-logo";
 
 type Service = readonly [string, string, string];
 type Step = readonly [string, string];
-type Project = { slug: string; title: string; description: string; image: string; website: string; logo?: string };
+type Project = { slug: string; title: string; description: string; image: string; mobileImage?: string; website: string; logo?: string };
 
 type PresentationHomeProps = {
   locale: string;
@@ -96,7 +96,7 @@ export function PresentationHome(props: PresentationHomeProps) {
           window.removeEventListener("keydown", blockKeys);
           document.body.style.top = "";
           window.scrollTo({ top: lockY, behavior: "auto" });
-        }, 2150);
+        }, 2350);
       }
     };
     const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };
@@ -205,7 +205,8 @@ export function PresentationHome(props: PresentationHomeProps) {
           </div>
           <div className="pres-work-project-window">
             <Link className="pres-work-project-frame" href={`/${props.locale}/projects/${activeProject.slug}`} key={activeProject.slug}>
-              <Image src={activeProject.image} alt={`${activeProject.title} interface`} fill sizes="(max-width: 760px) 96vw, 66vw" />
+              <Image className="project-shot project-shot-desktop" src={activeProject.image} alt={`${activeProject.title} desktop interface`} fill sizes="(max-width: 760px) 1px, 66vw" />
+              {activeProject.mobileImage ? <Image className="project-shot project-shot-mobile" src={activeProject.mobileImage} alt={`${activeProject.title} mobile interface`} fill sizes="(max-width: 760px) 96vw, 1px" /> : null}
             </Link>
           </div>
           <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
