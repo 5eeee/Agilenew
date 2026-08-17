@@ -28,8 +28,10 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
   const languageRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const routeWithoutLocale = pathname.replace(/^\/(ru|en|ka|hy|bg)(?=\/|$)/, "") || "/";
+  const projectsLabel = locale === "ru" ? "Наши работы" : locale === "ka" ? "პროექტები" : locale === "hy" ? "Նախագծեր" : locale === "bg" ? "Проекти" : "Projects";
   const links = [
     ["services", nav.services],
+    ["projects", projectsLabel],
     ["about", nav.about],
     ["calculator", nav.calculator],
     ["contacts", nav.contacts],

@@ -7,33 +7,23 @@
 html,body{max-width:100%;overflow-x:clip}
 img,svg,video{max-width:100%}
 
-/* Hero material: warm red grain with restrained vertical fluting. The lines
-   remain visible without turning the background into a striped wallpaper. */
+/* Restore the approved hero background while keeping the corrected sticky
+   scene and signature timing below. */
 .pres-gradient-field{
-  background:
-    radial-gradient(ellipse 72% 48% at 18% 2%,rgba(255,225,218,.74) 0%,rgba(255,151,145,.34) 34%,transparent 68%),
-    radial-gradient(ellipse 58% 52% at 82% 28%,rgba(255,78,85,.42) 0%,transparent 72%),
-    radial-gradient(ellipse 70% 45% at 48% 68%,rgba(122,0,18,.34) 0%,transparent 74%),
-    linear-gradient(180deg,#ff746b 0%,#ef293b 35%,#b60724 64%,#3b0010 100%)!important;
+  background:radial-gradient(ellipse 62% 52% at 18% 8%,rgba(255,190,178,.72),transparent 66%),radial-gradient(ellipse 55% 48% at 82% 32%,rgba(255,64,72,.48),transparent 72%),linear-gradient(158deg,#ff766b 0%,#ed2538 40%,#a30720 71%,#290008 100%)!important;
   filter:none!important;
 }
 .pres-gradient-field:before{
-  content:""!important;display:block!important;position:absolute!important;inset:-10%!important;
-  background:radial-gradient(ellipse 48% 34% at 28% 22%,rgba(255,255,255,.13),transparent 72%),radial-gradient(ellipse 46% 38% at 72% 54%,rgba(255,22,49,.16),transparent 74%)!important;
-  filter:none!important;animation:heroLightSpots 18s ease-in-out infinite alternate!important;pointer-events:none
+  content:""!important;display:block!important;position:absolute!important;inset:-8%!important;
+  background:radial-gradient(circle at 38% 26%,rgba(255,255,255,.18),transparent 31%),radial-gradient(circle at 70% 58%,rgba(116,0,15,.22),transparent 38%)!important;
+  filter:blur(42px)!important;animation:heroLightSpots 18s ease-in-out infinite alternate!important;pointer-events:none
 }
 .pres-gradient-field:after{
   content:""!important;display:block!important;position:absolute!important;inset:0!important;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")!important;
-  background-size:128px 128px!important;opacity:.18!important;mix-blend-mode:soft-light!important
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E")!important;
+  background-size:160px 160px!important;opacity:.13!important;mix-blend-mode:soft-light!important
 }
-.pres-ribbed-glass{
-  display:block!important;position:absolute!important;inset:0!important;opacity:.36!important;mix-blend-mode:soft-light!important;
-  background:repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1px,rgba(255,255,255,.04) 2px 10px,rgba(83,0,13,.15) 13px 15px,transparent 17px 31px)!important;
-  box-shadow:inset 0 0 120px rgba(47,0,10,.12)!important;pointer-events:none
-}
-.pres-ribbed-glass:before{content:""!important;display:block!important;position:absolute!important;inset:0!important;background:repeating-linear-gradient(90deg,transparent 0 28px,rgba(255,255,255,.1) 29px,rgba(41,0,8,.08) 31px,transparent 33px 62px)!important;opacity:.65!important}
-.pres-ribbed-glass:after{content:""!important;display:block!important;position:absolute!important;inset:0!important;background:linear-gradient(180deg,rgba(255,255,255,.1),transparent 34% 74%,rgba(30,0,8,.2))!important;opacity:.72!important}
+.pres-ribbed-glass{display:none!important}
 
 /* The navigation mark is always static. The handwritten animation belongs to
    the white hero scene only. */
@@ -57,13 +47,13 @@ html.signature-scroll-lock body{position:static!important;top:auto!important;lef
 
 /* Project showcase: all frames stay mounted and preloaded. Switching never
    exposes an empty window. Desktop and mobile use their own captures. */
-.pres-work-showcase-grid{width:calc(100% - 16px)!important;max-width:none!important;display:grid!important;grid-template-columns:minmax(300px,.52fr) minmax(0,1.48fr)!important;grid-template-rows:auto 72px!important;align-items:stretch!important;gap:8px!important;margin:8px!important}
+.pres-work-showcase-grid{width:calc(100% - 16px)!important;max-width:none!important;display:grid!important;grid-template-columns:minmax(390px,.72fr) minmax(0,1.28fr)!important;grid-template-rows:auto 72px!important;align-items:stretch!important;gap:8px!important;margin:8px!important}
 .pres-work-logo-window{grid-column:1!important;grid-row:1/3!important;width:100%!important;max-width:none!important;height:auto!important;min-height:0!important;margin:0!important;border:0!important;border-radius:28px!important;background:#fff!important;box-shadow:inset 0 0 0 1px rgba(17,17,17,.08)!important}
 .pres-work-logo-slide{padding:28px!important;border:0!important;background:#fff!important;align-items:center!important;justify-content:center!important;text-align:center!important}
 .pres-work-logo-slide:before,.pres-work-logo-slide:after,.pres-work-logo-slide strong:after,.pres-work-progress{content:none!important;display:none!important}
 .pres-work-logo-slide>span{left:24px!important;top:22px!important;padding:0!important;border:0!important;background:transparent!important}
-.pres-work-logo-slide strong,.pres-work-logo-slide.logo-beef-flame strong,.pres-work-logo-slide.logo-boostmarine strong{width:100%!important;height:150px!important;min-height:150px!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0!important;border-radius:0!important;background:transparent!important}
-.project-site-logo-image,.logo-13auto .project-site-logo-image,.logo-prokub .project-site-logo-image,.logo-profist .project-site-logo-image,.logo-dianafarm .project-site-logo-image,.logo-royal-horse .project-site-logo-image,.logo-boostmarine .project-site-logo-image,.logo-beef-flame .project-site-logo-image{width:min(72%,250px)!important;max-width:250px!important;height:130px!important;object-fit:contain!important;object-position:center!important;filter:none!important}
+.pres-work-logo-slide strong,.pres-work-logo-slide.logo-beef-flame strong,.pres-work-logo-slide.logo-boostmarine strong{width:100%!important;height:190px!important;min-height:190px!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0!important;border-radius:0!important;background:transparent!important}
+.project-site-logo-image,.logo-13auto .project-site-logo-image,.logo-prokub .project-site-logo-image,.logo-profist .project-site-logo-image,.logo-dianafarm .project-site-logo-image,.logo-royal-horse .project-site-logo-image,.logo-boostmarine .project-site-logo-image,.logo-beef-flame .project-site-logo-image{width:72%!important;max-width:300px!important;height:150px!important;object-fit:contain!important;object-position:center!important;filter:none!important}
 .logo-boostmarine .project-site-logo-image,.logo-beef-flame .project-site-logo-image{filter:invert(1)!important}
 
 .pres-work-project-window{position:relative!important;grid-column:2!important;grid-row:1!important;width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:16/10!important;border:0!important;border-radius:28px!important;background:#111!important;overflow:hidden!important}
@@ -107,7 +97,7 @@ html.signature-scroll-lock body{position:static!important;top:auto!important;lef
   .site-header{padding:6px 0!important}.header-inner{width:calc(100vw - 12px)!important;height:58px!important;padding:0 6px 0 10px!important}.site-header .brand-logo{width:46px!important;height:36px!important}
   .presentation-home{width:100%!important;padding:0 4px 34px!important}.presentation-shell{width:100%!important;gap:8px!important}.pres-block{width:100%!important;border-radius:22px!important;padding:5px!important}.pres-hero{width:calc(100% + 8px)!important;margin-left:-4px!important}.pres-section-bar{min-height:58px!important;padding:10px 14px!important;gap:10px!important}.pres-section-bar span:first-child{font-size:14px!important}.pres-section-bar span:last-child{max-width:47%!important;font-size:8px!important;line-height:1.25!important;white-space:normal!important;text-align:right!important}
 
-  .pres-hero{height:250svh!important;padding:0!important}.pres-hero-stage{top:70px!important;height:calc(100svh - 70px)!important}.pres-hero-copy{left:18px!important;right:18px!important;bottom:112px!important;top:auto!important;max-width:calc(100vw - 36px)!important}.pres-hero h1{font-size:clamp(38px,11.8vw,52px)!important;line-height:.92!important;letter-spacing:-.05em!important;white-space:normal!important}.pres-hero-copy>p{max-width:330px!important;margin:15px auto 0!important;font-size:11px!important;line-height:1.4!important}.pres-hero-footer{left:18px!important;right:18px!important;bottom:18px!important;justify-content:center!important;overflow:visible!important}.pres-hero-footer span{padding:7px 10px!important;font-size:8px!important}.signature-logo{width:min(94vw,520px)!important;height:auto!important}.pres-ribbed-glass{opacity:.31!important}
+  .pres-hero{height:250svh!important;padding:0!important}.pres-hero-stage{top:70px!important;height:calc(100svh - 70px)!important}.pres-hero-copy{left:18px!important;right:18px!important;bottom:112px!important;top:auto!important;max-width:calc(100vw - 36px)!important}.pres-hero h1{font-size:clamp(38px,11.8vw,52px)!important;line-height:.92!important;letter-spacing:-.05em!important;white-space:normal!important}.pres-hero-copy>p{max-width:330px!important;margin:15px auto 0!important;font-size:11px!important;line-height:1.4!important}.pres-hero-footer{left:18px!important;right:18px!important;bottom:18px!important;justify-content:center!important;overflow:visible!important}.pres-hero-footer span{padding:7px 10px!important;font-size:8px!important}.signature-logo{width:min(94vw,520px)!important;height:auto!important}
 
   .pres-spheres-stage{min-height:500px!important;padding:28px 14px 22px!important}.pres-spheres-stage>p{max-width:72%!important;font-size:11px!important;line-height:1.4!important}.pres-spheres-stage h2{font-size:clamp(43px,13vw,59px)!important;line-height:.9!important}.pres-spheres-stage h3{font-size:clamp(22px,6.8vw,30px)!important;line-height:1!important}
   .pres-services-layout{display:block!important}.pres-services-layout>header{min-height:auto!important;padding:24px 16px 26px!important}.pres-services-layout>header h2{font-size:clamp(40px,12vw,54px)!important;line-height:.9!important}.pres-services-layout>header p{font-size:13px!important;line-height:1.5!important}.pres-services-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important}.pres-services-grid article{min-height:270px!important;padding:15px!important;border-radius:18px!important}.pres-services-grid article h3{margin-top:auto!important;font-size:clamp(20px,6vw,25px)!important;line-height:1!important}.pres-services-grid article p{font-size:11px!important;line-height:1.42!important}.pres-services-grid article a{font-size:11px!important}
