@@ -51,9 +51,26 @@ export function PresentationHome(props: PresentationHomeProps) {
   useEffect(() => {
     const scene = heroSceneRef.current;
     const stage = heroStageRef.current;
-    if (!scene || !stage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!scene || !stage) return;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let frame = 0;
     let lastProgress = -1;
+    let unlockTimer = 0;
+    let signatureStartTimer = 0;
+    let lockedY = 0;
+    const blockScroll = (event: Event) => event.preventDefault();
+    const blockKeys = (event: KeyboardEvent) => {
+      if (["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "].includes(event.key)) event.preventDefault();
+    };
+    const unlockSignature = () => {
+      if (!signatureLockRef.current) return;
+      signatureLockRef.current = false;
+      document.documentElement.classList.remove("signature-scroll-lock");
+      window.removeEventListener("wheel", blockScroll, true);
+      window.removeEventListener("touchmove", blockScroll, true);
+      window.removeEventListener("keydown", blockKeys, true);
+      window.scrollTo({ top: lockedY, behavior: "auto" });
+    };
     const updateHero = () => {
       frame = 0;
       if (signatureLockRef.current) return;
@@ -71,36 +88,27 @@ export function PresentationHome(props: PresentationHomeProps) {
       stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? 0.72 : 1.05)}`);
       stage.style.setProperty("--hero-copy-opacity", `${1 - whiteProgress}`);
       stage.style.setProperty("--hero-white-opacity", `${whiteProgress}`);
-      const signatureActive = progress >= 0.7;
+      const signatureActive = progress >= 0.68;
       if (signatureActive && !signatureCompletedRef.current) {
         signatureCompletedRef.current = true;
-        signatureLockRef.current = true;
         const sceneTop = window.scrollY + bounds.top;
-        const lockY = Math.round(sceneTop + travel * 0.7);
-        window.scrollTo({ top: lockY, behavior: "auto" });
-        const blockScroll = (event: Event) => event.preventDefault();
-        const blockKeys = (event: KeyboardEvent) => {
-          if (["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "].includes(event.key)) event.preventDefault();
-        };
-        document.body.style.top = `-${lockY}px`;
-        document.documentElement.classList.add("signature-scroll-lock");
-        window.addEventListener("wheel", blockScroll, { passive: false, capture: true });
-        window.addEventListener("touchmove", blockScroll, { passive: false, capture: true });
-        window.addEventListener("keydown", blockKeys, { capture: true });
+        lockedY = Math.round(sceneTop + travel * 0.68);
+        stage.style.setProperty("--hero-copy-opacity", "0");
+        stage.style.setProperty("--hero-white-opacity", "1");
+        window.scrollTo({ top: lockedY, behavior: "auto" });
+        if (!reducedMotion) {
+          signatureLockRef.current = true;
+          document.documentElement.classList.add("signature-scroll-lock");
+          window.addEventListener("wheel", blockScroll, { passive: false, capture: true });
+          window.addEventListener("touchmove", blockScroll, { passive: false, capture: true });
+          window.addEventListener("keydown", blockKeys, { capture: true });
+        }
         // Restart from a guaranteed empty frame. This avoids the SVG appearing
         // already drawn when the browser restores scroll or skips several frames.
         stage.classList.remove("signature-active");
         void stage.offsetWidth;
-        window.requestAnimationFrame(() => window.requestAnimationFrame(() => stage.classList.add("signature-active")));
-        window.setTimeout(() => {
-          signatureLockRef.current = false;
-          document.documentElement.classList.remove("signature-scroll-lock");
-          window.removeEventListener("wheel", blockScroll, true);
-          window.removeEventListener("touchmove", blockScroll, true);
-          window.removeEventListener("keydown", blockKeys, true);
-          document.body.style.top = "";
-          window.scrollTo({ top: lockY, behavior: "auto" });
-        }, 1500);
+        signatureStartTimer = window.setTimeout(() => stage.classList.add("signature-active"), reducedMotion ? 0 : 32);
+        if (!reducedMotion) unlockTimer = window.setTimeout(unlockSignature, 1280);
       } else if (!signatureCompletedRef.current) {
         stage.classList.remove("signature-active");
       }
@@ -113,8 +121,9 @@ export function PresentationHome(props: PresentationHomeProps) {
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
       if (frame) window.cancelAnimationFrame(frame);
-      document.documentElement.classList.remove("signature-scroll-lock");
-      document.body.style.top = "";
+      if (unlockTimer) window.clearTimeout(unlockTimer);
+      if (signatureStartTimer) window.clearTimeout(signatureStartTimer);
+      unlockSignature();
     };
   }, []);
 
@@ -210,10 +219,10 @@ export function PresentationHome(props: PresentationHomeProps) {
             </div>
           </div>
           <div className="pres-work-project-window">
-            <Link className="pres-work-project-frame" href={`/${props.locale}/projects/${activeProject.slug}`} key={activeProject.slug}>
-              <Image className="project-shot project-shot-desktop" src={activeProject.image} alt={`${activeProject.title} desktop interface`} fill sizes="(max-width: 760px) 1px, 66vw" priority />
-              {activeProject.mobileImage ? <Image className="project-shot project-shot-mobile" src={activeProject.mobileImage} alt={`${activeProject.title} mobile interface`} fill sizes="(max-width: 760px) 96vw, 1px" priority /> : null}
-            </Link>
+            {props.projects.map((project, index) => <Link className={`pres-work-project-frame ${index === projectIndex ? "is-active" : ""}`} href={`/${props.locale}/projects/${project.slug}`} aria-hidden={index !== projectIndex} tabIndex={index === projectIndex ? 0 : -1} key={project.slug}>
+              <Image className="project-shot project-shot-desktop" src={project.image} alt={`${project.title} desktop interface`} fill sizes="(max-width: 760px) 1px, 66vw" priority={index === 0} loading={index === 0 ? undefined : "eager"} />
+              {project.mobileImage ? <Image className="project-shot project-shot-mobile" src={project.mobileImage} alt={`${project.title} mobile interface`} fill sizes="(max-width: 760px) 96vw, 1px" priority={index === 0} loading={index === 0 ? undefined : "eager"} /> : null}
+            </Link>)}
           </div>
           <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
         </div>

@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import "../globals.css";
+import "../responsive-overrides.css";
 
 const siteUrl = "https://agile-business-pro.com";
 
