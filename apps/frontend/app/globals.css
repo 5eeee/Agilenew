@@ -1605,3 +1605,23 @@ html.signature-scroll-lock body{position:fixed!important;left:0!important;right:
   .portfolio-card-preview{aspect-ratio:4/5!important;height:auto!important;background:#f2f1ed!important}
   .portfolio-card-logo img{padding:28px 54px!important}
 }
+
+/* Final work/CTA cleanup — intentionally last in the cascade. */
+.pres-work-logo-window{background:#fff!important;box-shadow:none!important}
+.pres-work-logo-slide{padding:32px!important;border:0!important;align-items:center!important}
+.pres-work-logo-slide:before,.pres-work-logo-slide:after,.pres-work-logo-slide strong:after,.pres-work-progress{content:none!important;display:none!important}
+.pres-work-logo-slide>span{left:28px!important;top:26px!important;padding:0!important;border:0!important;background:transparent!important}
+.pres-work-logo-slide strong,.pres-work-logo-slide.logo-beef-flame strong,.pres-work-logo-slide.logo-boostmarine strong{width:100%!important;height:190px!important;min-height:190px!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0!important;border-radius:0!important;background:transparent!important}
+.project-site-logo-image,.logo-13auto .project-site-logo-image,.logo-prokub .project-site-logo-image,.logo-profist .project-site-logo-image,.logo-dianafarm .project-site-logo-image,.logo-royal-horse .project-site-logo-image,.logo-boostmarine .project-site-logo-image,.logo-beef-flame .project-site-logo-image{width:72%!important;max-width:300px!important;height:150px!important;object-fit:contain!important;object-position:center!important}
+.logo-boostmarine .project-site-logo-image,.logo-beef-flame .project-site-logo-image{filter:invert(1)!important}
+.pres-final>div:last-child{min-height:500px!important;padding-top:46px!important;padding-bottom:32px!important}
+.pres-final a{width:min(440px,100%)!important;min-height:88px!important;font-size:23px!important;transform:translate(-64px,42px)}
+.pres-final-arrow{transform:translate(-64px,12px)}
+@media(max-width:760px){
+  .pres-work-logo-slide{padding:20px!important}.pres-work-logo-slide>span{left:20px!important;top:18px!important}
+  .pres-work-logo-slide strong,.pres-work-logo-slide.logo-beef-flame strong,.pres-work-logo-slide.logo-boostmarine strong{height:130px!important;min-height:130px!important}
+  .project-site-logo-image,.logo-13auto .project-site-logo-image,.logo-prokub .project-site-logo-image,.logo-profist .project-site-logo-image,.logo-dianafarm .project-site-logo-image,.logo-royal-horse .project-site-logo-image,.logo-boostmarine .project-site-logo-image,.logo-beef-flame .project-site-logo-image{width:68%!important;max-width:250px!important;height:112px!important}
+  .pres-final>div:last-child{min-height:560px!important;padding-top:30px!important;padding-bottom:20px!important}
+  .pres-final a{min-height:68px!important;font-size:17px!important;transform:none!important}
+  .pres-final-arrow{transform:none!important}
+}
