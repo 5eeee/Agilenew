@@ -72,7 +72,6 @@ export function PresentationHome(props: PresentationHomeProps) {
       stage.style.setProperty("--hero-copy-opacity", `${1 - whiteProgress}`);
       stage.style.setProperty("--hero-white-opacity", `${whiteProgress}`);
       const signatureActive = progress >= 0.7;
-      stage.classList.toggle("signature-active", signatureActive);
       if (signatureActive && !signatureCompletedRef.current) {
         signatureCompletedRef.current = true;
         signatureLockRef.current = true;
@@ -85,18 +84,25 @@ export function PresentationHome(props: PresentationHomeProps) {
         };
         document.body.style.top = `-${lockY}px`;
         document.documentElement.classList.add("signature-scroll-lock");
-        window.addEventListener("wheel", blockScroll, { passive: false });
-        window.addEventListener("touchmove", blockScroll, { passive: false });
-        window.addEventListener("keydown", blockKeys, { passive: false });
+        window.addEventListener("wheel", blockScroll, { passive: false, capture: true });
+        window.addEventListener("touchmove", blockScroll, { passive: false, capture: true });
+        window.addEventListener("keydown", blockKeys, { capture: true });
+        // Restart from a guaranteed empty frame. This avoids the SVG appearing
+        // already drawn when the browser restores scroll or skips several frames.
+        stage.classList.remove("signature-active");
+        void stage.offsetWidth;
+        window.requestAnimationFrame(() => window.requestAnimationFrame(() => stage.classList.add("signature-active")));
         window.setTimeout(() => {
           signatureLockRef.current = false;
           document.documentElement.classList.remove("signature-scroll-lock");
-          window.removeEventListener("wheel", blockScroll);
-          window.removeEventListener("touchmove", blockScroll);
-          window.removeEventListener("keydown", blockKeys);
+          window.removeEventListener("wheel", blockScroll, true);
+          window.removeEventListener("touchmove", blockScroll, true);
+          window.removeEventListener("keydown", blockKeys, true);
           document.body.style.top = "";
           window.scrollTo({ top: lockY, behavior: "auto" });
-        }, 2350);
+        }, 2500);
+      } else if (!signatureCompletedRef.current) {
+        stage.classList.remove("signature-active");
       }
     };
     const requestUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateHero); };

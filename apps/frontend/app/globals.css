@@ -176,6 +176,34 @@ html[lang="hy"] body{font-family:var(--font-armenian),var(--font-main),Arial,san
   .footer-bottom span:last-child{grid-column:1/-1;text-align:left}
 }
 
+/* Hero reference pass: dense red pigment, hairline vertical texture and fine grain. */
+.pres-gradient-field{
+  background:
+    radial-gradient(ellipse 72% 55% at 50% 96%,rgba(116,0,13,.38),transparent 72%),
+    radial-gradient(ellipse 48% 52% at 18% 12%,rgba(255,109,91,.2),transparent 74%),
+    radial-gradient(ellipse 42% 48% at 84% 18%,rgba(255,99,83,.14),transparent 76%),
+    linear-gradient(180deg,#f44337 0%,#ef342f 34%,#dc1c27 72%,#bd071d 100%)!important;
+  filter:none!important
+}
+.pres-gradient-field:before{
+  inset:0!important;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.055) 0 1px,transparent 1px 5px,rgba(83,0,10,.035) 5px 6px,transparent 6px 11px),
+    repeating-linear-gradient(90deg,transparent 0 27px,rgba(255,255,255,.035) 28px,transparent 30px 47px)!important;
+  filter:none!important;opacity:1!important;transform:none!important;animation:none!important
+}
+.pres-gradient-field:after{
+  content:""!important;position:absolute!important;inset:0!important;display:block!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")!important;
+  background-size:118px 118px!important;mix-blend-mode:soft-light!important;opacity:.17!important;pointer-events:none!important
+}
+.pres-ribbed-glass{
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 8px,rgba(68,0,8,.025) 8px 9px,transparent 9px 15px)!important;
+  box-shadow:none!important;mix-blend-mode:soft-light!important;opacity:.72!important
+}
+.pres-ribbed-glass:before,.pres-ribbed-glass:after{display:none!important}
+@media(max-width:760px){.pres-ribbed-glass{opacity:.58!important}}
+
 /* Project identity window uses the marks already published by each project. */
 .project-site-logo{display:block;width:min(82%,300px);height:150px;background-position:center;background-repeat:no-repeat;background-size:contain}
 .pres-work-logo-slide strong:has(.project-site-logo){width:100%;display:grid;place-items:center}
