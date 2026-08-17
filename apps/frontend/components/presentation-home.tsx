@@ -100,7 +100,7 @@ export function PresentationHome(props: PresentationHomeProps) {
           window.removeEventListener("keydown", blockKeys, true);
           document.body.style.top = "";
           window.scrollTo({ top: lockY, behavior: "auto" });
-        }, 2500);
+        }, 1500);
       } else if (!signatureCompletedRef.current) {
         stage.classList.remove("signature-active");
       }
@@ -211,8 +211,8 @@ export function PresentationHome(props: PresentationHomeProps) {
           </div>
           <div className="pres-work-project-window">
             <Link className="pres-work-project-frame" href={`/${props.locale}/projects/${activeProject.slug}`} key={activeProject.slug}>
-              <Image className="project-shot project-shot-desktop" src={activeProject.image} alt={`${activeProject.title} desktop interface`} fill sizes="(max-width: 760px) 1px, 66vw" />
-              {activeProject.mobileImage ? <Image className="project-shot project-shot-mobile" src={activeProject.mobileImage} alt={`${activeProject.title} mobile interface`} fill sizes="(max-width: 760px) 96vw, 1px" /> : null}
+              <Image className="project-shot project-shot-desktop" src={activeProject.image} alt={`${activeProject.title} desktop interface`} fill sizes="(max-width: 760px) 1px, 66vw" priority />
+              {activeProject.mobileImage ? <Image className="project-shot project-shot-mobile" src={activeProject.mobileImage} alt={`${activeProject.title} mobile interface`} fill sizes="(max-width: 760px) 96vw, 1px" priority /> : null}
             </Link>
           </div>
           <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
@@ -227,7 +227,7 @@ export function PresentationHome(props: PresentationHomeProps) {
 
       <section className="pres-block pres-final">
         <SectionBar right="Start a project" />
-        <div><h2>{props.ctaTitle}</h2><p>{props.ctaText}</p><Link href={`/${props.locale}/contacts`}>{props.ctaButton}</Link><i className="pres-final-arrow" aria-hidden="true">↑</i></div>
+        <div><h2>{props.ctaTitle}</h2><p>{props.ctaText}</p><Link href={`/${props.locale}/contacts`}>{props.ctaButton}</Link></div>
       </section>
     </div>
   </main>;

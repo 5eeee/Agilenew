@@ -26,15 +26,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
   const ru = locale === "ru";
   const hy = locale === "hy";
   const labels = ru
-    ? { all: "Все проекты", about: "О проекте", challenge: "Задача", solution: "Решение", made: "Что сделали", tech: "Технологическая основа", result: "Результат", cta: "Обсудить похожий проект" }
+    ? { all: "Все проекты", about: "О проекте", challenge: "Задача", solution: "Решение", made: "Что сделали", tech: "Технологическая основа", duration: "Срок реализации", gallery: "Проект на разных устройствах", result: "Результат", cta: "Обсудить похожий проект" }
     : hy
-      ? { all: "Բոլոր նախագծերը", about: "Նախագծի մասին", challenge: "Խնդիր", solution: "Լուծում", made: "Ինչ ենք արել", tech: "Տեխնոլոգիական հիմք", result: "Արդյունք", cta: "Քննարկել նման նախագիծ" }
-      : { all: "All projects", about: "About the project", challenge: "Challenge", solution: "Solution", made: "What we delivered", tech: "Technology foundation", result: "Outcome", cta: "Discuss a similar project" };
+      ? { all: "Բոլոր նախագծերը", about: "Նախագծի մասին", challenge: "Խնդիր", solution: "Լուծում", made: "Ինչ ենք արել", tech: "Տեխնոլոգիական հիմք", duration: "Իրականացման ժամկետ", gallery: "Նախագիծը տարբեր սարքերում", result: "Արդյունք", cta: "Քննարկել նման նախագիծ" }
+      : { all: "All projects", about: "About the project", challenge: "Challenge", solution: "Solution", made: "What we delivered", tech: "Technology foundation", duration: "Delivery time", gallery: "Project across devices", result: "Outcome", cta: "Discuss a similar project" };
 
   return (
     <article className="case-page shell">
       <header className="case-head">
         <Link href={`/${locale}/projects`} className="case-back">← {labels.all}</Link>
+        {project.logo ? <div className={`case-brand-logo logo-${project.slug}`}><Image src={project.logo} alt={`${project.title} logo`} fill sizes="240px" priority /></div> : null}
         <p>{project.category}</p>
         <h1>{project.title}</h1>
         <strong>{project.lead}</strong>
@@ -58,6 +59,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
         <ol>{project.deliverables.map((item, index) => <li key={item}><span>0{index + 1}</span><strong>{item}</strong></li>)}</ol>
       </section>
       <section className="case-tech"><p>{labels.tech}</p><div className="tech-stack" aria-label={labels.tech}>{project.tech.map((item) => <span key={item}>{item}</span>)}</div></section>
+      {project.image ? <section className="case-gallery">
+        <header><span>05</span><h2>{labels.gallery}</h2>{project.duration ? <p><small>{labels.duration}</small><strong>{project.duration}</strong></p> : null}</header>
+        <div className="case-gallery-grid">
+          <figure><Image src={project.image} alt={`${project.title} — desktop view`} fill sizes="(max-width: 760px) 94vw, 68vw" /><figcaption>Desktop</figcaption></figure>
+          {project.mobileImage ? <figure className="case-gallery-mobile"><Image src={project.mobileImage} alt={`${project.title} — mobile view`} fill sizes="(max-width: 760px) 88vw, 28vw" /><figcaption>Mobile</figcaption></figure> : null}
+        </div>
+      </section> : null}
       <blockquote className="case-result"><span>{labels.result}</span><p>“{project.result}”</p><div className="case-result-actions"><Link className="button" href={`/${locale}/contacts?project=${project.slug}`}>{labels.cta}</Link>{project.website ? <a className="case-website-link" href={project.website} target="_blank" rel="noreferrer">{ru ? "Открыть сайт" : hy ? "Բացել կայքը" : "Visit website"}<span>↗</span></a> : null}</div></blockquote>
       <Link className="case-all-link" href={`/${locale}/projects`}>{labels.all}<span>→</span></Link>
     </article>
