@@ -84,13 +84,14 @@ export function PresentationHome(props: PresentationHomeProps) {
       const progress = Math.min(1, Math.max(0, -bounds.top / travel));
       if (Math.abs(progress - lastProgress) < 0.002) return;
       lastProgress = progress;
-      const compact = window.innerWidth < 600;
+      const compact = window.innerWidth <= 760;
+      const compactCopyGrowth = window.innerWidth <= 380 ? 0.06 : 0.08;
       const titleProgress = Math.min(progress / 0.48, 1);
       const whiteProgress = Math.min(1, Math.max(0, (progress - 0.52) / 0.12));
       stage.style.setProperty("--hero-bg-shift", `${progress * (compact ? 28 : 48)}px`);
       stage.style.setProperty("--hero-bg-scale", `${1 + titleProgress * (compact ? 0.14 : 0.2)}`);
-      stage.style.setProperty("--hero-copy-shift", `${titleProgress * (compact ? -20 : -42)}px`);
-      stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? 0.72 : 1.05)}`);
+      stage.style.setProperty("--hero-copy-shift", `${titleProgress * (compact ? -10 : -42)}px`);
+      stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? compactCopyGrowth : 1.05)}`);
       stage.style.setProperty("--hero-copy-opacity", `${1 - whiteProgress}`);
       stage.style.setProperty("--hero-white-opacity", `${whiteProgress}`);
       // The signature starts only after the white layer has fully covered the
