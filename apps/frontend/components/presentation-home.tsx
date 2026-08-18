@@ -59,6 +59,10 @@ export function PresentationHome(props: PresentationHomeProps) {
     let signatureStartTimer = 0;
     let lockedY = 0;
     const blockScroll = (event: Event) => event.preventDefault();
+    const keepLockedPosition = () => {
+      if (!signatureLockRef.current) return;
+      if (Math.abs(window.scrollY - lockedY) > 1) window.scrollTo({ top: lockedY, behavior: "auto" });
+    };
     const blockKeys = (event: KeyboardEvent) => {
       if (["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "].includes(event.key)) event.preventDefault();
     };
@@ -69,6 +73,7 @@ export function PresentationHome(props: PresentationHomeProps) {
       window.removeEventListener("wheel", blockScroll, true);
       window.removeEventListener("touchmove", blockScroll, true);
       window.removeEventListener("keydown", blockKeys, true);
+      window.removeEventListener("scroll", keepLockedPosition, true);
       window.scrollTo({ top: lockedY, behavior: "auto" });
     };
     const updateHero = () => {
@@ -88,27 +93,31 @@ export function PresentationHome(props: PresentationHomeProps) {
       stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? 0.72 : 1.05)}`);
       stage.style.setProperty("--hero-copy-opacity", `${1 - whiteProgress}`);
       stage.style.setProperty("--hero-white-opacity", `${whiteProgress}`);
-      const signatureActive = progress >= 0.68;
+      // The signature starts only after the white layer has fully covered the
+      // opening scene. Once started, it owns the viewport until every letter
+      // has been drawn.
+      const signatureActive = progress >= 0.66;
       if (signatureActive && !signatureCompletedRef.current) {
         signatureCompletedRef.current = true;
         const sceneTop = window.scrollY + bounds.top;
-        lockedY = Math.round(sceneTop + travel * 0.68);
+        lockedY = Math.round(sceneTop + travel * 0.66);
         stage.style.setProperty("--hero-copy-opacity", "0");
         stage.style.setProperty("--hero-white-opacity", "1");
-        window.scrollTo({ top: lockedY, behavior: "auto" });
         if (!reducedMotion) {
           signatureLockRef.current = true;
           document.documentElement.classList.add("signature-scroll-lock");
           window.addEventListener("wheel", blockScroll, { passive: false, capture: true });
           window.addEventListener("touchmove", blockScroll, { passive: false, capture: true });
           window.addEventListener("keydown", blockKeys, { capture: true });
+          window.addEventListener("scroll", keepLockedPosition, { passive: true, capture: true });
         }
+        window.scrollTo({ top: lockedY, behavior: "auto" });
         // Restart from a guaranteed empty frame. This avoids the SVG appearing
         // already drawn when the browser restores scroll or skips several frames.
         stage.classList.remove("signature-active");
         void stage.offsetWidth;
         signatureStartTimer = window.setTimeout(() => stage.classList.add("signature-active"), reducedMotion ? 0 : 32);
-        if (!reducedMotion) unlockTimer = window.setTimeout(unlockSignature, 1280);
+        if (!reducedMotion) unlockTimer = window.setTimeout(unlockSignature, 1450);
       } else if (!signatureCompletedRef.current) {
         stage.classList.remove("signature-active");
       }

@@ -9,6 +9,7 @@ export type Project = {
   challenge: string;
   solution: string;
   result: string;
+  testimonial: string;
   deliverables: readonly string[];
   tech: readonly string[];
   image?: string;
@@ -71,6 +72,15 @@ export function getProject(slug: string, locale: Locale): Project | undefined {
     "royal-horse": "Усилили премиальное позиционирование комплекса и сделали запись на услуги заметнее и проще.",
     "beef-flame": "Сделали продукт главным героем экрана и сократили путь пользователя от выбора бургера до заказа.",
   };
+  const testimonials: Record<string, string> = {
+    "13auto": "Теперь покупатель быстрее находит нужную деталь, а менеджер получает уже понятный и подготовленный запрос.",
+    prokub: "Клиент видит условия и следующий шаг сразу — меньше уточнений, быстрее расчёт и предметнее заявка.",
+    profist: "Каталог наконец говорит на языке задачи клиента, поэтому обращения стали точнее и полезнее для отдела продаж.",
+    dianafarm: "Сложные международные услуги удалось собрать в ясный маршрут, которому клиент доверяет с первого экрана.",
+    boostmarine: "Вместо долгого поиска посетитель сразу понимает, какая услуга решит его проблему и как обратиться в сервис.",
+    "royal-horse": "Сайт передаёт уровень комплекса ещё до визита и аккуратно ведёт гостя к записи.",
+    "beef-flame": "Меню стало визуальным и быстрым: продукт хочется выбрать, а оформить заказ можно без лишних шагов.",
+  };
   return {
     ...project,
     logo: projectLogos[slug],
@@ -85,6 +95,9 @@ export function getProject(slug: string, locale: Locale): Project | undefined {
     result: isRussian
       ? businessBenefits[slug] ?? "Команда получила понятный цифровой инструмент, прозрачную логику работы и основу для дальнейшего масштабирования."
       : isArmenian ? "Թիմը ստացավ պարզ թվային գործիք, աշխատանքի թափանցիկ տրամաբանություն և հետագա մասշտաբավորման հիմք։" : "The team received a clear digital tool, transparent operating logic and a foundation for further scaling.",
+    testimonial: isRussian
+      ? testimonials[slug] ?? "Решение стало понятным для клиентов и удобным рабочим инструментом для команды."
+      : isArmenian ? "Լուծումը հասկանալի դարձավ հաճախորդների համար և հարմար գործիք՝ թիմի համար։" : "The solution is now clearer for customers and more useful for the team operating it.",
     deliverables: isRussian ? ["Диагностика и сценарии", "UX-прототип", "Визуальная система", "Разработка и запуск"] : isArmenian ? ["Ախտորոշում և սցենարներ", "UX նախատիպ", "Տեսողական համակարգ", "Մշակում և գործարկում"] : ["Discovery and journeys", "UX prototype", "Visual system", "Development and launch"],
   };
 }

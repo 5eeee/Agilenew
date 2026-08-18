@@ -29,8 +29,8 @@ img,svg,video{max-width:100%}
    the white hero scene only. */
 .brand-logo{clip-path:none!important;animation:none!important;transform:none!important;opacity:1!important}
 .brand:after{content:none!important;display:none!important;animation:none!important}
-html.signature-scroll-lock,html.signature-scroll-lock body{overflow-x:clip!important;overflow-y:visible!important;overscroll-behavior:none!important}
-html.signature-scroll-lock body{position:static!important;top:auto!important;left:auto!important;right:auto!important;width:auto!important;touch-action:none!important}
+html.signature-scroll-lock,html.signature-scroll-lock body{overflow-x:clip!important;overflow-y:visible!important;overscroll-behavior:none!important;scroll-behavior:auto!important}
+html.signature-scroll-lock body{position:static!important;top:auto!important;left:auto!important;right:auto!important;width:auto!important;touch-action:none!important;user-select:none!important}
 
 /* Stable self-running signature after the white reveal has fully covered the
    hero. Class activation is controlled by presentation-home.tsx. */
@@ -47,7 +47,7 @@ html.signature-scroll-lock body{position:static!important;top:auto!important;lef
 
 /* Project showcase: all frames stay mounted and preloaded. Switching never
    exposes an empty window. Desktop and mobile use their own captures. */
-.pres-work-showcase-grid{width:calc(100% - 16px)!important;max-width:none!important;display:grid!important;grid-template-columns:minmax(390px,.72fr) minmax(0,1.28fr)!important;grid-template-rows:auto 72px!important;align-items:stretch!important;gap:8px!important;margin:8px!important}
+.pres-work-showcase-grid{width:calc(100% - 16px)!important;max-width:none!important;display:grid!important;grid-template-columns:minmax(285px,.46fr) minmax(0,1.54fr)!important;grid-template-rows:auto 72px!important;align-items:stretch!important;gap:8px!important;margin:8px!important}
 .pres-work-logo-window{grid-column:1!important;grid-row:1/3!important;width:100%!important;max-width:none!important;height:auto!important;min-height:0!important;margin:0!important;border:0!important;border-radius:28px!important;background:#fff!important;box-shadow:inset 0 0 0 1px rgba(17,17,17,.08)!important}
 .pres-work-logo-slide{padding:28px!important;border:0!important;background:#fff!important;align-items:center!important;justify-content:center!important;text-align:center!important}
 .pres-work-logo-slide:before,.pres-work-logo-slide:after,.pres-work-logo-slide strong:after,.pres-work-progress{content:none!important;display:none!important}
@@ -65,12 +65,33 @@ html.signature-scroll-lock body{position:static!important;top:auto!important;lef
 .pres-work-project-footer{grid-column:2!important;grid-row:2!important;width:100%!important;min-height:72px!important;height:72px!important;margin:0!important;padding:0!important;background:transparent!important}
 .pres-work-project-footer>a{width:100%!important;min-width:0!important;min-height:72px!important;height:72px!important;padding:8px 10px 8px 24px!important;border-radius:999px!important;font-size:16px!important}
 
-/* Expanded projects page follows the same capture rules. */
-.portfolio-card-preview{position:relative!important;background:#111!important;overflow:hidden!important}
-.portfolio-card-preview>.portfolio-shot-desktop{display:block!important;object-fit:cover!important;object-position:center top!important}
-.portfolio-card-preview>.portfolio-shot-mobile{display:none!important}
-.portfolio-card-logo img{object-fit:contain!important}
-.portfolio-card-logo.logo-boostmarine img,.portfolio-card-logo.logo-beef-flame img{filter:invert(1)!important}
+/* Projects index: two clear logo panels, each opening its case immediately. */
+.portfolio-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+.portfolio-card.portfolio-card-direct{display:block!important;min-width:0!important;margin:0!important;padding:7px!important;border-radius:28px!important;background:#efeee9!important;overflow:hidden!important}
+.portfolio-card-direct .portfolio-card-visual{position:relative!important;width:100%!important;height:clamp(310px,31vw,470px)!important;display:block!important;margin:0!important;padding:0!important;border:0!important;border-radius:22px!important;background:#fff!important;color:#111!important;overflow:hidden!important}
+.portfolio-card-direct .portfolio-card-logo{position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:clamp(48px,7vw,96px)!important;border-radius:inherit!important;background:#fff!important;transition:transform .45s cubic-bezier(.22,1,.36,1),background .3s ease!important}
+.portfolio-card-direct .portfolio-card-logo img{object-fit:contain!important;padding:0!important;filter:none!important}
+.portfolio-card-direct .portfolio-card-logo.logo-boostmarine,.portfolio-card-direct .portfolio-card-logo.logo-beef-flame{background:#111!important}
+.portfolio-card-direct .portfolio-card-logo.logo-boostmarine img,.portfolio-card-direct .portfolio-card-logo.logo-beef-flame img{filter:invert(1)!important}
+.portfolio-card-direct .portfolio-card-index{left:22px!important;top:20px!important;z-index:3!important;color:var(--red)!important;font-size:11px!important;font-weight:850!important}
+.portfolio-card-direct .portfolio-card-open{right:18px!important;top:18px!important;z-index:3!important;width:46px!important;height:46px!important;display:grid!important;place-items:center!important;border:1px solid rgba(17,17,17,.16)!important;border-radius:50%!important;background:rgba(255,255,255,.9)!important;color:#111!important;font-size:21px!important;transition:background .25s,color .25s,transform .25s!important}
+.portfolio-card-direct .portfolio-card-caption{position:absolute!important;z-index:3!important;left:16px!important;right:16px!important;bottom:16px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;padding:14px 16px!important;border-radius:16px!important;background:rgba(245,244,240,.92)!important;color:#111!important;-webkit-backdrop-filter:blur(12px)!important;backdrop-filter:blur(12px)!important}
+.portfolio-card-direct .portfolio-card-caption small{font-size:9px!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.08em!important}
+.portfolio-card-direct .portfolio-card-caption strong{font-size:18px!important;line-height:1!important}
+@media(hover:hover){.portfolio-card-direct .portfolio-card-visual:hover .portfolio-card-logo{transform:scale(1.025)!important}.portfolio-card-direct .portfolio-card-visual:hover .portfolio-card-open{background:var(--red)!important;color:#fff!important;transform:rotate(8deg)!important}}
+
+/* The measurable business effect is the first project statement. */
+.case-impact{width:100%!important;display:grid!important;grid-template-columns:minmax(160px,.28fr) minmax(0,1fr)!important;gap:24px!important;margin:26px 0 34px!important;padding:26px 28px!important;border-radius:24px!important;background:var(--red)!important;color:#fff!important}
+.case-impact span{font-size:10px!important;font-weight:850!important;text-transform:uppercase!important;letter-spacing:.1em!important}
+.case-impact strong{max-width:900px!important;font-size:clamp(25px,3vw,46px)!important;line-height:1.02!important;letter-spacing:-.035em!important}
+.case-comment{position:relative!important;overflow:hidden!important;background:#111!important;color:#fff!important;border-radius:32px!important}
+.case-comment:before{content:"“"!important;position:absolute!important;right:22px!important;top:-34px!important;color:rgba(255,255,255,.06)!important;font-size:240px!important;line-height:1!important;font-family:Georgia,serif!important}
+.case-comment-author{position:relative!important;z-index:1!important;display:flex!important;align-items:center!important;gap:14px!important}
+.case-comment-author>span{position:relative!important;width:64px!important;height:64px!important;flex:0 0 64px!important;border-radius:16px!important;background:#fff!important;overflow:hidden!important}
+.case-comment-author>span img{object-fit:contain!important;padding:9px!important}
+.case-comment-author>span.logo-boostmarine,.case-comment-author>span.logo-beef-flame{background:#fff!important}
+.case-comment-author div{display:grid!important;gap:4px!important}.case-comment-author small{color:var(--red)!important;font-size:9px!important;font-weight:850!important;text-transform:uppercase!important;letter-spacing:.1em!important}.case-comment-author strong{font-size:15px!important}
+.case-comment>p{position:relative!important;z-index:1!important;max-width:1050px!important;color:#fff!important}
 
 /* Final red block: no decorative arrow; readable and balanced. */
 .pres-final-arrow{display:none!important}
@@ -109,7 +130,7 @@ html.signature-scroll-lock body{position:static!important;top:auto!important;lef
 
   .pres-final>div:last-child{display:grid!important;grid-template-columns:1fr!important;grid-template-rows:auto auto auto!important;min-height:0!important;padding:32px 16px 24px!important;gap:22px!important}.pres-final h2{grid-column:1!important;grid-row:1!important;font-size:clamp(42px,13.2vw,59px)!important;line-height:.87!important}.pres-final p{grid-column:1!important;grid-row:2!important;font-size:13px!important;line-height:1.45!important}.pres-final a{grid-column:1!important;grid-row:3!important;width:100%!important;min-height:62px!important;font-size:16px!important}
 
-  .portfolio-page{width:calc(100% - 12px)!important}.portfolio-hero h1{font-size:clamp(40px,12.5vw,55px)!important;line-height:.92!important}.portfolio-card{padding:6px!important;border-radius:20px!important}.portfolio-card-visual{height:220px!important;border-radius:16px!important}.portfolio-card-logo img{padding:36px 50px!important}.portfolio-card-copy{padding:0 9px!important}.portfolio-card-preview{height:auto!important;aspect-ratio:390/844!important;border-radius:16px!important}.portfolio-card-preview>.portfolio-shot-desktop{display:none!important}.portfolio-card-preview>.portfolio-shot-mobile{display:block!important;object-fit:cover!important;object-position:center top!important}.portfolio-card h2{font-size:34px!important}.portfolio-card-details>p{font-size:13px!important;line-height:1.5!important}.portfolio-business-benefit{display:grid!important;grid-template-columns:1fr!important;gap:7px!important;padding:14px!important}
+  .portfolio-page{width:calc(100% - 12px)!important}.portfolio-hero h1{font-size:clamp(40px,12.5vw,55px)!important;line-height:.92!important}.portfolio-grid{grid-template-columns:1fr!important;gap:8px!important}.portfolio-card.portfolio-card-direct{padding:5px!important;border-radius:20px!important}.portfolio-card-direct .portfolio-card-visual{height:250px!important;border-radius:16px!important}.portfolio-card-direct .portfolio-card-logo{padding:48px 64px!important}.portfolio-card-direct .portfolio-card-index{left:16px!important;top:15px!important}.portfolio-card-direct .portfolio-card-open{right:13px!important;top:13px!important;width:40px!important;height:40px!important}.portfolio-card-direct .portfolio-card-caption{left:10px!important;right:10px!important;bottom:10px!important;padding:11px 12px!important}.portfolio-card-direct .portfolio-card-caption strong{font-size:15px!important}.case-impact{grid-template-columns:1fr!important;gap:10px!important;margin:18px 0 24px!important;padding:20px!important;border-radius:18px!important}.case-impact strong{font-size:clamp(24px,7.5vw,34px)!important}.case-comment{border-radius:22px!important}.case-comment-author>span{width:54px!important;height:54px!important;flex-basis:54px!important}
 
   .case-page{width:calc(100% - 16px)!important;padding-top:28px!important}.case-head h1{margin:24px 0 16px!important;font-size:clamp(48px,16vw,72px)!important;line-height:.9!important}.case-head strong{font-size:18px!important;line-height:1.35!important}.case-cover{margin-top:28px!important;aspect-ratio:4/5!important;padding:10px!important}.case-device-preview{height:100%!important}.case-browser-frame{inset:10px!important}.case-phone-frame{right:8px!important;bottom:8px!important;width:31%!important}.case-story{padding-block:44px!important}.case-story h2{font-size:38px!important}.case-story>p{font-size:16px!important}.case-decisions{grid-template-columns:1fr!important}.case-build{padding:22px 16px!important}.case-gallery{padding:14px!important}.case-gallery-grid{grid-template-columns:1fr!important}.case-gallery figure{aspect-ratio:16/10!important;min-height:0!important}.case-gallery .case-gallery-mobile{aspect-ratio:390/844!important}.case-result{padding:34px 18px!important}.case-result p{font-size:clamp(30px,9vw,44px)!important}
 
@@ -123,7 +144,7 @@ html.signature-scroll-lock body{position:static!important;top:auto!important;lef
 }
 
 @media(min-width:761px) and (max-width:1100px){
-  .pres-work-showcase-grid{grid-template-columns:minmax(260px,.58fr) minmax(0,1.42fr)!important}
+  .pres-work-showcase-grid{grid-template-columns:minmax(240px,.44fr) minmax(0,1.56fr)!important}
   .pres-services-grid,.pres-process ol,.about-capability-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 }
 

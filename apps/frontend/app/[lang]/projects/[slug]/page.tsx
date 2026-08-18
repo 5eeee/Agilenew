@@ -26,15 +26,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
   const ru = locale === "ru";
   const hy = locale === "hy";
   const labels = ru
-    ? { all: "Все проекты", about: "О проекте", challenge: "Задача", solution: "Решение", made: "Что сделали", tech: "Технологическая основа", duration: "Срок реализации", gallery: "Проект на разных устройствах", result: "Результат", cta: "Обсудить похожий проект" }
+    ? { all: "Все проекты", impact: "Как проект помог бизнесу", about: "О проекте", challenge: "Задача", solution: "Решение", made: "Что сделали", tech: "Технологическая основа", duration: "Срок реализации", gallery: "Проект на разных устройствах", result: "Комментарий к результату", comment: "Отзыв о работе решения", cta: "Обсудить похожий проект" }
     : hy
-      ? { all: "Բոլոր նախագծերը", about: "Նախագծի մասին", challenge: "Խնդիր", solution: "Լուծում", made: "Ինչ ենք արել", tech: "Տեխնոլոգիական հիմք", duration: "Իրականացման ժամկետ", gallery: "Նախագիծը տարբեր սարքերում", result: "Արդյունք", cta: "Քննարկել նման նախագիծ" }
-      : { all: "All projects", about: "About the project", challenge: "Challenge", solution: "Solution", made: "What we delivered", tech: "Technology foundation", duration: "Delivery time", gallery: "Project across devices", result: "Outcome", cta: "Discuss a similar project" };
+      ? { all: "Բոլոր նախագծերը", impact: "Ինչպես նախագիծն օգնեց բիզնեսին", about: "Նախագծի մասին", challenge: "Խնդիր", solution: "Լուծում", made: "Ինչ ենք արել", tech: "Տեխնոլոգիական հիմք", duration: "Իրականացման ժամկետ", gallery: "Նախագիծը տարբեր սարքերում", result: "Արդյունքի մեկնաբանություն", comment: "Լուծման արձագանք", cta: "Քննարկել նման նախագիծ" }
+      : { all: "All projects", impact: "How the project helped the business", about: "About the project", challenge: "Challenge", solution: "Solution", made: "What we delivered", tech: "Technology foundation", duration: "Delivery time", gallery: "Project across devices", result: "Outcome commentary", comment: "Comment on the solution", cta: "Discuss a similar project" };
 
   return (
     <article className="case-page shell">
       <header className="case-head">
         <Link href={`/${locale}/projects`} className="case-back">← {labels.all}</Link>
+        <div className="case-impact"><span>{labels.impact}</span><strong>{project.result}</strong></div>
         {project.logo ? <div className={`case-brand-logo logo-${project.slug}`}><Image src={project.logo} alt={`${project.title} logo`} fill sizes="240px" priority /></div> : null}
         <p>{project.category}</p>
         <h1>{project.title}</h1>
@@ -66,7 +67,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
           {project.mobileImage ? <figure className="case-gallery-mobile"><Image src={project.mobileImage} alt={`${project.title} — mobile view`} fill sizes="(max-width: 760px) 88vw, 28vw" /><figcaption>Mobile</figcaption></figure> : null}
         </div>
       </section> : null}
-      <blockquote className="case-result"><span>{labels.result}</span><p>“{project.result}”</p><div className="case-result-actions"><Link className="button" href={`/${locale}/contacts?project=${project.slug}`}>{labels.cta}</Link>{project.website ? <a className="case-website-link" href={project.website} target="_blank" rel="noreferrer">{ru ? "Открыть сайт" : hy ? "Բացել կայքը" : "Visit website"}<span>↗</span></a> : null}</div></blockquote>
+      <blockquote className="case-result case-comment"><div className="case-comment-author">{project.logo ? <span className={`logo-${project.slug}`}><Image src={project.logo} alt="" fill sizes="64px" /></span> : null}<div><small>{labels.result}</small><strong>{labels.comment}</strong></div></div><p>“{project.testimonial}”</p><div className="case-result-actions"><Link className="button" href={`/${locale}/contacts?project=${project.slug}`}>{labels.cta}</Link>{project.website ? <a className="case-website-link" href={project.website} target="_blank" rel="noreferrer">{ru ? "Открыть сайт" : hy ? "Բացել կայքը" : "Visit website"}<span>↗</span></a> : null}</div></blockquote>
       <Link className="case-all-link" href={`/${locale}/projects`}>{labels.all}<span>→</span></Link>
     </article>
   );
