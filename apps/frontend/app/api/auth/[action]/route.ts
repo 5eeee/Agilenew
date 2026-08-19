@@ -30,6 +30,7 @@ async function handler(request: NextRequest, { params }: { params: Promise<{ act
       id: order.id,
       name: order.name,
       status: order.status,
+      payment_status: order.paymentStatus,
       total: order.total,
       currency: order.currency,
       created_at: order.createdAt.toISOString(),

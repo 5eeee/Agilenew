@@ -20,6 +20,7 @@ function output(order: {
   userId: string;
   name: string;
   status: string;
+  paymentStatus: string;
   total: number;
   currency: string;
   locale: string;
@@ -33,6 +34,7 @@ function output(order: {
     user_id: order.userId,
     name: order.name,
     status: order.status,
+    payment_status: order.paymentStatus,
     total: order.total,
     currency: order.currency,
     locale: order.locale,

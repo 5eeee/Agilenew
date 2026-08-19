@@ -4,7 +4,8 @@ import { db } from "@/lib/db";
 const input = z.object({
   name: z.string().trim().min(2).max(160).optional(),
   status: z.enum(["NEW", "DISCOVERY", "PLANNING", "DESIGN", "DEVELOPMENT", "QA", "LAUNCH", "SUPPORT", "COMPLETED", "CANCELLED"]).optional(),
-}).refine((value) => value.name || value.status, "No changes supplied");
+  paymentStatus: z.enum(["PENDING", "PAID", "REFUNDED"]).optional(),
+}).refine((value) => value.name || value.status || value.paymentStatus, "No changes supplied");
 
 function admin(request: Request) {
   const token = process.env.AGILE_LEADS_READ_TOKEN;

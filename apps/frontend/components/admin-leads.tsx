@@ -6,10 +6,12 @@ type LeadStatus = "new" | "in_progress" | "completed" | "cancelled";
 type Lead = { id: string; created_at: string; name: string; email: string; phone?: string; company?: string; message: string; source?: string; status?: LeadStatus };
 type EmailStatus = { configured: boolean; status: "ready" | "not_configured"; host?: string; port?: number; secure?: boolean; from?: string; to?: string };
 type OrderStatus = "NEW" | "DISCOVERY" | "PLANNING" | "DESIGN" | "DEVELOPMENT" | "QA" | "LAUNCH" | "SUPPORT" | "COMPLETED" | "CANCELLED";
-type ServiceOrder = { id: string; name: string; status: OrderStatus; total: number; currency: string; created_at: string; customer: { name: string; email: string }; items: { id: string; title: string; price: number }[] };
+type PaymentStatus = "PENDING" | "PAID" | "REFUNDED";
+type ServiceOrder = { id: string; name: string; status: OrderStatus; payment_status: PaymentStatus; total: number; currency: string; created_at: string; customer: { name: string; email: string }; items: { id: string; title: string; price: number }[] };
 
 const statusLabels: Record<LeadStatus, string> = { new: "Новая", in_progress: "В работе", completed: "Завершена", cancelled: "Отменена" };
 const orderStatusLabels: Record<OrderStatus, string> = { NEW: "Новый", DISCOVERY: "Погружение", PLANNING: "Планирование", DESIGN: "Дизайн", DEVELOPMENT: "Разработка", QA: "Проверка", LAUNCH: "Запуск", SUPPORT: "Поддержка", COMPLETED: "Завершён", CANCELLED: "Отменён" };
+const paymentStatusLabels: Record<PaymentStatus, string> = { PENDING: "Ожидается оплата", PAID: "Оплачено", REFUNDED: "Возврат" };
 
 export function AdminLeads() {
   const [token, setToken] = useState("");
@@ -80,11 +82,13 @@ export function AdminLeads() {
     }
   }
 
-  async function updateOrder(id: string, changes: { status?: OrderStatus; name?: string }) {
+  async function updateOrder(id: string, changes: { status?: OrderStatus; payment_status?: PaymentStatus; name?: string }) {
     const previous = orders;
     setOrders((current) => current.map((order) => order.id === id ? { ...order, ...changes } : order));
     try {
-      const response = await fetch(`/api/orders/${id}`, { method: "PATCH", headers: { Authorization: `Bearer ${token}`, "content-type": "application/json" }, body: JSON.stringify(changes) });
+      const { payment_status, ...rest } = changes;
+      const apiChanges = payment_status ? { ...rest, paymentStatus: payment_status } : rest;
+      const response = await fetch(`/api/orders/${id}`, { method: "PATCH", headers: { Authorization: `Bearer ${token}`, "content-type": "application/json" }, body: JSON.stringify(apiChanges) });
       if (!response.ok) throw new Error("order update failed");
     } catch {
       setOrders(previous);
@@ -114,6 +118,7 @@ export function AdminLeads() {
             {orders.map((order) => <article key={order.id}>
               <div className="admin-order-customer"><span>{order.customer.name}</span><a href={`mailto:${order.customer.email}`}>{order.customer.email}</a><time>{new Date(order.created_at).toLocaleDateString("ru-RU")}</time></div>
               <label><span>Название проекта</span><input defaultValue={order.name} onBlur={(event) => { const name = event.currentTarget.value.trim(); if (name && name !== order.name) updateOrder(order.id, { name }); }} /></label>
+              <label><span>Оплата</span><select value={order.payment_status} onChange={(event) => updateOrder(order.id, { payment_status: event.target.value as PaymentStatus })}>{(Object.keys(paymentStatusLabels) as PaymentStatus[]).map((key) => <option key={key} value={key}>{paymentStatusLabels[key]}</option>)}</select></label>
               <label><span>Этап</span><select value={order.status} onChange={(event) => updateOrder(order.id, { status: event.target.value as OrderStatus })}>{(Object.keys(orderStatusLabels) as OrderStatus[]).map((key) => <option key={key} value={key}>{orderStatusLabels[key]}</option>)}</select></label>
               <ul>{order.items.map((item) => <li key={item.id}><span>{item.title}</span><strong>{item.price.toLocaleString("ru-RU")} ₽</strong></li>)}</ul>
               <footer><strong>{order.total.toLocaleString("ru-RU")} ₽</strong><small>№ {order.id}</small></footer>

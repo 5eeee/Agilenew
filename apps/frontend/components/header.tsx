@@ -86,7 +86,8 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
     <header className="site-header">
       <div className="header-inner">
         <Brand href={`/${locale}`} />
-        <Link className="header-cart header-cart-mobile" href={`/${locale}/cart`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? `Корзина: ${cartCount}` : `Cart: ${cartCount}`}><CartIcon /><b>{cartCount}</b></Link>
+        <a className="header-phone header-phone-mobile" href="tel:+79636177373" aria-label="+7 963 617-73-73"><Image src="/social/phone.svg" alt="" width={20} height={20} /></a>
+        <Link className="header-account header-account-mobile" href={`/${locale}/account`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"}><Image src="/icons/account.svg" alt="" width={24} height={24} /></Link>
         <button className="menu-button" type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="main-menu" onClick={() => setOpen(!open)}>
           <span /><span />
         </button>
