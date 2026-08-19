@@ -188,3 +188,84 @@ html.signature-scroll-lock body{position:static!important;top:auto!important;lef
   .signature-draw-path{transition:none!important;stroke-dashoffset:0!important}.signature-final-art,.signature-ink-overlay,.signature-business-letter{transition:none!important;opacity:1!important}.signature-business-cover{opacity:0!important}
   .pres-work-project-frame{transition:none!important}
 }
+
+/* Projects index: the logo itself is the only visible card content. */
+.portfolio-logo-grid{margin-top:10px!important}
+.portfolio-logo-grid .portfolio-card-direct{padding:7px!important;background:#efeee9!important}
+.portfolio-logo-grid .portfolio-card-visual{height:clamp(300px,29vw,440px)!important}
+.portfolio-logo-grid .portfolio-card-logo{inset:0!important;padding:clamp(58px,8.5vw,122px)!important;background:#fff!important;transform:none!important}
+.portfolio-logo-grid .portfolio-card-logo img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;padding:0!important;filter:none!important}
+.portfolio-logo-grid .portfolio-card-logo.logo-boostmarine,.portfolio-logo-grid .portfolio-card-logo.logo-beef-flame{background:#111!important}
+.portfolio-logo-grid .portfolio-card-logo.logo-boostmarine img,.portfolio-logo-grid .portfolio-card-logo.logo-beef-flame img{filter:invert(1)!important}
+
+/* Project detail: one editorial hierarchy instead of competing framed blocks. */
+.case-page-clean{padding-block:58px 110px!important}
+.case-clean-head{padding:0 0 42px!important;border-bottom:1px solid var(--line)!important}
+.case-clean-head>div{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;color:#666!important;font-size:12px!important;text-transform:uppercase!important;letter-spacing:.08em!important}
+.case-clean-head .case-back{color:#666!important;text-transform:none!important;letter-spacing:0!important}
+.case-clean-head h1{max-width:1180px!important;margin:48px 0 22px!important;font-size:clamp(74px,9.2vw,148px)!important;line-height:.82!important;letter-spacing:-.075em!important}
+.case-clean-head>p{max-width:840px!important;margin:0 0 0 auto!important;color:#444!important;font-size:clamp(20px,2vw,31px)!important;line-height:1.34!important}
+.case-clean-overview{display:grid!important;grid-template-columns:minmax(300px,.62fr) minmax(0,1.38fr)!important;gap:clamp(34px,5vw,82px)!important;align-items:start!important;padding:70px 0 28px!important}
+.case-clean-info{position:sticky!important;top:115px!important;min-width:0!important}
+.case-clean-logo{position:relative!important;width:100%!important;max-width:330px!important;height:150px!important;margin:0 0 58px!important;background:transparent!important}
+.case-clean-logo img{object-fit:contain!important;object-position:left center!important;padding:0!important;filter:none!important}
+.case-clean-logo.logo-boostmarine img,.case-clean-logo.logo-beef-flame img{filter:none!important}
+.case-clean-benefit,.case-clean-delivery{margin:0!important;padding:0!important;border:0!important;background:transparent!important}
+.case-clean-benefit>span,.case-clean-delivery>span{display:block!important;margin-bottom:16px!important;color:var(--red)!important;font-size:10px!important;font-weight:850!important;text-transform:uppercase!important;letter-spacing:.1em!important}
+.case-clean-benefit h2{margin:0!important;font-size:clamp(29px,2.7vw,43px)!important;line-height:1.05!important;letter-spacing:-.045em!important}
+.case-clean-delivery{margin-top:58px!important;padding-top:30px!important;border-top:1px solid var(--line)!important}
+.case-clean-delivery p{margin:0!important;color:#555!important;font-size:16px!important;line-height:1.58!important}
+.case-clean-delivery ul{display:grid!important;gap:0!important;margin:28px 0 0!important;padding:0!important;list-style:none!important}
+.case-clean-delivery li{padding:13px 0!important;border-bottom:1px solid var(--line)!important;font-size:15px!important;font-weight:720!important}
+.case-clean-delivery li:before{content:"↳"!important;display:inline-block!important;width:28px!important;color:var(--red)!important}
+.case-clean-meta{display:grid!important;gap:14px!important;margin:30px 0 0!important;padding:0!important}
+.case-clean-meta>div{display:grid!important;grid-template-columns:120px 1fr!important;gap:16px!important}
+.case-clean-meta dt{color:#777!important;font-size:10px!important;text-transform:uppercase!important;letter-spacing:.08em!important}
+.case-clean-meta dd{margin:0!important;font-size:13px!important;line-height:1.4!important}
+.case-clean-media{display:grid!important;grid-template-columns:minmax(0,1.5fr) minmax(190px,.5fr)!important;gap:10px!important;align-items:stretch!important;min-width:0!important}
+.case-clean-media figure,.case-clean-product{position:relative!important;min-width:0!important;height:clamp(520px,52vw,780px)!important;margin:0!important;border-radius:26px!important;background:#111!important;overflow:hidden!important}
+.case-clean-media figure img{object-fit:cover!important;object-position:center top!important}
+.case-clean-mobile img{object-position:center top!important}
+.case-clean-product{grid-column:1/-1!important}
+.case-clean-product .product-visual{width:100%!important;height:100%!important}
+.case-clean-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;margin:52px 0 12px!important}
+.case-clean-actions a{min-height:74px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:22px!important;padding:0 25px!important;border-radius:999px!important;font-size:16px!important;font-weight:820!important}
+.case-clean-actions a span{font-size:22px!important}
+.case-clean-site{background:#111!important;color:#fff!important}
+.case-clean-similar{background:var(--red)!important;color:#fff!important}
+.case-clean-comment{position:relative!important;margin:0!important;padding:clamp(42px,6vw,86px)!important;border:0!important;border-radius:32px!important;background:#efeee9!important;color:#111!important;overflow:hidden!important}
+.case-clean-comment:before{content:"“"!important;position:absolute!important;right:30px!important;top:-55px!important;color:rgba(216,25,32,.11)!important;font:260px/1 Georgia,serif!important}
+.case-clean-comment small{position:relative!important;z-index:1!important;color:var(--red)!important;font-size:10px!important;font-weight:850!important;text-transform:uppercase!important;letter-spacing:.1em!important}
+.case-clean-comment p{position:relative!important;z-index:1!important;max-width:1120px!important;margin:32px 0 54px!important;font-size:clamp(36px,4.4vw,70px)!important;line-height:1.02!important;letter-spacing:-.05em!important;font-weight:700!important}
+.case-clean-comment footer{position:relative!important;z-index:1!important;font-size:13px!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.08em!important}
+
+@media(max-width:760px){
+  .portfolio-logo-grid{grid-template-columns:1fr!important;margin-top:6px!important}
+  .portfolio-logo-grid .portfolio-card-visual{height:230px!important}
+  .portfolio-logo-grid .portfolio-card-logo{padding:42px 58px!important}
+
+  .case-page-clean{width:calc(100% - 16px)!important;padding-block:28px 70px!important}
+  .case-page-clean h1,.case-page-clean h2,.case-page-clean p,.case-page-clean li,.case-page-clean a,.case-page-clean dt,.case-page-clean dd{hyphens:none!important;word-break:normal!important;overflow-wrap:normal!important}
+  .case-clean-head{padding-bottom:28px!important}
+  .case-clean-head>div{font-size:9px!important}
+  .case-clean-head h1{margin:34px 0 18px!important;font-size:clamp(52px,17vw,76px)!important;line-height:.86!important}
+  .case-clean-head>p{margin:0!important;font-size:16px!important;line-height:1.42!important}
+  .case-clean-overview{grid-template-columns:1fr!important;gap:42px!important;padding-top:42px!important}
+  .case-clean-info{position:static!important}
+  .case-clean-logo{width:min(76%,280px)!important;height:112px!important;margin:0 auto 42px!important}
+  .case-clean-logo img{object-position:center!important}
+  .case-clean-benefit h2{font-size:clamp(28px,8.8vw,38px)!important}
+  .case-clean-delivery{margin-top:42px!important;padding-top:24px!important}
+  .case-clean-delivery p{font-size:14px!important}
+  .case-clean-meta>div{grid-template-columns:96px 1fr!important}
+  .case-clean-media{grid-template-columns:1fr!important;gap:8px!important}
+  .case-clean-media figure,.case-clean-product{height:auto!important;border-radius:18px!important}
+  .case-clean-desktop{aspect-ratio:16/10!important}
+  .case-clean-mobile{aspect-ratio:390/844!important}
+  .case-clean-product{aspect-ratio:4/5!important}
+  .case-clean-actions{grid-template-columns:1fr!important;margin-top:36px!important}
+  .case-clean-actions a{min-height:62px!important;font-size:14px!important}
+  .case-clean-comment{padding:34px 20px!important;border-radius:22px!important}
+  .case-clean-comment:before{right:8px!important;top:-22px!important;font-size:150px!important}
+  .case-clean-comment p{margin:24px 0 34px!important;font-size:clamp(27px,8vw,34px)!important;line-height:1.06!important}
+}

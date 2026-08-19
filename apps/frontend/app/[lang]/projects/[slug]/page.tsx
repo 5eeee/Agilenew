@@ -26,49 +26,50 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
   const ru = locale === "ru";
   const hy = locale === "hy";
   const labels = ru
-    ? { all: "Все проекты", impact: "Как проект помог бизнесу", about: "О проекте", challenge: "Задача", solution: "Решение", made: "Что сделали", tech: "Технологическая основа", duration: "Срок реализации", gallery: "Проект на разных устройствах", result: "Комментарий к результату", comment: "Отзыв о работе решения", cta: "Обсудить похожий проект" }
+    ? { all: "Все проекты", impact: "Польза для бизнеса", made: "Что сделали", tech: "Технологии", duration: "Срок реализации", gallery: "Проект на разных устройствах", comment: "Комментарий заказчика", cta: "Обсудить похожий проект", website: "Перейти на сайт" }
     : hy
-      ? { all: "Բոլոր նախագծերը", impact: "Ինչպես նախագիծն օգնեց բիզնեսին", about: "Նախագծի մասին", challenge: "Խնդիր", solution: "Լուծում", made: "Ինչ ենք արել", tech: "Տեխնոլոգիական հիմք", duration: "Իրականացման ժամկետ", gallery: "Նախագիծը տարբեր սարքերում", result: "Արդյունքի մեկնաբանություն", comment: "Լուծման արձագանք", cta: "Քննարկել նման նախագիծ" }
-      : { all: "All projects", impact: "How the project helped the business", about: "About the project", challenge: "Challenge", solution: "Solution", made: "What we delivered", tech: "Technology foundation", duration: "Delivery time", gallery: "Project across devices", result: "Outcome commentary", comment: "Comment on the solution", cta: "Discuss a similar project" };
+      ? { all: "Բոլոր նախագծերը", impact: "Օգուտը բիզնեսին", made: "Ինչ ենք արել", tech: "Տեխնոլոգիաներ", duration: "Իրականացման ժամկետ", gallery: "Նախագիծը տարբեր սարքերում", comment: "Հաճախորդի մեկնաբանությունը", cta: "Քննարկել նման նախագիծ", website: "Բացել կայքը" }
+      : { all: "All projects", impact: "Business impact", made: "What we delivered", tech: "Technology", duration: "Delivery time", gallery: "Project across devices", comment: "Client comment", cta: "Discuss a similar project", website: "Visit website" };
 
   return (
-    <article className="case-page shell">
-      <header className="case-head">
-        <Link href={`/${locale}/projects`} className="case-back">← {labels.all}</Link>
-        <div className="case-impact"><span>{labels.impact}</span><strong>{project.result}</strong></div>
-        {project.logo ? <div className={`case-brand-logo logo-${project.slug}`}><Image src={project.logo} alt={`${project.title} logo`} fill sizes="240px" priority /></div> : null}
-        <p>{project.category}</p>
+    <article className="case-page case-page-clean shell">
+      <header className="case-clean-head">
+        <div><Link href={`/${locale}/projects`} className="case-back">← {labels.all}</Link><span>{project.category}</span></div>
         <h1>{project.title}</h1>
-        <strong>{project.lead}</strong>
+        <p>{project.lead}</p>
       </header>
-      <div className={`case-cover ${project.image ? "case-cover-real" : ""}`}>
-        {project.image ? <div className="case-device-preview">
-          <div className="case-browser-frame"><span><i /><i /><i /></span><Image src={project.image} alt={`${project.title} — desktop`} fill sizes="(max-width: 760px) 92vw, 78vw" priority /></div>
-          {project.mobileImage ? <div className="case-phone-frame"><span /><Image src={project.mobileImage} alt={`${project.title} — mobile`} fill sizes="(max-width: 760px) 120px, 210px" /></div> : null}
-        </div> : <ProductVisual product={project.slug} />}
-      </div>
-      <section className="case-story">
-        <div className="case-story-title"><span>01</span><h2>{labels.about}</h2></div>
-        <p>{project.description}</p>
-      </section>
-      <section className="case-decisions">
-        <article><span>02 / {labels.challenge}</span><h2>{project.challenge}</h2></article>
-        <article><span>03 / {labels.solution}</span><h2>{project.solution}</h2></article>
-      </section>
-      <section className="case-build">
-        <div><span>04</span><h2>{labels.made}</h2></div>
-        <ol>{project.deliverables.map((item, index) => <li key={item}><span>0{index + 1}</span><strong>{item}</strong></li>)}</ol>
-      </section>
-      <section className="case-tech"><p>{labels.tech}</p><div className="tech-stack" aria-label={labels.tech}>{project.tech.map((item) => <span key={item}>{item}</span>)}</div></section>
-      {project.image ? <section className="case-gallery">
-        <header><span>05</span><h2>{labels.gallery}</h2>{project.duration ? <p><small>{labels.duration}</small><strong>{project.duration}</strong></p> : null}</header>
-        <div className="case-gallery-grid">
-          <figure><Image src={project.image} alt={`${project.title} — desktop view`} fill sizes="(max-width: 760px) 94vw, 68vw" /><figcaption>Desktop</figcaption></figure>
-          {project.mobileImage ? <figure className="case-gallery-mobile"><Image src={project.mobileImage} alt={`${project.title} — mobile view`} fill sizes="(max-width: 760px) 88vw, 28vw" /><figcaption>Mobile</figcaption></figure> : null}
+
+      <section className="case-clean-overview">
+        <aside className="case-clean-info">
+          {project.logo ? <div className={`case-clean-logo logo-${project.slug}`}><Image src={project.logo} alt={`${project.title} logo`} fill sizes="(max-width: 760px) 220px, 300px" priority /></div> : null}
+          <section className="case-clean-benefit"><span>{labels.impact}</span><h2>{project.result}</h2></section>
+          <section className="case-clean-delivery">
+            <span>{labels.made}</span>
+            <p>{project.description}</p>
+            <ul>{project.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
+          </section>
+          <dl className="case-clean-meta">
+            {project.duration ? <div><dt>{labels.duration}</dt><dd>{project.duration}</dd></div> : null}
+            <div><dt>{labels.tech}</dt><dd>{project.tech.join(" · ")}</dd></div>
+          </dl>
+        </aside>
+
+        <div className="case-clean-media" aria-label={labels.gallery}>
+          {project.image ? <figure className="case-clean-desktop"><Image src={project.image} alt={`${project.title} — desktop`} fill sizes="(max-width: 760px) 94vw, 58vw" priority /></figure> : <div className="case-clean-product"><ProductVisual product={project.slug} /></div>}
+          {project.mobileImage ? <figure className="case-clean-mobile"><Image src={project.mobileImage} alt={`${project.title} — mobile`} fill sizes="(max-width: 760px) 94vw, 22vw" /></figure> : null}
         </div>
-      </section> : null}
-      <blockquote className="case-result case-comment"><div className="case-comment-author">{project.logo ? <span className={`logo-${project.slug}`}><Image src={project.logo} alt="" fill sizes="64px" /></span> : null}<div><small>{labels.result}</small><strong>{labels.comment}</strong></div></div><p>“{project.testimonial}”</p><div className="case-result-actions"><Link className="button" href={`/${locale}/contacts?project=${project.slug}`}>{labels.cta}</Link>{project.website ? <a className="case-website-link" href={project.website} target="_blank" rel="noreferrer">{ru ? "Открыть сайт" : hy ? "Բացել կայքը" : "Visit website"}<span>↗</span></a> : null}</div></blockquote>
-      <Link className="case-all-link" href={`/${locale}/projects`}>{labels.all}<span>→</span></Link>
+      </section>
+
+      <nav className="case-clean-actions" aria-label="Project actions">
+        {project.website ? <a className="case-clean-site" href={project.website} target="_blank" rel="noreferrer">{labels.website}<span>↗</span></a> : null}
+        <Link className="case-clean-similar" href={`/${locale}/contacts?project=${project.slug}`}>{labels.cta}<span>→</span></Link>
+      </nav>
+
+      <blockquote className="case-clean-comment">
+        <small>{labels.comment}</small>
+        <p>“{project.testimonial}”</p>
+        <footer>{project.title}</footer>
+      </blockquote>
     </article>
   );
 }
