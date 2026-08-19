@@ -231,7 +231,7 @@ export function PresentationHome(props: PresentationHomeProps) {
           <div className="pres-work-project-window">
             {props.projects.map((project, index) => <Link className={`pres-work-project-frame ${index === projectIndex ? "is-active" : ""}`} href={`/${props.locale}/projects/${project.slug}`} aria-hidden={index !== projectIndex} tabIndex={index === projectIndex ? 0 : -1} key={project.slug}>
               <Image className="project-shot project-shot-desktop" src={project.image} alt={`${project.title} desktop interface`} fill sizes="(max-width: 760px) 1px, 66vw" priority={index === 0} loading={index === 0 ? undefined : "eager"} />
-              {project.mobileImage ? <Image className="project-shot project-shot-mobile" src={project.mobileImage} alt={`${project.title} mobile interface`} fill sizes="(max-width: 760px) 96vw, 1px" priority={index === 0} loading={index === 0 ? undefined : "eager"} /> : null}
+              {project.mobileImage ? <Image className="project-shot project-shot-mobile" src={project.mobileImage} alt={`${project.title} mobile interface`} fill sizes="(max-width: 760px) 96vw, 1px" quality={92} priority={index === 0} loading={index === 0 ? undefined : "eager"} /> : null}
             </Link>)}
           </div>
           <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
