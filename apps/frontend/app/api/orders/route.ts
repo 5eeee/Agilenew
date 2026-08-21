@@ -2,7 +2,9 @@ import { z } from "zod";
 import { currentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { isLocale, type Locale } from "@/lib/i18n";
-import { sendLeadEmail } from "@/lib/mail";
+import { sendLeadEmail, sendOrderConfirmationEmail } from "@/lib/mail";
+import { notifyOrderPlatform } from "@/lib/order-events";
+import { rateLimit, rejectCrossSiteMutation } from "@/lib/request-security";
 import { getServiceCatalog } from "@/lib/service-catalog";
 
 const input = z.object({
@@ -60,8 +62,12 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const blocked = rejectCrossSiteMutation(request);
+  if (blocked) return blocked;
   const user = await currentUser();
   if (!user) return Response.json({ detail: "Authentication required" }, { status: 401 });
+  const limited = rateLimit(request, `orders:${user.id}`, 10, 60 * 60 * 1000);
+  if (limited) return limited;
   const parsed = input.safeParse(await request.json().catch(() => null));
   if (!parsed.success) return Response.json({ detail: "Invalid order" }, { status: 400 });
 
@@ -93,10 +99,25 @@ export async function POST(request: Request) {
     },
   });
 
-  try {
-    await sendLeadEmail(lead);
-  } catch (error) {
-    console.error("Order saved, but notification failed", error instanceof Error ? error.message : "unknown error");
-  }
+  const deliveries = await Promise.allSettled([
+    sendLeadEmail(lead),
+    sendOrderConfirmationEmail({
+      id: order.id,
+      customerName: user.name,
+      customerEmail: user.email,
+      locale,
+      total: order.total,
+      currency: order.currency,
+      items: order.items,
+    }),
+    notifyOrderPlatform({
+      type: "order.created",
+      order: output(order),
+      customer: { id: user.id, name: user.name, email: user.email },
+    }),
+  ]);
+  deliveries.forEach((result) => {
+    if (result.status === "rejected") console.error("Order saved, but notification failed", result.reason instanceof Error ? result.reason.message : "unknown error");
+  });
   return Response.json(output(order), { status: 201 });
 }

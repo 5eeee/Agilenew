@@ -5,12 +5,17 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Brand } from "@/components/brand";
+import { useRegionalContacts } from "@/components/use-regional-contacts";
 import { localeNames, locales, type Locale } from "@/lib/i18n";
 
 type Nav = { services: string; about: string; calculator: string; contacts: string; cta: string };
 
 function CartIcon() {
   return <svg className="cart-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5.5h2l1.5 9h9.8l2.1-6.2H6.1M9 19a1.35 1.35 0 1 0 0 .1M16 19a1.35 1.35 0 1 0 0 .1" /></svg>;
+}
+
+function rememberLocalePreference(nextLocale: Locale) {
+  document.cookie = `agile-locale=${nextLocale}; Path=/; Max-Age=31536000; SameSite=Lax`;
 }
 
 const languageMeta: Record<Locale, { name: string }> = {
@@ -27,6 +32,7 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
   const [cartCount, setCartCount] = useState(0);
   const languageRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const contacts = useRegionalContacts();
   const routeWithoutLocale = pathname.replace(/^\/(ru|en|ka|hy|bg)(?=\/|$)/, "") || "/";
   const projectsLabel = locale === "ru" ? "Наши работы" : locale === "ka" ? "პროექტები" : locale === "hy" ? "Նախագծեր" : locale === "bg" ? "Проекти" : "Projects";
   const links = [
@@ -36,15 +42,60 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
     ["calculator", nav.calculator],
     ["contacts", nav.contacts],
   ];
+  const rememberLocale = (nextLocale: Locale) => {
+    rememberLocalePreference(nextLocale);
+    setOpen(false);
+    setLanguageOpen(false);
+  };
 
   useEffect(() => {
     if (!open) return;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const body = document.body;
+    const root = document.documentElement;
+    const previousRootStyles = {
+      scrollBehavior: root.style.scrollBehavior,
+      scrollSnapType: root.style.scrollSnapType,
+    };
+    const previousBodyStyles = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+      paddingRight: body.style.paddingRight,
+    };
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") { setOpen(false); setLanguageOpen(false); } };
-    document.body.classList.add("menu-open");
+    root.style.scrollBehavior = "auto";
+    root.style.scrollSnapType = "none";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = `-${scrollX}px`;
+    body.style.right = "0";
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
+    body.classList.add("menu-open");
     window.addEventListener("keydown", closeOnEscape);
     return () => {
-      document.body.classList.remove("menu-open");
+      body.classList.remove("menu-open");
+      body.style.position = previousBodyStyles.position;
+      body.style.top = previousBodyStyles.top;
+      body.style.left = previousBodyStyles.left;
+      body.style.right = previousBodyStyles.right;
+      body.style.width = previousBodyStyles.width;
+      body.style.overflow = previousBodyStyles.overflow;
+      body.style.paddingRight = previousBodyStyles.paddingRight;
       window.removeEventListener("keydown", closeOnEscape);
+      window.scrollTo(scrollX, scrollY);
+      window.requestAnimationFrame(() => {
+        window.scrollTo(scrollX, scrollY);
+        root.style.scrollBehavior = previousRootStyles.scrollBehavior;
+        root.style.scrollSnapType = previousRootStyles.scrollSnapType;
+      });
     };
   }, [open]);
 
@@ -86,7 +137,7 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
     <header className="site-header">
       <div className="header-inner">
         <Brand href={`/${locale}`} />
-        <a className="header-phone header-phone-mobile" href="tel:+79636177373" aria-label="+7 963 617-73-73"><Image src="/social/phone.svg" alt="" width={20} height={20} /></a>
+        <a className="header-phone header-phone-mobile" href={contacts.phoneHref} aria-label={contacts.phoneDisplay}><Image src="/social/phone.svg" alt="" width={20} height={20} /></a>
         <Link className="header-account header-account-mobile" href={`/${locale}/account`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"}><Image src="/icons/account.svg" alt="" width={24} height={24} /></Link>
         <button className="menu-button" type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="main-menu" onClick={() => setOpen(!open)}>
           <span /><span />
@@ -101,7 +152,7 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
             </button>
             <div className="language-options" role="menu">
               {locales.map((item) => (
-                <Link key={item} role="menuitem" aria-current={item === locale ? "page" : undefined} className={item === locale ? "active" : ""} href={`/${item}${routeWithoutLocale === "/" ? "" : routeWithoutLocale}`} hrefLang={item} onClick={() => { setOpen(false); setLanguageOpen(false); }}>
+                <Link key={item} role="menuitem" aria-current={item === locale ? "page" : undefined} className={item === locale ? "active" : ""} href={`/${item}${routeWithoutLocale === "/" ? "" : routeWithoutLocale}`} hrefLang={item} onClick={() => rememberLocale(item)}>
                   <span><strong>{languageMeta[item].name}</strong></span><small>{localeNames[item]}</small>
                 </Link>
               ))}
@@ -109,7 +160,7 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
           </div>
           <div className="header-quick-actions">
             <Link className="header-cart" href={`/${locale}/cart`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? `Корзина: ${cartCount}` : `Cart: ${cartCount}`}><CartIcon /><b>{cartCount}</b></Link>
-            <a className="header-phone" href="tel:+79636177373" aria-label="+7 963 617-73-73"><Image src="/social/phone.svg" alt="" width={20} height={20} /></a>
+            <a className="header-phone" href={contacts.phoneHref} aria-label={contacts.phoneDisplay}><Image src="/social/phone.svg" alt="" width={20} height={20} /></a>
             <Link className="header-account" href={`/${locale}/account`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"}><Image src="/icons/account.svg" alt="" width={24} height={24} /></Link>
             <Link className="button button-small" href={`/${locale}/contacts`} onClick={() => setOpen(false)}>{nav.cta}</Link>
           </div>

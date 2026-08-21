@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n";
+import { RegionalContactDetails, RegionalEmail } from "@/components/regional-contact-details";
 
 export default async function Privacy({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -21,11 +22,11 @@ export default async function Privacy({ params }: { params: Promise<{ lang: stri
       <h2>{ru ? "5. Защита данных" : "5. Data security"}</h2>
       <p>{ru ? "Оператор применяет организационные и технические меры защиты от неправомерного доступа, изменения, блокирования, копирования и распространения данных, включая ограничение доступа, защищённую передачу и контроль инфраструктуры." : "The Controller uses organizational and technical safeguards against unauthorized access, alteration, loss or disclosure, including access controls, secure transmission and infrastructure monitoring."}</p>
       <h2>{ru ? "6. Права пользователя" : "6. Your rights"}</h2>
-      <p>{ru ? "Пользователь вправе запросить сведения об обработке, уточнение, блокирование или удаление данных, а также отозвать согласие. Для этого необходимо направить обращение на info@agile-business-pro.com. Оператор ответит в срок, установленный применимым законодательством." : "You may request access, correction, restriction or deletion of your data and may withdraw consent by emailing info@agile-business-pro.com."}</p>
+      <p>{ru ? <>Пользователь вправе запросить сведения об обработке, уточнение, блокирование или удаление данных, а также отозвать согласие. Для этого необходимо направить обращение на <RegionalEmail />. Оператор ответит в срок, установленный применимым законодательством.</> : <>You may request access, correction, restriction or deletion of your data and may withdraw consent by emailing <RegionalEmail />.</>}</p>
       <h2>{ru ? "7. Cookie и аналитика" : "7. Cookies and analytics"}</h2>
       <p>{ru ? "Сайт может использовать необходимые cookie для корректной работы и аналитические cookie после получения соответствующего согласия. Пользователь может ограничить cookie в настройках браузера." : "The website may use essential cookies and, with appropriate consent, analytics cookies. Cookies can be restricted in browser settings."}</p>
       <h2>{ru ? "8. Контакты Оператора" : "8. Controller contacts"}</h2>
-      <p>Agile Business<br />info@agile-business-pro.com<br />+7 (963) 617-73-73</p>
+      <p>Agile Business<br /><RegionalContactDetails /></p>
       <p className="legal-note">{ru ? "При изменении юридических реквизитов Оператора актуальная информация публикуется в этой Политике до начала соответствующей обработки." : "Updated controller details will be published in this Policy before the relevant processing begins."}</p>
     </article>
   );

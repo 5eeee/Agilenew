@@ -10,7 +10,9 @@
     "dev:web": "npm run dev --workspace agile-business-frontend",
     "build": "npm run build --workspace agile-business-frontend",
     "lint": "npm run lint --workspace agile-business-frontend",
+    "typecheck": "npm run typecheck --workspace agile-business-frontend",
     "check:python": "python -m compileall -q apps packages scripts",
+    "check:fast": "npm run lint && npm run typecheck && npm run check:python",
     "check": "npm run lint && npm run check:python && npm run build"
   },
   "engines": {

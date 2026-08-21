@@ -17,7 +17,17 @@ node_modules/
 _site/
 .DS_Store
 Thumbs.db
+.chrome-capture/
+.vercel-cache/
+.eslintcache
+*.tsbuildinfo
+/qa-*.png
+/*-hires*.png
+/mobile-*.png
+/services-*.png
+/apps/frontend/public/projects/real/*-mobile-hires.png
 .codex-*.log
+/.ignore
 
 .vercel
 .env*

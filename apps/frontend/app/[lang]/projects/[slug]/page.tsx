@@ -26,38 +26,51 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
   const ru = locale === "ru";
   const hy = locale === "hy";
   const labels = ru
-    ? { all: "Все проекты", impact: "Польза для бизнеса", made: "Что сделали", tech: "Технологии", duration: "Срок реализации", gallery: "Проект на разных устройствах", comment: "Комментарий заказчика", cta: "Обсудить похожий проект", website: "Перейти на сайт" }
+    ? { all: "Все проекты", essence: "Суть проекта", impact: "Польза для бизнеса", made: "Что сделала команда", challenge: "Задача", solution: "Решение", tech: "Технологии", duration: "Срок реализации", gallery: "Десктопная версия проекта", comment: "Комментарий заказчика", cta: "Обсудить похожий проект", website: "Перейти на сайт" }
     : hy
-      ? { all: "Բոլոր նախագծերը", impact: "Օգուտը բիզնեսին", made: "Ինչ ենք արել", tech: "Տեխնոլոգիաներ", duration: "Իրականացման ժամկետ", gallery: "Նախագիծը տարբեր սարքերում", comment: "Հաճախորդի մեկնաբանությունը", cta: "Քննարկել նման նախագիծ", website: "Բացել կայքը" }
-      : { all: "All projects", impact: "Business impact", made: "What we delivered", tech: "Technology", duration: "Delivery time", gallery: "Project across devices", comment: "Client comment", cta: "Discuss a similar project", website: "Visit website" };
+      ? { all: "Բոլոր նախագծերը", essence: "Նախագծի էությունը", impact: "Գլխավոր արդյունքը", made: "Ինչ է արել թիմը", challenge: "Խնդիր", solution: "Լուծում", tech: "Տեխնոլոգիաներ", duration: "Իրականացման ժամկետ", gallery: "Նախագծի համակարգչային տարբերակը", comment: "Հաճախորդի մեկնաբանությունը", cta: "Քննարկել նման նախագիծ", website: "Բացել կայքը" }
+      : { all: "All projects", essence: "Project overview", impact: "Business impact", made: "What the team delivered", challenge: "Challenge", solution: "Solution", tech: "Technology", duration: "Delivery time", gallery: "Desktop project view", comment: "Client comment", cta: "Discuss a similar project", website: "Visit website" };
 
   return (
     <article className="case-page case-page-clean shell">
       <header className="case-clean-head">
-        <div><Link href={`/${locale}/projects`} className="case-back">← {labels.all}</Link><span>{project.category}</span></div>
+        <div><Link href={`/${locale}/projects`} className="case-back"><span aria-hidden="true">←</span>{labels.all}</Link><span>{project.category}</span></div>
         <h1>{project.title}</h1>
-        <p>{project.lead}</p>
       </header>
 
-      <section className="case-clean-overview">
-        <aside className="case-clean-info">
-          {project.logo ? <div className={`case-clean-logo logo-${project.slug}`}><Image src={project.logo} alt={`${project.title} logo`} fill sizes="(max-width: 760px) 220px, 300px" priority /></div> : null}
-          <section className="case-clean-benefit"><span>{labels.impact}</span><h2>{project.result}</h2></section>
-          <section className="case-clean-delivery">
-            <span>{labels.made}</span>
-            <p>{project.description}</p>
-            <ul>{project.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
-          </section>
+      <section className="case-clean-showcase">
+        <aside className="case-clean-identity">
+          {project.logo ? <div className={`case-clean-logo logo-${project.slug}`}><Image src={project.logo} alt={`${project.title} logo`} fill sizes="(max-width: 760px) 220px, 300px" priority /></div> : <strong className="case-clean-wordmark">{project.title}</strong>}
+          <div className="case-clean-essence">
+            <h2>{labels.essence}</h2>
+            <p>{project.lead} {project.description}</p>
+          </div>
+        </aside>
+        <div className="case-clean-media" aria-label={labels.gallery}>
+          {project.image ? <figure className="case-clean-desktop"><Image src={project.image} alt={`${project.title} — desktop`} fill sizes="(max-width: 760px) 94vw, 72vw" priority /></figure> : <div className="case-clean-product"><ProductVisual product={project.slug} /></div>}
+        </div>
+      </section>
+
+      <section className="case-clean-priority">
+        <h2>{labels.impact}</h2>
+        <p>{[project.result, ...project.benefits].join(" ")}</p>
+      </section>
+
+      <section className="case-clean-story">
+        <section className="case-clean-delivery">
+          <span>01</span>
+          <h2>{labels.made}</h2>
+          <p>{project.description}</p>
+          <ul>{project.deliverables.map((item) => <li key={item}>{item}</li>)}</ul>
+        </section>
+        <aside className="case-clean-support">
+          <section><span>{labels.challenge}</span><p>{project.challenge}</p></section>
+          <section><span>{labels.solution}</span><p>{project.solution}</p></section>
           <dl className="case-clean-meta">
             {project.duration ? <div><dt>{labels.duration}</dt><dd>{project.duration}</dd></div> : null}
             <div><dt>{labels.tech}</dt><dd>{project.tech.join(" · ")}</dd></div>
           </dl>
         </aside>
-
-        <div className="case-clean-media" aria-label={labels.gallery}>
-          {project.image ? <figure className="case-clean-desktop"><Image src={project.image} alt={`${project.title} — desktop`} fill sizes="(max-width: 760px) 94vw, 58vw" priority /></figure> : <div className="case-clean-product"><ProductVisual product={project.slug} /></div>}
-          {project.mobileImage ? <figure className="case-clean-mobile"><Image src={project.mobileImage} alt={`${project.title} — mobile`} fill sizes="(max-width: 760px) 94vw, 22vw" /></figure> : null}
-        </div>
       </section>
 
       <nav className="case-clean-actions" aria-label="Project actions">

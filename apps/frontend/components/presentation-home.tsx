@@ -29,6 +29,14 @@ type PresentationHomeProps = {
   ctaButton: string;
 };
 
+const presentationCopy = {
+  ru: { spheres: "СФЕРЫ КОМПАНИИ", connection: "Соединяем экспертизу в единый рабочий контур", increase: "Увеличиваем", services: "УСЛУГИ", allServices: "Все услуги", details: "Подробнее", works: "НАШИ РАБОТЫ", projects: "Проекты Agile Business", website: "Перейти на сайт" },
+  en: { spheres: "COMPANY EXPERTISE", connection: "Connecting expertise into one operating system", increase: "Increasing", services: "SERVICES", allServices: "All services", details: "Learn more", works: "OUR WORK", projects: "Agile Business projects", website: "Visit website" },
+  ka: { spheres: "კომპანიის სფეროები", connection: "ვაერთიანებთ ექსპერტიზას ერთ სამუშაო სისტემაში", increase: "ვზრდით", services: "სერვისები", allServices: "ყველა სერვისი", details: "დეტალურად", works: "ჩვენი ნამუშევრები", projects: "Agile Business-ის პროექტები", website: "საიტზე გადასვლა" },
+  hy: { spheres: "ԸՆԿԵՐՈՒԹՅԱՆ ՈԼՈՐՏՆԵՐԸ", connection: "Փորձագիտությունը միավորում ենք մեկ աշխատանքային համակարգում", increase: "Ավելացնում ենք", services: "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ", allServices: "Բոլոր ծառայությունները", details: "Մանրամասն", works: "ՄԵՐ ԱՇԽԱՏԱՆՔՆԵՐԸ", projects: "Agile Business նախագծեր", website: "Բացել կայքը" },
+  bg: { spheres: "ОБЛАСТИ НА КОМПАНИЯТА", connection: "Обединяваме експертизата в единна работна система", increase: "Увеличаваме", services: "УСЛУГИ", allServices: "Всички услуги", details: "Повече", works: "НАШИТЕ ПРОЕКТИ", projects: "Проекти на Agile Business", website: "Към сайта" },
+} as const;
+
 function SectionBar({ left = "AGILE BUSINESS", right = "People | Process | Technology" }: { left?: string; right?: string }) {
   return <div className="pres-section-bar"><span>{left}</span><span>{right}</span></div>;
 }
@@ -52,12 +60,48 @@ export function PresentationHome(props: PresentationHomeProps) {
     const scene = heroSceneRef.current;
     const stage = heroStageRef.current;
     if (!scene || !stage) return;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let frame = 0;
-    let lastProgress = -1;
-    let unlockTimer = 0;
     let signatureStartTimer = 0;
+    let signatureDrawFrame = 0;
     let lockedY = 0;
+    const signatureDrawDuration = 2001;
+    const signatureStartDelay = 46;
+    const signaturePath = stage.querySelector<SVGPathElement>(".signature-draw-path");
+    const signatureLetters = Array.from(stage.querySelectorAll<SVGGElement>(".signature-business-letter"));
+    const resetSignature = () => {
+      if (signatureDrawFrame) window.cancelAnimationFrame(signatureDrawFrame);
+      signatureDrawFrame = 0;
+      stage.classList.remove("signature-active");
+      signaturePath?.style.setProperty("stroke-dashoffset", "1", "important");
+      signatureLetters.forEach((letter) => letter.style.setProperty("opacity", "0", "important"));
+    };
+    const drawSignature = (onComplete: () => void) => {
+      if (!signaturePath) {
+        onComplete();
+        return;
+      }
+      const startedAt = window.performance.now();
+      const paint = (now: number) => {
+        const progress = Math.min(1, (now - startedAt) / signatureDrawDuration);
+        const eased = progress * progress * (3 - 2 * progress);
+        signaturePath.style.setProperty("stroke-dashoffset", `${1 - eased}`, "important");
+        const letterPhase = Math.max(0, Math.min(1, (progress - 0.84) / 0.16));
+        signatureLetters.forEach((letter, index) => {
+          const opacity = Math.max(0, Math.min(1, letterPhase * signatureLetters.length - index));
+          letter.style.setProperty("opacity", `${opacity}`, "important");
+        });
+        if (progress < 1) {
+          signatureDrawFrame = window.requestAnimationFrame(paint);
+        } else {
+          signatureDrawFrame = 0;
+          onComplete();
+        }
+      };
+      signatureDrawFrame = window.requestAnimationFrame(paint);
+    };
+    signatureCompletedRef.current = false;
+    signatureLockRef.current = false;
+    resetSignature();
     const blockScroll = (event: Event) => event.preventDefault();
     const keepLockedPosition = () => {
       if (!signatureLockRef.current) return;
@@ -82,43 +126,45 @@ export function PresentationHome(props: PresentationHomeProps) {
       const bounds = scene.getBoundingClientRect();
       const travel = Math.max(scene.offsetHeight - window.innerHeight, 1);
       const progress = Math.min(1, Math.max(0, -bounds.top / travel));
-      if (Math.abs(progress - lastProgress) < 0.002) return;
-      lastProgress = progress;
       const compact = window.innerWidth <= 760;
       const compactCopyGrowth = window.innerWidth <= 380 ? 0.06 : 0.08;
-      const titleProgress = Math.min(progress / 0.48, 1);
-      const whiteProgress = Math.min(1, Math.max(0, (progress - 0.52) / 0.12));
+      const titleProgress = Math.min(progress / 0.5, 1);
+      const whiteProgress = Math.min(1, Math.max(0, (progress - 0.5) / 0.16));
       stage.style.setProperty("--hero-bg-shift", `${progress * (compact ? 28 : 48)}px`);
       stage.style.setProperty("--hero-bg-scale", `${1 + titleProgress * (compact ? 0.14 : 0.2)}`);
-      stage.style.setProperty("--hero-copy-shift", `${titleProgress * (compact ? -10 : -42)}px`);
+      stage.style.setProperty("--hero-copy-shift", `${titleProgress * (compact ? -24 : -42)}px`);
       stage.style.setProperty("--hero-copy-scale", `${1 + titleProgress * (compact ? compactCopyGrowth : 1.05)}`);
       stage.style.setProperty("--hero-copy-opacity", `${1 - whiteProgress}`);
       stage.style.setProperty("--hero-white-opacity", `${whiteProgress}`);
       // The signature starts only after the white layer has fully covered the
       // opening scene. Once started, it owns the viewport until every letter
       // has been drawn.
-      const signatureActive = progress >= 0.66;
+      const signatureActive = progress >= 0.7;
+      if (progress <= 0.54 && signatureCompletedRef.current) {
+        signatureCompletedRef.current = false;
+        resetSignature();
+      }
       if (signatureActive && !signatureCompletedRef.current) {
         signatureCompletedRef.current = true;
         const sceneTop = window.scrollY + bounds.top;
-        lockedY = Math.round(sceneTop + travel * 0.66);
+        lockedY = Math.round(sceneTop + travel * 0.7);
         stage.style.setProperty("--hero-copy-opacity", "0");
         stage.style.setProperty("--hero-white-opacity", "1");
-        if (!reducedMotion) {
-          signatureLockRef.current = true;
-          document.documentElement.classList.add("signature-scroll-lock");
-          window.addEventListener("wheel", blockScroll, { passive: false, capture: true });
-          window.addEventListener("touchmove", blockScroll, { passive: false, capture: true });
-          window.addEventListener("keydown", blockKeys, { capture: true });
-          window.addEventListener("scroll", keepLockedPosition, { passive: true, capture: true });
-        }
+        signatureLockRef.current = true;
+        document.documentElement.classList.add("signature-scroll-lock");
+        window.addEventListener("wheel", blockScroll, { passive: false, capture: true });
+        window.addEventListener("touchmove", blockScroll, { passive: false, capture: true });
+        window.addEventListener("keydown", blockKeys, { capture: true });
+        window.addEventListener("scroll", keepLockedPosition, { passive: true, capture: true });
         window.scrollTo({ top: lockedY, behavior: "auto" });
         // Restart from a guaranteed empty frame. This avoids the SVG appearing
         // already drawn when the browser restores scroll or skips several frames.
         stage.classList.remove("signature-active");
         void stage.offsetWidth;
-        signatureStartTimer = window.setTimeout(() => stage.classList.add("signature-active"), reducedMotion ? 0 : 32);
-        if (!reducedMotion) unlockTimer = window.setTimeout(unlockSignature, 1450);
+        signatureStartTimer = window.setTimeout(() => {
+          stage.classList.add("signature-active");
+          drawSignature(unlockSignature);
+        }, signatureStartDelay);
       } else if (!signatureCompletedRef.current) {
         stage.classList.remove("signature-active");
       }
@@ -131,7 +177,7 @@ export function PresentationHome(props: PresentationHomeProps) {
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
       if (frame) window.cancelAnimationFrame(frame);
-      if (unlockTimer) window.clearTimeout(unlockTimer);
+      if (signatureDrawFrame) window.cancelAnimationFrame(signatureDrawFrame);
       if (signatureStartTimer) window.clearTimeout(signatureStartTimer);
       unlockSignature();
     };
@@ -140,7 +186,7 @@ export function PresentationHome(props: PresentationHomeProps) {
   useEffect(() => {
     const nodes = [[spheresRef.current, "spheres"], [workRef.current, "work"]] as const;
     if (!("IntersectionObserver" in window)) {
-      setVisibleSections({ spheres: true, work: true });
+      queueMicrotask(() => setVisibleSections({ spheres: true, work: true }));
       return;
     }
     const visibility = { spheres: false, work: false };
@@ -179,6 +225,7 @@ export function PresentationHome(props: PresentationHomeProps) {
   }, [props.projects.length, visibleSections.work]);
 
   const activeProject = props.projects[projectIndex];
+  const ui = presentationCopy[props.locale as keyof typeof presentationCopy] ?? presentationCopy.en;
   const orderedServices = [...props.services].sort((a, b) => {
     const aIsIt = /^ИТ\b|^IT\b|разработ/i.test(a[1]) ? 1 : 0;
     const bIsIt = /^ИТ\b|^IT\b|разработ/i.test(b[1]) ? 1 : 0;
@@ -200,41 +247,41 @@ export function PresentationHome(props: PresentationHomeProps) {
       </section>
 
       <section className="pres-block pres-spheres" ref={spheresRef}>
-        <SectionBar left="СФЕРЫ КОМПАНИИ" right="Expertise | Systems | Growth" />
+        <SectionBar left={ui.spheres} right="Expertise | Systems | Growth" />
         <div className="pres-spheres-stage">
           <span className="pres-spheres-index">0{term + 1} / 0{props.outcomes.length}</span>
-          <p>Соединяем экспертизу в единый рабочий контур</p>
+          <p>{ui.connection}</p>
           <h2 key={props.terms[term % props.terms.length]}>{props.terms[term % props.terms.length]}</h2>
-          <h3 key={props.outcomes[term]}>Увеличиваем {props.outcomes[term]}</h3>
+          <h3 key={props.outcomes[term]}>{ui.increase} {props.outcomes[term]}</h3>
           <div className="pres-spheres-progress"><i style={{ "--progress-index": term } as CSSProperties} /></div>
         </div>
       </section>
 
       <section className="pres-block pres-feature">
-        <SectionBar left="УСЛУГИ" />
+        <SectionBar left={ui.services} />
         <div className="pres-services-layout">
-          <header><span className="pres-red-label">Business solutions</span><h2>{props.servicesTitle}</h2><p>{props.servicesText}</p><Link href={`/${props.locale}/services`}>Все услуги <i>↗</i></Link></header>
+          <header><span className="pres-red-label">Business solutions</span><h2>{props.servicesTitle}</h2><p>{props.servicesText}</p><Link href={`/${props.locale}/services`}>{ui.allServices} <i>↗</i></Link></header>
           <div className="pres-services-grid">
-            {orderedServices.map((service, index) => <article key={service[0]}><span>0{index + 1}</span><h3>{service[1]}</h3><p>{service[2]}</p><Link href={`/${props.locale}/services`}>Подробнее <i>↗</i></Link></article>)}
+            {orderedServices.map((service, index) => <article key={service[0]}><span>0{index + 1}</span><h3>{service[1]}</h3><p>{service[2]}</p><Link href={`/${props.locale}/services`}>{ui.details} <i>↗</i></Link></article>)}
           </div>
         </div>
       </section>
 
       <section className="pres-block pres-portfolio pres-work-showcase" ref={workRef}>
-        <SectionBar left="НАШИ РАБОТЫ" right="Clients | Products | Platforms" />
+        <SectionBar left={ui.works} right="Clients | Products | Platforms" />
         <div className="pres-work-showcase-grid">
-          <div className="pres-work-logo-window" aria-label="Проекты Agile Business">
+          <div className="pres-work-logo-window" aria-label={ui.projects}>
             <div className="pres-work-logo-track" style={{ "--project-index": projectIndex } as CSSProperties}>
               {props.projects.map((project, index) => <div className={`pres-work-logo-slide logo-${project.slug}`} key={project.slug}><span>0{index + 1}</span><strong>{project.logo ? <Image className="project-site-logo-image" src={project.logo} alt={`${project.title} logo`} width={360} height={190} /> : project.title}</strong></div>)}
             </div>
           </div>
           <div className="pres-work-project-window">
-            {props.projects.map((project, index) => <Link className={`pres-work-project-frame ${index === projectIndex ? "is-active" : ""}`} href={`/${props.locale}/projects/${project.slug}`} aria-hidden={index !== projectIndex} tabIndex={index === projectIndex ? 0 : -1} key={project.slug}>
+            {props.projects.map((project, index) => <Link className={`pres-work-project-frame ${index === projectIndex ? "is-active" : ""}`} href={`/${props.locale}/projects/${project.slug}`} aria-hidden={index !== projectIndex} tabIndex={index === projectIndex ? 0 : -1} style={{ "--project-backdrop": `url("${project.mobileImage ?? project.image}")` } as CSSProperties} key={project.slug}>
               <Image className="project-shot project-shot-desktop" src={project.image} alt={`${project.title} desktop interface`} fill sizes="(max-width: 760px) 1px, 66vw" priority={index === 0} loading={index === 0 ? undefined : "eager"} />
               {project.mobileImage ? <Image className="project-shot project-shot-mobile" src={project.mobileImage} alt={`${project.title} mobile interface`} fill sizes="(max-width: 760px) 96vw, 1px" quality={92} priority={index === 0} loading={index === 0 ? undefined : "eager"} /> : null}
             </Link>)}
           </div>
-          <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><a href={activeProject.website} target="_blank" rel="noreferrer">Перейти на сайт <i>↗</i></a></div>
+          <div className="pres-work-project-footer" key={`footer-${activeProject.slug}`}><a href={activeProject.website} target="_blank" rel="noreferrer">{ui.website} <i>↗</i></a></div>
         </div>
       </section>
 

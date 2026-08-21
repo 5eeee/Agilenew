@@ -60,6 +60,8 @@ model User {
   name         String
   email        String   @unique
   passwordHash String
+  phone        String?
+  avatarData   String?  @db.Text
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
@@ -78,6 +80,7 @@ model User {
   tasks         Task[]
   leads         Lead[]
   serviceOrders ServiceOrder[]
+  projectReviews ProjectReview[]
 }
 
 model Session {
@@ -282,10 +285,40 @@ model ServiceOrder {
   updatedAt     DateTime           @updatedAt
   user          User               @relation(fields: [userId], references: [id], onDelete: Cascade)
   items         ServiceOrderItem[]
+  stageApprovals OrderStageApproval[]
+  review         ProjectReview?
 
   @@index([userId, createdAt])
   @@index([status, createdAt])
   @@index([paymentStatus, createdAt])
+}
+
+model OrderStageApproval {
+  id                 String      @id @default(uuid())
+  orderId            String
+  stage              OrderStatus
+  executorApprovedAt DateTime?
+  clientApprovedAt   DateTime?
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+  order              ServiceOrder @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@unique([orderId, stage])
+  @@index([orderId, createdAt])
+}
+
+model ProjectReview {
+  id        String       @id @default(uuid())
+  orderId   String       @unique
+  userId    String
+  rating    Int
+  text      String       @db.Text
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  order     ServiceOrder @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
 }
 
 model ServiceOrderItem {

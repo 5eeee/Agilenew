@@ -1,6 +1,6 @@
 # Agile Business — multilingual website
 
-Мультиязычная платформа Agile Business: Next.js 16.2, PostgreSQL/Prisma и FastAPI-сервисы за единым API Gateway.
+Мультиязычная платформа Agile Business: Next.js 16.3, PostgreSQL/Prisma и FastAPI-сервисы за единым API Gateway.
 
 Языки: русский (`/ru`), английский (`/en`), грузинский (`/ka`), армянский (`/hy`) и болгарский (`/bg`).
 
@@ -33,6 +33,8 @@
 | **web** | 8081 | Next.js App Router, SEO, аккаунты, заявки, админка и SMTP |
 | **content** | 8082 | API контента: компания, услуги, кейсы, блог |
 | **leads** | 8083 | Совместимый FastAPI-контур прежних локальных заявок; основной сайт хранит заявки в PostgreSQL |
+
+Подробные границы доменов и правила отказоустойчивости: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Чек-лист безопасности: [`docs/SECURITY.md`](docs/SECURITY.md). Работа с ветками и pull request: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Быстрый старт
 

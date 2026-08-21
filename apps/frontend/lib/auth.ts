@@ -34,7 +34,7 @@ export async function currentUser() {
   if (!token) return null;
   const session = await db.session.findUnique({
     where: { tokenHash: tokenHash(token) },
-    include: { user: { select: { id: true, name: true, email: true, createdAt: true } } },
+    include: { user: { select: { id: true, name: true, email: true, phone: true, avatarData: true, createdAt: true } } },
   });
   if (!session || session.expiresAt <= new Date()) {
     if (session) await db.session.delete({ where: { id: session.id } });

@@ -23,5 +23,6 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: npm ci
+      - run: npm audit --omit=dev
       - run: pip install -r requirements.txt
       - run: npm run check

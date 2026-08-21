@@ -1,3 +1,9 @@
 .vercel
 .env*
 npm-debug.log*
+node_modules
+.next
+.next-*
+.eslintcache
+tsconfig.tsbuildinfo
+*.log

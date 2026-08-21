@@ -30,7 +30,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   if (!isLocale(lang)) notFound();
   const locale = lang as Locale;
   const dictionary = getDictionary(locale);
-  const organization = { "@context": "https://schema.org", "@type": "Organization", name: "Agile Business", url: siteUrl, email: "info@agile-business-pro.com", telephone: "+79636177373" };
+  const organization = { "@context": "https://schema.org", "@type": "Organization", name: "Agile Business", url: siteUrl, email: "agilebusinessofficial@gmail.com", telephone: "+359884034524", contactPoint: [{ "@type": "ContactPoint", telephone: "+359884034524", email: "agilebusinessofficial@gmail.com" }, { "@type": "ContactPoint", telephone: "+79636177373", email: "info@agile-business-pro.com", areaServed: "RU" }] };
 
   return (
     <html lang={locale}>

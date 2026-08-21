@@ -25,11 +25,16 @@ export function ServiceCart({ services, locale }: { services: readonly CatalogSe
   const [status, setStatus] = useState<"idle" | "sending" | "login" | "sent" | "error">("idle");
 
   useEffect(() => {
-    try {
-      const saved = JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? "[]");
-      if (Array.isArray(saved)) setSelected(saved.filter((id): id is string => typeof id === "string"));
-    } catch { window.localStorage.removeItem(STORAGE_KEY); }
-    setReady(true);
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      try {
+        const saved = JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? "[]");
+        if (Array.isArray(saved)) setSelected(saved.filter((id): id is string => typeof id === "string"));
+      } catch { window.localStorage.removeItem(STORAGE_KEY); }
+      setReady(true);
+    });
+    return () => { cancelled = true; };
   }, []);
 
   useEffect(() => {

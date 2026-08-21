@@ -8,12 +8,17 @@ export type CatalogService = {
   price: number;
   duration: string;
   features: readonly string[];
+  priceLabel?: string;
+  tiers?: readonly {
+    label: string;
+    price: string;
+  }[];
   recommended?: boolean;
   consultation?: boolean;
   custom?: boolean;
 };
 
-type ServiceBase = Omit<CatalogService, "title" | "category" | "summary" | "duration" | "features">;
+type ServiceBase = Pick<CatalogService, "id" | "price" | "recommended" | "consultation" | "custom">;
 
 const BASE: readonly ServiceBase[] = [
   { id: "consultation", price: 0, consultation: true, recommended: true },
@@ -93,11 +98,227 @@ const COPY: Record<Locale, readonly Copy[]> = {
   ],
 };
 
+const RU_DOCUMENT_SERVICES: readonly CatalogService[] = [
+  { id: "consultation", title: "Стартовая консультация", category: "Знакомство", summary: "За 30 минут разберём задачу, обозначим реалистичный формат запуска и следующий шаг без обязательств.", price: 0, duration: "30 минут", features: ["Разбор задачи", "Оценка формата", "Следующий шаг"], consultation: true, recommended: true },
+  { id: "custom-project", title: "Индивидуальный проект", category: "Под вашу задачу", summary: "Соберите нестандартное решение из нужных функций, интеграций и этапов — калькулятор подготовит ориентир по бюджету.", price: 100_000, duration: "от 4 недель", features: ["Персональный состав", "Расчёт бюджета", "Технический план"], custom: true },
+  {
+    id: "it-audit", title: "IT-аудит компании", category: "IT и разработка", price: 15_000, priceLabel: "15 000–70 000 ₽", duration: "от 1 недели",
+    summary: "Независимая оценка IT-инфраструктуры, сервисов и процессов с поиском рисков и узких мест.",
+    features: ["Инфраструктура и сервисы", "Риски и безопасность", "Отчёт с приоритетами"],
+    tiers: [{ label: "Низкая", price: "15 000–25 000 ₽" }, { label: "Средняя", price: "25 000–45 000 ₽" }, { label: "Высокая", price: "45 000–70 000 ₽" }],
+  },
+  {
+    id: "it-strategy", title: "Разработка IT-стратегии", category: "IT и разработка", price: 20_000, priceLabel: "20 000–90 000 ₽", duration: "от 2 недель",
+    summary: "План развития IT на 1–3 года, связанный с целями, ресурсами и ограничениями бизнеса.",
+    features: ["Целевая архитектура", "Этапы и зависимости", "Метрики успеха"],
+    tiers: [{ label: "Низкая", price: "20 000–35 000 ₽" }, { label: "Средняя", price: "35 000–60 000 ₽" }, { label: "Высокая", price: "60 000–90 000 ₽" }],
+  },
+  {
+    id: "digital-transformation", title: "Консалтинг по цифровой трансформации", category: "IT и разработка", price: 20_000, priceLabel: "20 000–95 000 ₽", duration: "от 2 недель",
+    summary: "Перевод процессов и сервисов в управляемый цифровой контур без лишней автоматизации.",
+    features: ["Карта AS IS / TO BE", "Сценарии и quick wins", "План внедрения"],
+    tiers: [{ label: "Низкая", price: "20 000–35 000 ₽" }, { label: "Средняя", price: "35 000–65 000 ₽" }, { label: "Высокая", price: "65 000–95 000 ₽" }],
+  },
+  {
+    id: "landing", title: "Лендинг", category: "Веб-разработка", price: 35_000, priceLabel: "35 000–250 000 ₽", duration: "от 3 недель", recommended: true,
+    summary: "Одностраничный сайт с ясным предложением, адаптивом, аналитикой и сценарием заявки.",
+    features: ["Структура и сценарий", "Адаптив и скорость", "Формы и аналитика"],
+    tiers: [{ label: "Низкая", price: "35 000–80 000 ₽" }, { label: "Средняя", price: "60 000–150 000 ₽" }, { label: "Высокая", price: "70 000–250 000 ₽" }],
+  },
+  {
+    id: "corporate-site", title: "Корпоративный сайт", category: "Веб-разработка", price: 50_000, priceLabel: "50 000–500 000 ₽", duration: "от 5 недель",
+    summary: "Цифровое представительство компании для услуг, команды, кейсов и органического привлечения.",
+    features: ["Архитектура и навигация", "Дизайн и CMS", "SEO и интеграции"],
+    tiers: [{ label: "Низкая", price: "50 000–80 000 ₽" }, { label: "Средняя", price: "80 000–210 000 ₽" }, { label: "Высокая", price: "90 000–500 000 ₽" }],
+  },
+  {
+    id: "ecommerce-platform", title: "Интернет-магазин", category: "Веб-разработка", price: 35_000, priceLabel: "35 000–1 000 000 ₽", duration: "от 6 недель",
+    summary: "Каталог, поиск, корзина, заказ, оплата, доставка и личный кабинет в одной системе.",
+    features: ["Каталог и поиск", "Заказ и оплата", "Админка и отчёты"],
+    tiers: [{ label: "Низкая", price: "35 000–150 000 ₽" }, { label: "Средняя", price: "70 000–500 000 ₽" }, { label: "Высокая", price: "120 000–1 000 000 ₽" }],
+  },
+  {
+    id: "saas-platform", title: "SaaS-платформа", category: "Веб-разработка", price: 80_000, priceLabel: "80 000–1 000 000 ₽", duration: "от 8 недель",
+    summary: "Браузерный продукт с ролями, подписками, интеграциями и подготовкой к нагрузке.",
+    features: ["Роли и сценарии", "API и интеграции", "Мониторинг и нагрузка"],
+    tiers: [{ label: "Низкая", price: "80 000–210 000 ₽" }, { label: "Средняя", price: "110 000–350 000 ₽" }, { label: "Высокая", price: "160 000–1 000 000 ₽" }],
+  },
+  {
+    id: "web-support", title: "Поддержка и развитие веб-проектов", category: "Веб-разработка", price: 10_000, priceLabel: "10 000–500 000 ₽", duration: "ежемесячно",
+    summary: "Регулярная поддержка действующего продукта: исправления, развитие и контроль стабильности.",
+    features: ["Оценка и backlog", "Исправления и обновления", "Инциденты и SLA"],
+    tiers: [{ label: "Низкая", price: "10 000–80 000 ₽" }, { label: "Средняя", price: "30 000–150 000 ₽" }, { label: "Высокая", price: "50 000–500 000 ₽" }],
+  },
+  {
+    id: "cross-platform-app", title: "Кроссплатформенные приложения", category: "Мобильная разработка", price: 50_000, priceLabel: "50 000–500 000+ ₽", duration: "от 6 недель",
+    summary: "Приложения для iOS и Android с общей кодовой базой и единым продуктовым сценарием.",
+    features: ["UX-сценарии", "Push, offline и geo", "Backend и аналитика"],
+    tiers: [{ label: "Низкая", price: "50 000–100 000 ₽" }, { label: "Средняя", price: "120 000–180 000 ₽" }, { label: "Высокая", price: "200 000–500 000+ ₽" }],
+  },
+  {
+    id: "crm-erp", title: "CRM / ERP веб-системы", category: "Корпоративные системы", price: 100_000, priceLabel: "100 000–500 000+ ₽", duration: "от 8 недель",
+    summary: "Рабочая система для продаж, заказов, производства, учёта и управленческой отчётности.",
+    features: ["Сущности и роли", "Воронки и автоматизация", "Отчёты и интеграции"],
+    tiers: [{ label: "Низкая", price: "100 000–140 000 ₽" }, { label: "Средняя", price: "170 000–230 000 ₽" }, { label: "Высокая", price: "250 000–500 000+ ₽" }],
+  },
+  {
+    id: "data-analysis", title: "Анализ и обработка данных", category: "Data и AI", price: 25_000, priceLabel: "25 000–100 000+ ₽", duration: "от 2 недель",
+    summary: "Приводим данные в порядок, проверяем гипотезы и превращаем результаты в решения.",
+    features: ["Инвентаризация данных", "Очистка и EDA", "Отчёт и рекомендации"],
+    tiers: [{ label: "Низкая", price: "25 000–35 000 ₽" }, { label: "Средняя", price: "50 000–75 000 ₽" }, { label: "Высокая", price: "85 000–100 000+ ₽" }],
+  },
+  {
+    id: "ai-services", title: "Разработка AI-сервисов", category: "Data и AI", price: 60_000, priceLabel: "60 000–3 000 000+ ₽", duration: "от 6 недель",
+    summary: "Прикладной AI-сервис с измеримым качеством, API, интерфейсом и мониторингом.",
+    features: ["Постановка и метрики", "Модели и API", "Мониторинг качества"],
+    tiers: [{ label: "Низкая", price: "60 000–180 000 ₽" }, { label: "Средняя", price: "110 000–300 000 ₽" }, { label: "Высокая", price: "250 000–3 000 000+ ₽" }],
+  },
+  {
+    id: "ai-business-integration", title: "Внедрение ИИ в бизнес", category: "Data и AI", price: 40_000, priceLabel: "40 000–500 000 ₽", duration: "от 3 недель",
+    summary: "Находим процессы, где ИИ даёт измеримый эффект, внедряем готовые модели и AI-агентов в рабочий контур компании.",
+    features: ["Аудит AI-сценариев", "Агенты и автоматизация", "Интеграция и обучение команды"],
+    tiers: [{ label: "Низкая", price: "40 000–110 000 ₽" }, { label: "Средняя", price: "70 000–150 000 ₽" }, { label: "Крупная", price: "120 000–500 000 ₽" }],
+  },
+  {
+    id: "api-integrations", title: "Интеграции с внешними API", category: "Интеграции и безопасность", price: 40_000, priceLabel: "40 000–350 000 ₽", duration: "от 2 недель",
+    summary: "Надёжный обмен данными с внешними системами с логированием и обработкой ошибок.",
+    features: ["Авторизация и запросы", "Ошибки и идемпотентность", "Тестовый контур"],
+    tiers: [{ label: "Низкая", price: "40 000–100 000 ₽" }, { label: "Средняя", price: "60 000–150 000 ₽" }, { label: "Высокая", price: "120 000–350 000 ₽" }],
+  },
+  {
+    id: "pentest", title: "Пентест", category: "Интеграции и безопасность", price: 25_000, priceLabel: "25 000–500 000 ₽", duration: "от 2 недель",
+    summary: "Проверяем устойчивость системы к атакам и даём воспроизводимый план устранения уязвимостей.",
+    features: ["Сканирование и ручная проверка", "Оценка критичности", "Отчёт и рекомендации"],
+    tiers: [{ label: "Низкая", price: "25 000–80 000 ₽" }, { label: "Средняя", price: "60 000–250 000 ₽" }, { label: "Высокая", price: "100 000–500 000 ₽" }],
+  },
+  {
+    id: "security-audit", title: "Аудит информационной безопасности", category: "Интеграции и безопасность", price: 30_000, priceLabel: "30 000–700 000 ₽", duration: "от 2 недель",
+    summary: "Оцениваем текущую защиту, риски и соответствие требованиям, затем формируем план исправлений.",
+    features: ["Интервью и артефакты", "Карта рисков", "Приоритетный план"],
+    tiers: [{ label: "Низкая", price: "30 000–70 000 ₽" }, { label: "Средняя", price: "80 000–200 000 ₽" }, { label: "Высокая", price: "120 000–700 000 ₽" }],
+  },
+] as const;
+
+type DocumentServiceCopy = Pick<CatalogService, "title" | "category" | "summary" | "duration" | "features"> & {
+  tierLabels?: readonly string[];
+};
+
+const EN_DOCUMENT_COPY: Record<string, DocumentServiceCopy> = {
+  consultation: {
+    title: "Introductory consultation", category: "Discovery", duration: "30 minutes",
+    summary: "In 30 minutes we will clarify the challenge, suggest a realistic launch format and define the next step with no obligation.",
+    features: ["Challenge review", "Format assessment", "Next step"],
+  },
+  "custom-project": {
+    title: "Custom project", category: "Built around your needs", duration: "from 4 weeks",
+    summary: "Combine the functions, integrations and delivery stages your business needs, then use the estimator to get a realistic budget range.",
+    features: ["Custom scope", "Budget estimate", "Technical plan"],
+  },
+  "it-audit": {
+    title: "Company IT audit", category: "IT & development", duration: "from 1 week",
+    summary: "An independent review of your infrastructure, services and IT processes, focused on risks, bottlenecks and practical priorities.",
+    features: ["Infrastructure and services", "Risk and security review", "Prioritised report"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "it-strategy": {
+    title: "IT strategy development", category: "IT & development", duration: "from 2 weeks",
+    summary: "A practical 1–3 year technology roadmap aligned with business goals, available resources and operational constraints.",
+    features: ["Target architecture", "Stages and dependencies", "Success metrics"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "digital-transformation": {
+    title: "Digital transformation consulting", category: "IT & development", duration: "from 2 weeks",
+    summary: "We redesign processes and services into a manageable digital operating model without automating work that does not create value.",
+    features: ["AS IS / TO BE map", "Scenarios and quick wins", "Implementation plan"], tierLabels: ["Low", "Medium", "High"],
+  },
+  landing: {
+    title: "Landing page", category: "Web development", duration: "from 3 weeks",
+    summary: "A focused one-page website with a clear proposition, responsive design, analytics and a deliberate conversion journey.",
+    features: ["Structure and journey", "Responsive performance", "Forms and analytics"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "corporate-site": {
+    title: "Corporate website", category: "Web development", duration: "from 5 weeks",
+    summary: "A scalable digital presence for services, team, case studies and organic customer acquisition.",
+    features: ["Architecture and navigation", "Design and CMS", "SEO and integrations"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "ecommerce-platform": {
+    title: "E-commerce platform", category: "Web development", duration: "from 6 weeks",
+    summary: "Catalogue, search, cart, checkout, payment, delivery and customer accounts brought together in one sales system.",
+    features: ["Catalogue and search", "Checkout and payment", "Admin and reporting"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "saas-platform": {
+    title: "SaaS platform", category: "Web development", duration: "from 8 weeks",
+    summary: "A browser-based product with user roles, subscriptions, integrations and an architecture prepared for growth.",
+    features: ["Roles and journeys", "APIs and integrations", "Monitoring and load"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "web-support": {
+    title: "Web product support and development", category: "Web development", duration: "monthly",
+    summary: "Ongoing support for a live product: issue resolution, planned improvements and continuous stability control.",
+    features: ["Assessment and backlog", "Fixes and updates", "Incidents and SLA"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "cross-platform-app": {
+    title: "Cross-platform applications", category: "Mobile development", duration: "from 6 weeks",
+    summary: "iOS and Android applications with a shared codebase and a consistent end-to-end product journey.",
+    features: ["UX journeys", "Push, offline and location", "Backend and analytics"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "crm-erp": {
+    title: "CRM / ERP web systems", category: "Enterprise systems", duration: "from 8 weeks",
+    summary: "A working system for sales, orders, production, accounting and management reporting.",
+    features: ["Entities and roles", "Pipelines and automation", "Reporting and integrations"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "data-analysis": {
+    title: "Data analysis and processing", category: "Data & AI", duration: "from 2 weeks",
+    summary: "We organise your data, test business hypotheses and turn the findings into clear, actionable decisions.",
+    features: ["Data inventory", "Cleaning and EDA", "Report and recommendations"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "ai-services": {
+    title: "AI product development", category: "Data & AI", duration: "from 6 weeks",
+    summary: "A production-ready AI service with measurable quality, secure APIs, a practical interface and continuous monitoring.",
+    features: ["Problem framing and metrics", "Models and APIs", "Quality monitoring"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "ai-business-integration": {
+    title: "AI implementation for business", category: "Data & AI", duration: "from 3 weeks",
+    summary: "We identify workflows where AI can create measurable value, then integrate proven models and AI agents into day-to-day operations.",
+    features: ["AI opportunity audit", "Agents and automation", "Integration and team enablement"], tierLabels: ["Low", "Medium", "Large"],
+  },
+  "api-integrations": {
+    title: "External API integrations", category: "Integration & security", duration: "from 2 weeks",
+    summary: "Reliable data exchange with external systems, including authentication, logging, retries and robust error handling.",
+    features: ["Authentication and requests", "Errors and idempotency", "Test environment"], tierLabels: ["Low", "Medium", "High"],
+  },
+  pentest: {
+    title: "Penetration testing", category: "Integration & security", duration: "from 2 weeks",
+    summary: "We test how your system withstands realistic attacks and provide a reproducible, prioritised remediation plan.",
+    features: ["Automated and manual testing", "Severity assessment", "Report and recommendations"], tierLabels: ["Low", "Medium", "High"],
+  },
+  "security-audit": {
+    title: "Information security audit", category: "Integration & security", duration: "from 2 weeks",
+    summary: "We assess current controls, business risks and compliance requirements, then define a prioritised improvement plan.",
+    features: ["Interviews and evidence", "Risk map", "Prioritised plan"], tierLabels: ["Low", "Medium", "High"],
+  },
+};
+
+const EN_DOCUMENT_SERVICES: readonly CatalogService[] = RU_DOCUMENT_SERVICES.map((service) => {
+  const copy = EN_DOCUMENT_COPY[service.id];
+  return {
+    ...service,
+    ...copy,
+    tiers: service.tiers?.map((tier, index) => ({ ...tier, label: copy.tierLabels?.[index] ?? tier.label })),
+  };
+});
+
 export function getServiceCatalog(locale: Locale): readonly CatalogService[] {
+  if (locale === "ru") return RU_DOCUMENT_SERVICES;
+  if (locale === "en") return EN_DOCUMENT_SERVICES;
   return BASE.map((service, index) => ({ ...service, ...COPY[locale][index] }));
+}
+
+export function getAccountServiceTitles(locale: Locale) {
+  const legacy = BASE.map((service, index) => ({ id: service.id, title: COPY[locale][index].title }));
+  const current = getServiceCatalog(locale).map(({ id, title }) => ({ id, title }));
+  return [...new Map([...legacy, ...current].map((service) => [service.id, service])).values()];
 }
 
 export function getPricedServices(ids: readonly string[]) {
   const uniqueIds = [...new Set(ids)];
-  return uniqueIds.map((id) => BASE.find((service) => service.id === id)).filter((service): service is ServiceBase => Boolean(service));
+  const priced = [...BASE, ...RU_DOCUMENT_SERVICES];
+  return uniqueIds.map((id) => priced.find((service) => service.id === id)).filter((service): service is ServiceBase => Boolean(service));
 }

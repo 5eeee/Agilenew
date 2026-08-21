@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, type FormEvent } from "react";
 import type { Locale } from "@/lib/i18n";
+import { useRegionalContacts } from "@/components/use-regional-contacts";
 
 type Labels = { name: string; email: string; phone: string; company: string; message: string; consent: string; submit: string; sending: string; success: string; error: string };
 type User = { name: string; email: string };
@@ -31,6 +32,7 @@ function formatPhone(country: PhoneCountry, raw: string) {
 }
 
 export function ContactForm({ labels, locale, source = "site" }: { labels: Labels; locale: Locale; source?: string }) {
+  const contacts = useRegionalContacts();
   const [state, setState] = useState<"loading" | "idle" | "sending" | "success" | "error">("loading");
   const [user, setUser] = useState<User | null>(null);
   const [progress, setProgress] = useState(12);
@@ -90,7 +92,7 @@ export function ContactForm({ labels, locale, source = "site" }: { labels: Label
       </div>
       <label className="form-message"><span>{labels.message}</span><textarea name="message" required minLength={10} maxLength={3000} rows={4} placeholder={ru ? "Коротко опишите задачу и желаемый результат" : hy ? "Հակիրճ նկարագրեք խնդիրը և ցանկալի արդյունքը" : "Briefly describe the task and desired result"} /></label>
       <div className="form-submit"><label className="form-consent"><input type="checkbox" required /><span>{labels.consent} <Link href={`/${locale}/privacy`}>{ru ? "Открыть политику" : hy ? "Դիտել քաղաքականությունը" : "View policy"}</Link></span></label><button className="button" type="submit" disabled={state === "sending"}>{state === "sending" ? labels.sending : labels.submit}</button></div>
-      <p className={`form-status ${state}`} aria-live="polite">{state === "success" ? (ru ? "Спасибо. Заявка принята — в ближайшее время с вами свяжется специалист." : labels.success) : state === "error" ? labels.error : ""}</p>
+      <p className={`form-status ${state}`} aria-live="polite">{state === "success" ? (ru ? "Спасибо. Заявка принята — в ближайшее время с вами свяжется специалист." : labels.success) : state === "error" ? labels.error.replace("info@agile-business-pro.com", contacts.email) : ""}</p>
     </form>
   );
 }

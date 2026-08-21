@@ -57,7 +57,10 @@ export default async function ServiceDetail({ params }: { params: Promise<{ lang
     <section className="service-detail-hero">
       <div className="service-detail-index"><span>AGILE BUSINESS / SERVICE</span><strong>{service.category}</strong></div>
       <div className="service-detail-title"><h1>{service.title}</h1><p>{service.summary}</p></div>
-      <dl><div><dt>{t.format}</dt><dd>{service.duration}</dd></div><div><dt>{t.budget}</dt><dd>{price(service.price, locale)}</dd></div><div><dt>{t.result}</dt><dd>{service.features.join(" · ")}</dd></div></dl>
+      <dl><div><dt>{t.format}</dt><dd>{service.duration}</dd></div><div><dt>{t.budget}</dt><dd>{service.priceLabel ?? price(service.price, locale)}</dd></div><div><dt>{t.result}</dt><dd>{service.features.join(" · ")}</dd></div></dl>
+      {service.tiers ? <div className="service-detail-tiers" aria-label={locale === "ru" ? "Цены по сложности проекта" : "Prices by project complexity"}>
+        {service.tiers.map((tier) => <div key={tier.label}><span>{tier.label}</span><strong>{tier.price}</strong></div>)}
+      </div> : null}
     </section>
     <section className={`service-roadmap service-roadmap-${roadmapKind}`}>
       <header><span>01—05</span><h2>{t.roadmap}</h2><p>{t.note}</p></header>
