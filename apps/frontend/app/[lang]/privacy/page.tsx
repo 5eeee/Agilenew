@@ -1,6 +1,15 @@
 import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n";
 import { RegionalContactDetails, RegionalEmail } from "@/components/regional-contact-details";
+import { buildPageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  if (!isLocale(lang)) return {};
+  if (lang === "ru") return buildPageMetadata(lang, "/privacy", "Политика обработки персональных данных", "Условия обработки и защиты персональных данных пользователей Agile Business.");
+  if (lang === "pl") return buildPageMetadata(lang, "/privacy", "Polityka przetwarzania danych osobowych", "Zasady przetwarzania i ochrony danych osobowych użytkowników Agile Business.");
+  return buildPageMetadata(lang, "/privacy", "Personal Data Processing Policy", "How Agile Business processes and protects personal data.");
+}
 
 export default async function Privacy({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

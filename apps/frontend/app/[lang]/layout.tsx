@@ -35,7 +35,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   return (
     <html lang={locale}>
       <body>
-        <a className="skip-link" href="#content">Skip to content</a>
+        <a className="skip-link" href="#content">{locale === "ru" ? "К содержанию" : locale === "pl" ? "Przejdź do treści" : "Skip to content"}</a>
         <Header locale={locale} nav={dictionary.nav} />
         <main id="content">{children}</main>
         <Footer locale={locale} line={dictionary.footer.line} privacy={dictionary.footer.privacy} nav={dictionary.nav} />

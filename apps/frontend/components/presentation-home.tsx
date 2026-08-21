@@ -232,6 +232,7 @@ export function PresentationHome(props: PresentationHomeProps) {
     const bIsIt = /^ИТ\b|^IT\b|разработ/i.test(b[1]) ? 1 : 0;
     return bIsIt - aIsIt;
   });
+  const polish = props.locale === "pl";
 
   return <main className="presentation-home">
     <div className="presentation-shell">
@@ -242,13 +243,13 @@ export function PresentationHome(props: PresentationHomeProps) {
             <p>{props.text}</p>
             <h1>{props.title}</h1>
           </div>
-          <div className="pres-hero-footer"><span>Strategy</span><span>Design</span><span>Technology</span></div>
+          <div className="pres-hero-footer"><span>{polish ? "Strategia" : "Strategy"}</span><span>{polish ? "Projektowanie" : "Design"}</span><span>{polish ? "Technologia" : "Technology"}</span></div>
           <div className="pres-hero-white-reveal"><SignatureLogo /></div>
         </div>
       </section>
 
       <section className="pres-block pres-spheres" ref={spheresRef}>
-        <SectionBar left={ui.spheres} right="Expertise | Systems | Growth" />
+        <SectionBar left={ui.spheres} right={polish ? "Kompetencje | Systemy | Wzrost" : "Expertise | Systems | Growth"} />
         <div className="pres-spheres-stage">
           <span className="pres-spheres-index">0{term + 1} / 0{props.outcomes.length}</span>
           <p>{ui.connection}</p>
@@ -261,7 +262,7 @@ export function PresentationHome(props: PresentationHomeProps) {
       <section className="pres-block pres-feature">
         <SectionBar left={ui.services} />
         <div className="pres-services-layout">
-          <header><span className="pres-red-label">Business solutions</span><h2>{props.servicesTitle}</h2><p>{props.servicesText}</p><Link href={`/${props.locale}/services`}>{ui.allServices} <i>↗</i></Link></header>
+          <header><span className="pres-red-label">{polish ? "Rozwiązania biznesowe" : "Business solutions"}</span><h2>{props.servicesTitle}</h2><p>{props.servicesText}</p><Link href={`/${props.locale}/services`}>{ui.allServices} <i>↗</i></Link></header>
           <div className="pres-services-grid">
             {orderedServices.map((service, index) => <article key={service[0]}><span>0{index + 1}</span><h3>{service[1]}</h3><p>{service[2]}</p><Link href={`/${props.locale}/services`}>{ui.details} <i>↗</i></Link></article>)}
           </div>
@@ -269,7 +270,7 @@ export function PresentationHome(props: PresentationHomeProps) {
       </section>
 
       <section className="pres-block pres-portfolio pres-work-showcase" ref={workRef}>
-        <SectionBar left={ui.works} right="Clients | Products | Platforms" />
+        <SectionBar left={ui.works} right={polish ? "Klienci | Produkty | Platformy" : "Clients | Products | Platforms"} />
         <div className="pres-work-showcase-grid">
           <div className="pres-work-logo-window" aria-label={ui.projects}>
             <div className="pres-work-logo-track" style={{ "--project-index": projectIndex } as CSSProperties}>
@@ -287,13 +288,13 @@ export function PresentationHome(props: PresentationHomeProps) {
       </section>
 
       <section className="pres-block pres-process">
-        <SectionBar right="How we work" />
+        <SectionBar right={polish ? "Jak pracujemy" : "How we work"} />
         <h2>{props.methodTitle}</h2>
         <ol>{props.steps.map((step, index) => <li key={step[0]}><span>0{index + 1}</span><h3>{step[0]}</h3><p>{step[1]}</p></li>)}</ol>
       </section>
 
       <section className="pres-block pres-final">
-        <SectionBar right="Start a project" />
+        <SectionBar right={polish ? "Rozpocznij projekt" : "Start a project"} />
         <div><h2>{props.ctaTitle}</h2><p>{props.ctaText}</p><Link href={`/${props.locale}/contacts`}>{props.ctaButton}</Link></div>
       </section>
     </div>

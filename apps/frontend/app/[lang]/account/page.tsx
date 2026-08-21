@@ -3,8 +3,13 @@ import { notFound } from "next/navigation";
 import { AccountPortal } from "@/components/account-portal";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { getAccountServiceTitles } from "@/lib/service-catalog";
+import { getAccountCopy } from "@/lib/account-copy";
 
-export const metadata: Metadata = { title: "Личный кабинет", robots: { index: false, follow: false } };
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLocale(lang)) return {};
+  return { title: getAccountCopy(lang).title, robots: { index: false, follow: false } };
+}
 export default async function AccountPage({ params, searchParams }: { params: Promise<{ lang: string }>; searchParams: Promise<{ reset?: string }> }) {
   const [{ lang }, query] = await Promise.all([params, searchParams]);
   if (!isLocale(lang)) notFound();
