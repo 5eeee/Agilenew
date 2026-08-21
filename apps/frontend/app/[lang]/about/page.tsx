@@ -31,6 +31,16 @@ const copy = {
     process: [["Discovery", "We define the objective, constraints and success metrics."], ["Architecture", "We shape the journey, solution scope and transparent estimate."], ["Delivery", "We show working progress in short iterations."], ["Launch", "We validate, hand over and define the next growth plan."]],
     final: "Need a team that understands the challenge and delivers the solution?",
   },
+  pl: {
+    title: "Zespół odpowiedzialny za wynik biznesowy",
+    lead: "Agile Business łączy strategię, analitykę, projektowanie i rozwój oprogramowania. Jedna odpowiedzialna ekipa prowadzi wyzwanie od diagnozy do działającego systemu.",
+    services: "Zobacz usługi", discuss: "Omów wyzwanie",
+    positioning: "Włączamy się tam, gdzie firma potrzebuje wzrostu, przejrzystości i sprawnego narzędzia cyfrowego — bez luki między doradztwem a wdrożeniem.",
+    capabilities: [["Strategia i analityka", "Identyfikujemy ograniczenia, weryfikujemy dane i tworzymy skoncentrowany plan działania."], ["Serwisy i produkty cyfrowe", "Projektujemy zrozumiałe ścieżki użytkownika i zamieniamy je w szybkie, responsywne produkty."], ["Systemy CRM i BI", "Łączymy sprzedaż, operacje i wskaźniki zarządcze w jednym środowisku pracy."]],
+    processTitle: "Jak pracujemy", processText: "Każdy etap ma konkretny rezultat, osobę odpowiedzialną i jasno określony punkt decyzyjny.",
+    process: [["Diagnoza", "Definiujemy cel, ograniczenia i mierniki sukcesu."], ["Architektura", "Ustalamy scenariusz, zakres rozwiązania i przejrzystą wycenę."], ["Realizacja", "Pokazujemy działające rezultaty w krótkich iteracjach."], ["Uruchomienie", "Weryfikujemy rozwiązanie, przekazujemy system i plan dalszego rozwoju."]],
+    final: "Potrzebujesz zespołu, który zrozumie wyzwanie i doprowadzi rozwiązanie do uruchomienia?",
+  },
   ka: {
     title: "გუნდი, რომელიც ბიზნეს შედეგზე აგებს პასუხს",
     lead: "Agile Business აერთიანებს სტრატეგიას, ანალიტიკას, დიზაინსა და განვითარებას. ერთი გუნდი მიჰყვება ამოცანას კვლევიდან სამუშაო სისტემამდე.",

@@ -7,6 +7,7 @@ import type { Project } from "@/lib/projects";
 const labels = {
   ru: { all: "Все", caseStudy: "Посмотреть проект", website: "Открыть сайт", result: "Польза бизнесу" },
   en: { all: "All", caseStudy: "View project", website: "Open website", result: "Outcome" },
+  pl: { all: "Wszystkie", caseStudy: "Zobacz projekt", website: "Otwórz stronę", result: "Rezultat" },
   ka: { all: "ყველა", caseStudy: "პროექტის ნახვა", website: "საიტის გახსნა", result: "შედეგი" },
   hy: { all: "Բոլորը", caseStudy: "Դիտել նախագիծը", website: "Բացել կայքը", result: "Արդյունք" },
   bg: { all: "Всички", caseStudy: "Вижте проекта", website: "Отворете сайта", result: "Резултат" },

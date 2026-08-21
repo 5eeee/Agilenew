@@ -60,6 +60,18 @@ const COPY: Record<Locale, readonly Copy[]> = {
     { title: "Business process audit", category: "Consulting", summary: "We locate losses across the funnel, operations and data, then prioritise improvements.", duration: "3–5 weeks", features: ["Interviews", "AS IS map", "TO BE plan"] },
     { title: "Growth strategy", category: "Consulting", summary: "Product, marketing and digital strategy aligned around one measurable business target.", duration: "4–6 weeks", features: ["Diagnosis", "Roadmap", "Economics"] },
   ],
+  pl: [
+    { title: "Konsultacja wstępna", category: "Rozpoznanie potrzeb", summary: "W 30 minut doprecyzujemy wyzwanie, zaproponujemy realistyczny format startu i wskażemy kolejny krok — bez zobowiązań.", duration: "30 minut", features: ["Analiza wyzwania", "Ocena formatu", "Kolejny krok"] },
+    { title: "Projekt indywidualny", category: "Dopasowany do potrzeb", summary: "Połącz potrzebne funkcje, integracje i etapy, a kalkulator wskaże realistyczny przedział budżetu.", duration: "od 4 tygodni", features: ["Indywidualny zakres", "Wycena budżetu", "Plan techniczny"] },
+    { title: "Strona wizytówkowa", category: "WWW", summary: "Kompaktowa strona marki z indywidualnym projektem, podstawowym SEO i skutecznym formularzem kontaktowym.", duration: "3–4 tygodnie", features: ["Do 7 sekcji", "Responsywność", "Podstawowe SEO"] },
+    { title: "Landing page nastawiony na konwersję", category: "WWW", summary: "Strona kampanii z analityką, wyrazistą ofertą i przemyślaną ścieżką pozyskania kontaktu.", duration: "4–6 tygodni", features: ["Prototyp UX", "Indywidualny UI", "Analityka"] },
+    { title: "Strona firmowa", category: "WWW", summary: "Skalowalny serwis dla oferty, zespołu, realizacji i organicznego pozyskiwania klientów.", duration: "7–10 tygodni", features: ["CMS", "Wielojęzyczność", "Struktura SEO"] },
+    { title: "Platforma e-commerce", category: "E-commerce", summary: "Katalog, koszyk, panel klienta i integracje potrzebne do pełnej sprzedaży internetowej.", duration: "10–14 tygodni", features: ["Katalog", "Koszyk", "Integracje"] },
+    { title: "Dedykowany CRM — MVP", category: "Rozwój oprogramowania", summary: "Pierwsza działająca wersja CRM dostosowana do procesów, ról i najważniejszych integracji firmy.", duration: "12–18 tygodni", features: ["Mapa procesów", "Role", "Integracje API"] },
+    { title: "Dashboard BI", category: "Analityka", summary: "Wskaźniki zarządcze z wielu źródeł w jednym czytelnym środowisku operacyjnym.", duration: "5–8 tygodni", features: ["Model danych", "KPI", "Automatyczne odświeżanie"] },
+    { title: "Audyt procesów biznesowych", category: "Doradztwo", summary: "Wykrywamy straty w lejku, operacjach i danych, a następnie ustalamy priorytety zmian.", duration: "3–5 tygodni", features: ["Wywiady", "Mapa AS IS", "Plan TO BE"] },
+    { title: "Strategia wzrostu", category: "Doradztwo", summary: "Łączymy strategię produktu, marketingu i technologii wokół jednego mierzalnego celu biznesowego.", duration: "4–6 tygodni", features: ["Diagnoza", "Plan działania", "Ekonomika"] },
+  ],
   hy: [
     { title: "Մեկնարկային խորհրդատվություն", category: "Ծանոթացում", summary: "30 րոպեում կհստակեցնենք խնդիրը, կառաջարկենք իրատեսական մեկնարկ և հաջորդ քայլը՝ առանց պարտավորության։", duration: "30 րոպե", features: ["Խնդրի վերլուծություն", "Ձևաչափի գնահատում", "Հաջորդ քայլ"] },
     { title: "Անհատական նախագիծ", category: "Ձեր խնդրի համար", summary: "Միավորեք անհրաժեշտ գործառույթները, ինտեգրումները և փուլերը, իսկ հաշվիչը կտա բյուջեի իրատեսական միջակայք։", duration: "4 շաբաթից", features: ["Անհատական կազմ", "Բյուջեի հաշվարկ", "Տեխնիկական պլան"] },
@@ -305,9 +317,36 @@ const EN_DOCUMENT_SERVICES: readonly CatalogService[] = RU_DOCUMENT_SERVICES.map
   };
 });
 
+const PL_DOCUMENT_COPY: Record<string, DocumentServiceCopy> = {
+  consultation: { title: "Konsultacja wstępna", category: "Rozpoznanie potrzeb", duration: "30 minut", summary: "W 30 minut doprecyzujemy wyzwanie, zaproponujemy realistyczny format startu i wskażemy kolejny krok — bez zobowiązań.", features: ["Analiza wyzwania", "Ocena formatu", "Kolejny krok"] },
+  "custom-project": { title: "Projekt indywidualny", category: "Dopasowany do potrzeb", duration: "od 4 tygodni", summary: "Połącz potrzebne funkcje, integracje i etapy realizacji, aby otrzymać realistyczny przedział budżetu.", features: ["Indywidualny zakres", "Wycena budżetu", "Plan techniczny"] },
+  "it-audit": { title: "Audyt IT firmy", category: "IT i rozwój oprogramowania", duration: "od 1 tygodnia", summary: "Niezależna ocena infrastruktury, usług i procesów IT, skoncentrowana na ryzykach, wąskich gardłach i praktycznych priorytetach.", features: ["Infrastruktura i usługi", "Ryzyko i bezpieczeństwo", "Raport z priorytetami"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "it-strategy": { title: "Opracowanie strategii IT", category: "IT i rozwój oprogramowania", duration: "od 2 tygodni", summary: "Praktyczny plan rozwoju technologii na 1–3 lata, powiązany z celami biznesowymi, dostępnymi zasobami i ograniczeniami operacyjnymi.", features: ["Architektura docelowa", "Etapy i zależności", "Mierniki sukcesu"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "digital-transformation": { title: "Doradztwo w transformacji cyfrowej", category: "IT i rozwój oprogramowania", duration: "od 2 tygodni", summary: "Przekształcamy procesy i usługi w zarządzalny model cyfrowy, bez automatyzowania działań, które nie tworzą wartości.", features: ["Mapa AS IS / TO BE", "Scenariusze i szybkie efekty", "Plan wdrożenia"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  landing: { title: "Landing page", category: "Tworzenie stron", duration: "od 3 tygodni", summary: "Skoncentrowana strona z jasną propozycją wartości, responsywnym projektem, analityką i przemyślaną ścieżką konwersji.", features: ["Struktura i ścieżka", "Responsywność i wydajność", "Formularze i analityka"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "corporate-site": { title: "Strona firmowa", category: "Tworzenie stron", duration: "od 5 tygodni", summary: "Skalowalna obecność cyfrowa dla oferty, zespołu, realizacji i organicznego pozyskiwania klientów.", features: ["Architektura i nawigacja", "Projekt i CMS", "SEO i integracje"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "ecommerce-platform": { title: "Sklep internetowy", category: "Tworzenie stron", duration: "od 6 tygodni", summary: "Katalog, wyszukiwarka, koszyk, zamówienie, płatność, dostawa i panel klienta połączone w jednym systemie sprzedaży.", features: ["Katalog i wyszukiwanie", "Zamówienie i płatność", "Administracja i raporty"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "saas-platform": { title: "Platforma SaaS", category: "Tworzenie stron", duration: "od 8 tygodni", summary: "Produkt internetowy z rolami użytkowników, subskrypcjami, integracjami i architekturą przygotowaną do wzrostu.", features: ["Role i scenariusze", "API i integracje", "Monitoring i obciążenie"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "web-support": { title: "Utrzymanie i rozwój produktów internetowych", category: "Tworzenie stron", duration: "miesięcznie", summary: "Stałe wsparcie działającego produktu: usuwanie problemów, planowany rozwój i ciągła kontrola stabilności.", features: ["Ocena i backlog", "Poprawki i aktualizacje", "Incydenty i SLA"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "cross-platform-app": { title: "Aplikacje wieloplatformowe", category: "Aplikacje mobilne", duration: "od 6 tygodni", summary: "Aplikacje na iOS i Androida ze wspólną bazą kodu oraz spójną ścieżką użytkownika.", features: ["Scenariusze UX", "Push, offline i lokalizacja", "Backend i analityka"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "crm-erp": { title: "Systemy internetowe CRM / ERP", category: "Systemy firmowe", duration: "od 8 tygodni", summary: "System do obsługi sprzedaży, zamówień, produkcji, ewidencji i raportowania zarządczego.", features: ["Obiekty i role", "Lejki i automatyzacja", "Raporty i integracje"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "data-analysis": { title: "Analiza i przetwarzanie danych", category: "Dane i AI", duration: "od 2 tygodni", summary: "Porządkujemy dane, testujemy hipotezy biznesowe i przekładamy wyniki na jasne decyzje operacyjne.", features: ["Inwentaryzacja danych", "Czyszczenie i EDA", "Raport i rekomendacje"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "ai-services": { title: "Tworzenie rozwiązań AI", category: "Dane i AI", duration: "od 6 tygodni", summary: "Gotowa do pracy usługa AI z mierzalną jakością, bezpiecznym API, praktycznym interfejsem i monitoringiem.", features: ["Definicja problemu i metryk", "Modele i API", "Monitoring jakości"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "ai-business-integration": { title: "Wdrożenie AI w biznesie", category: "Dane i AI", duration: "od 3 tygodni", summary: "Wskazujemy procesy, w których AI daje mierzalną wartość, a następnie wdrażamy sprawdzone modele i agentów do codziennej pracy firmy.", features: ["Audyt możliwości AI", "Agenci i automatyzacja", "Integracja i przygotowanie zespołu"], tierLabels: ["Niska", "Średnia", "Duża"] },
+  "api-integrations": { title: "Integracje z zewnętrznymi API", category: "Integracje i bezpieczeństwo", duration: "od 2 tygodni", summary: "Niezawodna wymiana danych z systemami zewnętrznymi, obejmująca uwierzytelnianie, logowanie, ponawianie i obsługę błędów.", features: ["Uwierzytelnianie i zapytania", "Błędy i idempotencja", "Środowisko testowe"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  pentest: { title: "Testy penetracyjne", category: "Integracje i bezpieczeństwo", duration: "od 2 tygodni", summary: "Sprawdzamy odporność systemu na realistyczne ataki i przekazujemy odtwarzalny, uporządkowany plan usunięcia podatności.", features: ["Testy automatyczne i ręczne", "Ocena krytyczności", "Raport i rekomendacje"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+  "security-audit": { title: "Audyt bezpieczeństwa informacji", category: "Integracje i bezpieczeństwo", duration: "od 2 tygodni", summary: "Oceniamy obecne zabezpieczenia, ryzyka biznesowe i wymagania zgodności, a następnie tworzymy priorytetowy plan usprawnień.", features: ["Wywiady i dokumentacja", "Mapa ryzyka", "Plan priorytetów"], tierLabels: ["Niska", "Średnia", "Wysoka"] },
+};
+
+const PL_DOCUMENT_SERVICES: readonly CatalogService[] = RU_DOCUMENT_SERVICES.map((service) => {
+  const copy = PL_DOCUMENT_COPY[service.id];
+  return { ...service, ...copy, tiers: service.tiers?.map((tier, index) => ({ ...tier, label: copy.tierLabels?.[index] ?? tier.label })) };
+});
+
 export function getServiceCatalog(locale: Locale): readonly CatalogService[] {
   if (locale === "ru") return RU_DOCUMENT_SERVICES;
   if (locale === "en") return EN_DOCUMENT_SERVICES;
+  if (locale === "pl") return PL_DOCUMENT_SERVICES;
   return BASE.map((service, index) => ({ ...service, ...COPY[locale][index] }));
 }
 

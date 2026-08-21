@@ -7,6 +7,7 @@ import { buildPageMetadata } from "@/lib/seo";
 const copy = {
   ru: { title: "Проекты, которые работают в бизнесе", text: "Запущенные цифровые продукты с понятной задачей, продуманной логикой и измеримым результатом." },
   en: { title: "Projects that work in business", text: "Launched digital products with a clear challenge, deliberate product logic and measurable outcomes." },
+  pl: { title: "Projekty, które realnie wspierają biznes", text: "Uruchomione produkty cyfrowe z jasno określonym celem, przemyślaną logiką i mierzalnym rezultatem." },
   ka: { title: "პროექტები, რომლებიც ბიზნესში მუშაობს", text: "გაშვებული ციფრული პროდუქტები მკაფიო ამოცანით, გააზრებული ლოგიკითა და გაზომვადი შედეგით." },
   hy: { title: "Նախագծեր, որոնք աշխատում են բիզնեսում", text: "Գործարկված թվային պրոդուկտներ՝ հստակ խնդրով, մտածված տրամաբանությամբ և չափելի արդյունքով։" },
   bg: { title: "Проекти, които работят за бизнеса", text: "Стартирани дигитални продукти с ясна задача, обмислена логика и измерим резултат." },

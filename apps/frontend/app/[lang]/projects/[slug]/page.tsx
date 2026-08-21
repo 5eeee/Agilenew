@@ -24,9 +24,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
   const project = getProject(slug, locale);
   if (!project) notFound();
   const ru = locale === "ru";
+  const pl = locale === "pl";
   const hy = locale === "hy";
   const labels = ru
     ? { all: "Все проекты", essence: "Суть проекта", impact: "Польза для бизнеса", made: "Что сделала команда", challenge: "Задача", solution: "Решение", tech: "Технологии", duration: "Срок реализации", gallery: "Десктопная версия проекта", comment: "Комментарий заказчика", cta: "Обсудить похожий проект", website: "Перейти на сайт" }
+    : pl
+      ? { all: "Wszystkie projekty", essence: "O projekcie", impact: "Korzyści dla biznesu", made: "Co zrealizował zespół", challenge: "Wyzwanie", solution: "Rozwiązanie", tech: "Technologie", duration: "Czas realizacji", gallery: "Widok projektu na komputerze", comment: "Opinia klienta", cta: "Omów podobny projekt", website: "Przejdź do strony" }
     : hy
       ? { all: "Բոլոր նախագծերը", essence: "Նախագծի էությունը", impact: "Գլխավոր արդյունքը", made: "Ինչ է արել թիմը", challenge: "Խնդիր", solution: "Լուծում", tech: "Տեխնոլոգիաներ", duration: "Իրականացման ժամկետ", gallery: "Նախագծի համակարգչային տարբերակը", comment: "Հաճախորդի մեկնաբանությունը", cta: "Քննարկել նման նախագիծ", website: "Բացել կայքը" }
       : { all: "All projects", essence: "Project overview", impact: "Business impact", made: "What the team delivered", challenge: "Challenge", solution: "Solution", tech: "Technology", duration: "Delivery time", gallery: "Desktop project view", comment: "Client comment", cta: "Discuss a similar project", website: "Visit website" };

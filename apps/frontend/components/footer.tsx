@@ -10,8 +10,8 @@ type FooterNav = { services: string; about: string; calculator: string; contacts
 
 export function Footer({ locale, line, privacy, nav }: { locale: Locale; line: string; privacy: string; nav: FooterNav }) {
   const contacts = useRegionalContacts();
-  const projectsLabel = locale === "ru" ? "Проекты" : locale === "ka" ? "პროექტები" : locale === "hy" ? "Նախագծեր" : locale === "bg" ? "Проекти" : "Projects";
-  const links = [["services", nav.services], ["projects", projectsLabel], ["about", nav.about], ["calculator", nav.calculator], ["contacts", nav.contacts], ["account", locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"]];
+  const projectsLabel = locale === "ru" ? "Проекты" : locale === "pl" ? "Projekty" : locale === "ka" ? "პროექტები" : locale === "hy" ? "Նախագծեր" : locale === "bg" ? "Проекти" : "Projects";
+  const links = [["services", nav.services], ["projects", projectsLabel], ["about", nav.about], ["calculator", nav.calculator], ["contacts", nav.contacts], ["account", locale === "ru" ? "Личный кабинет" : locale === "pl" ? "Panel klienta" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"]];
   return (
     <footer className="site-footer">
       <div className="footer-top">
@@ -29,7 +29,7 @@ export function Footer({ locale, line, privacy, nav }: { locale: Locale; line: s
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Agile Business</span>
         <Link href={`/${locale}/privacy`}>{privacy}</Link>
-        <span className="footer-credit">Разработано компанией <Link href={`/${locale}`}>Agile Business</Link></span>
+        <span className="footer-credit">{locale === "ru" ? "Разработано компанией " : locale === "pl" ? "Realizacja: " : "Developed by "}<Link href={`/${locale}`}>Agile Business</Link></span>
       </div>
     </footer>
   );

@@ -21,6 +21,7 @@ function rememberLocalePreference(nextLocale: Locale) {
 const languageMeta: Record<Locale, { name: string }> = {
   ru: { name: "Русский" },
   en: { name: "English" },
+  pl: { name: "Polski" },
   ka: { name: "ქართული" },
   hy: { name: "Հայերեն" },
   bg: { name: "Български" },
@@ -33,8 +34,8 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
   const languageRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const contacts = useRegionalContacts();
-  const routeWithoutLocale = pathname.replace(/^\/(ru|en|ka|hy|bg)(?=\/|$)/, "") || "/";
-  const projectsLabel = locale === "ru" ? "Наши работы" : locale === "ka" ? "პროექტები" : locale === "hy" ? "Նախագծեր" : locale === "bg" ? "Проекти" : "Projects";
+  const routeWithoutLocale = pathname.replace(/^\/(ru|en|pl|ka|hy|bg)(?=\/|$)/, "") || "/";
+  const projectsLabel = locale === "ru" ? "Наши работы" : locale === "pl" ? "Projekty" : locale === "ka" ? "პროექტები" : locale === "hy" ? "Նախագծեր" : locale === "bg" ? "Проекти" : "Projects";
   const links = [
     ["services", nav.services],
     ["projects", projectsLabel],
@@ -138,7 +139,7 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
       <div className="header-inner">
         <Brand href={`/${locale}`} />
         <a className="header-phone header-phone-mobile" href={contacts.phoneHref} aria-label={contacts.phoneDisplay}><Image src="/social/phone.svg" alt="" width={20} height={20} /></a>
-        <Link className="header-account header-account-mobile" href={`/${locale}/account`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"}><Image src="/icons/account.svg" alt="" width={24} height={24} /></Link>
+        <Link className="header-account header-account-mobile" href={`/${locale}/account`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? "Личный кабинет" : locale === "pl" ? "Panel klienta" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"}><Image src="/icons/account.svg" alt="" width={24} height={24} /></Link>
         <button className="menu-button" type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="main-menu" onClick={() => setOpen(!open)}>
           <span /><span />
         </button>
@@ -159,9 +160,9 @@ export function Header({ locale, nav }: { locale: Locale; nav: Nav }) {
             </div>
           </div>
           <div className="header-quick-actions">
-            <Link className="header-cart" href={`/${locale}/cart`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? `Корзина: ${cartCount}` : `Cart: ${cartCount}`}><CartIcon /><b>{cartCount}</b></Link>
+            <Link className="header-cart" href={`/${locale}/cart`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? `Корзина: ${cartCount}` : locale === "pl" ? `Koszyk: ${cartCount}` : `Cart: ${cartCount}`}><CartIcon /><b>{cartCount}</b></Link>
             <a className="header-phone" href={contacts.phoneHref} aria-label={contacts.phoneDisplay}><Image src="/social/phone.svg" alt="" width={20} height={20} /></a>
-            <Link className="header-account" href={`/${locale}/account`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? "Личный кабинет" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"}><Image src="/icons/account.svg" alt="" width={24} height={24} /></Link>
+            <Link className="header-account" href={`/${locale}/account`} onClick={() => setOpen(false)} aria-label={locale === "ru" ? "Личный кабинет" : locale === "pl" ? "Panel klienta" : locale === "hy" ? "Անձնական հաշիվ" : "Client account"}><Image src="/icons/account.svg" alt="" width={24} height={24} /></Link>
             <Link className="button button-small" href={`/${locale}/contacts`} onClick={() => setOpen(false)}>{nav.cta}</Link>
           </div>
         </div>

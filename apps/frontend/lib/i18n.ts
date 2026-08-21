@@ -1,10 +1,11 @@
-export const locales = ["ru", "en", "ka", "hy", "bg"] as const;
+export const locales = ["ru", "en", "pl", "ka", "hy", "bg"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "ru";
 
 export const localeNames: Record<Locale, string> = {
   ru: "RU",
   en: "EN",
+  pl: "PL",
   ka: "KA",
   hy: "HY",
   bg: "BG",
@@ -44,6 +45,18 @@ const dictionaries = {
 type Dictionary = (typeof dictionaries)[keyof typeof dictionaries];
 
 const regional = {
+  pl: {
+    nav: { services: "Usługi", about: "O nas", calculator: "Kalkulator", contacts: "Kontakt", cta: "Omów projekt" },
+    hero: { eyebrow: "Doradztwo biznesowe nowej generacji", title: "Rozwiązania dopasowane do celów biznesowych.", accent: "Od diagnozy do mierzalnych efektów.", text: "Łączymy analitykę, strategię i technologię, aby firmy podejmowały trafniejsze decyzje i szybciej się rozwijały.", primary: "Wyceń projekt", secondary: "Zobacz usługi" },
+    stats: [["3", "obszary specjalizacji"], ["20+", "zrealizowanych projektów"], ["98%", "klientów nas poleca"]],
+    services: { eyebrow: "Specjalizacje", title: "Systemowo wspieramy rozwój biznesu", text: "Nie sprzedajemy pojedynczych raportów ani narzędzi. Rozpoznajemy problem, projektujemy rozwiązanie i wspieramy jego wdrożenie.", items: [["01", "Analityka biznesowa", "Diagnoza procesów, mierniki zarządcze, BI i decyzje oparte na danych."], ["02", "IT i rozwój oprogramowania", "Produkty cyfrowe, systemy firmowe, integracje i automatyzacja."], ["03", "Strategia i wzrost", "Pozycjonowanie, wejście na rynek, marketing i kontrolowane skalowanie."]] },
+    method: { eyebrow: "Podejście", title: "Przejrzysty proces bez zbędnej biurokracji", steps: [["Diagnoza", "Określamy punkt wyjścia, ograniczenia i mierzalne cele."], ["Strategia", "Projektujemy rozwiązanie, priorytety, harmonogram i ekonomikę projektu."], ["Wdrożenie", "Pracujemy w krótkich iteracjach i szybko pokazujemy pierwsze efekty."], ["Skalowanie", "Mierzymy rezultat, doskonalimy system i przekazujemy go zespołowi."]] },
+    cta: { title: "Masz wyzwanie, które warto rozwiązać?", text: "Opisz kontekst. Wrócimy z konkretnymi pytaniami i zaproponujemy praktyczny kolejny krok.", button: "Rozpocznij rozmowę" },
+    footer: { line: "Kompleksowe doradztwo z mierzalnym rezultatem", privacy: "Polityka prywatności" },
+    page: { servicesTitle: "Usługi wspierające transformację i rozwój", servicesText: "Każdy projekt budujemy wokół konkretnego celu biznesowego — od analizy, przez wdrożenie, po pomiar efektów.", aboutTitle: "Agile Business — zespół skoncentrowany na rezultatach", aboutText: "Łączymy analizę biznesową, strategię i rozwój oprogramowania. Pracujemy bezpośrednio z właścicielami i zespołami, zapewniając przejrzystość decyzji, terminów i budżetu.", aboutPrinciples: ["Najpierw cel biznesowy, potem narzędzie", "Mierzalny efekt zamiast formalnego raportu", "Bezpośredni kontakt z ekspertami", "Rozwiązanie działa również po zakończeniu projektu"], contactsTitle: "Porozmawiajmy o Twoim wyzwaniu", contactsText: "Opowiedz, co chcesz zmienić w swojej firmie. Odpowiemy w ciągu jednego dnia roboczego.", calculatorTitle: "Wstępna wycena projektu", calculatorText: "Wycena pomaga określić przedział budżetowy. Ostateczny koszt ustalamy po krótkiej diagnozie." },
+    form: { name: "Imię i nazwisko", email: "E-mail służbowy", phone: "Telefon", company: "Firma", message: "Krótko opisz wyzwanie", consent: "Wysyłając formularz, akceptujesz politykę przetwarzania danych osobowych.", submit: "Wyślij", sending: "Wysyłanie…", success: "Dziękujemy. Otrzymaliśmy zgłoszenie i wkrótce się skontaktujemy.", error: "Nie udało się wysłać formularza. Napisz na info@agile-business-pro.com" },
+    calc: { service: "Obszar", size: "Wielkość firmy", complexity: "Zakres współpracy", duration: "Termin", task: "Opis wyzwania", next: "Dalej", back: "Wstecz", calculate: "Otrzymaj wycenę", result: "Wstępna wartość projektu", disclaimer: "Podany przedział nie stanowi oferty handlowej i zostanie doprecyzowany po diagnozie.", leave: "Poproś o szczegółową ofertę", options: { analytics: "Analityka biznesowa", it: "IT i rozwój oprogramowania", strategy: "Strategia i wzrost", small: "Mała firma", medium: "Średnia firma", large: "Duża firma", basic: "Diagnoza", standard: "Projektowanie i wdrożenie", premium: "Kompleksowe wsparcie", short: "1–3 miesiące", mid: "3–6 miesięcy", long: "6–12 miesięcy" } },
+  },
   ka: {
     nav: { services: "სერვისები", about: "ჩვენ შესახებ", calculator: "კალკულატორი", contacts: "კონტაქტი", cta: "პროექტის განხილვა" },
     hero: { eyebrow: "ახალი თაობის ბიზნეს კონსალტინგი", title: "გადაწყვეტილებები ბიზნესის ამოცანებისთვის.", accent: "დიაგნოსტიკიდან შედეგამდე.", text: "ვაერთიანებთ ანალიტიკას, სტრატეგიასა და ტექნოლოგიებს უკეთესი გადაწყვეტილებებისა და სწრაფი ზრდისთვის.", primary: "პროექტის შეფასება", secondary: "სერვისები" },
@@ -80,7 +93,7 @@ const regional = {
     form: { name: "Вашето име", email: "Служебен имейл", phone: "Телефон", company: "Компания", message: "Опишете накратко задачата", consent: "С изпращането се съгласявате с политиката за лични данни.", submit: "Изпрати", sending: "Изпращане…", success: "Благодарим. Заявката е приета — скоро ще се свържем.", error: "Формата не беше изпратена. Пишете на info@agile-business-pro.com" },
     calc: { service: "Направление", size: "Размер на компанията", complexity: "Формат на работа", duration: "Срок", task: "Описание на задачата", next: "Напред", back: "Назад", calculate: "Получаване на оценка", result: "Предварителна стойност", disclaimer: "Диапазонът не е публична оферта и се уточнява след диагностика.", leave: "Получаване на подробна оферта", options: { analytics: "Бизнес анализи", it: "ИТ и разработка", strategy: "Стратегия и растеж", small: "Малък бизнес", medium: "Среден бизнес", large: "Голям бизнес", basic: "Диагностика", standard: "Проектиране и внедряване", premium: "Пълна подкрепа", short: "1–3 месеца", mid: "3–6 месеца", long: "6–12 месеца" } },
   },
-} satisfies Record<"ka" | "hy" | "bg", Partial<Record<keyof Dictionary, unknown>>>;
+} satisfies Record<"pl" | "ka" | "hy" | "bg", Partial<Record<keyof Dictionary, unknown>>>;
 
 export function getDictionary(locale: Locale): Dictionary {
   if (locale === "ru" || locale === "en") return dictionaries[locale];

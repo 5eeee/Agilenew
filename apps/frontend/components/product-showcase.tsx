@@ -23,6 +23,7 @@ type ShowcaseGroup = { id: "products" | "projects"; label: string; intro: string
 const showcaseCopy = {
   ru: { all: "Все проекты", details: "Подробнее о проекте" },
   en: { all: "All projects", details: "View case study" },
+  pl: { all: "Wszystkie projekty", details: "Zobacz realizację" },
   ka: { all: "ყველა პროექტი", details: "ქეისის ნახვა" },
   hy: { all: "Բոլոր նախագծերը", details: "Դիտել նախագիծը" },
   bg: { all: "Всички проекти", details: "Вижте проекта" },

@@ -14,6 +14,7 @@ const phoneCountries = {
   hy: { flag: "🇦🇲", code: "+374", digits: 8 },
   bg: { flag: "🇧🇬", code: "+359", digits: 9 },
   en: { flag: "🇬🇧", code: "+44", digits: 10 },
+  pl: { flag: "🇵🇱", code: "+48", digits: 9 },
 } as const;
 
 type PhoneCountry = keyof typeof phoneCountries;
@@ -40,6 +41,7 @@ export function ContactForm({ labels, locale, source = "site" }: { labels: Label
   const [phone, setPhone] = useState<string>(phoneCountries[locale].code);
   const ru = locale === "ru";
   const hy = locale === "hy";
+  const pl = locale === "pl";
 
   useEffect(() => {
     fetch("/api/auth/me", { cache: "no-store" })
@@ -78,7 +80,7 @@ export function ContactForm({ labels, locale, source = "site" }: { labels: Label
       const completed = keys.filter((key) => String(data.get(key) || "").trim()).length;
       setProgress(Math.round(12 + (completed / keys.length) * 88));
     }}>
-      <div className="form-top"><span>{ru ? "Бесплатная консультация" : hy ? "Անվճար խորհրդատվություն" : "Free consultation"}</span><strong>{progress}%</strong></div>
+      <div className="form-top"><span>{ru ? "Бесплатная консультация" : pl ? "Bezpłatna konsultacja" : hy ? "Անվճար խորհրդատվություն" : "Free consultation"}</span><strong>{progress}%</strong></div>
       <div className="form-progress"><i style={{ width: `${progress}%` }} /></div>
       {user ? <div className="form-identity"><strong>{user.name}</strong><span>{user.email}</span></div> : (
         <div className="form-grid">
@@ -87,11 +89,11 @@ export function ContactForm({ labels, locale, source = "site" }: { labels: Label
         </div>
       )}
       <div className="form-grid">
-        <label><span>{labels.phone}</span><div className="phone-field"><select aria-label={ru ? "Код страны" : "Country code"} value={phoneCountry} onChange={(event) => { const country = event.target.value as PhoneCountry; setPhoneCountry(country); setPhone(phoneCountries[country].code); }}>{(Object.keys(phoneCountries) as PhoneCountry[]).map((country) => <option key={country} value={country}>{phoneCountries[country].flag} {phoneCountries[country].code}</option>)}</select><input name="phone" type="tel" inputMode="tel" autoComplete="tel" required value={phone} onChange={(event) => setPhone(formatPhone(phoneCountry, event.target.value))} pattern="^\+[0-9][0-9 ()-]{7,24}$" maxLength={26} /></div></label>
+        <label><span>{labels.phone}</span><div className="phone-field"><select aria-label={ru ? "Код страны" : pl ? "Kod kraju" : "Country code"} value={phoneCountry} onChange={(event) => { const country = event.target.value as PhoneCountry; setPhoneCountry(country); setPhone(phoneCountries[country].code); }}>{(Object.keys(phoneCountries) as PhoneCountry[]).map((country) => <option key={country} value={country}>{phoneCountries[country].flag} {phoneCountries[country].code}</option>)}</select><input name="phone" type="tel" inputMode="tel" autoComplete="tel" required value={phone} onChange={(event) => setPhone(formatPhone(phoneCountry, event.target.value))} pattern="^\+[0-9][0-9 ()-]{7,24}$" maxLength={26} /></div></label>
         <label><span>{labels.company}</span><input name="company" autoComplete="organization" minLength={2} maxLength={200} /></label>
       </div>
-      <label className="form-message"><span>{labels.message}</span><textarea name="message" required minLength={10} maxLength={3000} rows={4} placeholder={ru ? "Коротко опишите задачу и желаемый результат" : hy ? "Հակիրճ նկարագրեք խնդիրը և ցանկալի արդյունքը" : "Briefly describe the task and desired result"} /></label>
-      <div className="form-submit"><label className="form-consent"><input type="checkbox" required /><span>{labels.consent} <Link href={`/${locale}/privacy`}>{ru ? "Открыть политику" : hy ? "Դիտել քաղաքականությունը" : "View policy"}</Link></span></label><button className="button" type="submit" disabled={state === "sending"}>{state === "sending" ? labels.sending : labels.submit}</button></div>
+      <label className="form-message"><span>{labels.message}</span><textarea name="message" required minLength={10} maxLength={3000} rows={4} placeholder={ru ? "Коротко опишите задачу и желаемый результат" : pl ? "Krótko opisz wyzwanie i oczekiwany rezultat" : hy ? "Հակիրճ նկարագրեք խնդիրը և ցանկալի արդյունքը" : "Briefly describe the task and desired result"} /></label>
+      <div className="form-submit"><label className="form-consent"><input type="checkbox" required /><span>{labels.consent} <Link href={`/${locale}/privacy`}>{ru ? "Открыть политику" : pl ? "Zobacz politykę" : hy ? "Դիտել քաղաքականությունը" : "View policy"}</Link></span></label><button className="button" type="submit" disabled={state === "sending"}>{state === "sending" ? labels.sending : labels.submit}</button></div>
       <p className={`form-status ${state}`} aria-live="polite">{state === "success" ? (ru ? "Спасибо. Заявка принята — в ближайшее время с вами свяжется специалист." : labels.success) : state === "error" ? labels.error.replace("info@agile-business-pro.com", contacts.email) : ""}</p>
     </form>
   );

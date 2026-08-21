@@ -6,7 +6,7 @@ import { rateLimit, rejectCrossSiteMutation } from "@/lib/request-security";
 
 const input = z.object({
   email: z.string().trim().toLowerCase().email().max(160),
-  locale: z.enum(["ru", "en", "ka", "hy", "bg"]).default("en"),
+  locale: z.enum(["ru", "en", "pl", "ka", "hy", "bg"]).default("en"),
 });
 
 export async function POST(request: Request) {

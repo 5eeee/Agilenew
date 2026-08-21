@@ -85,11 +85,12 @@ export async function sendLeadEmail(lead: {
   return true;
 }
 
-type CustomerLocale = "ru" | "en" | "ka" | "hy" | "bg";
+type CustomerLocale = "ru" | "en" | "pl" | "ka" | "hy" | "bg";
 
 const statusLabels: Record<CustomerLocale, Record<string, string>> = {
   ru: { NEW: "Заявка принята", DISCOVERY: "Погружение", PLANNING: "Планирование", DESIGN: "Дизайн", DEVELOPMENT: "Разработка", QA: "Проверка", LAUNCH: "Запуск", SUPPORT: "Поддержка", COMPLETED: "Проект завершён", CANCELLED: "Проект отменён" },
   en: { NEW: "Request received", DISCOVERY: "Discovery", PLANNING: "Planning", DESIGN: "Design", DEVELOPMENT: "Development", QA: "Quality assurance", LAUNCH: "Launch", SUPPORT: "Support", COMPLETED: "Project completed", CANCELLED: "Project cancelled" },
+  pl: { NEW: "Zgłoszenie przyjęte", DISCOVERY: "Diagnoza", PLANNING: "Planowanie", DESIGN: "Projektowanie", DEVELOPMENT: "Realizacja", QA: "Weryfikacja jakości", LAUNCH: "Uruchomienie", SUPPORT: "Wsparcie", COMPLETED: "Projekt zakończony", CANCELLED: "Projekt anulowany" },
   bg: { NEW: "Заявката е приета", DISCOVERY: "Проучване", PLANNING: "Планиране", DESIGN: "Дизайн", DEVELOPMENT: "Разработка", QA: "Проверка", LAUNCH: "Стартиране", SUPPORT: "Поддръжка", COMPLETED: "Проектът е завършен", CANCELLED: "Проектът е отменен" },
   ka: { NEW: "მოთხოვნა მიღებულია", DISCOVERY: "კვლევა", PLANNING: "დაგეგმვა", DESIGN: "დიზაინი", DEVELOPMENT: "დეველოპმენტი", QA: "შემოწმება", LAUNCH: "გაშვება", SUPPORT: "მხარდაჭერა", COMPLETED: "პროექტი დასრულებულია", CANCELLED: "პროექტი გაუქმებულია" },
   hy: { NEW: "Հայտն ընդունված է", DISCOVERY: "Ուսումնասիրություն", PLANNING: "Պլանավորում", DESIGN: "Դիզայն", DEVELOPMENT: "Մշակում", QA: "Ստուգում", LAUNCH: "Մեկնարկ", SUPPORT: "Աջակցություն", COMPLETED: "Նախագիծն ավարտված է", CANCELLED: "Նախագիծը չեղարկված է" },
@@ -111,6 +112,9 @@ function customerCopy(locale: CustomerLocale) {
   };
   if (locale === "bg") return {
     received: "Вашата заявка е приета", hello: "Здравейте", intro: "Запазихме обхвата на проекта и скоро ще се свържем с вас, за да уточним задачата, срока и крайната оферта.", order: "Номер на заявката", scope: "Обхват", total: "Предварителна стойност", track: "Проследяване на проекта", changed: "Статусът на проекта е обновен", status: "Нов етап", next: "Отворете клиентския профил, за да видите напредъка и да потвърдите завършения етап.", contact: "За допълнения пишете на agilebusinessofficial@gmail.com или в Telegram @DevyatovOfficial.",
+  };
+  if (locale === "pl") return {
+    received: "Otrzymaliśmy Twoje zgłoszenie", hello: "Dzień dobry", intro: "Zapisaliśmy zakres projektu i wkrótce skontaktujemy się, aby potwierdzić wymagania, harmonogram i ostateczną wycenę.", order: "Numer zgłoszenia", scope: "Wybrane usługi", total: "Wstępna wycena", track: "Śledź swój projekt", changed: "Status projektu został zaktualizowany", status: "Nowy etap", next: "Otwórz panel klienta, aby zobaczyć postęp i zaakceptować zakończony etap.", contact: "Aby uzupełnić zgłoszenie, napisz na agilebusinessofficial@gmail.com lub wyślij wiadomość do @DevyatovOfficial w Telegramie.",
   };
   return {
     received: "Your request has been received", hello: "Hello", intro: "We saved the project scope and will contact you shortly to confirm the requirements, timeline and final estimate.", order: "Request number", scope: "Requested services", total: "Preliminary estimate", track: "Track your project", changed: "Your project status has changed", status: "New stage", next: "Open your client account to view progress and approve the completed stage.", contact: "To add details, email agilebusinessofficial@gmail.com or message @DevyatovOfficial on Telegram.",
@@ -137,7 +141,7 @@ export async function sendOrderConfirmationEmail(order: {
 }) {
   if (!mailStatus().configured) return false;
   const copy = customerCopy(order.locale);
-  const formattedTotal = new Intl.NumberFormat(order.locale === "ru" ? "ru-RU" : "en-US", { style: "currency", currency: order.currency, maximumFractionDigits: 0 }).format(order.total);
+  const formattedTotal = new Intl.NumberFormat(order.locale === "ru" ? "ru-RU" : order.locale === "pl" ? "pl-PL" : "en-US", { style: "currency", currency: order.currency, maximumFractionDigits: 0 }).format(order.total);
   const list = order.items.map((item) => `<li style="margin:8px 0">${escapeHtml(item.title)}</li>`).join("");
   const customerName = escapeHtml(order.customerName);
   await transport().sendMail({
@@ -174,10 +178,11 @@ export async function sendOrderStatusEmail(order: {
 export async function sendPasswordResetEmail(input: { to: string; name: string; url: string; locale: CustomerLocale }) {
   if (!mailStatus().configured) return false;
   const ru = input.locale === "ru";
-  const subject = ru ? "Восстановление доступа — Agile Business" : "Reset your Agile Business password";
-  const title = ru ? "Восстановление доступа" : "Reset your password";
-  const body = ru ? "Ссылка действует 30 минут. Если вы не запрашивали восстановление, просто проигнорируйте письмо." : "This link is valid for 30 minutes. If you did not request it, you can safely ignore this email.";
-  const button = ru ? "Задать новый пароль" : "Set a new password";
+  const pl = input.locale === "pl";
+  const subject = ru ? "Восстановление доступа — Agile Business" : pl ? "Odzyskiwanie dostępu — Agile Business" : "Reset your Agile Business password";
+  const title = ru ? "Восстановление доступа" : pl ? "Odzyskaj dostęp" : "Reset your password";
+  const body = ru ? "Ссылка действует 30 минут. Если вы не запрашивали восстановление, просто проигнорируйте письмо." : pl ? "Link jest ważny przez 30 minut. Jeśli nie prosisz o zmianę hasła, możesz zignorować tę wiadomość." : "This link is valid for 30 minutes. If you did not request it, you can safely ignore this email.";
+  const button = ru ? "Задать новый пароль" : pl ? "Ustaw nowe hasło" : "Set a new password";
   const name = escapeHtml(input.name);
   await transport().sendMail({
     from: process.env.AGILE_EMAIL_FROM || process.env.AGILE_SMTP_USER,

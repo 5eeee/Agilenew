@@ -1,6 +1,11 @@
 .vercel
 .env*
 /node_modules
+**/node_modules
+**/.next
+**/.next-*
+**/.turbo
+**/.eslintcache
 apps/gateway
 apps/leads
 apps/content
@@ -12,3 +17,4 @@ data
 docs
 tests
 *.log
+*.zip

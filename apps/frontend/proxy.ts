@@ -12,6 +12,7 @@ function localeFromCountry(country: string | null) {
   if (!country) return null;
   const code = country.toUpperCase();
   if (code === "RU") return "ru";
+  if (code === "PL") return "pl";
   if (code === "GE") return "ka";
   if (code === "AM") return "hy";
   if (EU_COUNTRIES.has(code)) return "en";

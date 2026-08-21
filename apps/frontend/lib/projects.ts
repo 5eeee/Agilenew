@@ -59,8 +59,10 @@ export const projectSlugs = projects.map((project) => project.slug);
 
 const armenianTitles: Record<string, string> = { "corporate-site": "Կորպորատիվ կայք", landing: "Լենդինգ", "bi-analytics": "BI վերլուծություն", strategy: "Ռազմավարական խորհրդատվություն", "web-service": "Վեբ ծառայություն", crm: "CRM ինտեգրում", marketing: "Մարքեթինգային արշավ" };
 const englishTitles: Record<string, string> = { profist: "Profist", prokub: "Prokub", "corporate-site": "Corporate website", landing: "Landing page", "bi-analytics": "BI analytics", strategy: "Strategic consulting", "web-service": "Web service", crm: "CRM integration", marketing: "Marketing campaign" };
+const polishTitles: Record<string, string> = { profist: "Profist", prokub: "Prokub", "corporate-site": "Strona firmowa", landing: "Landing page", "bi-analytics": "Analityka BI", strategy: "Doradztwo strategiczne", "web-service": "Serwis internetowy", crm: "Integracja CRM", marketing: "Kampania marketingowa" };
 const armenianCategories: Record<string, string> = { "IT-продукт": "IT արտադրանք", "Бизнес-аналитика": "Բիզնես վերլուծություն", "Креатив и web": "Կրեատիվ և վեբ", "Аналитика": "Վերլուծություն", "Консалтинг": "Խորհրդատվություն", "Автоматизация": "Ավտոմատացում", "Креатив": "Կրեատիվ" };
 const englishCategories: Record<string, string> = { "IT-продукт": "IT product", "Бизнес-аналитика": "Business analytics", "Креатив и web": "Creative & web", "Аналитика": "Analytics", "Консалтинг": "Consulting", "Автоматизация": "Automation", "Креатив": "Creative" };
+const polishCategories: Record<string, string> = { "IT-продукт": "Produkt IT", "Бизнес-аналитика": "Analityka biznesowa", "Креатив и web": "Kreacja i WWW", "Аналитика": "Analityka", "Консалтинг": "Doradztwo", "Автоматизация": "Automatyzacja", "Креатив": "Kreacja" };
 
 type EnglishProjectContent = Pick<Project, "lead" | "description" | "challenge" | "solution" | "result" | "benefits" | "testimonial" | "deliverables">;
 
@@ -147,13 +149,98 @@ const englishProjectContent: Record<string, EnglishProjectContent> = {
   },
 };
 
+const polishProjectContent: Record<string, EnglishProjectContent> = {
+  "revolution-print": {
+    lead: "Platforma operacyjna drukarni, która łączy klientów, zamówienia, produkcję, dokumenty i komunikację w jednym środowisku pracy.",
+    description: "Odwzorowaliśmy pełny cykl realizacji zamówienia, role i przekazywanie pracy między etapami produkcji. Następnie zaprojektowaliśmy i zbudowaliśmy responsywny system, który daje każdemu członkowi zespołu aktualny i wiarygodny obraz sytuacji.",
+    challenge: "Zastąpić rozproszone arkusze, czaty i ręczne sprawdzanie statusów jednym czytelnym procesem, nie zakłócając bieżącej produkcji.",
+    solution: "Zaprojektowaliśmy środowisko oparte na rolach, obejmujące klientów, zamówienia, etapy produkcji, pliki i komunikację. Prototyp sprawdziliśmy na rzeczywistych scenariuszach, a rozwiązanie oparliśmy na architekturze gotowej do dalszego rozwoju.",
+    result: "Klienci, zamówienia, produkcja, dokumenty i komunikacja działają teraz w jednym operacyjnym panelu sterowania drukarni.",
+    benefits: ["Zespół widzi bieżący status zamówienia bez porównywania danych z kilku narzędzi.", "Mniej czasu zajmuje wyszukiwanie informacji i koordynowanie rutynowych przekazań.", "Wspólny model procesów ogranicza utratę danych i tworzy podstawę do raportowania oraz skalowania."],
+    testimonial: "Status zamówienia, dokumenty i praca produkcji są teraz widoczne w jednym miejscu, dlatego zespół poświęca znacznie mniej czasu na ręczną koordynację.",
+    deliverables: ["Diagnoza procesów operacyjnych", "Projekt ról i ścieżek", "System interfejsu", "Rozwój platformy i uruchomienie"],
+  },
+  "13auto": {
+    lead: "Katalog części samochodowych z inteligentnym doborem, panelem klienta i przejrzystą ścieżką zamówienia.",
+    description: "Zbadaliśmy sposób wyszukiwania części przez kupujących i kwalifikowania zapytań przez handlowców. Na tej podstawie stworzyliśmy strukturę katalogu, responsywny interfejs i panel klienta wspierający obie strony transakcji.",
+    challenge: "Pomóc klientowi szybko znaleźć właściwą część, a handlowcom przekazywać kompletne, uporządkowane zapytania bez długich serii doprecyzowań.",
+    solution: "Uporządkowaliśmy katalog zgodnie z rzeczywistymi zachowaniami użytkowników, zaprojektowaliśmy dobór części i statusy zamówień oraz połączyliśmy je w spójny, responsywny produkt.",
+    result: "Droga od wyszukania części do zamówienia jest krótsza, bardziej zrozumiała i łatwiejsza w obsłudze dla klienta oraz zespołu sprzedaży.",
+    benefits: ["Kupujący szybciej dociera do odpowiedniej części dzięki czytelnemu katalogowi i procesowi doboru.", "Handlowiec otrzymuje lepiej przygotowane zapytanie i poświęca mniej czasu na podstawowe pytania.", "Panel klienta i przejrzysty status zamówienia zwiększają zaufanie oraz ograniczają obciążenie obsługi."],
+    testimonial: "Klienci szybciej znajdują właściwą część, a nasi handlowcy mogą od razu pracować z kompletnym i dobrze uporządkowanym zapytaniem.",
+    deliverables: ["Badanie ścieżki klienta", "Prototyp UX katalogu", "System wizualny", "Rozwój i uruchomienie sklepu"],
+  },
+  dianafarm: {
+    lead: "Wielojęzyczna platforma międzynarodowa dla usług związanych z pobytem, nieruchomościami i obsługą biznesu.",
+    description: "Przełożyliśmy złożoną ofertę transgraniczną na czytelne ścieżki usług, uporządkowaliśmy wielojęzyczne treści i zbudowaliśmy platformę nastawioną na konwersję, zrozumiałą na różnych rynkach.",
+    challenge: "Wyjaśnić prawnie i biznesowo złożone usługi odbiorcom z różnych krajów, nie przeciążając ich nadmiarem informacji.",
+    solution: "Pogrupowaliśmy usługi według celów klienta, stworzyliśmy spójny model treści w wielu językach i skróciliśmy drogę od poszukiwania informacji do właściwej konsultacji.",
+    result: "Międzynarodowe usługi tworzą teraz jedną spójną ścieżkę, która ułatwia zrozumienie oferty i podjęcie działania.",
+    benefits: ["Odwiedzający szybciej znajduje właściwą usługę transgraniczną.", "Wspólna struktura treści zapewnia spójność oferty we wszystkich językach.", "Zapytania konsultacyjne są lepiej przygotowane i bardziej konkretne."],
+    testimonial: "Platforma zamienia złożoną ofertę międzynarodową w jasną ścieżkę, dzięki czemu klienci szybciej rozumieją możliwości i przechodzą do konsultacji.",
+    deliverables: ["Architektura oferty", "Wielojęzyczny model treści", "UX konwersji", "Rozwój platformy i uruchomienie"],
+  },
+  boostmarine: {
+    lead: "Serwis internetowy naprawy sprzętu wodnego z nawigacją uporządkowaną według rzeczywistych potrzeb klientów.",
+    description: "Przeanalizowaliśmy typowe zgłoszenia serwisowe, pogrupowaliśmy ofertę według problemów klientów i zbudowaliśmy responsywną stronę, która pomaga właścicielowi zrozumieć kolejny krok jeszcze przed kontaktem z warsztatem.",
+    challenge: "Zamienić długą listę technicznych usług w zrozumiałą ścieżkę dla właściciela łodzi, który nie zawsze zna przyczynę usterki.",
+    solution: "Uporządkowaliśmy usługi według praktycznych scenariuszy, wyjaśniliśmy ścieżkę decyzji i zaprojektowaliśmy formularze zbierające z wyprzedzeniem kontekst potrzebny zespołowi serwisu.",
+    result: "Klient przechodzi od problemu do właściwej usługi i zgłoszenia z mniejszą niepewnością.",
+    benefits: ["Usługi są uporządkowane według potrzeb właścicieli, a nie wewnętrznej struktury warsztatu.", "Klient szybciej rozpoznaje prawdopodobny kolejny krok.", "Lepszy kontekst zgłoszenia przyspiesza ocenę zapytania przez serwis."],
+    testimonial: "Klienci nie gubią się już w liście usług — rozumieją, co pasuje do ich sytuacji i jak umówić wizytę w serwisie.",
+    deliverables: ["Badanie ścieżek serwisowych", "Architektura informacji", "Responsywny system wizualny", "Rozwój strony i uruchomienie"],
+  },
+  "royal-horse": {
+    lead: "Strona premium kompleksu jeździeckiego, zbudowana wokół atmosfery, gościnności i czytelnej ścieżki rezerwacji.",
+    description: "Opracowaliśmy kierunek artystyczny, hierarchię treści i responsywne doświadczenie, aby oddać charakter miejsca i zamienić zainteresowanie w konkretną wizytę lub zapytanie o rezerwację.",
+    challenge: "Przenieść do internetu premium i naturalną atmosferę kompleksu, jednocześnie jasno prezentując zróżnicowaną ofertę.",
+    solution: "Połączyliśmy wyrazistą narrację wizualną z uporządkowaną architekturą usług i widocznymi ścieżkami rezerwacji na komputerach oraz urządzeniach mobilnych.",
+    result: "Doświadczenie cyfrowe komunikuje poziom obiektu jeszcze przed pierwszą wizytą i naturalnie prowadzi gościa do rezerwacji.",
+    benefits: ["Marka od pierwszego ekranu wygląda premium i rozpoznawalnie.", "Usługi i infrastruktura mają jedną czytelną hierarchię informacji.", "Krótsza i bardziej widoczna ścieżka rezerwacji zamienia zainteresowanie w zapytania."],
+    testimonial: "Strona pokazuje standard kompleksu, zanim gość do nas przyjedzie, i naturalnie prowadzi go do rezerwacji.",
+    deliverables: ["Diagnoza marki i odbiorców", "Kierunek artystyczny i UX", "Responsywny system projektowy", "Rozwój strony i uruchomienie"],
+  },
+  "beef-flame": {
+    lead: "Wyrazisty interfejs dostawy jedzenia, który stawia produkt na pierwszym planie i maksymalnie skraca zamówienie.",
+    description: "Zbudowaliśmy menu wokół apetytu, szczegółów produktu i szybkiej decyzji, a następnie zaprojektowaliśmy mobilną ścieżkę zamówienia z rozpoznawalnym językiem wizualnym.",
+    challenge: "Nadać produktowi wyrazisty charakter i jednocześnie ograniczyć liczbę kroków między wyborem burgera a zakończeniem zamówienia.",
+    solution: "Stworzyliśmy karty menu skupione na produkcie, czytelną ścieżkę koszyka i responsywny interfejs, w którym główne działanie jest zawsze widoczne.",
+    result: "Produkt jest głównym bohaterem doświadczenia, a zamówienie wymaga krótkiej i skupionej sekwencji działań.",
+    benefits: ["Klient szybciej porównuje skład, wygląd i cenę pozycji.", "Ścieżka zamówienia usuwa zbędne ekrany i decyzje.", "Rozpoznawalny system wizualny wzmacnia markę i wspiera ponowne zakupy."],
+    testimonial: "Chcieliśmy, aby jedzenie było głównym bohaterem. Menu naprawdę pobudza apetyt, a zamówienie zajmuje tylko kilka jasnych kroków.",
+    deliverables: ["Badanie ścieżki menu", "UX mobile-first", "System wizualny produktu", "Rozwój interfejsu zamówień"],
+  },
+  profist: {
+    lead: "Katalog wyrobów stalowych zaprojektowany wokół potrzeb klienta i precyzyjnych zapytań B2B.",
+    description: "Przeorganizowaliśmy techniczny asortyment w katalog oparty na zadaniach, stworzyliśmy jasne ścieżki specyfikacji i formularze, które dostarczają zespołowi sprzedaży lepsze dane wejściowe.",
+    challenge: "Pomóc klientom poruszać się po szerokim, technicznym asortymencie bez wymagania specjalistycznej wiedzy przed wysłaniem zapytania.",
+    solution: "Ułożyliśmy katalog według scenariuszy zakupowych, wyjaśniliśmy najważniejsze parametry i zaprojektowaliśmy formularze zbierające dane potrzebne do dokładnej wyceny.",
+    result: "Dobór produktu jest prostszy, a zapytania zawierają więcej użytecznych informacji dla zespołu sprzedaży.",
+    benefits: ["Klient szybciej znajduje właściwą kategorię stali i parametry dostawy.", "Ustrukturyzowane formularze ograniczają dodatkowe pytania handlowców.", "Katalog może rosnąć bez utraty czytelności."],
+    testimonial: "Katalog wreszcie mówi językiem zadania klienta, a nasz zespół sprzedaży otrzymuje znacznie precyzyjniejsze zapytania.",
+    deliverables: ["Badanie katalogu", "Architektura informacji", "System interfejsu B2B", "Rozwój strony i uruchomienie"],
+  },
+  prokub: {
+    lead: "Platforma cenowa B2B dla betonu z parametrami dostawy, szybką wyceną i uporządkowanymi zapytaniami.",
+    description: "Uprościliśmy złożony model cenowy, wyjaśniliśmy czynniki wpływające na koszt końcowy i połączyliśmy kalkulację ze zgłoszeniem w jedną ciągłą ścieżkę klienta.",
+    challenge: "Wyjaśnić klasy betonu, warunki dostawy i zmienne cenowe jeszcze przed rozmową klienta z handlowcem.",
+    solution: "Zaprojektowaliśmy prowadzoną wycenę, uporządkowaliśmy niezbędne dane projektu i daliśmy handlowcom spójny zestaw informacji do przygotowania dokładnej oferty.",
+    result: "Klient szybciej otrzymuje realistyczną wycenę, a handlowiec poświęca mniej czasu na zbieranie podstawowych informacji o projekcie.",
+    benefits: ["Klasy betonu i warunki dostawy łatwiej porównać.", "Kalkulacja i zapytanie tworzą jedną ciągłą ścieżkę.", "Handlowiec otrzymuje uporządkowane dane i szybciej przygotowuje dokładną ofertę."],
+    testimonial: "Klienci od razu widzą warunki i kolejny krok. Mniej czasu poświęcamy na doprecyzowania i szybciej przygotowujemy dokładną wycenę.",
+    deliverables: ["Badanie ścieżki cenowej", "UX kalkulatora", "System wizualny B2B", "Rozwój platformy i uruchomienie"],
+  },
+};
+
 export function getProject(slug: string, locale: Locale): Project | undefined {
   const project = projects.find((item) => item.slug === slug);
   if (!project) return undefined;
   const isRussian = locale === "ru";
+  const isPolish = locale === "pl";
   const isArmenian = locale === "hy";
   const isEnglish = locale === "en";
   const englishContent = englishProjectContent[slug];
+  const polishContent = polishProjectContent[slug];
   const businessBenefits: Record<string, string> = {
     "revolution-print": "Объединили клиентов, заказы, производство, документы и коммуникации в одной операционной панели типографии.",
     "13auto": "Сократили путь от поиска запчасти до заказа и сделали подбор понятным для покупателя и менеджера.",
@@ -219,25 +306,25 @@ export function getProject(slug: string, locale: Locale): Project | undefined {
   return {
     ...project,
     logo: projectLogos[slug],
-    title: isRussian ? project.title : isArmenian ? armenianTitles[slug] ?? project.title : englishTitles[slug] ?? project.title,
-    category: isRussian ? project.category : isArmenian ? armenianCategories[project.category] ?? project.category : isEnglish ? englishCategories[project.category] ?? project.category : project.category.replace("ИТ", "IT"),
-    lead: isRussian ? project.lead : isArmenian ? "Չափելի բիզնես նպատակի շուրջ կառուցված հստակ թվային լուծում։" : isEnglish ? englishContent?.lead ?? "A focused business solution designed around a measurable objective." : "A focused business solution designed around a measurable objective.",
+    title: isRussian ? project.title : isPolish ? polishTitles[slug] ?? project.title : isArmenian ? armenianTitles[slug] ?? project.title : englishTitles[slug] ?? project.title,
+    category: isRussian ? project.category : isPolish ? polishCategories[project.category] ?? project.category : isArmenian ? armenianCategories[project.category] ?? project.category : isEnglish ? englishCategories[project.category] ?? project.category : project.category.replace("ИТ", "IT"),
+    lead: isRussian ? project.lead : isPolish ? polishContent?.lead ?? "Skoncentrowane rozwiązanie cyfrowe zaprojektowane wokół mierzalnego celu biznesowego." : isArmenian ? "Չափելի բիզնես նպատակի շուրջ կառուցված հստակ թվային լուծում։" : isEnglish ? englishContent?.lead ?? "A focused business solution designed around a measurable objective." : "A focused business solution designed around a measurable objective.",
     description: isRussian
       ? "Мы начали с диагностики задачи и пользовательских сценариев, затем собрали прототип, визуальную систему и рабочий продукт. Решение проектировалось так, чтобы команда могла развивать его после запуска без полной переработки архитектуры."
-      : isArmenian ? "Սկսեցինք բիզնես խնդրի և օգտատերերի սցենարների ուսումնասիրությունից, ապա ստեղծեցինք նախատիպը, տեսողական համակարգը և գործող արտադրանքը։ Ճարտարապետությունը նախատեսված է հետագա զարգացման համար։" : isEnglish ? englishContent?.description ?? "We started with business discovery and user journeys, then built the prototype, visual system and production solution. The architecture is ready for continued growth after launch." : "We started with business discovery and user journeys, then built the prototype, visual system and production solution. The architecture is ready for continued growth after launch.",
-    challenge: isRussian ? "Объединить разрозненные процессы в одном понятном инструменте и убрать ручные действия, которые замедляли команду." : isArmenian ? "Միավորել առանձին գործընթացները մեկ հասկանալի գործիքում և նվազեցնել թիմը դանդաղեցնող ձեռքի աշխատանքը։" : isEnglish ? englishContent?.challenge ?? "Unify fragmented processes in one clear tool and remove manual work slowing the team down." : "Unify fragmented processes in one clear tool and remove manual work slowing the team down.",
-    solution: isRussian ? "Спроектировали путь пользователя, логику ролей и ключевые экраны. Проверили прототип на реальных сценариях и только затем перешли к разработке." : isArmenian ? "Նախագծեցինք օգտատիրոջ ուղին, դերերի տրամաբանությունը և հիմնական էկրանները։ Նախատիպը ստուգեցինք իրական սցենարներով, ապա անցանք մշակմանը։" : isEnglish ? englishContent?.solution ?? "We designed the user journey, roles and key screens, validated the prototype on real scenarios and then moved into development." : "We designed the user journey, roles and key screens, validated the prototype on real scenarios and then moved into development.",
+      : isPolish ? polishContent?.description ?? "Zaczęliśmy od diagnozy biznesowej i ścieżek użytkownika, a następnie stworzyliśmy prototyp, system wizualny i działające rozwiązanie gotowe do dalszego rozwoju." : isArmenian ? "Սկսեցինք բիզնես խնդրի և օգտատերերի սցենարների ուսումնասիրությունից, ապա ստեղծեցինք նախատիպը, տեսողական համակարգը և գործող արտադրանքը։ Ճարտարապետությունը նախատեսված է հետագա զարգացման համար։" : isEnglish ? englishContent?.description ?? "We started with business discovery and user journeys, then built the prototype, visual system and production solution. The architecture is ready for continued growth after launch." : "We started with business discovery and user journeys, then built the prototype, visual system and production solution. The architecture is ready for continued growth after launch.",
+    challenge: isRussian ? "Объединить разрозненные процессы в одном понятном инструменте и убрать ручные действия, которые замедляли команду." : isPolish ? polishContent?.challenge ?? "Połączyć rozproszone procesy w jednym czytelnym narzędziu i ograniczyć ręczne działania spowalniające zespół." : isArmenian ? "Միավորել առանձին գործընթացները մեկ հասկանալի գործիքում և նվազեցնել թիմը դանդաղեցնող ձեռքի աշխատանքը։" : isEnglish ? englishContent?.challenge ?? "Unify fragmented processes in one clear tool and remove manual work slowing the team down." : "Unify fragmented processes in one clear tool and remove manual work slowing the team down.",
+    solution: isRussian ? "Спроектировали путь пользователя, логику ролей и ключевые экраны. Проверили прототип на реальных сценариях и только затем перешли к разработке." : isPolish ? polishContent?.solution ?? "Zaprojektowaliśmy ścieżkę użytkownika, role i kluczowe ekrany, zweryfikowaliśmy prototyp na rzeczywistych scenariuszach i dopiero potem przeszliśmy do realizacji." : isArmenian ? "Նախագծեցինք օգտատիրոջ ուղին, դերերի տրամաբանությունը և հիմնական էկրանները։ Նախատիպը ստուգեցինք իրական սցենարներով, ապա անցանք մշակմանը։" : isEnglish ? englishContent?.solution ?? "We designed the user journey, roles and key screens, validated the prototype on real scenarios and then moved into development." : "We designed the user journey, roles and key screens, validated the prototype on real scenarios and then moved into development.",
     result: isRussian
       ? businessBenefits[slug] ?? "Команда получила понятный цифровой инструмент, прозрачную логику работы и основу для дальнейшего масштабирования."
-      : isArmenian ? "Թիմը ստացավ պարզ թվային գործիք, աշխատանքի թափանցիկ տրամաբանություն և հետագա մասշտաբավորման հիմք։" : isEnglish ? englishContent?.result ?? "The team received a clear digital tool, transparent operating logic and a foundation for further scaling." : "The team received a clear digital tool, transparent operating logic and a foundation for further scaling.",
+      : isPolish ? polishContent?.result ?? "Zespół otrzymał czytelne narzędzie cyfrowe, przejrzysty model działania i podstawę do dalszego skalowania." : isArmenian ? "Թիմը ստացավ պարզ թվային գործիք, աշխատանքի թափանցիկ տրամաբանություն և հետագա մասշտաբավորման հիմք։" : isEnglish ? englishContent?.result ?? "The team received a clear digital tool, transparent operating logic and a foundation for further scaling." : "The team received a clear digital tool, transparent operating logic and a foundation for further scaling.",
     benefits: isRussian
       ? businessBenefitDetails[slug] ?? ["Ключевые процессы стали понятнее и прозрачнее для команды.", "Пользовательский путь стал короче, а обращения — более предметными.", "Архитектура решения готова к развитию и масштабированию."]
-      : isArmenian ? ["Հիմնական գործընթացները դարձան ավելի պարզ և թափանցիկ։", "Օգտատիրոջ ճանապարհը դարձավ ավելի կարճ և հասկանալի։", "Լուծման ճարտարապետությունը պատրաստ է հետագա զարգացման։"] : isEnglish ? englishContent?.benefits ?? ["Core processes became clearer and more transparent.", "The user journey became shorter and more focused.", "The solution is ready for continued development and scaling."] : ["Core processes became clearer and more transparent.", "The user journey became shorter and more focused.", "The solution is ready for continued development and scaling."],
+      : isPolish ? polishContent?.benefits ?? ["Kluczowe procesy stały się bardziej czytelne i przejrzyste.", "Ścieżka użytkownika jest krótsza i lepiej ukierunkowana.", "Rozwiązanie jest gotowe do dalszego rozwoju i skalowania."] : isArmenian ? ["Հիմնական գործընթացները դարձան ավելի պարզ և թափանցիկ։", "Օգտատիրոջ ճանապարհը դարձավ ավելի կարճ և հասկանալի։", "Լուծման ճարտարապետությունը պատրաստ է հետագա զարգացման։"] : isEnglish ? englishContent?.benefits ?? ["Core processes became clearer and more transparent.", "The user journey became shorter and more focused.", "The solution is ready for continued development and scaling."] : ["Core processes became clearer and more transparent.", "The user journey became shorter and more focused.", "The solution is ready for continued development and scaling."],
     testimonial: isRussian
       ? testimonials[slug] ?? "Мы получили понятное для клиентов решение и удобный рабочий инструмент для нашей команды."
-      : isArmenian ? "Մենք ստացանք հաճախորդների համար հասկանալի լուծում և թիմի համար հարմար աշխատանքային գործիք։" : isEnglish ? englishContent?.testimonial ?? "We received a solution that is clearer for our customers and more useful for our team." : "We received a solution that is clearer for our customers and more useful for our team.",
-    deliverables: isRussian ? ["Диагностика и сценарии", "UX-прототип", "Визуальная система", "Разработка и запуск"] : isArmenian ? ["Ախտորոշում և սցենարներ", "UX նախատիպ", "Տեսողական համակարգ", "Մշակում և գործարկում"] : isEnglish ? englishContent?.deliverables ?? ["Discovery and journeys", "UX prototype", "Visual system", "Development and launch"] : ["Discovery and journeys", "UX prototype", "Visual system", "Development and launch"],
-    duration: isEnglish && project.duration ? project.duration.replace(/^(\d+) недель$/, "$1 weeks") : project.duration,
+      : isPolish ? polishContent?.testimonial ?? "Otrzymaliśmy rozwiązanie bardziej zrozumiałe dla klientów i znacznie wygodniejsze dla naszego zespołu." : isArmenian ? "Մենք ստացանք հաճախորդների համար հասկանալի լուծում և թիմի համար հարմար աշխատանքային գործիք։" : isEnglish ? englishContent?.testimonial ?? "We received a solution that is clearer for our customers and more useful for our team." : "We received a solution that is clearer for our customers and more useful for our team.",
+    deliverables: isRussian ? ["Диагностика и сценарии", "UX-прототип", "Визуальная система", "Разработка и запуск"] : isPolish ? polishContent?.deliverables ?? ["Diagnoza i scenariusze", "Prototyp UX", "System wizualny", "Realizacja i uruchomienie"] : isArmenian ? ["Ախտորոշում և սցենարներ", "UX նախատիպ", "Տեսողական համակարգ", "Մշակում և գործարկում"] : isEnglish ? englishContent?.deliverables ?? ["Discovery and journeys", "UX prototype", "Visual system", "Development and launch"] : ["Discovery and journeys", "UX prototype", "Visual system", "Development and launch"],
+    duration: isPolish && project.duration ? project.duration.replace(/^(\d+) недель$/, "$1 tygodni") : isEnglish && project.duration ? project.duration.replace(/^(\d+) недель$/, "$1 weeks") : project.duration,
   };
 }
 

@@ -25,7 +25,7 @@ export type AccountService = { id: string; title: string };
 const ORDER_STAGES = ["NEW", "DISCOVERY", "PLANNING", "DESIGN", "DEVELOPMENT", "QA", "LAUNCH", "SUPPORT", "COMPLETED"] as const;
 
 function dateLocale(locale: Locale) {
-  return locale === "ru" ? "ru-RU" : locale === "bg" ? "bg-BG" : locale === "ka" ? "ka-GE" : locale === "hy" ? "hy-AM" : "en-US";
+  return locale === "ru" ? "ru-RU" : locale === "pl" ? "pl-PL" : locale === "bg" ? "bg-BG" : locale === "ka" ? "ka-GE" : locale === "hy" ? "hy-AM" : "en-US";
 }
 
 function initials(name: string) {
