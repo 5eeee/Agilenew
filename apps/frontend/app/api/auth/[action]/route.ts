@@ -63,7 +63,7 @@ async function handler(request: NextRequest, { params }: { params: Promise<{ act
         executor_approved_at: approval.executorApprovedAt?.toISOString() ?? null,
         client_approved_at: approval.clientApprovedAt?.toISOString() ?? null,
       })),
-      review: order.review ? { rating: order.review.rating, text: order.review.text, created_at: order.review.createdAt.toISOString() } : null,
+      review: order.review ? { rating: order.review.rating, text: order.review.text, client_role: order.review.clientRole, status: order.review.status, created_at: order.review.createdAt.toISOString() } : null,
     })));
   }
   if (action === "profile") {

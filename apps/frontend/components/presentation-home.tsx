@@ -241,7 +241,7 @@ export function PresentationHome(props: PresentationHomeProps) {
           <div className="pres-curtain" aria-hidden="true"><GradientField /></div>
           <div className="pres-hero-copy">
             <p>{props.text}</p>
-            <h1>{props.title}</h1>
+            <h1>AGILE BUSINESS</h1>
           </div>
           <div className="pres-hero-footer"><span>{polish ? "Strategia" : "Strategy"}</span><span>{polish ? "Projektowanie" : "Design"}</span><span>{polish ? "Technologia" : "Technology"}</span></div>
           <div className="pres-hero-white-reveal"><SignatureLogo /></div>

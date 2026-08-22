@@ -7,11 +7,42 @@ type Lead = { id: string; created_at: string; name: string; email: string; phone
 type EmailStatus = { configured: boolean; status: "ready" | "not_configured"; host?: string; port?: number; secure?: boolean; from?: string; to?: string };
 type OrderStatus = "NEW" | "DISCOVERY" | "PLANNING" | "DESIGN" | "DEVELOPMENT" | "QA" | "LAUNCH" | "SUPPORT" | "COMPLETED" | "CANCELLED";
 type PaymentStatus = "PENDING" | "PAID" | "REFUNDED";
-type ServiceOrder = { id: string; name: string; status: OrderStatus; payment_status: PaymentStatus; total: number; currency: string; created_at: string; customer: { name: string; email: string }; items: { id: string; title: string; price: number }[] };
+type ReviewStatus = "PENDING" | "APPROVED" | "REJECTED";
+type ServiceOrder = {
+  id: string;
+  name: string;
+  status: OrderStatus;
+  payment_status: PaymentStatus;
+  total: number;
+  currency: string;
+  created_at: string;
+  project_slug: string | null;
+  public_title: string | null;
+  public_summary: string | null;
+  published_at: string | null;
+  customer: { name: string; email: string };
+  items: { id: string; title: string; price: number }[];
+  stage_approvals: { stage: OrderStatus; executor_approved_at: string | null; client_approved_at: string | null }[];
+  review: { rating: number; text: string; public_text: string | null; client_role: string | null; status: ReviewStatus; created_at: string } | null;
+};
+type OrderUpdate = {
+  name?: string;
+  status?: OrderStatus;
+  paymentStatus?: PaymentStatus;
+  projectSlug?: string | null;
+  publicTitle?: string | null;
+  publicSummary?: string | null;
+  published?: boolean;
+  reviewStatus?: ReviewStatus;
+  reviewPublicText?: string | null;
+  reviewClientRole?: string | null;
+};
 
 const statusLabels: Record<LeadStatus, string> = { new: "Новая", in_progress: "В работе", completed: "Завершена", cancelled: "Отменена" };
 const orderStatusLabels: Record<OrderStatus, string> = { NEW: "Новый", DISCOVERY: "Погружение", PLANNING: "Планирование", DESIGN: "Дизайн", DEVELOPMENT: "Разработка", QA: "Проверка", LAUNCH: "Запуск", SUPPORT: "Поддержка", COMPLETED: "Завершён", CANCELLED: "Отменён" };
 const paymentStatusLabels: Record<PaymentStatus, string> = { PENDING: "Ожидается оплата", PAID: "Оплачено", REFUNDED: "Возврат" };
+const reviewStatusLabels: Record<ReviewStatus, string> = { PENDING: "На модерации", APPROVED: "Одобрен", REJECTED: "На доработку" };
+const publicProjects = ["revolution-print", "13auto", "dianafarm", "boostmarine", "royal-horse", "beef-flame", "profist", "prokub"] as const;
 
 export function AdminLeads() {
   const [token, setToken] = useState("");
@@ -82,17 +113,17 @@ export function AdminLeads() {
     }
   }
 
-  async function updateOrder(id: string, changes: { status?: OrderStatus; payment_status?: PaymentStatus; name?: string }) {
-    const previous = orders;
-    setOrders((current) => current.map((order) => order.id === id ? { ...order, ...changes } : order));
+  async function updateOrder(id: string, changes: OrderUpdate) {
+    setStatus("Сохраняем проект…");
     try {
-      const { payment_status, ...rest } = changes;
-      const apiChanges = payment_status ? { ...rest, paymentStatus: payment_status } : rest;
-      const response = await fetch(`/api/orders/${id}`, { method: "PATCH", headers: { Authorization: `Bearer ${token}`, "content-type": "application/json" }, body: JSON.stringify(apiChanges) });
-      if (!response.ok) throw new Error("order update failed");
+      const response = await fetch(`/api/orders/${id}`, { method: "PATCH", headers: { Authorization: `Bearer ${token}`, "content-type": "application/json" }, body: JSON.stringify(changes) });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.detail || "Не удалось обновить проект");
+      const refreshed = await fetch("/api/orders?admin=1", { headers: { Authorization: `Bearer ${token}` }, cache: "no-store" });
+      if (refreshed.ok) setOrders(await refreshed.json());
+      setStatus("Изменения проекта сохранены.");
     } catch {
-      setOrders(previous);
-      setStatus("Не удалось обновить проект. Изменение откачено.");
+      setStatus("Не удалось обновить проект. Проверьте этап, публикацию и уникальность проекта.");
     }
   }
 
@@ -113,14 +144,33 @@ export function AdminLeads() {
           <button type="button" onClick={sendTestEmail} disabled={!emailStatus?.configured}>Отправить тест</button>
         </section>
         <section className="admin-orders">
-          <header><div><span>Проекты из каталога</span><strong>{orders.length}</strong></div><p>Название и этап синхронизируются с личным кабинетом клиента.</p></header>
+          <header><div><span>Проекты и публикации</span><strong>{orders.length}</strong></div><p>Управляйте оплатой, этапами, публикацией кейса и отзывом клиента из одного места.</p></header>
           <div className="admin-order-grid">
             {orders.map((order) => <article key={order.id}>
               <div className="admin-order-customer"><span>{order.customer.name}</span><a href={`mailto:${order.customer.email}`}>{order.customer.email}</a><time>{new Date(order.created_at).toLocaleDateString("ru-RU")}</time></div>
               <label><span>Название проекта</span><input defaultValue={order.name} onBlur={(event) => { const name = event.currentTarget.value.trim(); if (name && name !== order.name) updateOrder(order.id, { name }); }} /></label>
-              <label><span>Оплата</span><select value={order.payment_status} onChange={(event) => updateOrder(order.id, { payment_status: event.target.value as PaymentStatus })}>{(Object.keys(paymentStatusLabels) as PaymentStatus[]).map((key) => <option key={key} value={key}>{paymentStatusLabels[key]}</option>)}</select></label>
+              <div className="admin-order-controls"><label><span>Оплата</span><select value={order.payment_status} onChange={(event) => updateOrder(order.id, { paymentStatus: event.target.value as PaymentStatus })}>{(Object.keys(paymentStatusLabels) as PaymentStatus[]).map((key) => <option key={key} value={key}>{paymentStatusLabels[key]}</option>)}</select></label>
               <label><span>Этап</span><select value={order.status} onChange={(event) => updateOrder(order.id, { status: event.target.value as OrderStatus })}>{(Object.keys(orderStatusLabels) as OrderStatus[]).map((key) => <option key={key} value={key}>{orderStatusLabels[key]}</option>)}</select></label>
+              </div>
+              {order.payment_status === "PAID" && order.status !== "COMPLETED" && order.status !== "CANCELLED" ? <button className="admin-submit-stage" type="button" onClick={() => updateOrder(order.id, { status: order.status })}>Передать текущий этап клиенту <span>→</span></button> : null}
+              <ol className="admin-stage-track">{(Object.keys(orderStatusLabels) as OrderStatus[]).filter((stage) => stage !== "CANCELLED").map((stage) => { const approval = order.stage_approvals.find((item) => item.stage === stage); return <li className={stage === order.status ? "active" : approval?.client_approved_at ? "done" : ""} key={stage}><i /><span>{orderStatusLabels[stage]}</span><small>{approval?.client_approved_at ? "принят" : approval?.executor_approved_at ? "ждёт клиента" : ""}</small></li>; })}</ol>
               <ul>{order.items.map((item) => <li key={item.id}><span>{item.title}</span><strong>{item.price.toLocaleString("ru-RU")} ₽</strong></li>)}</ul>
+              <details className="admin-publication" open={Boolean(order.project_slug || order.review)}>
+                <summary><span>Публикация в «Наших работах»</span><strong>{order.published_at ? "Опубликован" : "Черновик"}</strong></summary>
+                <div>
+                  <label><span>Связанный кейс</span><select value={order.project_slug ?? ""} onChange={(event) => updateOrder(order.id, { projectSlug: event.target.value || null })}><option value="">Не выбран</option>{publicProjects.map((slug) => <option key={slug} value={slug}>{slug}</option>)}</select></label>
+                  <label><span>Публичное название</span><input defaultValue={order.public_title ?? ""} placeholder={order.name} onBlur={(event) => updateOrder(order.id, { publicTitle: event.currentTarget.value.trim() || null })} /></label>
+                  <label><span>Описание кейса</span><textarea defaultValue={order.public_summary ?? ""} maxLength={3000} placeholder="Кратко опишите суть и бизнес-результат проекта" onBlur={(event) => updateOrder(order.id, { publicSummary: event.currentTarget.value.trim() || null })} /></label>
+                  <label className="admin-publish-toggle"><input type="checkbox" checked={Boolean(order.published_at)} onChange={(event) => updateOrder(order.id, { published: event.target.checked })} /><span>Показывать кейс и одобренный отзыв на сайте</span></label>
+                </div>
+              </details>
+              {order.review ? <details className="admin-review-moderation" open>
+                <summary><span>Отзыв клиента · {order.review.rating}/5</span><strong>{reviewStatusLabels[order.review.status]}</strong></summary>
+                <blockquote>{order.review.text}</blockquote>
+                <label><span>Подпись клиента</span><input defaultValue={order.review.client_role ?? ""} placeholder="Должность / компания" onBlur={(event) => updateOrder(order.id, { reviewClientRole: event.currentTarget.value.trim() || null })} /></label>
+                <label><span>Текст для публикации</span><textarea defaultValue={order.review.public_text ?? order.review.text} maxLength={3000} onBlur={(event) => updateOrder(order.id, { reviewPublicText: event.currentTarget.value.trim() || null })} /></label>
+                <label><span>Модерация</span><select value={order.review.status} onChange={(event) => updateOrder(order.id, { reviewStatus: event.target.value as ReviewStatus })}>{(Object.keys(reviewStatusLabels) as ReviewStatus[]).map((key) => <option key={key} value={key}>{reviewStatusLabels[key]}</option>)}</select></label>
+              </details> : <p className="admin-review-empty">Отзыв появится здесь после завершения проекта и отправки клиентом.</p>}
               <footer><strong>{order.total.toLocaleString("ru-RU")} ₽</strong><small>№ {order.id}</small></footer>
             </article>)}
             {!orders.length ? <p className="admin-empty">Заказов из каталога пока нет.</p> : null}

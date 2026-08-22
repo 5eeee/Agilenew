@@ -28,7 +28,13 @@ function output(order: {
   locale: string;
   createdAt: Date;
   updatedAt: Date;
+  projectSlug?: string | null;
+  publicTitle?: string | null;
+  publicSummary?: string | null;
+  publishedAt?: Date | null;
   items: { id: string; serviceId: string; title: string; price: number; quantity: number }[];
+  stageApprovals?: { stage: string; executorApprovedAt: Date | null; clientApprovedAt: Date | null }[];
+  review?: { rating: number; text: string; publicText: string | null; clientRole: string | null; status: string; createdAt: Date; publishedAt: Date | null } | null;
   user?: { name: string; email: string };
 }) {
   return {
@@ -42,7 +48,25 @@ function output(order: {
     locale: order.locale,
     created_at: order.createdAt.toISOString(),
     updated_at: order.updatedAt.toISOString(),
+    project_slug: order.projectSlug ?? null,
+    public_title: order.publicTitle ?? null,
+    public_summary: order.publicSummary ?? null,
+    published_at: order.publishedAt?.toISOString() ?? null,
     items: order.items,
+    stage_approvals: order.stageApprovals?.map((approval) => ({
+      stage: approval.stage,
+      executor_approved_at: approval.executorApprovedAt?.toISOString() ?? null,
+      client_approved_at: approval.clientApprovedAt?.toISOString() ?? null,
+    })) ?? [],
+    review: order.review ? {
+      rating: order.review.rating,
+      text: order.review.text,
+      public_text: order.review.publicText,
+      client_role: order.review.clientRole,
+      status: order.review.status,
+      created_at: order.review.createdAt.toISOString(),
+      published_at: order.review.publishedAt?.toISOString() ?? null,
+    } : null,
     ...(order.user ? { customer: order.user } : {}),
   };
 }
@@ -51,13 +75,13 @@ export async function GET(request: Request) {
   const url = new URL(request.url);
   if (url.searchParams.get("admin") === "1") {
     if (!admin(request)) return Response.json({ detail: "Forbidden" }, { status: 403 });
-    const orders = await db.serviceOrder.findMany({ include: { items: true, user: { select: { name: true, email: true } } }, orderBy: { createdAt: "desc" }, take: 200 });
+    const orders = await db.serviceOrder.findMany({ include: { items: true, stageApprovals: true, review: true, user: { select: { name: true, email: true } } }, orderBy: { createdAt: "desc" }, take: 200 });
     return Response.json(orders.map(output));
   }
 
   const user = await currentUser();
   if (!user) return Response.json({ detail: "Authentication required" }, { status: 401 });
-  const orders = await db.serviceOrder.findMany({ where: { userId: user.id }, include: { items: true }, orderBy: { createdAt: "desc" } });
+  const orders = await db.serviceOrder.findMany({ where: { userId: user.id }, include: { items: true, stageApprovals: true, review: true }, orderBy: { createdAt: "desc" } });
   return Response.json(orders.map(output));
 }
 

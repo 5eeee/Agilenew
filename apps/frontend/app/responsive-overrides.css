@@ -176,6 +176,74 @@ html.signature-scroll-lock body{position:static!important;top:auto!important;lef
 
   .account-auth{padding:26px 16px!important}.account-auth-head{display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:26px}.account-auth-head h1{font-size:clamp(41px,12vw,52px)!important}.account-auth-head .account-cart-link{width:100%!important}.account-dashboard>header{align-items:stretch!important}.account-header-actions{display:grid!important;grid-template-columns:1fr auto!important;width:100%!important}.account-header-actions .account-cart-link{width:100%!important}.orders-empty-card{min-height:270px;grid-template-columns:1fr;padding:22px}.orders-empty-card>strong{justify-self:start}.orders-empty-card>p{margin:32px 0 0;font-size:34px}.orders-empty-card>a{width:100%;min-width:0;justify-self:stretch}
 }
+
+/* 2026-08-22: stable glass header and edge-to-edge home hero. */
+.site-header{
+  position:fixed!important;
+  inset:0 0 auto 0!important;
+  width:100%!important;
+  box-sizing:border-box!important;
+  transform:translateZ(0);
+  will-change:transform;
+}
+.header-inner{
+  width:min(calc(100% - 24px),1520px)!important;
+  box-sizing:border-box!important;
+}
+body:has(.presentation-home) .presentation-home .pres-hero{
+  margin-top:0!important;
+}
+body:has(.presentation-home) .presentation-home .pres-hero-stage{
+  top:0!important;
+  height:100svh!important;
+}
+body:not(:has(.presentation-home)) #content>:first-child{
+  margin-top:0!important;
+}
+.account-client-page{
+  margin:0 10px!important;
+}
+@media(min-width:1101px){
+  .site-header .header-inner{
+    grid-template-columns:minmax(112px,.72fr) minmax(430px,1.4fr) auto auto!important;
+    padding:0 5px 0 18px!important;
+    column-gap:8px!important;
+  }
+  .site-header .main-nav{
+    justify-self:center!important;
+  }
+  .site-header .header-quick-actions{
+    justify-self:end!important;
+    gap:8px!important;
+  }
+  .site-header .header-quick-actions .button-small{
+    min-height:54px!important;
+    margin:0!important;
+    padding-inline:22px!important;
+  }
+}
+@media(max-width:760px){
+  .site-header{padding:6px 4px!important}
+  .header-inner{width:100%!important}
+  .account-client-page{margin:0 4px!important}
+  body:not(:has(.presentation-home)) #content>:first-child{margin-top:0!important}
+}
+
+/* Compact client workspace and moderated detailed reviews. */
+.client-account-summary{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.client-account-summary article{min-height:104px!important;padding:18px 24px!important}
+.client-account-summary strong{font-size:38px!important}
+.client-account-summary p{margin-top:16px!important}
+.account-review-role,.account-review textarea{grid-column:1/-1;width:100%;padding:12px;border:1px solid #d8d7d2;border-radius:13px;background:#fff;font:inherit;font-size:12px}
+.account-review-role{min-height:44px}.account-review textarea{min-height:130px!important;resize:vertical}
+.client-profile-card,.client-drafts-card,.client-promo-card,.client-security-card{padding:20px!important}
+.client-promo-card{min-height:148px!important}
+@media(max-width:760px){
+  .client-account-summary{grid-template-columns:repeat(3,1fr)!important}
+  .client-account-summary article{min-height:92px!important;padding:13px 11px!important;border-bottom:0!important}
+  .client-account-summary article:nth-child(2){border-right:1px solid #d8d7d2!important}
+  .client-account-summary strong{font-size:27px!important}.client-account-summary p{margin-top:10px!important;font-size:10px!important}
+}
 .account-loading{display:flex!important;align-items:center;justify-content:center!important}
 
 @media(max-width:359px){
@@ -623,4 +691,27 @@ body:not(:has(.presentation-home)) #content>:first-child{
   .client-account-summary{grid-template-columns:repeat(2,1fr)}.client-account-summary article{min-height:108px;padding:16px;border-bottom:1px solid #d8d7d2}.client-account-summary article:nth-child(2){border-right:0}.client-account-summary article:nth-child(3),.client-account-summary article:nth-child(4){border-bottom:0}.client-account-summary strong{font-size:30px}.client-account-summary p{margin-top:12px;font-size:11px}
   .client-account-layout{padding:6px;gap:6px}.client-projects,.client-account-sidebar{gap:6px}.client-projects>section,.client-profile-card,.client-drafts-card,.client-promo-card,.client-security-card{border-radius:20px}.client-projects>section{padding:20px 14px}.client-section-head{grid-template-columns:31px 1fr;margin-bottom:20px}.client-section-head>span{padding-top:5px}.client-section-head h2{font-size:32px}.client-order-card{padding:18px 13px!important}.client-order-card>header{align-items:flex-start}.client-order-card>header>div{display:grid;gap:5px}.client-order-card>header>strong{font-size:16px}.client-order-card h3{margin:28px 0 19px!important;font-size:31px!important}.client-order-progress{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:7px}.client-order-progress li{min-width:88px;scroll-snap-align:start}.client-approval-panel{grid-template-columns:1fr}.client-approval-panel>button{width:100%}.client-empty-projects{grid-template-columns:1fr;padding:20px}.client-empty-projects strong{font-size:31px}.client-empty-projects p{margin-top:28px}.client-empty-projects a{width:100%}
   .client-account-sidebar{grid-template-columns:1fr}.client-profile-card{grid-row:auto}.client-profile-card,.client-drafts-card,.client-promo-card,.client-security-card{padding:20px 16px}.client-profile-photo{align-items:flex-start}.account-review{grid-template-columns:1fr}.account-rating{grid-row:2}.client-account-auth{padding:24px 16px;border-radius:22px}.client-account-auth .account-auth-head{display:grid}.client-account-auth .account-cart-link{justify-self:start}.client-account-auth .account-auth-head h1{font-size:43px!important}
+}
+
+/* Final cascade: keep the global glass header immovable and every page surface behind it. */
+.site-header{position:fixed!important;inset:0 0 auto 0!important;width:100%!important}
+.header-inner{width:min(calc(100% - 24px),1520px)!important}
+body:has(.presentation-home) .presentation-home .pres-hero{margin-top:0!important}
+body:has(.presentation-home) .presentation-home .pres-hero-stage{top:0!important;height:100svh!important}
+body:not(:has(.presentation-home)) #content>:first-child{margin-top:0!important}
+.account-client-page{margin:0 10px!important}
+.client-account-summary{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.client-account-summary article{min-height:104px!important;padding:18px 24px!important}
+@media(min-width:1101px){
+  .site-header .header-inner{grid-template-columns:120px minmax(430px,1fr) auto auto!important;padding:0 5px 0 18px!important;column-gap:8px!important}
+  .site-header .main-nav{justify-self:center!important}
+  .site-header .header-quick-actions{justify-self:end!important;gap:8px!important}
+  .site-header .header-quick-actions .button-small{min-height:54px!important;margin:0!important;padding-inline:22px!important}
+}
+@media(max-width:760px){
+  .header-inner{width:100%!important}
+  .account-client-page{margin:0 4px!important}
+  .client-account-summary{grid-template-columns:repeat(3,1fr)!important}
+  .client-account-summary article{min-height:92px!important;padding:13px 11px!important;border-bottom:0!important}
+  .client-account-summary article:nth-child(2){border-right:1px solid #d8d7d2!important}
 }

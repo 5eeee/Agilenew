@@ -3,7 +3,7 @@ import { db } from "@/lib/db";
 import { currentUser } from "@/lib/auth";
 import { rateLimit, rejectCrossSiteMutation } from "@/lib/request-security";
 
-const input = z.object({ rating: z.number().int().min(1).max(5), text: z.string().trim().min(10).max(2000) });
+const input = z.object({ rating: z.number().int().min(1).max(5), text: z.string().trim().min(80).max(3000), clientRole: z.string().trim().max(120).optional() });
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const blocked = rejectCrossSiteMutation(request);
@@ -20,8 +20,8 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
   if (order.status !== "COMPLETED") return Response.json({ detail: "A review is available after project completion" }, { status: 409 });
   const review = await db.projectReview.upsert({
     where: { orderId: order.id },
-    create: { orderId: order.id, userId: user.id, rating: parsed.data.rating, text: parsed.data.text },
-    update: { rating: parsed.data.rating, text: parsed.data.text },
+    create: { orderId: order.id, userId: user.id, rating: parsed.data.rating, text: parsed.data.text, clientRole: parsed.data.clientRole || null },
+    update: { rating: parsed.data.rating, text: parsed.data.text, clientRole: parsed.data.clientRole || null, status: "PENDING", moderatedAt: null, publishedAt: null },
   });
-  return Response.json({ rating: review.rating, text: review.text, created_at: review.createdAt.toISOString() });
+  return Response.json({ rating: review.rating, text: review.text, client_role: review.clientRole, status: review.status, created_at: review.createdAt.toISOString() });
 }

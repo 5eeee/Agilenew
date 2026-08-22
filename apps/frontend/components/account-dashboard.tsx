@@ -18,7 +18,7 @@ export type AccountOrder = {
   payment_status: "PENDING" | "PAID" | "REFUNDED";
   items: { id: string; serviceId: string; title: string; price: number }[];
   stage_approvals: { stage: string; executor_approved_at: string | null; client_approved_at: string | null }[];
-  review: { rating: number; text: string; created_at: string } | null;
+  review: { rating: number; text: string; client_role: string | null; status: "PENDING" | "APPROVED" | "REJECTED"; created_at: string } | null;
 };
 export type AccountService = { id: string; title: string };
 
@@ -62,7 +62,9 @@ async function compressAvatar(file: File) {
 function ReviewEditor({ order, copy, onSaved }: { order: AccountOrder; copy: AccountCopy; onSaved: (review: AccountOrder["review"]) => void }) {
   const [rating, setRating] = useState(order.review?.rating ?? 5);
   const [text, setText] = useState(order.review?.text ?? "");
-  const [status, setStatus] = useState(order.review ? copy.reviewSaved : copy.reviewText);
+  const [clientRole, setClientRole] = useState(order.review?.client_role ?? "");
+  const reviewState = order.review?.status === "APPROVED" ? copy.reviewApproved : order.review?.status === "REJECTED" ? copy.reviewRejected : order.review ? copy.reviewPending : copy.reviewText;
+  const [status, setStatus] = useState(reviewState);
   const [sending, setSending] = useState(false);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -71,7 +73,7 @@ function ReviewEditor({ order, copy, onSaved }: { order: AccountOrder; copy: Acc
     const response = await fetch(`/api/orders/${order.id}/review`, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ rating, text }),
+      body: JSON.stringify({ rating, text, clientRole }),
     }).catch(() => null);
     setSending(false);
     if (!response?.ok) {
@@ -86,7 +88,8 @@ function ReviewEditor({ order, copy, onSaved }: { order: AccountOrder; copy: Acc
   return <form className="account-review" onSubmit={submit}>
     <div><strong>{copy.reviewTitle}</strong><p>{status}</p></div>
     <div className="account-rating" aria-label={copy.reviewTitle}>{[1, 2, 3, 4, 5].map((value) => <button type="button" className={value <= rating ? "active" : ""} aria-pressed={value === rating} onClick={() => setRating(value)} key={value}>★</button>)}</div>
-    <textarea value={text} onChange={(event) => setText(event.target.value)} minLength={10} maxLength={2000} required placeholder={copy.reviewPlaceholder} />
+    <input className="account-review-role" value={clientRole} onChange={(event) => setClientRole(event.target.value)} maxLength={120} placeholder={copy.reviewRole} />
+    <textarea value={text} onChange={(event) => setText(event.target.value)} minLength={80} maxLength={3000} required placeholder={copy.reviewPlaceholder} />
     <button className="account-primary-button" type="submit" disabled={sending}>{copy.sendReview}<span>↗</span></button>
   </form>;
 }
@@ -203,7 +206,7 @@ export function AccountDashboard({ user, orders, services, draftIds, locale, cop
 
   return <section className="account-dashboard client-account-dashboard">
     <header className="client-account-hero"><div className="client-account-person"><div className="client-avatar">{avatarData ? <NextImage src={avatarData} width={84} height={84} unoptimized alt="" /> : <span>{initials(user.name)}</span>}</div><div><span>{copy.clientSpace}</span><h1>{user.name}</h1><a href={`mailto:${user.email}`}>{user.email}</a></div></div><div className="client-account-actions"><Link href={`/${locale}/cart`}>{copy.cart}<span>↗</span></Link><button type="button" onClick={onLogout}>{copy.logout}</button></div></header>
-    <section className="client-account-summary" aria-label={copy.overview}><article><span>01</span><strong>{activeOrders.length}</strong><p>{copy.active}</p></article><article><span>02</span><strong>{awaitingApproval}</strong><p>{copy.approval}</p></article><article><span>03</span><strong>{completedOrders.length}</strong><p>{copy.completed}</p></article><article><span>04</span><strong>{drafts.length}</strong><p>{copy.savedCount}</p></article></section>
+    <section className="client-account-summary" aria-label={copy.overview}><article><span>01</span><strong>{activeOrders.length}</strong><p>{copy.active}</p></article><article><span>02</span><strong>{awaitingApproval}</strong><p>{copy.approval}</p></article><article><span>03</span><strong>{completedOrders.length}</strong><p>{copy.completed}</p></article></section>
     <div className="client-account-layout"><main className="client-projects"><section><header className="client-section-head"><span>01</span><h2>{copy.activeProjects}</h2></header>{activeOrders.length ? <div className="client-orders-list">{activeOrders.map((order) => <OrderCard key={order.id} order={order} services={services} locale={locale} copy={copy} onOrderChange={replaceOrder} />)}</div> : <div className="client-empty-projects"><strong>{copy.emptyTitle}</strong><p>{copy.emptyText}</p><Link href={`/${locale}/services`}>{copy.choose}<span>↗</span></Link></div>}</section><section><header className="client-section-head"><span>02</span><h2>{copy.completedProjects}</h2></header>{completedOrders.length ? <div className="client-orders-list">{completedOrders.map((order) => <OrderCard key={order.id} order={order} services={services} locale={locale} copy={copy} onOrderChange={replaceOrder} />)}</div> : <p className="client-no-completed">{copy.noCompleted}</p>}</section></main>
       <aside className="client-account-sidebar"><form className="client-profile-card" onSubmit={saveProfile}><header><span>01</span><div><h2>{copy.profile}</h2><p>{copy.profileText}</p></div></header><div className="client-profile-photo"><div className="client-avatar large">{avatarData ? <NextImage src={avatarData} width={84} height={84} unoptimized alt="" /> : <span>{initials(user.name)}</span>}</div><label><input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => selectAvatar(event.target.files?.[0])} /><strong>{copy.changePhoto}</strong><small>{copy.photoHint}</small></label></div><label><span>{copy.name}</span><input value={name} onChange={(event) => setName(event.target.value)} minLength={2} maxLength={120} required /></label><label><span>{copy.email}</span><input value={user.email} readOnly /></label><label><span>{copy.phone}</span><input value={phone} onChange={(event) => setPhone(event.target.value)} autoComplete="tel" maxLength={40} /></label><button className="account-primary-button" type="submit" disabled={saving}>{copy.saveProfile}<span>↗</span></button><p role="status">{profileStatus}</p></form>
         <section className="client-drafts-card"><header><span>02</span><div><h2>{copy.drafts}</h2><p>{copy.draftsText}</p></div></header>{drafts.length ? <ul>{drafts.map((service) => <li key={service.id}><Link href={`/${locale}/services/${service.id}`}>{service.title}</Link><button type="button" onClick={() => removeDraft(service.id)}>{copy.remove}</button></li>)}</ul> : <strong className="client-empty-label">{copy.noDrafts}</strong>}<Link className="account-secondary-button" href={`/${locale}/cart`}>{copy.openCart}<span>↗</span></Link></section>

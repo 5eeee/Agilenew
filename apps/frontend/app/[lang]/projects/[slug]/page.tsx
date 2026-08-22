@@ -5,6 +5,9 @@ import { ProductVisual } from "@/components/product-visual";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 import { getProject, projectSlugs } from "@/lib/projects";
 import { buildPageMetadata } from "@/lib/seo";
+import { getPublishedProjectDetails } from "@/lib/project-publication";
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return locales.flatMap((lang) => projectSlugs.map((slug) => ({ lang, slug })));
@@ -23,6 +26,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
   const locale = lang as Locale;
   const project = getProject(slug, locale);
   if (!project) notFound();
+  const publication = await getPublishedProjectDetails(slug);
+  const projectTitle = publication?.title || project.title;
+  const projectSummary = publication?.summary || `${project.lead} ${project.description}`;
   const ru = locale === "ru";
   const pl = locale === "pl";
   const hy = locale === "hy";
@@ -38,15 +44,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
     <article className="case-page case-page-clean shell">
       <header className="case-clean-head">
         <div><Link href={`/${locale}/projects`} className="case-back"><span aria-hidden="true">←</span>{labels.all}</Link><span>{project.category}</span></div>
-        <h1>{project.title}</h1>
+        <h1>{projectTitle}</h1>
       </header>
 
       <section className="case-clean-showcase">
         <aside className="case-clean-identity">
-          {project.logo ? <div className={`case-clean-logo logo-${project.slug}`}><Image src={project.logo} alt={`${project.title} logo`} fill sizes="(max-width: 760px) 220px, 300px" priority /></div> : <strong className="case-clean-wordmark">{project.title}</strong>}
+          {project.logo ? <div className={`case-clean-logo logo-${project.slug}`}><Image src={project.logo} alt={`${projectTitle} logo`} fill sizes="(max-width: 760px) 220px, 300px" priority /></div> : <strong className="case-clean-wordmark">{projectTitle}</strong>}
           <div className="case-clean-essence">
             <h2>{labels.essence}</h2>
-            <p>{project.lead} {project.description}</p>
+            <p>{projectSummary}</p>
           </div>
         </aside>
         <div className="case-clean-media" aria-label={labels.gallery}>
@@ -83,8 +89,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ lang: 
 
       <blockquote className="case-clean-comment">
         <small>{labels.comment}</small>
-        <p>“{project.testimonial}”</p>
-        <footer>{project.title}</footer>
+        <p>“{publication?.review?.text || project.testimonial}”</p>
+        <footer>{publication?.review ? `${publication.review.author}${publication.review.role ? ` · ${publication.review.role}` : ""}` : projectTitle}</footer>
       </blockquote>
     </article>
   );
